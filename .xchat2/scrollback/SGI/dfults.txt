@@ -1,0 +1,537 @@
+T 1334084486 31<danielp>30	harp20 had a bugon(tg-> number pinned) != 0 when doing tg_deref
+T 1334084499 31<danielp>30	it is in kdb now if you are interested
+T 1334084515 18<dfults>	yeah
+T 1334084559 18<dfults>	which part?
+T 1334084564 31<danielp>30	p1
+T 1334084603 18<dfults>	THP on?
+T 1334084607 31<danielp>30	yeah
+T 1334084631 31<danielp>30	all partitions are in kdb
+T 1334084645 18<dfults>	ok.. are these qpidd procs part of the test?
+T 1334084665 31<danielp>30	??
+T 1334084681 18<dfults>	0xffff8837ba9c6040    14125        1  0  169   S  0xffff8837ba9c66e0  qpidd
+T 1334084681 18<dfults>	0xffff8837bb541540    14126        1  0  161   S  0xffff8837bb541be0  qpidd
+T 1334084681 18<dfults>	0xffff8837bb540ae0    14127        1  0  169   S  0xffff8837bb541180  qpidd
+T 1334084681 18<dfults>	0xffff8837bb540080    14128        1  0  161   S  0xffff8837bb540720  qpidd
+T 1334084681 18<dfults>	0xffff8837b9a91500    14129        1  0  169   S  0xffff8837b9a91ba0  qpidd
+T 1334084682 18<dfults>	0xffff8837b9a90aa0    14130        1  0  161   S  0xffff8837b9a91140  qpidd
+T 1334084717 31<danielp>30	...checking
+T 1334084729 18<dfults>	there's a lot of them
+T 1334084791 18<dfults>	and was this a shared high space test?
+T 1334084806 31<danielp>30	 I think shared high space was off
+T 1334084813 18<dfults>	oooh. 
+T 1334084819 18<dfults>	hmm
+T 1334084854 31<danielp>30	I can't find any reference to qpidd in tests
+T 1334084943 18<dfults>	I wonder if this a byproduct of another task exiting.   I'd have a theory if it were shared high space, but at this point I have no idea.  
+T 1334085005 18<dfults>	I'd see if you can run the test successfully with a lower number of pids, and then find the pid threshold to cause failure.
+T 1334085031 18<dfults>	Something is no good.. My guess would be bad accounting with THP
+T 1334085093 31<danielp>30	brb
+T 1334085096 22*	Disconnected ().
+T 1334085101 Tcl interface unloaded
+T 1334085101 Python interface unloaded
+T 1334085313 31<danielp>30	back
+T 1334085418 22*	Disconnected ().
+T 1334085422 Tcl interface unloaded
+T 1334085422 Python interface unloaded
+T 1334093454 6<danielp6>	I think qpidd is Qpid AMQP Message Broker Daemon
+T 1334094075 6<danielp6>	possibly from the apache web server default install
+T 1334246389 6<danielp6>	someone is loud on mic
+T 1334246409 2<dfults2>	did it just go away?
+T 1334246412 6<danielp6>	yep
+T 1334246429 2<dfults2>	were you talking about my voice? or a diff noise?
+T 1334246441 6<danielp6>	think it was your voice
+T 1334246486 2<dfults2>	Ok I pushed my microphone away.. its up by my eyeball
+T 1334246495 6<danielp6>	:-)
+T 1334246543 6<danielp6>	how do these review things go?
+T 1334246552 2<dfults2>	pain
+T 1334246563 2<dfults2>	not horrible tho
+T 1334246576 2<dfults2>	you just write some b.s. about yourself... give yourself a 1-5 rating.
+T 1334246593 2<dfults2>	Then Lori adds her input and she goes over it with you. 
+T 1334246622 6<danielp6>	great...I give my self a 3, Lori gives me a 1, and nothing changes
+T 1334246680 2<dfults2>	And she's forced to stick with percentages... so even if we are all exceptional, only 1-2 ppl can get that rating.
+T 1334246737 6<danielp6>	is it the average and a couple exceptional, or is their a dreaded third poor category?
+T 1334246783 2<dfults2>	I'm not exactly sure how it works on the low end.  
+T 1334246786 6<danielp6>	I really wish Karl was involved...a bunch of disagreement between her and him about what I can/should be doing at times
+T 1334246815 6<danielp6>	hopefully, I just get a false negative read from her
+T 1334246833 2<dfults2>	yeah.. she's always been very reasonable in my experience
+T 1334246882 6<danielp6>	she seems reasonable in a lot of ways, but she says some odd things about what she expects from someone who is new to the company
+T 1334246978 2<dfults2>	yeah, I guess that depends on what level you were hired at.  I was hired at pretty much entry level, so expectations were set properly.  So was my salary, I guess.
+T 1334247099 6<danielp6>	I don't fully understand the levels, but I know that my compensation is nothing unusual.  The big problem was expectations of what you can magically do without explicit experience with the SGI/CRAY history
+T 1334247164 6<danielp6>	I can do decent work for my level, but it is so ridiculously hard to find information on things.  It takes a lot longer to learn by reading over code.
+T 1334247186 2<dfults2>	yup.. No such thing as documentation
+T 1334247204 2<dfults2>	I couldn't even find a doc to describe what xpmem was.
+T 1334247230 6<danielp6>	it is so spread out, and procedures are complicated and inconsistent
+T 1334247242 2<dfults2>	freedom :)
+T 1334247287 6<danielp6>	I hope I work well with Michael, that should speed things a long
+T 1334247328 2<dfults2>	ehh.. don't expect to work with Michael much.  He's pretty much on his own from what I know.
+T 1334247349 2<dfults2>	But what I know isn't much
+T 1334247396 6<danielp6>	but he is on the same team/next door?  I think Lori said the plan was for him to be kind of lead of MPI, me follow.
+T 1334247456 2<dfults2>	right... well you know soon enough.  I worked with one guy at SGI who was next door.  I said I could stop by and ask questions since he was so close....
+T 1334247462 2<dfults2>	he told me to email him :)
+T 1334247591 6<danielp6>	boo
+T 1334248028 6<danielp6>	woohoo! I got the shoutout from the XPMEM guru! ;-)
+T 1334248192 2<dfults2>	?
+T 1334248201 2<dfults2>	Oh... my status
+T 1334248204 2<dfults2>	haha
+T 1334248224 2<dfults2>	yeah.. I forgot about the work for trying to figure out shared high space errors.
+T 1334248236 6<danielp6>	I think that may be close
+T 1334248241 2<dfults2>	I can't find any that are specific to shared high space
+T 1334248247 2<dfults2>	cool
+T 1334248258 6<danielp6>	there are tests that fail (or used to)
+T 1334248297 2<dfults2>	yeah.. no changes have been made to shared high space code.  That needs an acronym.  SHS?
+T 1334248347 6<danielp6>	I can't think of any other SHS's
+T 1334248362 6<danielp6>	pv 1024064 has a list of tests that were affected
+T 1334248413 2<dfults2>	yeah.. think those are all good
+T 1334248437 6<danielp6>	of course it is on AI which has the oversubscribe issue (I am not fond of ai and it's weird 10cores/socket)
+T 1334248463 6<danielp6>	Karl said that Intel is going to have a 15core Ivy Bridge
+T 1334248468 2<dfults2>	yup.. that has always been the ugly step child and thorn in my side
+T 1334248490 6<danielp6>	but more hubs, so no GRU context issue
+T 1334248675 6<danielp6>	psw2 is weird too, with its non-homogenous partitions/core counts
+T 1334249066 6<danielp6>	I got uv182 today, will have it avail for xpc testing if you are interested at all
+T 1334249089 2<dfults2>	I have harp10 2 partition this afternoon.  
+T 1334249105 2<dfults2>	What were you planning on testing?
+T 1334249108 6<danielp6>	are you doing rhel or sles?
+T 1334249126 2<dfults2>	sles11sp2 uv2.. 
+T 1334249138 6<danielp6>	OK, so RHEL62 good
+T 1334249148 2<dfults2>	prolly a rhel6.2 bug as well, but currently seen w/ sles
+T 1334249163 2<dfults2>	yes rhel6.2 good
+T 1334256691 -10-11-	Disconnected ().
+T 1334256809 -10-11-	danielp sets mode +i danielp
+T 1334325246 6<danielp6>	testing crashed last night
+T 1334325277 2<dfults2>	oh yeah?  partition testing right?
+T 1334325283 6<danielp6>	xpmem_recall_PFNs
+T 1334325284 6<danielp6>	yeah
+T 1334325301 2<dfults2>	hmm.. is it up?
+T 1334325325 6<danielp6>	think it is still there
+T 1334325338 6<danielp6>	uvcon  uv182 parts 2-4
+T 1334325369 6<danielp6>	last tests:
+T 1334325373 6<danielp6>	sma2/allred.c                            : 00:04:48 Pass   
+T 1334325373 6<danielp6>	sma2/big_put.f                           : 00:05:47 Pass   
+T 1334325373 6<danielp6>	sma2/putall.c                            : 00:05:58 Pass   
+T 1334325373 6<danielp6>	sma2/simple_c_put.c                      : 00:06:05 Pass   
+T 1334325373 6<danielp6>	sma2/shmalgetall.c                       : 00:06:14 Pass   
+T 1334325373 6<danielp6>	sma2/shlock.c                            : 00:06:29 Pass   
+T 1334325373 6<danielp6>	sma2/same_amap.c                         : 00:16:36 Failure (execution)  
+T 1334325427 2<dfults2>	Ok.. so is it softlockups or is the system done?
+T 1334325469 6<danielp6>	system done I think
+T 1334325500 6<danielp6>	no sorry
+T 1334325505 6<danielp6>	it is still running
+T 1334325532 2<dfults2>	its messed up.. Can't run 'ps fax'
+T 1334325546 6<danielp6>	I see
+T 1334325564 6<danielp6>	so log in, but no process list
+T 1334325607 2<dfults2>	yeah... Looks like we might need some additional work for the RPC versions of the mmu_notifier range_start calls.
+T 1334325637 6<danielp6>	ok, do you need anything from this, or should I just reboot?
+T 1334325642 2<dfults2>	I dropped into KDB
+T 1334325660 2<dfults2>	but I don't think RHEL6.2 has KDB
+T 1334325671 2<dfults2>	so nothing is happening
+T 1334325674 2<dfults2>	you can reboot
+T 1334325725 6<danielp6>	looks like you are in kdb?
+T 1334325843 2<dfults2>	oh cool
+T 1334325878 6<danielp6>	I can leave all three up if you want or just p2
+T 1334325893 6<danielp6>	I have the partitions reserved through 2pm
+T 1334325943 2<dfults2>	getting a kdump
+T 1334325947 2<dfults2>	then it will reboot
+T 1334326203 6<danielp6>	do you need anything on the other partitions?
+T 1334326249 2<dfults2>	let me check real quick.. I'm not sure how this multi-partition/kdump/crash stuff works
+T 1334326392 2<dfults2>	you have all partitions, right?
+T 1334326412 6<danielp6>	not 1
+T 1334326417 6<danielp6>	just 2-4
+T 1334326420 2<dfults2>	ahh OK, good
+T 1334326428 6<danielp6>	efromm may / may not be on 1
+T 1334326442 2<dfults2>	Jack's kernel is booted on there.. so I was wondering
+T 1334326457 6<danielp6>	yeah, I figured three is plenty
+T 1334326482 2<dfults2>	I think I have everything I need with that crash dump.  Let's get it back up and see if I can dig into the crash a little more
+T 1334326498 6<danielp6>	sure
+T 1334326578 6<danielp6>	that computer in Lori's office is your desktop right?
+T 1334326597 2<dfults2>	yeah
+T 1334326607 6<danielp6>	so where is Michael's?
+T 1334326622 2<dfults2>	think he just uses a laptop
+T 1334326629 2<dfults2>	doesn't keep a local computer
+T 1334327242 2<dfults2>	R u rebooting?
+T 1334327259 6<danielp6>	I didn't do anything yet, should I?
+T 1334327297 6<danielp6>	I see part2 CATERR'd
+T 1334327442 2<dfults2>	yeah go ahead and reboot
+T 1334327466 2<dfults2>	crud.. was that where I was taking the kdump?
+T 1334327492 2<dfults2>	looks like all the data copied.. should be OK
+T 1334327502 6<danielp6>	it reached 100%
+T 1334328111 6<danielp6>	reseting p3, it got stuck at global barrier in reboot
+T 1334328155 2<dfults2>	k
+T 1334328191 6<danielp6>	did you need any debug modules loaded for testing?
+T 1334328260 2<dfults2>	didn't notice
+T 1334328501 2<dfults2>	now comes the nightmare of crash setup on RHEL
+T 1334328647 2<dfults2>	ahh shit
+T 1334328666 2<dfults2>	those tests were run against uv kernel
+T 1334328836 2<dfults2>	lets reboot, run the test again, but this time using the 2.6.32-220.el6 kernel
+T 1334328904 2<dfults2>	I'm installing the debug kernel on uv182-sys2 right now
+T 1334329654 2<dfults2>	all done with uv182-sys1-3.  Can we reboot into debug kernel?
+T 1334329696 2<dfults2>	2-4
+T 1334329842 6<danielp6>	sorry, talkin to Russ about somthing
+T 1334329879 6<danielp6>	you need it rebooted into new kernel?
+T 1334329893 2<dfults2>	yes... I'm on it.
+T 1334329914 6<danielp6>	you have to reboot twice, because the rhel6.2 virtualization thing hangs
+T 1334329923 2<dfults2>	ug
+T 1334329932 2<dfults2>	I just did a power reset from cmc
+T 1334329942 6<danielp6>	oh
+T 1334330004 6<danielp6>	after you reboot from con, do <from another shell> ssh uv182-sys2 reboot ; then hit control c after it executes to kill ssh command
+T 1334330066 2<dfults2>	I don't know if this debug kernel will get me what I want
+T 1334330079 2<dfults2>	hope so..
+T 1334330104 2<dfults2>	I just have to remember how to trigger kdump from /proc/sysrq-trigger
+T 1334330146 2<dfults2>	fs1.. right?
+T 1334330444 6<danielp6>	yes
+T 1334330451 6<danielp6>	sorry, helping Russ again
+T 1334330481 6<danielp6>	he is working on the RHEL6.3 image, but forgot to add the RHEL6.3 repository; hilarity ensued
+T 1334330646 6<danielp6>	do you know about the global barrier problem when rebooting partitions? (I just learned how to discover that)
+T 1334330658 2<dfults2>	no
+T 1334330676 6<danielp6>	if a partition takes a while to reboot try the following:
+T 1334330711 6<danielp6>	uv*-cmc>hwcfg -v; look for first blade in partition, uvcon <first blade>
+T 1334330734 6<danielp6>	if it is spinning waiting on Global Barrier, power reset the partition
+T 1334330777 6<danielp6>	it happens when rebooting linked partitions sometimes, on uv182 p3 seems to suffer it a lot with p4
+T 1334330831 6<danielp6>	for example
+T 1334330834 6<danielp6>	uv182-cmc CMC:r001i01c> hwcfg -v|grep -A 5 PARTITION=3
+T 1334330843 6<danielp6>	PARTITION=3 ................................................ 8/40 BMC(s)
+T 1334330843 6<danielp6>		r001i23b00
+T 1334330843 6<danielp6>		r001i23b01
+T 1334330843 6<danielp6>		r001i23b02
+T 1334330843 6<danielp6>		r001i23b03
+T 1334330843 6<danielp6>		r001i23b04
+T 1334330862 6<danielp6>	uvcon r001i23b00
+T 1334330914 6<danielp6>	it was stuck (before reset) at:
+T 1334330916 6<danielp6>	CentralBarrier
+T 1334330916 6<danielp6>	> Waiting for Slave set: Index 1, r001i23b01, nasid 34
+T 1334330916 6<danielp6>	> Waiting for Slave set: Index 6, r001i23b04, nasid 40
+T 1334330916 6<danielp6>	> Waiting for Slave set: Index 7, r001i23b06, nasid 44
+T 1334330916 6<danielp6>	> Waiting for Slave set: Index 9, r001i23b14, nasid 60
+T 1334330916 6<danielp6>	waiting for node, r001i23b14, at GlobalBarrier............................./
+T 1334330916 6<danielp6>	******** [20120413.144619] BMC r001i23b00: Reset via BMC
+T 1334331163 2<dfults2>	can we run the test?
+T 1334331174 2<dfults2>	or are you launching the entire suite
+T 1334331174 6<danielp6>	and boom went the dynamite
+T 1334331195 2<dfults2>	it segfaulted huh
+T 1334331233 6<danielp6>	need some xpmem modules loaded
+T 1334331313 6<danielp6>	got xpc loaded
+T 1334331329 2<dfults2>	yeah.. weak-updates dir is not populated
+T 1334331347 6<danielp6>	did I do bad loading xpc?
+T 1334331359 2<dfults2>	how'd you load it
+T 1334331367 6<danielp6>	modprobe xpc
+T 1334331383 6<danielp6>	I did it on sys2 and then sys3/4
+T 1334331396 6<danielp6>	modprobe
+T 1334331419 6<danielp6>	/lib/modules/2.6.32-220.el6.x86_64.debug/kernel/drivers/misc/sgi-xp/xpc.ko
+T 1334331423 6<danielp6>	from modinfo
+T 1334331470 6<danielp6>	I don't get you guy's crazy xpmem weak-updates stuff
+T 1334331479 2<dfults2>	aint us.. rhel
+T 1334331508 2<dfults2>	ok.. better idea... reboot into nondebug kernel but 220 version
+T 1334331523 6<danielp6>	sure
+T 1334331563 6<danielp6>	where did all my console go?
+T 1334331584 6<danielp6>	you and your forceful resets
+T 1334331641 2<dfults2>	you were taking too long
+T 1334331788 2<dfults2>	ahhhh
+T 1334331790 2<dfults2>	shit
+T 1334331793 2<dfults2>	wrong kernel
+T 1334331862 6<danielp6>	that'll learn ya
+T 1334331873 6<danielp6>	brb
+T 1334332354 2<dfults2>	back up... see if we can run just that same test and have it fail on just 2 partitions
+T 1334332549 6<danielp6>	back
+T 1334332557 6<danielp6>	ok I will kick one off
+T 1334332658 2<dfults2>	if you see that its hung.. let me know.  I'm going to try and trigger a crash dump before it does that hung_task_timeout B.S
+T 1334332682 6<danielp6>	do you know how to use screen?
+T 1334332690 2<dfults2>	yeah
+T 1334332701 6<danielp6>	if you want you can look at session
+T 1334332736 2<dfults2>	installing it now
+T 1334332739 2<dfults2>	not on uv182
+T 1334332760 2<dfults2>	done
+T 1334332786 6<danielp6>	ssh lnx-danielp then screen -rx danielp/uv182
+T 1334332809 6<danielp6>	hold on
+T 1334332812 6<danielp6>	acl problem
+T 1334332827 6<danielp6>	try again
+T 1334332838 2<dfults2>	ok
+T 1334332926 6<danielp6>	will give it a little time
+T 1334332928 2<dfults2>	so lets try just the failing test on 2 partitions
+T 1334332942 2<dfults2>	or do we have a new hang here
+T 1334333009 6<danielp6>	it is running barrier.c 
+T 1334333105 6<danielp6>	mpi1/attrtest.f                          : 21:39:43 Pass   
+T 1334333105 6<danielp6>	mpi1/barrier.c                           : 21:39:49 Pass   
+T 1334333105 6<danielp6>	mpi1/baseattr.c                          : 21:49:52 Failure (execution)  
+T 1334333105 6<danielp6>	mpi1/bcast.c                             : 21:50:01 Pass   
+T 1334333111 6<danielp6>	it looks hung
+T 1334333204 2<dfults2>	see if its just a failure or a hang.  or did you try to ctrl-C out?
+T 1334333228 2<dfults2>	How can RHEL6 be so bad
+T 1334333240 6<danielp6>	they run a lot of extra crap
+T 1334333398 6<danielp6>	well then there is that
+T 1334333435 2<dfults2>	ooo failures.. fun
+T 1334333454 6<danielp6>	xpc part: all partitions have deactivated
+T 1334333454 6<danielp6>	xpc part: all partitions have deactivated
+T 1334333454 6<danielp6>	xpc part: all partitions have deactivated
+T 1334333454 6<danielp6>	xpc part: all partitions have deactivated
+T 1334333460 6<danielp6>	xpc go boom
+T 1334333464 2<dfults2>	wtf
+T 1334333475 6<danielp6>	but errabort still passes
+T 1334333517 6<danielp6>	should I hold off on removing xpmem? it may crash
+T 1334333534 2<dfults2>	no go ahead
+T 1334333674 2<dfults2>	so because we're using the stock kernel, I wonder if we get diff xpc module
+T 1334333717 6<danielp6>	now it runs
+T 1334333729 6<danielp6>	this reminds me of the nonsense Cliff sees
+T 1334333774 2<dfults2>	ha.. why I hate this testing.  I wrote a rant in my status
+T 1334333784 2<dfults2>	Didn't expect Lori to post it to the group
+T 1334333794 6<danielp6>	too many variables
+T 1334333806 6<danielp6>	she did?
+T 1334333970 2<dfults2>	yeah.. ha.  That's alright, it wasn't as bad as what was in my head
+T 1334334043 6<danielp6>	hah...just read it
+T 1334334156 2<dfults2>	rhel 6 is the biggest culprit
+T 1334334159 2<dfults2>	hate rhel
+T 1334334201 6<danielp6>	it is why the customers love it, all the integration work gets pushed to providers
+T 1334334303 6<danielp6>	it is hung again
+T 1334334342 6<danielp6>	test should be under one minute, almost to 10min cutorr
+T 1334334347 6<danielp6>	cutoff
+T 1334334415 2<dfults2>	right.. olconft is the only one that takes more than a few minutes
+T 1334334449 2<dfults2>	and sometimes longer tests are due to gru oversubscribing which I don't know that its a failure so much as a bad test stupe.
+T 1334334552 6<danielp6>	these are at PPH=32, and 8 cores/socket = 16 cores/hub and 32 requires 2 hubs
+T 1334334570 6<danielp6>	I don't think oversubscribe should be a problem (from what I understand)
+T 1334334585 6<danielp6>	32 contexts per hub
+T 1334334749 6<danielp6>	as I understand, AI has 10 cores/socket * 2 socket * 2 thread = 40 (running at 40 PPH too) causes that problem
+T 1334334852 6<danielp6>	I wonder if we should be printing a message out warning about oversubscribing?
+T 1334334898 6<danielp6>	ptest is hung
+T 1334334917 6<danielp6>	oh wait...
+T 1334334945 6<danielp6>	I mean probe.c
+T 1334335008 2<dfults2>	lets see if it fails.. I'm worred about actual hangs of the system
+T 1334335013 6<danielp6>	more barrier problems
+T 1334335035 2<dfults2>	k
+T 1334335049 6<danielp6>	we must be getting a bad ref count somehow
+T 1334335094 6<danielp6>	OK THP on and SHS off
+T 1334335106 6<danielp6>	did you want SHS on?
+T 1334335113 2<dfults2>	Not yet
+T 1334335116 6<danielp6>	ok good
+T 1334335178 6<danielp6>	do you still have the uvcon on p2 up?
+T 1334335208 2<dfults2>	yup
+T 1334335251 6<danielp6>	so you can do that same grep on tests (from last night) to see if a test may be hanging on barrier (if you care)
+T 1334335269 6<danielp6>	the reduce tests can take some time I think
+T 1334335334 2<dfults2>	ahh ok.
+T 1334335339 2<dfults2>	I'll grab some lunch
+T 1334335342 6<danielp6>	or maybe I am wrong
+T 1334335354 6<danielp6>	sounds good, I will break for lunch soon too
+T 1334340659 2<dfults2>	should of just run the hanging test
+T 1334340691 2<dfults2>	Or it would be nice if there was an easy way to start the tests at a certain point.  LIke a restart point
+T 1334340801 6<danielp6>	I can run any specific test
+T 1334340823 6<danielp6>	want me to start it over in sma2?
+T 1334340843 2<dfults2>	yeah.. can we go on 2 partitions as well.
+T 1334340941 6<danielp6>	allred is longer
+T 1334340999 6<danielp6>	need to figure out which suite was run after sma2
+T 1334341000 6<danielp6>	hold on
+T 1334341001 2<dfults2>	same_amap did hang this time
+T 1334341351 6<danielp6>	can try running sma,sma2,sma3 but I am guessing that enough barrier problems caused some memory corruptions
+T 1334341385 2<dfults2>	Ok... damn barriers!!  Damn you barriers to hell
+T 1334341413 2<dfults2>	I'm gonna go play with my new LTTng toys for a while
+T 1334341421 2<dfults2>	I love trace kernel tools
+T 1334341445 6<danielp6>	if I understood better how to read the memory and tables, I could pull apart the barriers to find which ref counter has a bad xpmem reference
+T 1334341480 2<dfults2>	yeah.. no idea
+T 1334341481 6<danielp6>	I look forward to your upcoming brown bag on LTT
+T 1334341499 2<dfults2>	it would be worthwile
+T 1334341507 2<dfults2>	I'll explain it to you, then you can do it
+T 1334341511 6<danielp6>	it sounds like good stuff
+T 1334341518 2<dfults2>	super easy now
+T 1334341537 6<danielp6>	ahhh..but I can never resist including all the swears and slurs in presentations
+T 1334341551 2<dfults2>	It used to be a fun exercise for me to get all the patches developed and visualizer and all that 
+T 1334341587 2<dfults2>	We had our own patches.. unique to SGI.  But that's was a pain and horrible underpowered for larger systems.
+T 1334341629 2<dfults2>	Started with the old Linux Trace tools for single cpu and wedged in SMP support
+T 1334341695 2<dfults2>	One of the first things I did when I got here.   Dove head first into ia64/x86_64 assembly code.  that hurt
+T 1334341856 6<danielp6>	it is meant to hurt, to build character
+T 1334342269 2<dfults2>	Gru being oversubsribed right nwo
+T 1334342278 6<danielp6>	really?
+T 1334342289 2<dfults2>	do grustats
+T 1334342353 2<dfults2>	12968  steal_user_context 
+T 1334342356 6<danielp6>	is it assigned context failed?
+T 1334342411 2<dfults2>	 steal_user_context
+T 1334342413 2<dfults2>	going on again
+T 1334342428 6<danielp6>	did not know that -> how does steal_user_context translate to oversubscribed?
+T 1334342433 2<dfults2>	are the tests supposed to test that
+T 1334342436 2<dfults2>	Jack told me
+T 1334342475 6<danielp6>	these are shared memory programs, I am not really familiar with them
+T 1334342493 2<dfults2>	From Jack's email
+T 1334342496 2<dfults2>	You are oversubscribing the GRU resources. There are not enough GRU contexts.
+T 1334342496 2<dfults2>	The test is creating 33 ranks, each running on blade 0 (the only blade).
+T 1334342496 2<dfults2>	The GRU only has 32 contexts per blade.
+T 1334342496 2<dfults2>	If GRU resources are oversubscribed, they are time-sliced between the
+T 1334342496 2<dfults2>	active processes.  The easy way to see if there is oversubscription
+T 1334342497 2<dfults2>	is to use grustats. Look for the line that contains "steal_user_context".
+T 1334342499 2<dfults2>	If non-zero and changing, contexts are oversubscribed.
+T 1334342530 2<dfults2>	That's about the extent of my knowledge
+T 1334342590 2<dfults2>	I just look for that... when I told Karl about it on ai, that's when he tweaked the test to be properly create the right amount of gru contexts
+T 1334342676 2<dfults2>	these sma4 tests are killing it
+T 1334342797 2<dfults2>	look at that ugly put03.f error
+T 1334343162 6<danielp6>	talking to Jack
+T 1334343292 6<danielp6>	he said check out /proc/sgi_uv/cch_status and gru_status to see resources and which pids use them
+T 1334343322 6<danielp6>	he said it should be a CBR/DSR error, not a context one
+T 1334343402 6<danielp6>	so what is the state of the machine now (with all those GRU:20:3 put03.f.f90.x (40215) HARDWARE ERROR - op 1, exop 0, ecause 0x800, det0 0x160cda4, det1 0x10021d4e0c9e4, cbrstate 0x1, execstatus 0x20)
+T 1334343489 2<dfults2>	machine still seems good
+T 1334343493 2<dfults2>	all other tests passed
+T 1334343500 2<dfults2>	not sure what to make of that hardware error msg
+T 1334343633 6<danielp6>	Jack says that should mean a partition went down
+T 1334343640 6<danielp6>	otherwise a problem
+T 1334343694 6<danielp6>	run mpisanity to verify xpc?
+T 1334343703 2<dfults2>	yeah
+T 1334343704 6<danielp6>	we could also check on part 1
+T 1334343712 2<dfults2>	yeah.. think something funny happend there
+T 1334343722 2<dfults2>	try the put03.f test again
+T 1334343782 6<danielp6>	hmmmm...
+T 1334343793 2<dfults2>	so we should check the cch_status during that run
+T 1334343801 2<dfults2>	cuz its hammer gru context
+T 1334343804 6<danielp6>	yeah
+T 1334343829 6<danielp6>	I will run it in another term
+T 1334343911 6<danielp6>	damit it passed
+T 1334343959 6<danielp6>	my bad
+T 1334343987 6<danielp6>	OK it fails, I didn't have the right line copied
+T 1334344007 2<dfults2>	ok.. have no idea what I just saw with those stats
+T 1334344115 6<danielp6>	me neither
+T 1334344127 6<danielp6>	can you detach and let me make the screen bigger?
+T 1334344157 2<dfults2>	uhh.. how do I detach again?  I usually just close the window
+T 1334344171 6<danielp6>	control+a then d
+T 1334344184 2<dfults2>	ctrl a.. that's what I couldn't remmber
+T 1334344185 2<dfults2>	detached
+T 1334344191 6<danielp6>	everything is ctrl a
+T 1334344200 2<dfults2>	yup
+T 1334344203 6<danielp6>	ok, I reattached bigger
+T 1334344347 6<danielp6>	Jack wants uvdump to check for protection violation
+T 1334344381 6<danielp6>	how do I do that again?
+T 1334344438 6<danielp6>	Oh, and he said that cross-partition jobs, XPMEM will periodically steal a context (as shown by     1    0     7      0      0        0        0     2    1024      ??      -  (kernel)
+T 1334344438 6<danielp6>	)
+T 1334344487 2<dfults2>	I can get a uvdump from... I'm logged into 1 sec
+T 1334344513 2<dfults2>	uvbu
+T 1334344515 6<danielp6>	gid is chiplet, bid (assuming board), ctx is context
+T 1334344555 6<danielp6>	ssh into uvbu?
+T 1334344560 2<dfults2>	yeah
+T 1334344578 6<danielp6>	as root?
+T 1334344608 2<dfults2>	 ssh sgidiag@uvbu                # pw sgi!diag
+T 1334344654 6<danielp6>	then what?
+T 1334344712 2<dfults2>	uvdmp -m hostname
+T 1334344722 2<dfults2>	but I think there's a partition option as well
+T 1334344820 6<danielp6>	so uvdmp -m uv182-sys -gr_enable ?
+T 1334344837 2<dfults2>	worth a try
+T 1334344867 6<danielp6>	uvdmp -m uv182 -gr_enable
+T 1334344902 6<danielp6>	40 nodes, is that all of 182?
+T 1334344953 2<dfults2>	not sure
+T 1334344979 2<dfults2>	seems like there'd be 32 nodes
+T 1334345001 6<danielp6>	io?
+T 1334345025 2<dfults2>	see topology
+T 1334345174 2<dfults2>	I'll be away for a little bit
+T 1334345194 6<danielp6>	but hwcfg mentions 40 BMC
+T 1334346132 6<danielp6>	8 router blades
+T 1334347006 2<dfults2>	gotcha
+T 1334347254 6<danielp6>	Error reply received due to Incorrect Memory Access Permissions
+T 1334347267 6<danielp6>	Jack said this was probably from another test failure
+T 1334347318 6<danielp6>	he thought it looked like some pages were being firewalled and accessed at different page sizes (THP to blame)
+T 1334347329 2<dfults2>	AH HA!!
+T 1334347335 2<dfults2>	that's what I'm seeing on harp10
+T 1334347347 2<dfults2>	I knew was THP
+T 1334347360 2<dfults2>	Cursed THP
+T 1334347409 2<dfults2>	I think the bios on uv1 handles the error better.. where as uv2 it just pukes and stares at me stupidly
+T 1334347493 6<danielp6>	hmmmm...
+T 1334347496 2<dfults2>	or our expand_memprotect call doesn't work as expected
+T 1334347511 2<dfults2>	or needs to be expanded for THP access
+T 1334347532 6<danielp6>	Jack also talked about problems between the user/owner of page and timing raising the firewall
+T 1334347556 2<dfults2>	I understand that less
+T 1334347587 6<danielp6>	we wouldn't need any of this protection if xpmem only wrote where it was supposed to
+T 1334347632 6<danielp6>	so did we accomplish anything at all today?
+T 1334347660 6<danielp6>	for reference, dump file is /usr/people/sgidiag/dumps/uv182/uv182_2012_Fri_Apr_13_14_21
+T 1334347692 2<dfults2>	Nope... unable to reproduce a hang.  Learned nothing about shared high space
+T 1334347698 2<dfults2>	failures
+T 1334347718 2<dfults2>	I may have a hint for my other problem tho
+T 1334347731 6<danielp6>	a light in the dark is something
+T 1334347746 2<dfults2>	Ok.. I'm done for the day
+T 1334347766 6<danielp6>	yeah, I don't have too much left in me either
+T 1334347792 6<danielp6>	I will try to talk to Cliff/Robin about some of this on Monday.
+T 1334347860 2<dfults2>	sounds good
+T 1334347958 6<danielp6>	can I reboot uv182 as far as you are concerned?
+T 1334347989 2<dfults2>	yup
+T 1334606167 2<dfults2>	Do you know where the code for  MPI_Allreduce is located?
+T 1334608088 6<danielp6>	the regression test?
+T 1334608148 6<danielp6>	which one?
+T 1334608222 6<danielp6>	there is ./libtests/mpi_intel_c/MPI_Allreduce.c and ./libtests/mpi_intel_fortran/MPI_Allreduce.F
+T 1334629242 2<dfults2>	I was looking for the source code for the lib function.  mpi2/allreduce_comm.c uses it.  
+T 1334666964 6<danielp6>	you there?
+T 1334666990 6<danielp6>	\/data/lwork/alcatraz1/danielp/test/stout7/mpi/lib/libmpi/src/coll/allreduce.c
+T 1334667029 2<dfults2>	ahh Thanks
+T 1334667044 6<danielp6>	you know how to use tags in vi?
+T 1334667070 2<dfults2>	used to.. I use cscope now if needed
+T 1334667096 6<danielp6>	I often setup tags and cscope for workareas
+T 1334667127 6<danielp6>	you can usually go to /data/lwork/alcatraz1/danielp/test/stout7/mpi/ for latest mpi
+T 1334667221 6<danielp6>	all MPI_<some command> are usually implemented with a weak reference to PMPI_<some command>
+T 1334681224 6<danielp6>	where are you at? do you need assistance debugging?
+T 1334681253 2<dfults2>	Nope.. not on that problem right now
+T 1334681281 6<danielp6>	do you still have issues that are not related to cross partition?
+T 1334681332 2<dfults2>	I don't think so
+T 1334681333 2<dfults2>	I
+T 1334681355 2<dfults2>	I've got some open PVs of course, but nothing related to failing tests that I know of.
+T 1334681379 2<dfults2>	Might want to re-enable SHS if you can't find any failing tests. 
+T 1334681389 6<danielp6>	ok, uv182 is open again (efromm is having no luck debugging RTC)
+T 1334681414 6<danielp6>	I have not been seeing any errors with SHS
+T 1334681431 2<dfults2>	Cool.. I think you still have that PV open
+T 1334681451 6<danielp6>	I thought we still wanted to track a change in gru?
+T 1334681486 2<dfults2>	hmm maybe. Not recalling off hand
+T 1334681553 6<danielp6>	1022804: UV - Improve performance of xpmem vtop functions
+T 1334681574 2<dfults2>	Oh ok.. that may be a while. 
+T 1334682123 2<dfults2>	but why not close 1024064 if 1022804 is tracking the improve xpmem vtop functions?
+T 1334682193 6<danielp6>	when I originally was poked on this, Lori wanted the related items closed.  I should probably check on this again.
+T 1334682307 2<dfults2>	To me, it seems like 1022804 is the master task, and the others should be closed first.
+T 1334682361 6<danielp6>	maybe...I am going to try to run SHS enabled tests with uv182 ssi rhel6.2 then sles11sp2
+T 1334682367 6<danielp6>	then see about closing
+T 1334682387 6<danielp6>	btw, stay away from rhel6.3 image for now, NFS seems to be busted
+T 1334682414 6<danielp6>	along with a bunch of other things getting libc double free error
+T 1334682449 2<dfults2>	ok.. don't have to tell me twice :)
+T 1334682475 6<danielp6>	it was another one of my disappointing distractions in the past few weeks with UV h/w
+T 1334682551 6<danielp6>	lunchtime
+T 1334774559 6<danielp6>	you there?
+T 1334774569 2<dfults2>	yea
+T 1334774585 6<danielp6>	was there a PV with the oversubscribe of GRU?
+T 1334774651 2<dfults2>	No.. don't know that oversubscribing is a PV, just a coding issue.  Dimitri was working on another GRU issue which was coupled in with the oversubscribing on ai.
+T 1334774675 2<dfults2>	I'll see if I can find that one
+T 1334774711 2<dfults2>	1025232 - UV RHEL 6.2 : sporadic GRU AMO failures seen in autotest
+T 1334775112 6<danielp6>	I put stuff in status and Lori was asking about a PV - I hope she is not getting worried about me staying on target for trying to help out with testing
+T 1334775587 2<dfults2>	eh.. doubt it
+T 1334775667 6<danielp6>	I squared it away
+T 1334775708 6<danielp6>	oh well...Chris will probably get an offer and they can can me ;-)
+T 1334775775 6<danielp6>	one of her interviewers is Bill (O'Donnell)
+T 1334775891 2<dfults2>	Ha.. where's that at again?
+T 1334775901 6<danielp6>	QLogic
+T 1334775913 2<dfults2>	Few ppl from here have gone there
+T 1334775987 6<danielp6>	another GD employee went there and gave Chris a recommend, and one of Chris' managers' husband works there (and may be interviewing as well)
+T 1334776001 6<danielp6>	it seems to be stacked in her favor
+T 1334776017 2<dfults2>	seems that way
+T 1334776046 6<danielp6>	then I can become a house-husband
+T 1334776067 2<dfults2>	not a bad gig.
+T 1334776090 6<danielp6>	fewer cross-partition issues...
+T 1334852819 2<dfults2>	any idea what this is?
+T 1334852820 2<dfults2>	MPI: lab244: 0x256d00004f76dcf3: ctrl_connect/connect: No route to host
+T 1334852820 2<dfults2>	MPI: could not run executable (case #4)
+T 1334853110 6<danielp6>	chatting w/Karl
+T 1334853115 6<danielp6>	...looking now
+T 1334853153 2<dfults2>	K
+T 1334854318 6<danielp6>	ok looking now
+T 1334854338 6<danielp6>	is this a cluster/partition system?
+T 1334854370 2<dfults2>	SSI 
+T 1334854382 2<dfults2>	XE270 or 370 maybe
+T 1334854394 6<danielp6>	hmmm...I don't know offhand
+T 1334854423 6<danielp6>	could not run executable sounds bad
+T 1334854430 2<dfults2>	yeah.. weird huh
+T 1334854453 6<danielp6>	can I log on to the machine?
+T 1334854475 2<dfults2>	hmm.. I don't think so
+T 1334854491 2<dfults2>	I'd have to setup ssh rsa keys
+T 1334854500 2<dfults2>	lab2.emea.sgi.com
+T 1334854507 6<danielp6>	do you login w/o password?
+T 1334854513 2<dfults2>	as root, yes
+T 1334854522 6<danielp6>	from where?
+T 1334854530 2<dfults2>	my machine
+T 1334854540 2<dfults2>	give me your rsa pub I can add it
+T 1334854580 6<danielp6>	~danielp/.ssh/id_rsa.pub
+T 1334854618 2<dfults2>	perm denied
+T 1334854635 6<danielp6>	ahh..dir permissions
+T 1334854691 6<danielp6>	~danielp/id_rsa.pub
+T 1334854740 2<dfults2>	give it a try
+T 1334854750 2<dfults2>	root@lab2.emea.sgi.com
+T 1334854765 6<danielp6>	woo1
+T 1334854766 6<danielp6>	woot
+T 1334854807 6<danielp6>	where is the pingpng?
+T 1334854852 2<dfults2>	lustre/hedi/1022749
+T 1334854875 6<danielp6>	bluesky.emea.sgi.com and uk-246-78.emea.sgi.com or maybe muppen.ema are to blame
+T 1334854907 2<dfults2>	?
+T 1334854914 6<danielp6>	from last log
+T 1334854922 6<danielp6>	they are other logins beside you
+T 1334854952 2<dfults2>	gotcha... well i'm probably supposed to be done with this machine.
+T 1334862935 <10-11-	dfults has quit 14(Ex-Chat14)

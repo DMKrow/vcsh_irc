@@ -1,0 +1,22 @@
+T 1379445417 2<nzimmer2>	I found one hint in my logs from update scripts.
+T 1379445419 2<nzimmer2>	Warning: RPMDB altered outside of yum.
+T 1379445422 2<nzimmer2>	** Found 2 pre-existing rpmdb problem(s), 'yum check' output follows:
+T 1379445424 2<nzimmer2>	kernel-firmware-2.6.32-358.0.1.hz100.el6.x86_64 is a duplicate with kernel-firmware-2.6.32-358.el6.noarch
+T 1379445426 2<nzimmer2>	kernel-headers-2.6.32-358.0.1.hz100.el6.x86_64 is a duplicate with kernel-headers-2.6.32-358.el6.x86_64
+T 1379445436 6<danielp6>	hmmmm
+T 1379445440 2<nzimmer2>	It looks like they are installing the 100hz on the side instead of using repos or yum
+T 1379445477 6<danielp6>	well, it has no repo...
+T 1379445658 6<danielp6>	ahhhh
+T 1379445661 6<danielp6>	 package kernel-2.6.32-418.el6.x86_64 (which is newer than kernel-2.6.32-358.6.2.hz100.el6.x86_64) is already installed
+T 1379445667 6<danielp6>	won't install old
+T 1379445742 2<nzimmer2>	 So were did the 414.100hz come from?
+T 1379445795 6<danielp6>	some handcrafted nonsense?
+T 1379445805 6<danielp6>	check "the" wiki
+T 1379445845 6<danielp6>	rpm --force -i kernel-2.6.32-358.6.2.hz100.el6.x86_64.rpm
+T 1379447168 6<danielp6>	why won't they just let it end
+T 1379447209 2<nzimmer2>	why work alone when you can suffer as a team
+T 1382470616 6<danielp6>	I still like quilt because I don't want to learn source control FTFY
+T 1382471145 6<danielp6>	test msg
+T 1382476982 UMODE UPTIME UNBAN UNIGNORE UNLOAD URL USELECT USERLIST unload UNLOAD unloadall unload 
+T 1382476983 UMODE UPTIME UNBAN UNIGNORE UNLOAD URL USELECT USERLIST unload UNLOAD unloadall unload 
+T 1382476983 UMODE UPTIME UNBAN UNIGNORE UNLOAD URL USELECT USERLIST unload UNLOAD unloadall unload 

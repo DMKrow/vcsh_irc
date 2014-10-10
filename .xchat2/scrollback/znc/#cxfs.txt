@@ -1,0 +1,2 @@
+T 1337979436 -10-11>	You are now talking on 11#cxfs
+T 1337979477 6<danielp6>	anyone around who can explain how to safely power down Inifinite Storage array?

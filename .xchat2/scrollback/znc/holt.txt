@@ -1,0 +1,261 @@
+T 1335199885 2<holt2>	I believe you need and acount.
+T 1335200066 6<danielp6>	account rqst away
+T 1335200145 2<holt2>	You might need to ping kgsnow directly via IRC or email.  I don't know if the wiki account request is tied in correctly.
+T 1335200546 6<danielp6>	I sent email
+T 1335207369 UNBAN UNIGNORE UNLOAD unload UNLOAD unloadall unload 
+T 1335207370 UNBAN UNIGNORE UNLOAD unload UNLOAD unloadall unload 
+T 1342882933 2<holt2>	uv48 is not done being imaged yet...
+T 1342882949 2<holt2>	I forgot to boot the imaged partitions before enabling numalink.
+T 1342882974 2<holt2>	Plus uv48-sys4 (p4) failed on the image phase and I didn't notice until just a bit ago.
+T 1342883227 2<holt2>	Probably, unless you want to finish the imaging?
+T 1342883239 2<holt2>	I have had a very unproductive morning of it so far.
+T 1342883250 2<holt2>	Are you planning on using p4?
+T 1342883384 2<holt2>	I was going to recreate the pv 1027140 problem you reported and see if I could understand it better.
+T 1342883406 2<holt2>	The images on uv48-sys2-4 were all out of date for fs0: (and mixed versions at that).
+T 1342883418 2<holt2>	I brought them all up to the same version.
+T 1342883449 2<holt2>	All four fs's are imaged with the current stuff (or will be when p4 is complete).
+T 1342883467 2<holt2>	We need to boot with numalink disabled so the uv_config script can run.
+T 1342883481 2<holt2>	Not much of it.  I am pretty much out of time for the day.
+T 1342883489 2<holt2>	The honey-do list is calling.
+T 1342883557 2<holt2>	I will look into that tomorrow morning.
+T 1342883568 2<holt2>	I will need to get the crash debugger working, etc.
+T 1342883684 2<holt2>	Why FCS?
+T 1342883787 2<holt2>	As far as I know, the differences are minor.
+T 1342883806 2<holt2>	Do you know what I mean by Numalink disabled?
+T 1342883831 2<holt2>	You need to boot with single blade into whatever images you intend to use.
+T 1342883857 2<holt2>	hwcfg NL5_ENABLE=no allb
+T 1342883871 2<holt2>	hwcfg -c NL5_ENABLE # To go back to normal.
+T 1342883884 2<holt2>	Then a power -o -c reset.
+T 1342883906 2<holt2>	Bugs in the power -s script often only disable r1i1b0's NL5 and do not do the right thing for p2, p3, and p4.
+T 1342884026 2<holt2>	I have a very slow relearning process.  Once I find something does not work or does work, I only change when needed.
+T 1342884047 2<holt2>	OK.  I am going to get cracking on the honey-do list.  Good luck today.
+T 1342884084 2<holt2>	Ping me on google talk if you need me.
+T 1342884092 2<holt2>	Do you use screen?
+T 1342884160 2<holt2>	I have problems with my connection staying stable between home and the office.  I have had a half-dozen drops this morning.  I am very thankful for screen.
+T 1342884202 2<holt2>	I am not sure if my problems have been SGI specific, but two other ssh sessions have remained running
+T 1342884233 2<holt2>	Alright, I am running.  Good luck.
+T 1342909859 2<holt2>	Are you still running?  It looks like -sys3 is not responding.
+T 1342910366 2<holt2>	Without dropping into KDB or otherwise perturbing the system, I think we have stopped having disc I/O.  Anything I do seems to stick trying to do I/O.  I even tried to bring up iostat and that failed as well.
+T 1342910404 2<holt2>	I have no idea what made it sick or how sick it is, but -sys3 is certainly not happy.
+T 1342910424 2<holt2>	If you want me to look further, please let me know.  Otherwise, I will just let it ride.
+T 1342912770 2<holt2>	OK. shifting to IRC.
+T 1342912817 2<holt2>	OK.  It is not entering KDB either.  This machine must be wedge fairly hard.
+T 1342912831 2<holt2>	I guess we could send it an NMI.
+T 1342912889 2<holt2>	OK.  It is out to lunch.
+T 1342912954 2<holt2>	Yep.  I think we need to just give up and reset it.
+T 1342913026 2<holt2>	Mind if I take the machine and try that failing PV?
+T 1342913045 2<holt2>	I am going to reset the whole machine.  Is that alright?
+T 1342913138 2<holt2>	Yep.
+T 1342913182 2<holt2>	Do you want me to start an ltrunall_cluster with PPH like 256 when I am done?
+T 1342913213 2<holt2>	OK.  That was what I meant, but mistakenly typed 256.
+T 1342913224 2<holt2>	Is that all the further it made it?
+T 1351266919 2<holt2>	In the office now.
+T 1365093251 2<holt2>	Your orgchart is really messed up.
+T 1365093330 6<danielp6>	?
+T 1365093367 2<holt2>	How does your principal fit in there?  Why have you report to Mike and not move him up the org chart to report to Jeff.
+T 1365093393 6<danielp6>	that is not how they did it
+T 1365093401 6<danielp6>	just put me under Michael
+T 1365093436 2<holt2>	Not sure what they were thinking there.
+T 1365093446 2<holt2>	I don't really care though.
+T 1365093487 6<danielp6>	dunno - but Lori doesn't really care about MPT work I do, she mostly just tasks me with testing/status/patchwork
+T 1365094114 2<holt2>	I think she views MPT as a dead-end product.
+T 1365094130 6<danielp6>	probably
+T 1365094209 6<danielp6>	was cool when I got asked a bunch of additional tasks, and when Russ came up it was "you were probably too busy to make a wiki" :)
+T 1369929967 6<danielp6>	:(
+T 1369930024 2<holt2>	These people are idiots!
+T 1369930060 6<danielp6>	don't confront me with your numbers and science I have preset notions!
+T 1369930120 2<holt2>	for_each_online_node(nid) { sched_set_affinity(node_cpus(nid)); set_timer(&per_node_function, (void *)nid); }
+T 1369930178 6<danielp6>	It took me like 3 seconds just to read that all
+T 1369930219 2<holt2>	I did forget that the timer would need to rearm itself, which would bring our total up to approx 1uSec conservatively.
+T 1369930233 6<danielp6>	so ~5 seconds * (POLLING_IS_ALWAYS_BAD_MULTIPLIER) = 1E27
+T 1369930283 2<holt2>	If we polled every 30 minutes, that means we would be using 1000 nSec per 18 quintillion.
+T 1369930331 6<danielp6>	uh oh
+T 1369930356 2<holt2>	Or stated more easily, 1/18 trillion.  Good luck measuring that.
+T 1369930383 6<danielp6>	or anyone can run it...
+T 1369930412 2<holt2>	I might get frustrated enough and write a patch to hwperf which allows you to specify the timeout as a module load parameter, have it off by default, and give you the option of turning it on.
+T 1369930582 2<holt2>	Everything is a good idea.  Since it only took 10 seconds to say "let's test on 32TiB", it must not take that long.
+T 1369930614 6<danielp6>	the only thing that take too much time is polling
+T 1369930632 6<danielp6>	takes
+T 1369930673 2<holt2>	Polling every 30 minutes.
+T 1369930697 2<holt2>	OK.  I am done whining.
+T 1369930723 6<danielp6>	they sounded pretty resistant (without a lot of reason)
+T 1369930758 2<holt2>	It has everything to do with real-time.  All of our customers must be just like real-time customers.
+T 1369930885 6<danielp6>	I am staying for the party
+T 1369931565 2<holt2>	Oh, yeah, we should have tested that too!
+T 1369931643 6<danielp6>	hey let's have the test team do that - wait we dont' have a test team? why wasn't that tested?
+T 1369931723 2<holt2>	Oh good, another PV.  They are so organized.  Let's hope we create a catch-all wiki page next, then we can really confuse people.
+T 1369931771 2<holt2>	I am frustrated and it is showing.  I am going to spend a couple days to a couple weeks on this stupid sigbus problem.
+T 1369932858 2<holt2>	I wish we did these in a conference room.  The phone cutting out drives me nuts.
+T 1369932984 6<danielp6>	ugh
+T 1369933108 6<danielp6>	I thought the sigbus issue was MPT?
+T 1369933129 2<holt2>	There are many layers to that problem.
+T 1369933135 2<holt2>	First, there was an xpmem bug.
+T 1369933147 6<danielp6>	yeah, I thought you hashed that out with Cliff
+T 1369933155 2<holt2>	When we checked that fix in, we hit another xpmem problem (PV 1036139).
+T 1369933180 2<holt2>	The MPT/graph-500 portion got broken off into a separate PV.
+T 1369933207 2<holt2>	In Karl's trying to reproduce/narrow down that problem, he found a different bug (which may be xpmem).
+T 1369933382 2<holt2>	At least we are not this screwed up:
+T 1369933383 2<holt2>	http://www.cbsnews.com/8301-202_162-57586726/pregnant-el-salvador-woman-denied-life-saving-abortion/
+T 1369933400 6<danielp6>	that's religion
+T 1369933420 6<danielp6>	religion jumped the shark awhile ago
+T 1369933466 2<holt2>	I can not understand how anybody can make an argument that religion is a force for good.
+T 1369933498 6<danielp6>	at one time....
+T 1369933533 6<danielp6>	the need to carry a fetus to term to watch it die
+T 1369933547 6<danielp6>	and exist only to know pain...
+T 1369933569 2<holt2>	But thankfully it only endangers a brown woman's life.  God forbid if it was a white male.
+T 1369933571 6<danielp6>	even if her life was not at risk
+T 1369933589 6<danielp6>	from Derek : http://blogs.miaminewtimes.com/riptide/2013/05/miami-dade_police_choke_black.php
+T 1369933606 6<danielp6>	black while carrying puppy
+T 1369933607 2<holt2>	I don't think it has enough of a brain stem to feel pain.  It looks like it would be more aligatorish than animalish.
+T 1369933637 2<holt2>	They should have shot him.  I thought that is what Florida does with black people carrying anything.
+T 1369933640 6<danielp6>	I don't know the whole story, just heard that doctors said the only thing it could possibly know was pain
+T 1369933657 6<danielp6>	the rationale was great
+T 1369933693 2<holt2>	Did you see the Seattle shooting of a deaf black man who was a wood-worker.  Shot for failing to follow poilice commands.
+T 1369933703 6<danielp6>	he began to pull away, not responding/clenching fist, so they had to take him down, and injure (not serious) puppy in the process
+T 1369933736 6<danielp6>	this is all just white guilt though remember,
+T 1369944696 2<holt2>	Here is a good article.  Only part way through, but seems like a very enlightening read.
+T 1369944706 2<holt2>	http://freethoughtblogs.com/pharyngula/2013/05/25/the-diversity-of-diversity/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+freethoughtblogs%2Fpharyngula+%28FTB%3A+Pharyngula%29&utm_content=Google+Reader
+T 1369944748 6<danielp6>	with a header like that, it had better be fabulous
+T 1370471337 6<danielp6>	are you online?
+T 1370482280 2<holt2>	Am now.
+T 1370529275 6<danielp6>	meeting sounded frustrating from here
+T 1370534551 6<danielp6>	after the fact dealing is always the best
+T 1370537702 6<danielp6>	alphabetical order is near the worst possible order for individual status
+T 1370537735 2<holt2>	I am sure she will mix it up.
+T 1371661293 6<danielp6>	when are you lunchin'?
+T 1372259229 2<holt2>	http://www.rollingstone.com/politics/news/the-last-mystery-of-the-financial-crisis-20130619
+T 1372259236 2<holt2>	That should depress you.
+T 1373483148 6<danielp6>	has wifi been worse today? corp-sgi keeps reconnecting
+T 1374163477 6<danielp6>	I hope she asks Russ most of the questions
+T 1374163604 2<holt2>	:)
+T 1374163622 2<holt2>	Don't make me laugh when I am not on mute.
+T 1374163698 6<danielp6>	they need info on what security measure are required, this sounds too vague to safely estimate
+T 1374163733 2<holt2>	Lori is not technical, so all estimates are merely "lob a dart at the dartboard."
+T 1374163764 6<danielp6>	I have had managers that are less technical than her
+T 1374163822 6<danielp6>	my impression with security is usually customer doesn't understand what they want
+T 1374163861 2<holt2>	That is part of the problem.  She gives the appearance of understanding, but can easily be bowled over.
+T 1374163869 6<danielp6>	what measures do they want? how much security/lockdown measured kmodules?
+T 1374163897 2<holt2>	That always seems to be true, but I think the standard we are trying to acheive is it works to the level of trust that Microsoft guarantees.
+T 1374163908 6<danielp6>	security opposes flexability and by nature requires NRE
+T 1374163951 6<danielp6>	OK, so we should have a reasonable understanding of their limits?
+T 1374163974 6<danielp6>	they require signing of drivers right?
+T 1374164003 6<danielp6>	who manages "the customer"'s keys
+T 1374164088 2<holt2>	I think the standard we are intending to meet is, "Provide the capabilities that Windows will need to complete a trusted boot.  Later adapt as needed to support RHEL7 trusted boot."
+T 1374164095 6<danielp6>	I am interested in this stuff, I hope we can abandon our "everything about this is bad" attitude
+T 1374164125 2<holt2>	Me too.  I worry that it is effort that customers ask for in a bid, but never actually use/need.
+T 1374164315 6<danielp6>	half of the motivation is that security requires a thoughtful approach/planning that I sometimes feel is missing
+T 1374164343 6<danielp6>	other part is that it allows you to put some hard limits on customer use as well
+T 1374164383 6<danielp6>	where are you at will iceberry?
+T 1374164392 6<danielp6>	lead problems?
+T 1374164407 2<holt2>	Yep.  Until I walk down there, I am sort-of stuck.
+T 1374164430 6<danielp6>	oh no
+T 1374164433 6<danielp6>	don't open that up
+T 1374164445 2<holt2>	What a fucking lie.  Russ checked in changes to kernel modules to get them to compile and load, but will not work.
+T 1374164464 2<holt2>	Don't open what?
+T 1374164471 6<danielp6>	the anaconda crap
+T 1374164475 6<danielp6>	and grub crap
+T 1374164478 2<holt2>	Ah.
+T 1374164494 6<danielp6>	which lie?
+T 1374164509 2<holt2>	That we are up-to-date on RHEL7/v3.10 kernel.
+T 1374165068 2<holt2>	What crazy bank would use UV for critical apps?
+T 1374165082 6<danielp6>	? I wasn't listening
+T 1374165096 6<danielp6>	is this the RAS stuff?
+T 1374165115 2<holt2>	It was HA on UV for Duetsche bank.
+T 1374165180 6<danielp6>	I am not sure what can be done to mitigate a failure - downtime seems like it will be too long with such a big resource
+T 1374165273 6<danielp6>	isn't hald deprecated?
+T 1374165294 2<holt2>	I think it is going away, but not gone from either of our distros yet.
+T 1374165301 6<danielp6>	I see that
+T 1374165304 6<danielp6>	now
+T 1374165336 6<danielp6>	Tony then Derek then you?
+T 1374165354 2<holt2>	For what?
+T 1374165357 6<danielp6>	status
+T 1374165846 2<holt2>	Sorry, you guessed wrong.  Of course it might be because she lost her place.
+T 1374165873 6<danielp6>	I was chatting with Derek too, I hope I made him lose track
+T 1374165905 2<holt2>	Should I ping him as well?
+T 1374165922 6<danielp6>	definitely
+T 1374171359 2<holt2>	Are you back?
+T 1374171436 6<danielp6>	back
+T 1374171465 2<holt2>	During boot, r1i3n0 gets to the starting slurmd and gets sick/hangs.
+T 1374171475 2<holt2>	It never completes boot after that.  Any ideas?
+T 1374171487 6<danielp6>	chkconfig off slurmd?
+T 1374171500 2<holt2>	OK.
+T 1374171581 2<holt2>	It finally finished on its own.
+T 1374171599 2<holt2>	OK.  This is rhel6.4 based. :(
+T 1374776019 2<holt2>	tmux question...
+T 1374776040 2<holt2>	With screen, I use 'screen -S <session-name>' very often
+T 1374776049 2<holt2>	brb.  Need to pay attention to console log.
+T 1374776051 6<danielp6>	tmux new -s blah
+T 1374776055 6<danielp6>	tmux att -t blah
+T 1374776557 2<holt2>	Thanks.  I need to carve that into my brain.
+T 1374776596 2<holt2>	Can I do that same thing from within tmux?  Like from the ':' prompt switch between sessions?
+T 1374776620 6<danielp6>	I believe so - with some restrictions
+T 1374776632 6<danielp6>	-S specifies socket path used
+T 1374776656 6<danielp6>	if you have a different socket path, I think that is above sessions in heirarchy
+T 1374776667 6<danielp6>	or -L socket-name
+T 1374776704 2<holt2>	Yep, ^B:att -t <other> worked just fine.
+T 1374776907 6<danielp6>	git:can I merge a directory from a branch?
+T 1374776943 2<holt2>	What are you trying to do?  I think you really want to look at git filter-branch, but not sure what you are asking for.
+T 1375105778 6<danielp6>	good stuff in the Android pipeline http://www.androidpolice.com/2013/07/25/app-ops-android-4-3s-hidden-app-permission-manager-control-permissions-for-individual-apps/
+T 1375195897 2<holt2>	Do you want a key signed so you can submit it to the web-of-trust?
+T 1375195933 6<danielp6>	that sounds like a cool thing to do, I should get around to settling on a key
+T 1375195961 2<holt2>	This is either a PGP or Gnu-PG key, not an ssh key.
+T 1375195971 6<danielp6>	yeah
+T 1375196043 2<holt2>	I ended up creating one long time ago for encrypting my data files.  When the kernel implemented their requirement on the web-of-trust for getting gitolite access to git.kernel.org, I generated a new one.
+T 1375196092 2<holt2>	I think that new one expires fairly soon.
+T 1375196114 2<holt2>	Oh, wait, it expires at the end of November.  I better fix that up RFN.
+T 1375197642 2<holt2>	Actually, the beginning of November.  Generating a new one now.
+T 1375201687 2<holt2>	https://help.ubuntu.com/community/GnuPrivacyGuardHowto
+T 1375201708 6<danielp6>	is GNUPG > PGP?
+T 1375201736 2<holt2>	They are equivalent, GnuPG is a completely free and open-source alternative to PGP.
+T 1375201752 6<danielp6>	ahhh...that was never clear to me
+T 1375201813 2<holt2>	Actually, it looks like pgp.org is completely expired now.  It looks like it is all in GnuPG as a reference implementation of PGP.
+T 1375201845 6<danielp6>	so 2048 is the size the cool kids use?
+T 1375201858 2<holt2>	I used 4096.
+T 1375201872 6<danielp6>	holt=cool++
+T 1375202356 2<holt2>	There is also this article.
+T 1375202357 2<holt2>	https://lkml.org/lkml/2011/9/30/421
+T 1375202562 6<danielp6>	that's almost 2 years ago, so I should probably use Moore's law....so 2^(12*2) right?
+T 1375202756 2<holt2>	Do you have a key yet for me to sign?
+T 1375202788 6<danielp6>	no, I have to retreat to my secret bunker to make one
+T 1375202796 6<danielp6>	how about after lunch?
+T 1375202882 2<holt2>	Sure.  Whenever it works for you.
+T 1375211471 6<danielp6>	what did I miss?
+T 1375211488 6<danielp6>	what about slessp3?
+T 1375212584 6<danielp6>	doh
+T 1375212622 2<holt2>	I like how she made that !M$ decision with no technical basis.
+T 1375212647 6<danielp6>	cause, you know, Linux
+T 1375212672 6<danielp6>	the SGI kernel group keystore
+T 1375212741 6<danielp6>	...what was that?
+T 1375212758 6<danielp6>	Earned Value Management - sweet
+T 1375212795 2<holt2>	For those people involved in a certain potential NRE job, we will be moving some people to the Fed cost-center.  Those people will record hour-by-hour their time.
+T 1375212868 6<danielp6>	bah, real engineers record charge codes (multiple per project, sometimes multiple per task) down to 6 minute intervals
+T 1375212883 2<holt2>	:)
+T 1375213036 6<danielp6>	everyone help MS out, but a surface tablet, they have millions...
+T 1375213177 6<danielp6>	sigh
+T 1375371729 6<danielp6>	get username from euid? ideas?
+T 1375371842 6<danielp6>	looks like getpwuid
+T 1375373046 6<danielp6>	intern...2.5 months to come up to speed :)
+T 1375373508 2<holt2>	Or more.
+T 1375373559 6<danielp6>	the new kids have the Twitter and the Plus, they pick up 12 years fast
+T 1375373865 2<holt2>	It only took me 2-3 years to learn there are too many sources of arrows from the kernel and to not try to understand what is all happening.
+T 1375373921 6<danielp6>	arrows? like pointer derefs ? :)
+T 1375373944 2<holt2>	Like weird locks being held or other things that can break xpmem.
+T 1375380389 6<danielp6>	how long do I make the gpg key last?
+T 1375380417 2<holt2>	I made my most recent one not expire at all.
+T 1375380469 6<danielp6>	which email do you use? debating gmail or personal domain email
+T 1375380512 2<holt2>	My first key, I created it with my personal email address, then added my work and gmail accounts.
+T 1375380520 2<holt2>	My most recent, I only did the gmail.
+T 1375380546 2<holt2>	It is fairly easy to add additional email addresses if you would like.
+T 1375380549 6<danielp6>	just wondering if first/primary email matters at all vs later emails
+T 1375380570 2<holt2>	Nope.
+T 1375380579 6<danielp6>	leave comment blank?
+T 1375380609 2<holt2>	I did for my most recent.  On my previous, I had the comment of 'Work' on my holt@sgi.com address.
+T 1375382203 6<danielp6>	what is MIT server?
+T 1375382328 6<danielp6>	http://pgp.mit.edu:11371/pks/lookup?search=daniel.pou&op=index
+T 1375383494 2<holt2>	Signed.  Did you sign mine?
+T 1375383840 6<danielp6>	not sure what that means
+T 1375387903 6<danielp6>	ahhh...awesome, default user context is user_u:user_r:git_session_t:s0, the one I assumed (user_u:user_r:user_t:s0) is Context 33
+T 1375387913 6<danielp6>	thanks SELinux
+T 1375989077 6<danielp6>	http://commonsware.com/blog/2013/08/08/developer-psa-please-fix-your-clipboard-handling.html
+T 1376103292 <10-11-	holt has quit 14(Nick collision14)
+T 1376321318 6<danielp6>	you online?

@@ -1,0 +1,673 @@
+T 1381267737 2<25cornel2>	it is in Foundation, just checked that
+T 1381267744 2<22erikj2>	yes I confirm that
+T 1381267746 2<22erikj2>	I know what happened
+T 1381267754 2<22erikj2>	I hadn't done the install additional sw step
+T 1381267767 2<22erikj2>	and forgot we changed that (a little before I left) to do that separately
+T 1381267769 2<22erikj2>	sorry
+T 1381267791 2<25cornel2>	yes, I checked, it is installed
+T 1381267801 2<22erikj2>	on river? that's because I did it by hand
+T 1381267801 <10-11-	pjd has quit 14(Quit: ChatZilla 0.9.90.1 [Firefox 24.0/20130910160258]14)
+T 1381267809 2<22erikj2>	but yes, it's in the foundation rpmlist for admin it's all ok.
+T 1381267810 2<22erikj2>	It was my fault.
+T 1381267820 2<22erikj2>	I didn't run that step because I just installed long enough for Jim Z to update the lsi fw
+T 1381267899 2<22erikj2>	cornel I'm afraid we'll forget to relnote the 1068 slow mkfs.ext thing. Do you have a suggestion?
+T 1381267922 2<25cornel2>	I should start working on it
+T 1381267939 2<22erikj2>	(this would be a stout7 / 710 thing)
+T 1381267970 2<25cornel2>	I guess we could open a PV to document it
+T 1381268038 2<25cornel2>	what is lsiutil doing?
+T 1381268046 2<25cornel2>	I have never used it
+T 1381268056 2<22erikj2>	it manages the piece of crap lsi 1068 raids
+T 1381268063 2<22erikj2>	lets you check status (like if a disk is down), update fw, etc.
+T 1381268068 2<25cornel2>	oh, I have used and forgot about it
+T 1381268127 2<25cornel2>	or maybe I didn't
+T 1381268336 2<25cornel2>	I opened  	
+T 1381268336 2<25cornel2>	1039133: Update Tempo CHANGELOGS and README for Tempo 2.8.0
+T 1381268427 2<25cornel2>	and also
+T 1381268427 2<25cornel2>	1039134 - Update Tempo CHANGELOGS and README for Tempo 2.9.0
+T 1381268440 2<25cornel2>	erikj: please add your info to 1039134
+T 1381268444 2<22erikj2>	cornel can we make adds or do I need to create a pv and link it?
+T 1381268449 2<25cornel2>	maybe will not forget about it
+T 1381268457 2<25cornel2>	adds
+T 1381268466 2<25cornel2>	no extra PV needed
+T 1381268619 2<22erikj2>	done thanks
+T 1381268653 2<25cornel2>	np
+T 1381269109 2<22erikj2>	pjd whatever is ok on timing for me
+T 1381269110 2<22erikj2>	thx
+T 1381269225 2<22erikj2>	we're getting ready to head to Metalio. I'll be offline for a while. I'll check back when I get there (but my work time is mostly done anyway)
+T 1381269245 <10-11-	erikj has quit 14(Remote host closed the connection14)
+T 1381269245 2<29bhaxo2>	bye!
+T 1381269251 2<25cornel2>	cya
+T 1381269318 2<29bhaxo2>	cornel I should have a fix ready for review soon.
+T 1381269338 2<25cornel2>	ok
+T 1381269407 2<29bhaxo2>	ohh, discover --serviceset 0,1 --macfile macfile-dafy12 only discovered service0 ... never tried to discover service1
+T 1381269632 2<25cornel2>	of course
+T 1381269640 2<25cornel2>	first number is start
+T 1381269644 2<25cornel2>	second is how many
+T 1381269659 2<25cornel2>	you need service 0,2 to discover service0 and service1
+T 1381269662 2<25cornel2>	:)
+T 1381269665 2<25cornel2>	bhaxo ^
+T 1381269680 2<25cornel2>	happened to me before ;)
+T 1381269684 2<29bhaxo2>	oh.  that 2 is a count?
+T 1381269689 2<25cornel2>	yes
+T 1381269702 2<29bhaxo2>	oh.
+T 1381269708 2<29bhaxo2>	oh.
+T 1381269709 2<29bhaxo2>	oh.
+T 1381269744 2<25cornel2>	:) :) :)
+T 1381269789 2<25cornel2>	[root@icicle ~]# discover --help | grep COUNT
+T 1381269789 2<25cornel2>	  --rackset NUM,COUNT[,FLAG]...  discover count racks starting at #
+T 1381269789 2<25cornel2>	  --serviceset NUM,COUNT,[,FLAG]...        discover count service nodes starting at #
+T 1381269806 2<29bhaxo2>	yeah, I believed you.
+T 1381269823 2<25cornel2>	I doubled checked it though
+T 1381269850 2<25cornel2>	I did not miss to update help
+T 1381270201 2<29bhaxo2>	I'm going to take a walk and find out what happened to the second ATT guy ... he has vanished ...
+T 1381270213 2<25cornel2>	:)
+T 1381270222 2<25cornel2>	shark ate him
+T 1381270257 2<25cornel2>	you are living in Pacifica after-all
+T 1381270549 2<25cornel2>	bhaxo: do you have a PV open for br0 of Medina not using the eth0 mac when running dhcp refresh?
+T 1381270555 2<25cornel2>	otherwise I will open one
+T 1381270558 2<25cornel2>	thx
+T 1381270559 2<25cornel2>	?
+T 1381270780 2<29bhaxo2>	what is dhcp refresh?
+T 1381270806 2<25cornel2>	when dhcp lease expires, dhclient tries to refresh
+T 1381270808 2<25cornel2>	it fails
+T 1381270819 2<25cornel2>	since dhcp comes with the wrong mac
+T 1381270825 2<25cornel2>	leader knows eth0 mac
+T 1381270837 2<25cornel2>	in dhcp config file == ice.conf
+T 1381270846 2<29bhaxo2>	ohhhh ... I know this problem.
+T 1381270912 2<29bhaxo2>	I know that I worried about it at one time (not thinking about the refresh issue)
+T 1381270966 2<25cornel2>	I will open a PV
+T 1381270970 2<29bhaxo2>	I have not actually encountered the issue due to refresh.
+T 1381271115 2<29bhaxo2>	I encountered the issue somehow during the boot process ... I think that addressed that instance but did not consider the dhcp refresh case.
+T 1381271147 2<25cornel2>	ok
+T 1381271158 2<25cornel2>	I asked Paul to open the PV for cboac
+T 1381271164 2<25cornel2>	I feel like going home
+T 1381271171 2<25cornel2>	you said you have some pv to review?
+T 1381271235 2<29bhaxo2>	yes, let me commit ... 
+T 1381271689 2<25cornel2>	bhaxo, lakshmy: what is the status of
+T 1381271690 2<25cornel2>	 1032359: ICE-X Pyramid and MIC 
+T 1381271715 2<25cornel2>	bhaxo: what about
+T 1381271715 2<25cornel2>	1038123: Default GW is not getting set in RHEL6.4 in the MIC configuration
+T 1381271722 2<25cornel2>	I am asking that every day
+T 1381271722 2<29bhaxo2>	what about it?
+T 1381271734 2<29bhaxo2>	so?
+T 1381271736 2<25cornel2>	do we have a show stopper?
+T 1381271750 2<29bhaxo2>	I know nothing about it.  why would it be a show-stopper?
+T 1381271775 2<25cornel2>	1032359: ICE-X Pyramid and MIC = still not closed
+T 1381271786 2<25cornel2>	same for 1038123
+T 1381271786 2<29bhaxo2>	ok
+T 1381271804 2<25cornel2>	if there is none you know about, I am fin
+T 1381271806 2<25cornel2>	if there is none you know about, I am fine
+T 1381271817 2<25cornel2>	I will not ask again
+T 1381271818 2<25cornel2>	:)
+T 1381271846 2<29bhaxo2>	that is a good plan.
+T 1381271854 2<25cornel2>	:)
+T 1381271873 2<25cornel2>	I cannot reproduce the clone bug anymore
+T 1381271889 2<29bhaxo2>	lakshmy is testing Pyramid+MIC full install.
+T 1381271890 2<25cornel2>	using rhel6.4 and sles11sp3
+T 1381271896 2<25cornel2>	ok
+T 1381271915 2<29bhaxo2>	I've been doing HA RLC for the last week.
+T 1381271929 2<29bhaxo2>	MIC is whatever MIC is.  No customers.  
+T 1381271940 2<25cornel2>	lakshmy: how is your testing going?
+T 1381271946 2<29bhaxo2>	she is afk
+T 1381271951 2<25cornel2>	ok
+T 1381271973 2<25cornel2>	then I will do your review, whenever is ready, and then go home
+T 1381271987 2<29bhaxo2>	http://git.americas/?p=clustmgmt/clustmgmt-bhaxo.git;a=commit;h=ed74a9a82cb699c9da652769d166dd21c94dd894
+T 1381272065 2<25cornel2>	cool change
+T 1381272067 2<25cornel2>	ship it
+T 1381272073 2<25cornel2>	nice work on fixing that
+T 1381272087 2<29bhaxo2>	I have tested it on service nodes and by re-installing a HA RLC.
+T 1381272100 2<29bhaxo2>	Now I will test by re-installing a HA RLC rack.
+T 1381272146 2<29bhaxo2>	I did not discover how the icicle nodes got set to the correct 115200 baudrate.
+T 1381272148 2<25cornel2>	should I take the laptop with me? or you do not need anything from me tonight?
+T 1381272162 2<29bhaxo2>	no, I need nothing.
+T 1381272223 2<25cornel2>	I found a blog with pictures from Romania http://kiryphotography.blogspot.ro/
+T 1381272226 2<25cornel2>	going home now
+T 1381272231 2<25cornel2>	have a nice evening
+T 1381272235 2<29bhaxo2>	bye!
+T 1381291431 <10-11-	grubert has quit 14(Quit: Konversation terminated!14)
+T 1381293140 2<29bhaxo2>	afk - night
+T 1381319317 -10-11>	pjd 14(10~chatzilla@eagdhcp-232-120.americas.sgi.com14) has joined #tempo
+T 1381320046 -10-11>	erikj 14(10~erikj@cf-sslvpn-0-82.corp.sgi.com14) has joined #tempo
+T 1381320125 <10-11-	erikj has quit 14(Remote host closed the connection14)
+T 1381320134 -10-11>	erikj 14(10~erikj@cf-sslvpn-0-82.corp.sgi.com14) has joined #tempo
+T 1381325408 2<22erikj2>	the 1068 piece of crap is more bearable with 4 striped drives instead of 2 in a mirror :)
+T 1381325839 2<22erikj2>	ok, gonna disappear 15/20 mins while images are being created
+T 1381327193 2<22erikj2>	.
+T 1381327411 <10-11-	lakshmy has quit 14(Quit: Konversation terminated!14)
+T 1381327666 2<22erikj2>	lakshmy please have good news for me --
+T 1381327675 2<22erikj2>	Please tell me that you have a macfile for river :)
+T 1381327688 2<22erikj2>	I forgot to save it before having jaj take the disks out and replace them twice :)
+T 1381327699 2<22erikj2>	oops she's not here
+T 1381327772 2<22erikj2>	cornel ?
+T 1381327919 2<22erikj2>	pjd rhel7 support needs to be on the list and it may not be an easy one
+T 1381327943 2<22erikj2>	with the shift from initrd to systemd, the "right" thing to do would be to use that for tempo too although we could maybe use the legacy init.d stuff
+T 1381327950 2<22erikj2>	pjd lots of stuff not building right already
+T 1381327961 2<22erikj2>	systemimager will be a nightmare possibly unless rhel7's base gets better in a later snapshot
+T 1381327961 2<22erikj2>	fyi
+T 1381327990 2<24pjd2>	I thought rhel7 was quite a ways off. yes?
+T 1381328023 2<24pjd2>	I recall Lori telling me its broke on UV also.
+T 1381328096 2<22erikj2>	yes that seems true
+T 1381328102 2<22erikj2>	but it's already part of the build
+T 1381328113 2<22erikj2>	michel already asked me if the build problems were on my todo list :)
+T 1381328130 2<24pjd2>	build problems are on your todo????
+T 1381328142 2<22erikj2>	well that's what he said. I didn't take that seriously. 
+T 1381328151 2<22erikj2>	But most of tempo is in the "doesn't work" part of the makefile for rhel7
+T 1381328169 2<22erikj2>	it's up to one of us to get things building for rhel7 some day
+T 1381328178 2<24pjd2>	ok.
+T 1381328221 2<24pjd2>	systemd is a new term to me - is this rhel7 only?
+T 1381328222 2<22erikj2>	RHEL7 schedule says release candidate "H1 CY2014"
+T 1381328243 2<22erikj2>	pjd no. It's in anything that is "new" distro-wise like fedora and opensuse
+T 1381328255 2<22erikj2>	I ahve it on my fedora sever and desktop/notebook (opensuse)
+T 1381328266 2<22erikj2>	it's a replacement largely for the init.d startup scripts but has some overlap with xinetd-like stuff
+T 1381328301 2<22erikj2>	It can start services at startup but also start services on demand/etc
+T 1381328342 2<22erikj2>	Will rhel7 have a true native installer or only install through live mode? We should check that too.
+T 1381328400 2<24pjd2>	OK I am already having the room spin due to ipmitool issues, I can't wrap this one around my head right now. I trust you will thread the needle on this and tell me all about it later.
+T 1381328469 2<22erikj2>	sure my intention was in case it had to be included in planning. I'm not sure if H1 from rhel means we support it in 710, 711?    If it's 711 we shouldn't worry about it
+T 1381328525 2<25cornel2>	reading ^
+T 1381328595 2<25cornel2>	erikj: do you still need a macfile for river?
+T 1381328617 2<22erikj2>	that would help. I may have just switched parts of it off but I don't know if river-pwr had some pieces moved
+T 1381328625 2<22erikj2>	cornel I guess more briefly, yes please
+T 1381328654 2<25cornel2>	/root/macfile-river
+T 1381328664 2<22erikj2>	thanks
+T 1381328676 2<25cornel2>	np
+T 1381328703 2<22erikj2>	admin installation seems to be under control more or less now
+T 1381328764 2<24pjd2>	anybody on quiero service 0 at the moment?
+T 1381328769 2<22erikj2>	not me
+T 1381328778 2<25cornel2>	I am using icicle and mici
+T 1381328780 2<24pjd2>	If not I want to do a few power resets.
+T 1381328818 2<22erikj2>	cornel the macfile shows one mgmt switch for river. Are there two?
+T 1381328830 2<25cornel2>	just one stack
+T 1381328835 2<25cornel2>	icicle has two
+T 1381328840 2<25cornel2>	icicle has two stacks
+T 1381329007 2<24pjd2>	.... and quiero service0 BMC not showing up. Has anyone pulled that box or powerd it off?
+T 1381329281 -10-11>	grubert 14(10~svenddal@lnx-svenddal.americas.sgi.com14) has joined #tempo
+T 1381329282 2<24pjd2>	I can't determine what box is service0 - would it happen to be labels bano service0?
+T 1381329335 2<24pjd2>	never mind I am an idiot
+T 1381329656 2<22erikj2>	cornel I tried to discover the mgmtsw, it failed after 40 tries. No problem. When I went to discover it again, the IP I was handed was 172.23.0.254
+T 1381329662 2<22erikj2>	Is that expected given the first try looked like it was like .6?
+T 1381329706 2<25cornel2>	if you discover with 
+T 1381329718 2<25cornel2>	discover --mgmtswitch 0
+T 1381329723 2<25cornel2>	it picks .6
+T 1381329725 2<25cornel2>	if you discover with 
+T 1381329734 2<25cornel2>	discover --mgmtswitch 0,gateway=yes
+T 1381329741 2<25cornel2>	it picks .254
+T 1381329747 2<25cornel2>	there is a cadmin cmd
+T 1381329748 2<22erikj2>	I did not specify gateway=yes
+T 1381329757 2<25cornel2>	cadmin --show-default-gateway
+T 1381329760 2<22erikj2>	it seemeed to decide that on its own my 2nd try
+T 1381329763 2<25cornel2>	cadmin --set-default-gateway
+T 1381329788 2<25cornel2>	is this a new installation?
+T 1381329799 2<22erikj2>	river:/var/log # cadmin --show-default-gateway
+T 1381329799 2<22erikj2>	Error: option --show-default-gateway not recognized
+T 1381329803 2<22erikj2>	yes
+T 1381329824 2<22erikj2>	stout710
+T 1381329869 2<22erikj2>	I filed a bug on it trying to run switchconfig against a switch that couldn't be discovered after discover failed with it. Maybe that failure was related to some how setting gateway mode? I do'nt know.
+T 1381329872 2<22erikj2>	I'm confused but moving on
+T 1381329883 2<25cornel2>	sorry
+T 1381329884 2<25cornel2>	head
+T 1381329889 2<25cornel2>	not default
+T 1381329922 2<25cornel2>	maybe the switch has .254 before
+T 1381329934 2<25cornel2>	if you know the switch has already an ip
+T 1381329936 2<22erikj2>	I powered off the switches (but only one switch seems to be there?)
+T 1381329944 2<25cornel2>	ok
+T 1381329951 2<25cornel2>	if you know the switch has already an ip
+T 1381329957 2<22erikj2>	discover gave it 254
+T 1381329966 2<22erikj2>	something is broken there
+T 1381329971 2<22erikj2>	we'll just have to remember to try this again later
+T 1381329974 2<25cornel2>	ok, I will do couple installations
+T 1381330080 2<22erikj2>	pjd kgsnow says rhel7 will likely appear with stout711 not 710
+T 1381330094 2<22erikj2>	same story with sles12. Let's not worry about it until next release
+T 1381330114 2<22erikj2>	although we should probably try to chip away at it for the sake fo the full build being representative 
+T 1381332280 -10-11>	lakshmy 14(10~lakshmy@eagdhcp-232-124.americas.sgi.com14) has joined #tempo
+T 1381332664 2<26karlw2>	A meeting right now, yeah?
+T 1381332669 2<25cornel2>	yes
+T 1381332670 2<26karlw2>	Where is it
+T 1381332676 2<26karlw2>	Or dial in only
+T 1381332681 2<25cornel2>	dial only
+T 1381332683 2<28grubert2>	cornel~ I cant afind the dial-in number in my email.. 
+T 1381332683 2<26karlw2>	Oh
+T 1381332686 2<25cornel2>	no rooms available
+T 1381332708 2<26karlw2>	hah..okay
+T 1381332713 2<26karlw2>	I really need a headset
+T 1381332720 2<26karlw2>	My neck is going to break one of these days
+T 1381332733 2<25cornel2>	tell Carol
+T 1381332791 2<25cornel2>	Dial:    1-888-881-4744 or 1-720-239-0778
+T 1381332791 2<25cornel2>	Conf:    8036962623
+T 1381332838 2<26karlw2>	yep, I'm in
+T 1381332863 2<22erikj2>	neck breaking sounds bad
+T 1381333261 2<22erikj2>	cornel - please start reviewing /data/lwork/gulag2a/erikj/workspace/stout7 when you can
+T 1381333267 2<22erikj2>	I will work on slot cloning, so skip that
+T 1381333285 2<25cornel2>	ok. later. afternoon is ok?
+T 1381333291 2<25cornel2>	testing the latest
+T 1381333298 2<22erikj2>	tomorrow is ok too with me
+T 1381333625 2<25cornel2>	remind me tomorrow morning, if I do not answer today
+T 1381333765 2<22erikj2>	ok. It's only 55 files
+T 1381333774 2<25cornel2>	piece of cake
+T 1381333793 2<25cornel2>	I will be done by end of October
+T 1381333798 2<22erikj2>	:)
+T 1381334538 2<29bhaxo2>	grubert ... regarding your microphone, I was being a wise-ass.  You stopped speaking, and it got quieter ... I thought that whatever you had done interrupted your microphone and we could not hear you speaking.
+T 1381335256 2<26karlw2>	Engineering / customer support team!
+T 1381335275 2<22erikj2>	stop confusing us by making complements :)
+T 1381335284 2<22erikj2>	:) :)
+T 1381335286 2<25cornel2>	:)
+T 1381335304 2<29bhaxo2>	:)
+T 1381335321 2<26karlw2>	:o
+T 1381335591 2<22erikj2>	another problem that woudl be fixed with the maintenance boot :(
+T 1381335774 2<29bhaxo2>	lakshmy, I'm not finding any major Pyramid+mid or Medina+mic PVs
+T 1381335806 2<29bhaxo2>	(that are assigned to me or that I submitted)
+T 1381335842 2<26lakshmy2>	the tmps dracut problem
+T 1381335850 2<26lakshmy2>	and nfs space issue
+T 1381335863 2<26lakshmy2>	are theu major ones
+T 1381335872 2<26lakshmy2>	are they major ones
+T 1381335928 2<29bhaxo2>	hmmmm .. so much for bugworks searches.
+T 1381335934 2<26lakshmy2>	 1038771: Tempo MPSS tmpfs: dracut: failed to seed tmpfs root! Rebooting.
+T 1381336130 2<29bhaxo2>	yep ... search for MPSS in addition to mic. 
+T 1381336169 2<29bhaxo2>	there is also the NFS/regression test failure PV ... perhaps quota.
+T 1381336580 2<26lakshmy2>	do you know the pv number for that
+T 1381337181 2<25cornel2>	There is alsO  	
+T 1381337181 2<25cornel2>	1038123: Default GW is not getting set in RHEL6.4 in the MIC configuration
+T 1381337194 2<26lakshmy2>	I will add that too
+T 1381337216 2<25cornel2>	which might be done ^
+T 1381337527 2<22erikj2>	pjd let me know if people want detail on the grub2 crap. Otherwise I'll assume people are up to date as I did a quick run-through in last week's Andy Staff
+T 1381337616 2<28grubert2>	bhaxo ~ it sounds really noisy to me when I turn the mute off... so I leave it off anyway.  I didn't want everyone else to suffer as well.
+T 1381337708 2<29bhaxo2>	I get a buzz in my headset that goes away when I press mute on the local phone.  The buzz seem to be related to local CFL and to iPhone charging.  It may only be a headset issue.
+T 1381337979 2<28grubert2>	bhaxo ~  have you looked for flies?  ( I actually had one in my earphones once.. and it did buzz :) )
+T 1381337999 2<29bhaxo2>	related to the original "bug"
+T 1381338019 2<28grubert2>	it wasn't a feature, that's for sure.
+T 1381339047 2<25cornel2>	afk=>lunch
+T 1381340094 2<22erikj2>	our beach soccer team is playing tonight. They don't have their jerseys yet but should next week. haha
+T 1381341806 2<29bhaxo2>	www.nas.nasa.gov is offline.  I suppose that all of the folks who should be at work at NAS NASA AMES are sitting at home twiddling their thumbs.
+T 1381341830 13*	22erikj tries not to get started 
+T 1381341846 2<29bhaxo2>	yes, sorry.
+T 1381341849 2<22erikj2>	:)
+T 1381343758 2<25cornel2>	.
+T 1381343950 2<25cornel2>	pjd: we got Navy ICE-X upgrade
+T 1381343957 2<25cornel2>	up and running
+T 1381344866 2<24pjd2>	good news, thanks.
+T 1381345913 2<25cornel2>	erikj: Jesus was looking for you
+T 1381345921 2<25cornel2>	not GOD
+T 1381345924 2<25cornel2>	the other one
+T 1381345931 2<22erikj2>	oh
+T 1381345950 2<25cornel2>	Jesus Ortega Segura
+T 1381346166 2<22erikj2>	well hopefully I'm not dead
+T 1381346956 2<29bhaxo2>	No efivars filesystem driver available.
+T 1381347019 2<28grubert2>	I'm not quite dead.  yet.
+T 1381348032 2<29bhaxo2>	afk - lunch .. but now back
+T 1381348473 2<22erikj2>	went to dip my feet in the ocean before the meeting but larger wave came by and now it looks like I peed myself
+T 1381348483 2<25cornel2>	lol
+T 1381348485 2<25cornel2>	cool
+T 1381348486 2<22erikj2>	But thanks to the magic of working remotely, you don't have to know that
+T 1381348490 2<25cornel2>	the part with the ocean
+T 1381348500 2<25cornel2>	funny, the other part
+T 1381348526 2<25cornel2>	how cold is the ocean
+T 1381348534 2<22erikj2>	it's super warm near shore
+T 1381348547 2<25cornel2>	super
+T 1381348742 13*	25cornel agrees with Laskhmy: Erik is so lucky
+T 1381348748 2<26lakshmy2>	I am jealous of erikj
+T 1381348765 2<25cornel2>	meeting time
+T 1381348766 2<25cornel2>	afk
+T 1381348818 2<22erikj2>	Yes, that's one good aspect to my odd situation :)
+T 1381349253 2<29bhaxo2>	erikj, you have any hint as to this error "No efivars filesystem driver available." happening only a couple lines after "System Boot Control: Running /etc/init.d/boot"
+T 1381349283 2<22erikj2>	sounds like something is checking if the node booted in EFI mode
+T 1381349284 2<29bhaxo2>	the preceeding line is "Mounting debugfs at /sys/kernel/debug"
+T 1381349285 2<22erikj2>	and it did not
+T 1381349384 2<29bhaxo2>	seems like it is something new ...
+T 1381349498 2<29bhaxo2>	maybe it is just a sles think and I've been looking too much at rhel.
+T 1381349860 2<29bhaxo2>	I guess what brought my eye to the efivars line is the /etc/init.d/boot.d/S01boot.quotas: line 65: [: -ge: unary operator expected that immediately follows the efivars line,
+T 1381349862 2<29bhaxo2>	.
+T 1381351829 2<22erikj2>	cornel stop giving away your wine. Less for me. hahahaha :)
+T 1381351977 2<26karlw2>	Trivial Pursuit & Wine Fridays
+T 1381352378 <10-11-	grubert has quit 14(Quit: Konversation terminated!14)
+T 1381353555 2<25cornel2>	cool team
+T 1381354364 2<25cornel2>	At Astrocom we had wine every Friday
+T 1381354369 2<25cornel2>	small startup
+T 1381354390 <10-11-	pjd has quit 14(Quit: ChatZilla 0.9.90.1 [Firefox 24.0/20130910160258]14)
+T 1381355641 2<22erikj2>	there was a little company named SGI that used to have beer on Fridays
+T 1381355721 2<25cornel2>	:)
+T 1381356864 2<29bhaxo2>	cornel, erikj,is there any meaning to disk quotas when compute nodes are tmpfs booted?
+T 1381356883 2<25cornel2>	I do not know
+T 1381356886 2<29bhaxo2>	seems like a big NOT MEANINGFUL to me.
+T 1381356925 2<25cornel2>	erikj: I did a sles and a rhel install, discovered mgmtsw0 with no gateway=yes, IP allocated is .6
+T 1381356952 2<29bhaxo2>	quotas on the rlc diskspace used when nfs booting does not apply to tmpfs booting.
+T 1381356960 2<25cornel2>	makes sense
+T 1381356975 2<25cornel2>	I  assume it configures things on the leader
+T 1381356984 2<25cornel2>	that are used by nfs
+T 1381357015 2<29bhaxo2>	quotas are handled on the rlc 
+T 1381357048 2<29bhaxo2>	(the commands running on the compute nodes ssh the rlc)
+T 1381357081 2<22erikj2>	cronel something is broke there
+T 1381357089 2<22erikj2>	I didn't even know about the gateway command so I obviously didn't do it
+T 1381357106 2<22erikj2>	I think something weird happened when mgmtsw0 *failed* to discover
+T 1381357110 2<22erikj2>	switchconfig ran against it anyway afterwards
+T 1381357114 2<22erikj2>	and then failed
+T 1381357119 2<22erikj2>	not sure if that error path has a problem or something ??? I don't know
+T 1381357151 2<25cornel2>	that is a bug that we call it even if it fails
+T 1381357158 2<22erikj2>	I filed a PV on that
+T 1381357158 2<25cornel2>	but for me
+T 1381357158 2<25cornel2>	[root@icicle ~]# dbdump | grep mgmtsw
+T 1381357158 2<25cornel2>	0 is { cluster=oscar ifname=mgmtsw0 dev=eth0 ip=172.23.0.6 net=head node=mgmtsw0 nodetype=oscar_mgmt_switch mac=00:26:f3:c3:7a:40 }
+T 1381357158 2<25cornel2>	1 is { cluster=oscar ifname=mgmtsw1 dev=eth0 ip=172.23.0.7 net=head node=mgmtsw1 nodetype=oscar_mgmt_switch mac=00:26:f3:cb:19:40 }
+T 1381357159 2<22erikj2>	then I retried
+T 1381357173 2<22erikj2>	first attempt it *tried* to assign .6 and failed
+T 1381357179 2<22erikj2>	then I tried again, same command, and it got .254
+T 1381357182 2<22erikj2>	(but worked)
+T 1381357188 2<25cornel2>	I will re-run it
+T 1381357192 2<22erikj2>	unless someone snuck in to river while I was installing and ran stuff.
+T 1381357197 2<22erikj2>	that's possible. I didn't check for that
+T 1381357228 2<25cornel2>	I am re-running it
+T 1381357229 2<22erikj2>	bhaxo I would say the quotas have less meaning. I'm not sure what happens if the root user is the cause of the quota being exceeded like during per-host expansions
+T 1381357239 2<25cornel2>	my discover does not fail though
+T 1381357244 2<22erikj2>	but that's the only case I can think of that would cause a quota issue when the compute node is in tmpfs mode
+T 1381357259 2<25cornel2>	but you are correct
+T 1381357267 2<25cornel2>	second time picks .254
+T 1381357270 2<25cornel2>	so we have a bug
+T 1381357282 2<25cornel2>	or a feature :)
+T 1381357303 2<22erikj2>	if it's related to the first issue (chkconfig running against a failed-to-discover switch) we could combine in there
+T 1381357361 <10-11-	lakshmy has quit 14(Quit: Konversation terminated!14)
+T 1381358842 2<29bhaxo2>	erikj, I may have recently encountered your scenerio of "the quota being exceeded like during per-host expansions".  It may be that the image install to the rlc fails. Well, I increased the 1024 quota to 2048 and the image install succeeded ... but I removed the per-host directories on the rlc, so it was an imperfect test.
+T 1381358884 2<29bhaxo2>	afk
+T 1381360212 -10-11>	lakshmy 14(10~lakshmy@eagdhcp-232-124.americas.sgi.com14) has joined #tempo
+T 1381360251 <10-11-	lakshmy has quit 14(Quit: Konversation terminated!14)
+T 1381361562 2<25cornel2>	I am done for the day
+T 1381361569 2<25cornel2>	going home in 5 min
+T 1381361582 2<25cornel2>	I just remembered I need to power cycle some IRUs on mici
+T 1381361585 2<25cornel2>	brb
+T 1381362367 2<25cornel2>	all blades came up
+T 1381362398 2<25cornel2>	erikj: should I let mike do some testing on icicle tomorrow
+T 1381362408 2<25cornel2>	or you want to use it for your testing
+T 1381362425 2<25cornel2>	with the 2 x 3T hdd
+T 1381362448 2<25cornel2>	bye!
+T 1381362453 <10-11-	cornel has quit 14(Remote host closed the connection14)
+T 1381371882 -10-11>	lakshmy 14(10~lakshmy@ca-sslvpn-128-26.corp.sgi.com14) has joined #tempo
+T 1381371985 <10-11-	lakshmy has quit 14(Quit: Konversation terminated!14)
+T 1381408921 -10-11>	lakshmy 14(10~lakshmy@ca-sslvpn-128-26.corp.sgi.com14) has joined #tempo
+T 1381410409 -10-11>	pjd 14(10~chatzilla@eagdhcp-233-166.americas.sgi.com14) has joined #tempo
+T 1381410981 2<22erikj2>	pjd - advice - in the testing I was doing yesterday I found a corner case....  dmraid systems with gpt labels will produce error messages from grub but will still work ok. But if a dmraid system with a dmraid were on the admin, it would probably not function because, at least at the moment, we're still doing true chain loading on the admin to get to the slots.
+T 1381411004 2<22erikj2>	pjd We could leave it alone (I know of no dmraid case on admin nodes) or I could try to make the admin chainload thing be based on grub2
+T 1381411016 2<22erikj2>	I propose we just leave it alone for now and tackle it later if we even need to
+T 1381411068 2<24pjd2>	I agree, it is a very small corner case. If we somehow have a field system run into this, we will guide them around it.
+T 1381411099 2<22erikj2>	I don't think we sell admin nodes like that. The only sold dmraid systems I'm aware of were the optic mummy stuff as service nodes
+T 1381413187 2<22erikj2>	pjd I've been thinking and I think we'd regret not making the admin MBR have grub2 to match the network boot stuff.
+T 1381413202 2<22erikj2>	even if it costs us one more day, the time is right now because we'll have to do it eventually and then someone will have to re-ramp
+T 1381413217 2<22erikj2>	I can borrow from what I did already
+T 1381413225 2<24pjd2>	Oh, I thought this was where you were heading - but then again the last couple days I've been stuck in the revolving door.
+T 1381413226 2<22erikj2>	and abort if it becomes a rat hole
+T 1381413237 2<24pjd2>	I agree, see if you can make it work.
+T 1381413239 2<22erikj2>	ok
+T 1381413268 2<22erikj2>	will with grub2 that thing I mentioned earlier wouldn't be a problem.
+T 1381413282 2<22erikj2>	we'll still install boot loaders but only for the old layout to function
+T 1381413294 2<22erikj2>	otherwise, the new stuff just accesses the config files without doing a chain
+T 1381413328 2<22erikj2>	I'm going to finish up with the clone slot stuff (a mix of getting it going with the new stuff and some existing problems)
+T 1381413330 2<22erikj2>	thx
+T 1381413332 2<24pjd2>	I checked with Lori late yesterday, still no news on secure booting. I suspect it may be a while before we know definitively.
+T 1381413344 2<22erikj2>	ok
+T 1381415097 -10-11>	cornel 14(10~cboac@eagdhcp-233-179.americas.sgi.com14) has joined #tempo
+T 1381415469 13*	25cornel in Eagan today
+T 1381415609 2<25cornel2>	good morning, every morning with no escalation email
+T 1381416399 2<22erikj2>	good morning cornel. I figured out the clone-slot thing as you may have read.
+T 1381416403 2<22erikj2>	(the pv you sent me)
+T 1381416409 2<22erikj2>	still chugging through cloning issues w/my changes
+T 1381416427 2<22erikj2>	cornel also, in talking with pjd, I think I'll spend the extra time after cloning is working to use grub2 on the admin node MBR when GPT is in play
+T 1381416437 2<22erikj2>	because otherwise we'll regret it when we have to do it later and re-ramp
+T 1381416467 2<25cornel2>	sounds good, nice work, reading your email now...
+T 1381416567 2<25cornel2>	afk to get some coffee, brb
+T 1381416978 2<22erikj2>	maybe we'll use grub2 always in the MBR. I'll check it out
+T 1381417206 2<24pjd2>	cornel: are we good to go on stout709?
+T 1381417274 2<24pjd2>	cornel: good to go means we can give the go-ahead to make gold masters?
+T 1381417513 2<25cornel2>	I have not run into issues yesterday
+T 1381417524 2<25cornel2>	only the ~350 bugs ;)
+T 1381417535 2<25cornel2>	I think we are good to go
+T 1381417545 2<25cornel2>	but I am mainly the only one who tested it
+T 1381417553 2<25cornel2>	so still testing stuff today
+T 1381417561 2<29bhaxo2>	FWIW bruce reports that SLES11SP3  HA SAC failed to install.
+T 1381417592 2<25cornel2>	I did a regulat rhel and a sles installation yesterday, all blades are up
+T 1381417597 2<25cornel2>	s/rgulat/regular
+T 1381417739 2<26lakshmy2>	I am installing the mic for sles11sp3 
+T 1381417972 2<24pjd2>	bhaxo what needs to be determined and quickly is if the problem bruce had is a regression or no.
+T 1381418058 -10-11>	grubert 14(10~svenddal@cf-sslvpn-1-163.corp.sgi.com14) has joined #tempo
+T 1381418077 2<29bhaxo2>	I don't know, but "quickly" probably it is not. 
+T 1381418102 2<24pjd2>	ok thanks, if you learn more detail today pls let me know.
+T 1381418130 2<22erikj2>	[Hardware Error]: Machine check events logged
+T 1381418132 2<22erikj2>	:(
+T 1381418134 2<29bhaxo2>	Sure, it is a "regression" ... it worked a year ago.
+T 1381418145 2<29bhaxo2>	;-)
+T 1381418180 2<25cornel2>	erikj: I have not forgotten about reviewing your code, I will start on it sometimes today... when is the due date?
+T 1381418193 2<22erikj2>	I wanted to be done a week ago :)
+T 1381418197 2<29bhaxo2>	I saw a bunch of [Hardware Error] flagged recently ... and ignored them.  The blade(?) booted.
+T 1381418199 2<22erikj2>	It is lower priority than stout709
+T 1381418211 2<22erikj2>	and I'm still working on clone slot and then I'm adding the admin grub2 per our conversation
+T 1381418217 2<22erikj2>	let's maybe just touch base tomorrow
+T 1381418219 2<24pjd2>	erikj what box are you on getting machine checks?
+T 1381418228 2<22erikj2>	pjd river service0
+T 1381418538 2<24pjd2>	ok I put more options on memlog to see if we can catch this.
+T 1381418942 2<22erikj2>	pjd what was it? Where is that stuff logged? 
+T 1381418992 2<24pjd2>	I changed /etc/sysconfig/memlog & restarted it. If we get more info it will go to /var/log/messages
+T 1381419005 2<22erikj2>	oh ok
+T 1381419019 2<22erikj2>	I think this machine gets corrected memory errors once in a while like the admin node :)
+T 1381419084 2<22erikj2>	I will be back in 10/15
+T 1381420178 2<22erikj2>	.
+T 1381422076 2<24pjd2>	erikj: Wanna try grub2 on a brand new Intel platform called Grantley? It is a Haswell-EP processor and one just got put togethe rin Chipepwa. 
+T 1381422109 2<22erikj2>	sure. It might be a good time to test admin install w/grub 2. I want to finish off clone slot though. Maybe tomorrow?
+T 1381422145 2<25cornel2>	erikj: btw, I should have icicle available tomorrow for you to use too
+T 1381422160 2<24pjd2>	reservation is here: http://wwwcf.americas.sgi.com/PUBLIC/UV3_bringup/reserve/reserve.html
+T 1381422225 2<22erikj2>	I assume we still legacy-boot the node
+T 1381422258 2<24pjd2>	Select mayan1, root pw is mayan1
+T 1381422301 2<24pjd2>	Tim Gamerdinger would likely be the person to ask, and possibly help make any BIOS setting changes.
+T 1381423159 2<22erikj2>	biggest changes to clone slot are related to rhel6.4 (and maybe 6.3) where device mapper devices are really MD devices in that distro
+T 1381423561 2<22erikj2>	wow nobody noticed we were using mke2fs (without j) so we were making ext2 filesystems and not ext3. hahaha
+T 1381423573 2<22erikj2>	or maybe there is another PV somewhere on that
+T 1381423584 2<22erikj2>	they probably didn't notice because you can mount it as ext3 but it won't have all features as I recall
+T 1381423626 2<26lakshmy2>	Cornel /bhaxo : I just sent an email regarding updating compute node image with sgi-mic-compute
+T 1381423644 2<25cornel2>	do you have mpss with sles11sp3 rpms?
+T 1381423649 2<25cornel2>	is this cb15?
+T 1381423652 2<26lakshmy2>	yes
+T 1381423665 2<26lakshmy2>	I have with sles11sp2
+T 1381423678 2<25cornel2>	you need to build them for sles11sp3
+T 1381423689 2<26lakshmy2>	I built
+T 1381423703 2<26lakshmy2>	maybe I am missing something
+T 1381423750 2<26lakshmy2>	you are right Cornel
+T 1381423751 2<25cornel2>	you repo /tftpboot/intel/mpss_gold_u3-2.1.6720-15
+T 1381423755 2<25cornel2>	has only 1 rpm
+T 1381423760 2<26lakshmy2>	when I built I had only 1 rpm
+T 1381423782 2<25cornel2>	you need to put there all the needed mpss rpms
+T 1381423819 2<26lakshmy2>	let me check again
+T 1381424104 2<26lakshmy2>	Cornel: I forgot to copy some files :never mind
+T 1381424492 2<25cornel2>	and I forgot to work on the release notes and change logs yesterday
+T 1381424877 <10-11-	lakshmy has quit 14(Read error: Connection reset by peer14)
+T 1381425403 2<22erikj2>	cornel - was this the rsync error -
+T 1381425414 2<22erikj2>	rsync: writefd_unbuffered failed to write 4 bytes to socket [sender]: Broken pipe (32)
+T 1381425431 2<22erikj2>	...
+T 1381425438 2<22erikj2>	rsync error: error in rsync protocol data stream (code 12) at io.c(600) [sender=3.0.6]
+T 1381425465 2<25cornel2>	yes
+T 1381425471 2<22erikj2>	:(
+T 1381425478 2<29bhaxo2>	the fremont vpn gateway had a glitch or is down.
+T 1381425482 2<25cornel2>	I suppose you are able to see it
+T 1381425521 2<22erikj2>	Like I feared, I'm seeing it in slot cloning :(
+T 1381425541 2<25cornel2>	seems to be the same
+T 1381425542 2<22erikj2>	rsync -aHxq /boot/ /tmp/dest-clone-slot-26819/boot/
+T 1381425564 2<22erikj2>	rhel64
+T 1381425573 2<22erikj2>	googling
+T 1381425764 -10-11>	lakshmy 14(10~lakshmy@ca-sslvpn-128-223.corp.sgi.com14) has joined #tempo
+T 1381426132 2<22erikj2>	cornel it seems to be an out-of-space problem that isn't properly reported as no space left on device -- at least for my specific case. there is a clone slot bug (or something) that is feeding too mcuh in to the /boot target
+T 1381426145 2<22erikj2>	a 2nd rysnc attempt shows the out of space condition
+T 1381426179 2<22erikj2>	generally, my searches talk about this being less about rsync and more about things under rsync and that was true in this case I *think*. I'll let you know if I discover more or I was wrong or whatever
+T 1381426210 2<25cornel2>	ok, thx, I am resting it again
+T 1381426220 2<25cornel2>	looks find on icicle with rhel6.4
+T 1381426225 2<25cornel2>	I cloned all 3 images
+T 1381426290 2<25cornel2>	I need to run an errand, I should be back in <1h
+T 1381426367 2<25cornel2>	afk
+T 1381427480 2<29bhaxo2>	any sles11sp3 booted admin?
+T 1381427502 2<22erikj2>	cornel rsync error went away when I fixed the problem causing the full target fs
+T 1382468450 -10-11>	You are now talking on 11#tempo
+T 1382468466 2<28grubert2>	didn't know you needed IB to be that way
+T 1382468482 2<28grubert2>	sounds like a product endorsement :)
+T 1382468540 2<28grubert2>	( cheap joke.. sorry )
+T 1382468561 2<22erikj2>	phew. thank goodness you didn't pay too much
+T 1382468572 2<28grubert2>	can't even give it away
+T 1382469041 2<20karlw_2>	Oh hmm, I'm not the local IB guru, that's Bills terrain...I'm focused on Ethernet solutions almost exclusively. From my knowledge though, If it's a smaller cluster use fat tree for smaller jobs and HC/EHC for larger mpi jobs
+T 1382469077 2<20karlw_2>	erikj
+T 1382469081 2<22erikj2>	ok 
+T 1382469082 2<22erikj2>	thx
+T 1382473208 2<29bhaxo2>	super - we are now residents of TAGIkistan.
+T 1382473320 2<28grubert2>	oh geez. you actually read it..
+T 1382473340 2<28grubert2>	Emily and I both dislike the acronym "GUI"
+T 1382473375 2<28grubert2>	makes me think of sticky, icky things, or a German expletive.
+T 1382473517 2<29bhaxo2>	yeah, be that as it may ... people have been using the term for a couple decades and it does communicate something.
+T 1382474365 2<22erikj2>	lakshmy - up for one more review request? pv 1039484, /data/lwork/gulag2a/erikj/workspace/stout7
+T 1382475140 2<29bhaxo2>	who manages attica?
+T 1382475170 2<22erikj2>	jaj
+T 1382475187 2<29bhaxo2>	oh, that is easy then!
+T 1382475265 2<29bhaxo2>	jaj, is it possible that someone was making changes to attica that would have broken my access to the sles distor iso .... as in the following ....
+T 1382475269 2<29bhaxo2>	Mounting NFS path containing ISO from url: attica:/mirrors/novell/sles/11sp3/x86_64/gm/SLES-11-SP3-DVD-x86_64-GMC2-DVD1.iso
+T 1382475379 <10-11-	pjd has quit 14(Quit: ChatZilla 0.9.90.1 [Firefox 24.0/20130910160258]14)
+T 1382475469 2<29bhaxo2>	worked Saturday, but not today.
+T 1382475794 2<22erikj2>	might try email, not sure if he monitors irc all the tiem
+T 1382475814 2<29bhaxo2>	probably have found this issue ..... mirrors are served off preserve:/mirrors now (and not attica
+T 1382475820 2<29bhaxo2>	dated yesterday
+T 1382475822 2<22erikj2>	true statement
+T 1382475836 2<22erikj2>	well, the first thing you said was true
+T 1382475838 2<22erikj2>	not sure about the dated thing
+T 1382475903 2<29bhaxo2>	[bhaxo@attica mirrors.old]$ ls -la
+T 1382475903 2<29bhaxo2>	total 8
+T 1382475903 2<29bhaxo2>	drwxr-xr-x  2 root root   19 2013-10-21 08:49 ./
+T 1382475903 2<29bhaxo2>	drwxr-xr-x 34 root root 4096 2013-10-21 08:50 ../
+T 1382475903 2<29bhaxo2>	-rw-r--r--  1 root root   61 2013-10-21 08:49 README
+T 1382475916 2<22erikj2>	hmm well anyway preserve has been the mirror for a couple weeks
+T 1382475916 2<29bhaxo2>	[bhaxo@attica mirrors.old]$ cat README
+T 1382475916 2<29bhaxo2>	mirrors are served off preserve:/mirrors now (and not attica
+T 1382475941 2<29bhaxo2>	so, I guess that I missed the announcement.
+T 1382475951 2<22erikj2>	were you late to the party again?
+T 1382475953 2<22erikj2>	hahaha
+T 1382475954 2<22erikj2>	:)
+T 1382475967 2<22erikj2>	I don't remember the announcement per se
+T 1382475977 2<29bhaxo2>	and nobody went and fixed all of my wiki references to attica:/mirrors
+T 1382476150 2<29bhaxo2>	lakshmy, please take note of the attica:/mirrors -> preserve:/mirrors change.
+T 1382476255 2<26lakshmy2>	ok
+T 1382477369 <10-11-	grubert has quit 14(Quit: Konversation terminated!14)
+T 1382478092 2<29bhaxo2>	erikj, any clue as t what happened to depot.americas.sgi,com?
+T 1382478140 2<22erikj2>	nop. sorry bhaxo
+T 1382478148 2<29bhaxo2>	np.
+T 1382478176 2<29bhaxo2>	it is at a minimum offline ... had Willies HA SAC txt docs.
+T 1382479040 2<22erikj2>	off to Metalio
+T 1382479045 <10-11-	erikj has quit 14(Remote host closed the connection14)
+T 1382486840 -10-11>	erikj 14(10~erikj@cf-sslvpn-1-105.corp.sgi.com14) has joined #tempo
+T 1382488689 2<26lakshmy2>	erikj
+T 1382488696 2<26lakshmy2>	I am seeing your code change
+T 1382488727 2<22erikj2>	oh thanks for checking it out :)
+T 1382488769 2<26lakshmy2>	sorry I had to go for a volleyball game
+T 1382488776 2<22erikj2>	Oh no problem. It's not urgent
+T 1382488780 2<26lakshmy2>	I am back now
+T 1382488821 2<26lakshmy2>	ok
+T 1382488868 2<26lakshmy2>	so you have added pigz
+T 1382488881 2<22erikj2>	oh yeah I'm using that work area for two things
+T 1382488885 2<22erikj2>	ignore the pigz stuff
+T 1382488894 2<22erikj2>	I should have started a new work area
+T 1382488896 2<22erikj2>	it's just that one file
+T 1382488898 2<26lakshmy2>	clustmgmt/sgi/nodes/admin/sgi-admin-node/cimage
+T 1382488900 2<26lakshmy2>	sgi-install/rhel6/tempo/Manifest.RPMS-x86_64
+T 1382488901 2<26lakshmy2>	sgi-install/rhel6/tempo/tempo-ice-leader.rpmlist
+T 1382488905 2<26lakshmy2>	only cimage
+T 1382488908 2<22erikj2>	right
+T 1382488909 2<22erikj2>	sorry about that
+T 1382488911 2<22erikj2>	just cimage
+T 1382488942 2<26lakshmy2>	 looks good
+T 1382488954 2<22erikj2>	thanks!
+T 1382488962 2<26lakshmy2>	you are refreshing only if it had tempfs before
+T 1382488983 2<26lakshmy2>	np
+T 1382488984 2<22erikj2>	right. So that we don't needlessly remove the thing over and over
+T 1382488991 2<26lakshmy2>	:)
+T 1382489024 2<22erikj2>	which wouldn't have been bad but I realized later it was in a hotter path because setup-new-blades runs cimage --set for each node
+T 1382489047 2<26lakshmy2>	 makes sense
+T 1382531842 -10-11>	pjd 14(10~chatzilla@cf-sslvpn-1-10.corp.sgi.com14) has joined #tempo
+T 1382539256 <10-11-	pjd has quit 14(Quit: ChatZilla 0.9.90.1 [Firefox 24.0/20130910160258]14)
+T 1382539717 -10-11>	grubert 14(10~svenddal@cf-sslvpn-1-52.corp.sgi.com14) has joined #tempo
+T 1382539981 2<22erikj2>	lakshmy might you be available for reviewing the addition of pigz?   tmpfs tarball creation is now 17.46s  (for a default sles11sp3 compute image).   /data/lwork/gulag2a/erikj/workspace/stout7
+T 1382539987 2<22erikj2>	I'm working on verifying the build doesn't break
+T 1382539995 2<26lakshmy2>	sure
+T 1382540002 2<22erikj2>	this builds pigz (based on the rhel6 EPEL version) for rhel7 and sles11sp3
+T 1382540007 2<22erikj2>	for rhel6, I include the EPEL version directly
+T 1382540022 2<26lakshmy2>	ok
+T 1382540027 2<22erikj2>	kgsnow said this is ok (to include EPEL directly)
+T 1382540039 2<22erikj2>	I imagine, when RHEL7 has an epel some day, we can stop building our own version
+T 1382540069 2<26lakshmy2>	ok
+T 1382540936 2<25cornel2>	.
+T 1382540947 2<29bhaxo2>	Hi cornel
+T 1382540954 2<25cornel2>	good morning
+T 1382540968 2<29bhaxo2>	good evening
+T 1382540972 2<25cornel2>	:)
+T 1382540983 2<25cornel2>	checking email and how things are going on...
+T 1382541025 2<25cornel2>	any emergencies?
+T 1382541034 2<29bhaxo2>	not of which I'm aware.
+T 1382541083 2<25cornel2>	good
+T 1382541512 -10-11>	pjd 14(10~chatzilla@eagdhcp-233-130.americas.sgi.com14) has joined #tempo
+T 1382541691 2<25cornel2>	pjd: is there something urgent going on? I would like to take time off until I come back? If there is something that needs me to address, I will work tomorrow and/or Friday.
+T 1382541698 2<25cornel2>	hi
+T 1382541736 2<22erikj2>	nothing urgent I'm aware of. Michel and I are working on that debuginfo issue so don't worry about it (mostly michel :)
+T 1382541751 2<25cornel2>	I see an email from jalal
+T 1382541764 2<25cornel2>	he tested it and asked somebody to confirm the code review
+T 1382541767 2<24pjd2>	cornel no worries take time off. 
+T 1382541767 2<25cornel2>	please do that
+T 1382541776 2<25cornel2>	pjd: thanks
+T 1382541785 2<22erikj2>	cornel I'm not sure I agree with it
+T 1382541791 2<22erikj2>	(the changes) but will work w/Michel
+T 1382541796 2<25cornel2>	I need to leave home to check on the grandpa, I will be back later
+T 1382541809 2<25cornel2>	I am planning to call in the meeting tonight
+T 1382541812 2<25cornel2>	ttyl
+T 1382541817 2<24pjd2>	also while you are in Romania, can you straighten out the scientific community and make sure they publish papers that are truly peer reviewed? I know they will listen to you.
+T 1382541818 2<22erikj2>	cornel he said skip it :)
+T 1382541842 2<25cornel2>	")
+T 1382541855 2<25cornel2>	:)
+T 1382541894 2<22erikj2>	cornel tell Romania to use the good model of the United States. Oh wait.
+T 1382541951 13*	25cornel is re-assigning the peer review to erikj ;)
+T 1382542017 2<25cornel2>	pjd: I am not sure what you were talking about, it is probably about some "great" news about Romania?
+T 1382542017 <10-11-	grubert has quit 14(Read error: Connection reset by peer14)
+T 1382542314 2<25cornel2>	afk
+T 1382542316 2<24pjd2>	The great news about Romania is usually when you are there, yes?
+T 1382542322 2<25cornel2>	:)
+T 1382542353 2<25cornel2>	people here ask me about the economic crisis in USA, shutdown, ...
+T 1382542376 2<25cornel2>	:)
+T 1382542392 2<24pjd2>	And you told them not to worry, you took care of it and referenced a PV number too.
+T 1382542392 2<22erikj2>	non functioning government. What a model we are.
+T 1382542427 2<22erikj2>	El Salvador has a terrible lack of resources, some problems with corruption, etc. But at least they don't just turn the lights off
+T 1382542438 2<22erikj2>	sorry, got me started again. That was bhaxo's job :)
+T 1382542467 2<29bhaxo2>	;-)
+T 1382542479 2<24pjd2>	pjs has his eyes closed and is listening to warm happy music in his head...
+T 1382542518 2<24pjd2>	typo, pjd....
+T 1382542522 2<25cornel2>	catch you later
+T 1382542527 2<22erikj2>	bye cornel
+T 1382542533 2<25cornel2>	thanks for covering for me
+T 1382542536 2<25cornel2>	bye
+T 1382542551 2<25cornel2>	see you all on Monday
+T 1382542556 2<25cornel2>	sorry
+T 1382542561 2<25cornel2>	Tuesday
+T 1382542575 2<22erikj2>	see you then - for realz!
+T 1382544383 -10-11>	grubert 14(10~svenddal@cf-sslvpn-1-161.corp.sgi.com14) has joined #tempo
+T 1382545569 2<22erikj2>	lakshmy fyi build tests in sgi-install for rhel7, rhel6, sles11sp3 look good.
+T 1382545583 2<22erikj2>	I spent a lot of time not to break the build. Hopefully I don't :)
+T 1382545594 2<26lakshmy2>	:)
+T 1382545710 <10-11-	grubert has quit 14(Read error: Connection reset by peer14)
+T 1382545772 2<26lakshmy2>	erikj: did you send me an email
+T 1382545839 2<22erikj2>	lakshmy nope. Just put it here. /data/lwork/gulag2a/erikj/workspace/stout7
+T 1382545854 2<26lakshmy2>	ok I will look at it
+T 1382545860 2<22erikj2>	no sneaky stuff this time, everything there is for the pv :)
+T 1382545864 -10-11>	grubert 14(10~svenddal@cf-sslvpn-1-126.corp.sgi.com14) has joined #tempo
+T 1382545868 2<26lakshmy2>	ok
+T 1382545927 2<22erikj2>	lakshmy can you point me at the reservation page that contains cb11? I seem to have misplaced the link
+T 1382545937 2<26lakshmy2>	sure
+T 1382545978 2<26lakshmy2>	http://wwwcf.americas.sgi.com/PUBLIC/Carlsbad_3/reserve/reserve.html
+T 1382546002 2<22erikj2>	perfect thanks
+T 1382546015 2<26lakshmy2>	np
+T 1382546064 2<22erikj2>	pjd I plan to book 2 days on cb11 all for myself because what I'm doing isn't sharable. But I could just book it business hours and dedicate a slot to myself. What is best?
+T 1382546088 2<22erikj2>	maybe a slot regardless in case I can't finish in 2 days. who knows right?
+T 1382546238 2<24pjd2>	You will be competing with Dale Gumness who is doing a lot of firmware testing every day. I would contact him directly and see what is workable.  I would definitely plan a slot to use, which one you may need to check with Corey or Jim Sullivan.
+T 1382546252 2<22erikj2>	thansk
+T 1382546506 2<22erikj2>	pjd looks like cb11 has 175 compute nodes discovered
+T 1382547180 2<24pjd2>	afk
+T 1382551841 2<22erikj2>	lunch
+T 1382552777 -10-11>	lakshmy_ 14(10~lakshmy@ca-sslvpn-128-145.corp.sgi.com14) has joined #tempo
+T 1382552783 <10-11-	lakshmy_ has quit 14(Quit: Konversation terminated!14)
+T 1382552794 -10-11>	lakshmy_ 14(10~lakshmy@ca-sslvpn-128-145.corp.sgi.com14) has joined #tempo
+T 1382552816 <10-11-	lakshmy_ has quit 14(Quit: Konversation terminated!14)
+T 1382552824 -10-11>	lakshmy_ 14(10~lakshmy@ca-sslvpn-128-145.corp.sgi.com14) has joined #tempo
+T 1382552836 <10-11-	lakshmy has quit 14(Ping timeout: 240 seconds14)
+T 1382552850 <10-11-	lakshmy_ has quit 14(Quit: Konversation terminated!14)
+T 1382553379 -10-11-	You have left channel #tempo

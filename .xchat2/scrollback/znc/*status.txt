@@ -1,0 +1,411 @@
+T 1334936249 
+Commands Available:
+
+T 1334936249   ADDBUTTON ALLCHAN   ALLCHANL  ALLSERV   AWAY
+T 1334936249   BACK      BAN       CHANOPT   CHARSET   CLEAR
+T 1334936249   CLOSE     COUNTRY   CTCP      CYCLE     DCC
+T 1334936249   DEBUG     DEHOP     DELBUTTON DEOP      DEVOICE
+T 1334936249   DISCON    DNS       ECHO      EXEC      EXECCONT
+T 1334936249   EXECKILL  EXECSTOP  EXECWRITE FLUSHQ    GATE
+T 1334936249   GETFILE   GETINT    GETSTR    GHOST     GUI
+T 1334936249   HELP      HOP       ID        IGNORE    INVITE
+T 1334936249   JOIN      KICK      KICKBAN   KILLALL   LAGCHECK
+T 1334936249   LASTLOG   LIST      LOAD      MDEHOP    MDEOP
+T 1334936249   ME        MENU      MKICK     MODE      MOP
+T 1334936249   MSG       NAMES     NCTCP     NEWSERVER NICK
+T 1334936249   NOTICE    NOTIFY    OP        PART      PING
+T 1334936249   QUERY     QUIT      QUOTE     RECONNECT RECV
+T 1334936249   SAY       SEND      SERVCHAN  SERVER    SET
+T 1334936249   SETCURSOR SETTAB    SETTEXT   SPLAY     TOPIC
+T 1334936249   TRAY      UNBAN     UNIGNORE  UNLOAD    URL
+T 1334936249   USELECT   USERLIST  VOICE     WALLCHAN  WALLCHOP
+T 1334936249   
+T 1334936249 
+User defined commands:
+
+T 1334936249   ACTION    AME       ANICK     AMSG      BANLIST
+T 1334936249   CHAT      DIALOG    DMSG      EXIT      GREP
+T 1334936249   J         KILL      LEAVE     M         ONOTICE
+T 1334936249   RAW       SERVHELP  SPING     SQUERY    SSLSERVER
+T 1334936249   SV        UMODE     UPTIME    VER       VERSION
+T 1334936249   WALLOPS   WII       
+T 1334936249 
+Plugin defined commands:
+
+T 1334936249   UNLOAD    LOAD      RELOADALL SOURCE    TCL
+T 1334936249   UNLOAD    LOAD      PY        RELOADALL UNLOADALL
+T 1334936249   PL_RELOAD RELOAD    UNLOAD    LOAD      TIMER
+T 1334936249   
+T 1334936249 
+Type /HELP <command> for more information, or /HELP -l
+
+T 1334936304 2<*status2>	Attempting to connect to [irc.corp.sgi.com 6667] ...
+T 1334936304 2<*status2>	Cannot connect to IRC (Cannot assign requested address (Is your IRC server's host name valid?)). Retrying...
+T 1334936309 2<*status2>	Attempting to connect to [irc-eag.americas.sgi.com 6667] ...
+T 1334936309 2<*status2>	Cannot connect to IRC (Cannot assign requested address (Is your IRC server's host name valid?)). Retrying...
+T 1334936639 2<*status2>	You are currently disconnected from IRC. Use 'connect' to reconnect.
+T 1334936652 
+Commands Available:
+
+T 1334936652   ADDBUTTON ALLCHAN   ALLCHANL  ALLSERV   AWAY
+T 1334936652   BACK      BAN       CHANOPT   CHARSET   CLEAR
+T 1334936652   CLOSE     COUNTRY   CTCP      CYCLE     DCC
+T 1334936652   DEBUG     DEHOP     DELBUTTON DEOP      DEVOICE
+T 1334936652   DISCON    DNS       ECHO      EXEC      EXECCONT
+T 1334936652   EXECKILL  EXECSTOP  EXECWRITE FLUSHQ    GATE
+T 1334936652   GETFILE   GETINT    GETSTR    GHOST     GUI
+T 1334936652   HELP      HOP       ID        IGNORE    INVITE
+T 1334936652   JOIN      KICK      KICKBAN   KILLALL   LAGCHECK
+T 1334936652   LASTLOG   LIST      LOAD      MDEHOP    MDEOP
+T 1334936652   ME        MENU      MKICK     MODE      MOP
+T 1334936652   MSG       NAMES     NCTCP     NEWSERVER NICK
+T 1334936652   NOTICE    NOTIFY    OP        PART      PING
+T 1334936652   QUERY     QUIT      QUOTE     RECONNECT RECV
+T 1334936652   SAY       SEND      SERVCHAN  SERVER    SET
+T 1334936652   SETCURSOR SETTAB    SETTEXT   SPLAY     TOPIC
+T 1334936652   TRAY      UNBAN     UNIGNORE  UNLOAD    URL
+T 1334936652   USELECT   USERLIST  VOICE     WALLCHAN  WALLCHOP
+T 1334936652   
+T 1334936652 
+User defined commands:
+
+T 1334936652   ACTION    AME       ANICK     AMSG      BANLIST
+T 1334936652   CHAT      DIALOG    DMSG      EXIT      GREP
+T 1334936652   J         KILL      LEAVE     M         ONOTICE
+T 1334936652   RAW       SERVHELP  SPING     SQUERY    SSLSERVER
+T 1334936652   SV        UMODE     UPTIME    VER       VERSION
+T 1334936652   WALLOPS   WII       
+T 1334936652 
+Plugin defined commands:
+
+T 1334936652   UNLOAD    LOAD      RELOADALL SOURCE    TCL
+T 1334936652   UNLOAD    LOAD      PY        RELOADALL UNLOADALL
+T 1334936652   PL_RELOAD RELOAD    UNLOAD    LOAD      TIMER
+T 1334936652   
+T 1334936652 
+Type /HELP <command> for more information, or /HELP -l
+
+T 1334936991 2<*status2>	Attempting to connect to [irc.corp.sgi.com 6667] ...
+T 1334936991 2<*status2>	Cannot connect to IRC (Cannot assign requested address (Is your IRC server's host name valid?)). Retrying...
+T 1334936996 2<*status2>	Attempting to connect to [irc-eag.americas.sgi.com 6667] ...
+T 1334936996 2<*status2>	Cannot connect to IRC (Cannot assign requested address (Is your IRC server's host name valid?)). Retrying...
+T 1334937021 2<*status2>	Attempting to connect to [irc.corp.sgi.com 6667] ...
+T 1334937021 2<*status2>	Cannot connect to IRC (Cannot assign requested address (Is your IRC server's host name valid?)). Retrying...
+T 1334937026 2<*status2>	Attempting to connect to [irc-eag.americas.sgi.com 6667] ...
+T 1334937026 2<*status2>	Cannot connect to IRC (Cannot assign requested address (Is your IRC server's host name valid?)). Retrying...
+T 1334937117 -10-11-	Disconnected ().
+T 1337711015 2<*status2>	Disconnected from IRC. Reconnecting...
+T 1337711015 2<*status2>	Attempting to connect to [irc.corp.sgi.com 6667] ...
+T 1337711015 2<*status2>	Connected!
+T 1337956728 12-13*status12-	*** danielp attached (from 134.15.68.243)
+T 1337971233 12-13*status12-	*** danielp detached (gone: 134.15.68.243)
+T 1337986270 2<*status2>	You are currently disconnected from IRC. Use 'connect' to reconnect.
+T 1337986367 CHAT CHANOPT CHARSET CLEAR CLOSE COUNTRY CTCP CYCLE 
+T 1337986367 CHAT CHANOPT CHARSET CLEAR CLOSE COUNTRY CTCP CYCLE 
+T 1337986385 
+Commands Available:
+
+T 1337986385   ADDBUTTON ALLCHAN   ALLCHANL  ALLSERV   AWAY
+T 1337986385   BACK      BAN       CHANOPT   CHARSET   CLEAR
+T 1337986385   CLOSE     COUNTRY   CTCP      CYCLE     DCC
+T 1337986385   DEBUG     DEHOP     DELBUTTON DEOP      DEVOICE
+T 1337986385   DISCON    DNS       ECHO      EXEC      EXECCONT
+T 1337986385   EXECKILL  EXECSTOP  EXECWRITE FLUSHQ    GATE
+T 1337986385   GETFILE   GETINT    GETSTR    GHOST     GUI
+T 1337986385   HELP      HOP       ID        IGNORE    INVITE
+T 1337986385   JOIN      KICK      KICKBAN   KILLALL   LAGCHECK
+T 1337986385   LASTLOG   LIST      LOAD      MDEHOP    MDEOP
+T 1337986385   ME        MENU      MKICK     MODE      MOP
+T 1337986385   MSG       NAMES     NCTCP     NEWSERVER NICK
+T 1337986385   NOTICE    NOTIFY    OP        PART      PING
+T 1337986385   QUERY     QUIT      QUOTE     RECONNECT RECV
+T 1337986385   SAY       SEND      SERVCHAN  SERVER    SET
+T 1337986385   SETCURSOR SETTAB    SETTEXT   SPLAY     TOPIC
+T 1337986385   TRAY      UNBAN     UNIGNORE  UNLOAD    URL
+T 1337986385   USELECT   USERLIST  VOICE     WALLCHAN  WALLCHOP
+T 1337986385   
+T 1337986385 
+User defined commands:
+
+T 1337986385   ACTION    AME       ANICK     AMSG      BANLIST
+T 1337986385   CHAT      DIALOG    DMSG      EXIT      GREP
+T 1337986385   J         KILL      LEAVE     M         ONOTICE
+T 1337986385   RAW       SERVHELP  SPING     SQUERY    SSLSERVER
+T 1337986385   SV        UMODE     UPTIME    VER       VERSION
+T 1337986385   WALLOPS   WII       
+T 1337986385 
+Plugin defined commands:
+
+T 1337986385   UNLOAD    LOAD      RELOADALL SOURCE    TCL
+T 1337986385   UNLOAD    LOAD      PY        RELOADALL UNLOADALL
+T 1337986385   PL_RELOAD RELOAD    UNLOAD    LOAD      TIMER
+T 1337986385   
+T 1337986385 
+Type /HELP <command> for more information, or /HELP -l
+
+T 1337986530 6<danielp6>	connect
+T 1337986530 2<*status2>	Connecting...
+T 1337986530 2<*status2>	Attempting to connect to [irc-eag.americas.sgi.com 6667] ...
+T 1337986530 2<*status2>	Connected!
+T 1337986530 -10-11-	danielp sets mode +i danielp
+T 1338911380 2<*status2>	You are currently disconnected from IRC. Use 'connect' to reconnect.
+T 1338911524 Tcl interface unloaded
+T 1338911524 Python interface unloaded
+T 1338911537 2<*status2>	You are currently disconnected from IRC. Use 'connect' to reconnect.
+T 1338911544 6<danielp6>	connect
+T 1338911544 2<*status2>	Connecting...
+T 1338911544 2<*status2>	Attempting to connect to [irc-eag.americas.sgi.com 6667] ...
+T 1338911544 2<*status2>	Connected!
+T 1338911544 -10-11-	danielp sets mode +i danielp
+T 1339520836 2<*status2>	A client from [128.162.232.175] attempted to login as you, but was rejected [Invalid Password].
+T 1339520865 2<*status2>	A client from [128.162.232.175] attempted to login as you, but was rejected [Invalid Password].
+T 1339520875 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1339520921 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1339520946 2<*status2>	A client from [128.162.232.175] attempted to login as you, but was rejected [Invalid Password].
+T 1339520951 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1339520973 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1339521001 12-13*status12-	*** danielp attached (from 128.162.232.175)
+T 1339521177 12-13*status12-	*** danielp detached (gone: 128.162.232.175)
+T 1339521415 12-13*status12-	*** danielp attached (from 128.162.232.175)
+T 1339524335 12-13*status12-	*** danielp detached (gone: 128.162.232.175)
+T 1339600729 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1339601376 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1339619836 12-13*status12-	*** danielp attached (from 128.162.232.162)
+T 1339621026 12-13*status12-	*** danielp attached (from 128.162.232.162)
+T 1339621028 12-13*status12-	*** danielp detached (gone: 128.162.232.162)
+T 1339621036 12-13*status12-	*** danielp detached (gone: 128.162.232.162)
+T 1339621036 12-13*status12-	*** danielp attached (from 128.162.232.162)
+T 1339621059 12-13*status12-	*** danielp detached (gone: 128.162.232.162)
+T 1340119464 2<*status2>	You are currently disconnected from IRC. Use 'connect' to reconnect.
+T 1340119596 6<danielp6>	connect
+T 1340119596 2<*status2>	Connecting...
+T 1340119596 2<*status2>	Attempting to connect to [irc-eag.americas.sgi.com 6667] ...
+T 1340119596 2<*status2>	Connected!
+T 1340119596 -10-11-	danielp sets mode +i danielp
+T 1340132043 12-13*status12-	*** danielp attached (from 128.162.232.154)
+T 1340132087 12-13*status12-	*** danielp detached (gone: 128.162.232.154)
+T 1340379334 6<danielp6>	/
+T 1340379334 2<*status2>	Unknown command [/] try 'Help'
+T 1340741886 12-13*status12-	*** danielp attached (from 128.162.232.128)
+T 1340744943 12-13*status12-	*** danielp detached (gone: 128.162.232.128)
+T 1340808815 12-13*status12-	*** danielp attached (from 128.162.232.128)
+T 1340809001 12-13*status12-	*** danielp detached (gone: 128.162.232.128)
+T 1340809057 12-13*status12-	*** danielp attached (from 128.162.232.128)
+T 1340809286 12-13*status12-	*** danielp detached (gone: 128.162.232.128)
+T 1340809293 12-13*status12-	*** danielp attached (from 128.162.232.128)
+T 1340834921 12-13*status12-	*** danielp detached (gone: 128.162.232.128)
+T 1340897403 12-13*status12-	*** danielp attached (from 128.162.232.196)
+T 1340913603 12-13*status12-	*** danielp detached (gone: 128.162.232.196)
+T 1342793298 2<*status2>	You are currently disconnected from IRC. Use 'connect' to reconnect.
+T 1342793324 CHAT CHANOPT CHARSET CLEAR CLOSE COUNTRY CTCP CYCLE 
+T 1342793415 6<danielp6>	connect
+T 1342793415 2<*status2>	Connecting...
+T 1342793415 2<*status2>	Attempting to connect to [irc-eag.americas.sgi.com 6667] ...
+T 1342793415 2<*status2>	Connected!
+T 1342793415 -10-11-	danielp sets mode +i danielp
+T 1342882661 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1342891046 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1342911503 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1342913400 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1343234645 2<*status2>	You are currently disconnected from IRC. Use 'connect' to reconnect.
+T 1343234656 6<danielp6>	connect
+T 1343234656 2<*status2>	Connecting...
+T 1343234656 2<*status2>	Attempting to connect to [irc-eag.americas.sgi.com 6667] ...
+T 1343234656 2<*status2>	Connected!
+T 1343234656 -10-11-	danielp sets mode +i danielp
+T 1343234679 6<danielp6>	query *admin
+T 1343234679 2<*status2>	Unknown command [query] try 'Help'
+T 1343417331 2<*status2>	You are currently disconnected from IRC. Use 'connect' to reconnect.
+T 1343417336 6<danielp6>	connect
+T 1343417336 2<*status2>	Connecting...
+T 1343417336 2<*status2>	Attempting to connect to [irc-eag.americas.sgi.com 6667] ...
+T 1343417336 2<*status2>	Connected!
+T 1343417336 -10-11-	danielp sets mode +i danielp
+T 1343842640 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1343863106 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1344014257 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1344019618 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1344448211 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1344467241 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1344527781 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1344552808 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1345411129 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1345414578 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1345475148 2<*status2>	You are currently disconnected from IRC. Use 'connect' to reconnect.
+T 1345475162 6<danielp6>	connect
+T 1345475162 2<*status2>	Connecting...
+T 1345475162 2<*status2>	Attempting to connect to [irc-eag.americas.sgi.com 6667] ...
+T 1345475162 2<*status2>	Connected!
+T 1345475162 -10-11-	danielp sets mode +i danielp
+T 1345818286 2<*status2>	You are currently disconnected from IRC. Use 'connect' to reconnect.
+T 1345818304 6<danielp6>	connect
+T 1345818304 2<*status2>	Connecting...
+T 1345818304 2<*status2>	Attempting to connect to [irc-eag.americas.sgi.com 6667] ...
+T 1345818304 2<*status2>	Connected!
+T 1345818304 -10-11-	danielp sets mode +i danielp
+T 1346079318 2<*status2>	You are currently disconnected from IRC. Use 'connect' to reconnect.
+T 1346079325 6<danielp6>	connect
+T 1346079325 2<*status2>	Connecting...
+T 1346079325 2<*status2>	Attempting to connect to [irc-eag.americas.sgi.com 6667] ...
+T 1346079325 2<*status2>	Connected!
+T 1346079325 -10-11-	danielp sets mode +i danielp
+T 1346763947 2<*status2>	You are currently disconnected from IRC. Use 'connect' to reconnect.
+T 1346763956 6<danielp6>	connect
+T 1346763956 2<*status2>	Connecting...
+T 1346763956 2<*status2>	Attempting to connect to [irc-eag.americas.sgi.com 6667] ...
+T 1346763956 2<*status2>	Connected!
+T 1346763956 -10-11-	danielp sets mode +i danielp
+T 1347315346 2<*status2>	You are currently disconnected from IRC. Use 'connect' to reconnect.
+T 1347315361 6<danielp6>	connect
+T 1347315361 2<*status2>	Connecting...
+T 1347315361 2<*status2>	Attempting to connect to [irc-eag.americas.sgi.com 6667] ...
+T 1347315361 2<*status2>	Connected!
+T 1347315361 -10-11-	danielp sets mode +i danielp
+T 1349364660 2<*status2>	You are currently disconnected from IRC. Use 'connect' to reconnect.
+T 1349364700 6<danielp6>	connect
+T 1349364700 2<*status2>	Connecting...
+T 1349364700 2<*status2>	Attempting to connect to [irc-eag.americas.sgi.com 6667] ...
+T 1349364700 2<*status2>	Connected!
+T 1349364701 -10-11-	danielp sets mode +i danielp
+T 1349366173 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1349390694 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1349451124 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1349473364 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1349705223 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1349709384 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1349726871 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1349738699 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1350018264 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1350025003 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1350050215 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1350066170 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1350760715 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1350772247 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1350778202 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1350781558 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1350796503 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1350796556 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1351092397 2<*status2>	You are currently disconnected from IRC. Use 'connect' to reconnect.
+T 1351092431 6<danielp6>	connect
+T 1351092431 2<*status2>	Connecting...
+T 1351092431 2<*status2>	Attempting to connect to [irc-eag.americas.sgi.com 6667] ...
+T 1351092431 2<*status2>	Connected!
+T 1351092431 -10-11-	danielp sets mode +i danielp
+T 1351204276 2<*status2>	You are currently disconnected from IRC. Use 'connect' to reconnect.
+T 1351204296 6<danielp6>	connect
+T 1351204296 2<*status2>	Connecting...
+T 1351204296 2<*status2>	Attempting to connect to [irc-eag.americas.sgi.com 6667] ...
+T 1351204296 2<*status2>	Connected!
+T 1351204296 -10-11-	danielp sets mode +i danielp
+T 1351260219 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1351260266 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1351260269 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1351262206 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1351262214 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1352482693 12-13*status12-	*** danielp attached (from 134.15.1.115)
+T 1352484343 12-13*status12-	*** danielp detached (gone: 134.15.1.115)
+T 1353347052 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1353520968 2<*status2>	You are currently disconnected from IRC. Use 'connect' to reconnect.
+T 1353520981 6<danielp6>	connect
+T 1353520981 2<*status2>	Connecting...
+T 1353520981 2<*status2>	Attempting to connect to [irc-eag.americas.sgi.com 6667] ...
+T 1353520981 2<*status2>	Connected!
+T 1353520981 -10-11-	danielp sets mode +i danielp
+T 1353938965 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1355364221 -10-11-	Disconnected (Remote host closed socket).
+T 1358460613 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1358464102 2<*status2>	You are currently disconnected from IRC. Use 'connect' to reconnect.
+T 1358464125 6<danielp6>	connect
+T 1358464125 2<*status2>	Connecting...
+T 1358464125 2<*status2>	Attempting to connect to [irc-eag.americas.sgi.com 6667] ...
+T 1358464125 2<*status2>	Connected!
+T 1358464125 -10-11-	danielp sets mode +i danielp
+T 1359735935 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1359764066 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1360181936 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1360184228 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1360184252 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1360828630 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1361065474 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1361285837 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1361325503 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1361325624 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1361331962 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1361496886 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1361497013 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1361505115 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1361505906 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1361516308 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1361516428 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1361516455 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1361516466 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1361548436 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1361574124 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1362403692 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1362587889 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1362610286 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1364425624 -10-11-	Disconnected (Remote host closed socket).
+T 1364427227 -10-11-	Disconnected (Remote host closed socket).
+T 1364439162 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1364439423 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1366839806 2<*status2>	You are currently disconnected from IRC. Use 'connect' to reconnect.
+T 1366839816 6<danielp6>	connect
+T 1366839816 2<*status2>	Connecting...
+T 1366839816 2<*status2>	Attempting to connect to [irc-eag.americas.sgi.com 6667] ...
+T 1366839816 2<*status2>	Connected!
+T 1366839816 -10-11-	danielp sets mode +i danielp
+T 1366999372 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1368451237 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1368457531 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1369837273 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1369837291 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1371235478 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1371235845 2<*status2>	IRC connection timed out.  Reconnecting...
+T 1371235845 2<*status2>	Disconnected from IRC. Reconnecting...
+T 1371235845 2<*status2>	Attempting to connect to [irc.corp.sgi.com 6667] ...
+T 1371235845 2<*status2>	Connected!
+T 1371235876 -10-11-	Disconnected (Remote host closed socket).
+T 1371235887 2<*status2>	You are currently disconnected from IRC. Use 'connect' to reconnect.
+T 1371235941 6<danielp_6>	connect
+T 1371235941 2<*status2>	Connecting...
+T 1371235941 2<*status2>	Attempting to connect to [irc-eag.americas.sgi.com 6667] ...
+T 1371235981 -10-11-	Disconnected (Remote host closed socket).
+T 1371240095 Not connected. Try /server <host> [<port>]
+T 1371240107 2<*status2>	You are currently disconnected from IRC. Use 'connect' to reconnect.
+T 1371240110 6<danielp6>	connect
+T 1371240110 2<*status2>	Connecting...
+T 1371240110 2<*status2>	Attempting to connect to [irc-eag.americas.sgi.com 6667] ...
+T 1371240110 2<*status2>	Connected!
+T 1371240110 -10-11-	danielp sets mode +i danielp
+T 1371733713 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1373900387 2<*status2>	You are currently disconnected from IRC. Use 'connect' to reconnect.
+T 1373900425 6<danielp6>	connect
+T 1373900425 2<*status2>	Connecting...
+T 1373900425 2<*status2>	Attempting to connect to [irc-eag.americas.sgi.com 6667] ...
+T 1373900425 2<*status2>	Connected!
+T 1373900426 -10-11-	danielp sets mode +i danielp
+T 1375469933 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1375469940 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1376101020 2<*status2>	Disconnected from IRC. Reconnecting...
+T 1376101020 2<*status2>	Attempting to connect to [irc.corp.sgi.com 6667] ...
+T 1376101020 2<*status2>	Connected!
+T 1376102827 2<*status2>	Disconnected from IRC. Reconnecting...
+T 1376102827 2<*status2>	Attempting to connect to [irc-eag.americas.sgi.com 6667] ...
+T 1376102827 2<*status2>	Connected!
+T 1376330925 2<*status2>	Disconnected from IRC. Reconnecting...
+T 1376330925 2<*status2>	Attempting to connect to [irc.corp.sgi.com 6667] ...
+T 1376330925 2<*status2>	Connected!
+T 1377121839 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1377121902 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1377121928 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1377125835 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1378732944 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1378793341 12-13*status12-	*** danielp detached (gone: 127.0.0.1)
+T 1378793342 12-13*status12-	*** danielp attached (from 127.0.0.1)
+T 1381430978 2<*status2>	You are currently disconnected from IRC. Use 'connect' to reconnect.
+T 1381431005 6<danielp6>	connect
+T 1381431005 2<*status2>	Connecting...
+T 1381431005 2<*status2>	Attempting to connect to [irc-eag.americas.sgi.com 6667] ...
+T 1381431005 2<*status2>	Connected!
+T 1381431006 -10-11-	danielp sets mode +i danielp
+T 1381871618 12-13*status12-	*** danielp attached (from 127.0.0.1)

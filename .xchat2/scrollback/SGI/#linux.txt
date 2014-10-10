@@ -1,0 +1,692 @@
+T 1334085236 Python interface unloaded
+T 1334085247 19*	19Now talking on #linux
+T 1334085418 22*	Disconnected ().
+T 1334085438 -10-11>	You are now talking on 11#linux
+T 1334087150 <10-11-	Cornel has quit 14(Read error: 131 (Connection reset by peer)14)
+T 1334088170 -10-11>	Cornel 14(10~cboac@cf-vpn-sw-corp-69-209.corp.sgi.com14) has joined #linux
+T 1334089194 <10-11-	cleacock has quit 14(Leaving14)
+T 1334089347 <10-11-	andya has quit 14(andya14)
+T 1334089807 <10-11-	olli has quit 14(Remote closed the connection14)
+T 1334093038 2<26michel2>	ping gbeshers. sorry, got trapped in 2 long calls. now looking.
+T 1334093050 2<26michel2>	sounds like the cmc do not have a good local clock.
+T 1334093316 2<26michel2>	beshers. /tmp/cmcd.log is on the CMC, not the SMN
+T 1334094232 <10-11-	timp has quit 14(Leaving14)
+T 1334094258 <10-11-	Cornel has quit 14(Ping timeout: 120 seconds14)
+T 1334094317 -10-11>	dbanders 14(10~quassel@169.238.65.20914) has joined #linux
+T 1334095337 2<20jortega2>	tdm, you around?
+T 1334095377 2<20tdm2>	jortega, yes I am
+T 1334095393 2<20jortega2>	IHAC running RHEL 5.6 and running into issues with sgi-xvm kernel module
+T 1334095395 2<20jortega2>	not loading on boot
+T 1334095405 2<20jortega2>	I traced it down to system loading wrong xfs kernel module
+T 1334095415 2<20jortega2>	if I manually load xfs from the following dir, it works:
+T 1334095416 2<20jortega2>	-----------
+T 1334095431 2<20jortega2>	[root@dino ~]# !find
+T 1334095431 2<20jortega2>	find /lib/modules/`uname -r` -name xfs.ko -print
+T 1334095432 2<20jortega2>	/lib/modules/2.6.18-238.5.1.el5/weak-updates/xfs.ko
+T 1334095434 2<20jortega2>	/lib/modules/2.6.18-238.5.1.el5/kernel/fs/xfs/xfs.ko
+T 1334095436 2<20jortega2>	[root@dino ~]# insmod /lib/modules/2.6.18-238.5.1.el5/weak-updates/xfs.ko
+T 1334095438 2<20jortega2>	[root@dino ~]# lsmod | grep xfs
+T 1334095440 2<20jortega2>	xfs                   551496  0
+T 1334095442 2<20jortega2>	----------
+T 1334095449 2<20jortega2>	problem is system tends to load the one from /lib/modules/2.6.18-238.5.1.el5/weak-updates/xvm/sgi-xvm.ko
+T 1334095459 2<20jortega2>	even though we have a /etc/depmod.d/sgi.conf as follows:
+T 1334095460 2<20jortega2>	----------
+T 1334095467 2<20jortega2>	[root@dino ~]# more /etc/depmod.d/sgi.conf
+T 1334095467 2<20jortega2>	override xfs * weak-updates
+T 1334095468 2<20jortega2>	-------
+T 1334095470 2<20jortega2>	 any ideas?
+T 1334095479 2<20jortega2>	rhel5.6 pp6sp6
+T 1334095499 2<20jortega2>	jhanson recommended asking you   :)
+T 1334095580 2<20tdm2>	which version of xfs is listed in /lib/modules/2.6.18-238.5.1.el5.x86_64/modules.dep
+T 1334095609 2<20tdm2>	was depmod run after cxfs & xfs was installed?
+T 1334095621 2<27jhanson2>	just xfs xvm
+T 1334095625 2<27jhanson2>	not cxfs
+T 1334095647 2<20tdm2>	okay, was depmond run after xfs & xvm were installed?
+T 1334095697 2<20jortega2>	--------
+T 1334095697 2<20jortega2>	[root@dino ~]# grep xfs /lib/modules/`uname -r`/modules.dep
+T 1334095698 2<20jortega2>	/lib/modules/2.6.18-238.5.1.el5/kernel/fs/freevxfs/freevxfs.ko:
+T 1334095698 2<20jortega2>	/lib/modules/2.6.18-238.5.1.el5/kernel/fs/xfs/xfs.ko:
+T 1334095698 2<20jortega2>	/lib/modules/2.6.18-238.5.1.el5/weak-updates/xfs_quota.ko:
+T 1334095699 2<20jortega2>	-----
+T 1334095708 2<20jortega2>	I just removed and reinstalled the kmod-xfs RPM
+T 1334095712 2<20jortega2>	shouldn't that run it?
+T 1334095723 <10-11-	jamesm has quit 14(Ping timeout: 120 seconds14)
+T 1334095725 2<27jhanson2>	is it in the post-install?
+T 1334095760 2<20tdm2>	where is /lib/modules/2.6.18-238.5.1.el5/weak-updates/xfs.ko
+T 1334095765 2<20jortega2>	yes, it is
+T 1334095771 2<20jortega2>	I mean in the scripts
+T 1334095787 2<20jortega2>	[root@dino ~]# ls -l /lib/modules/2.6.18-238.5.1.el5/weak-updates/xfs.ko
+T 1334095787 2<20jortega2>	lrwxrwxrwx 1 root root 40 Apr 10 17:49 /lib/modules/2.6.18-238.5.1.el5/weak-updates/xfs.ko -> /lib/modules/2.6.18-164.el5/extra/xfs.ko
+T 1334095816 2<20jortega2>	[root@dino ~]# ls -l /lib/modules/2.6.18-164.el5/extra/xfs.ko
+T 1334095816 2<20jortega2>	-rw-r--r-- 1 root root 12691234 Jan  7  2010 /lib/modules/2.6.18-164.el5/extra/xfs.ko
+T 1334095816 2<20jortega2>	[root@dino ~]# rpm -qf /lib/modules/2.6.18-164.el5/extra/xfs.ko
+T 1334095816 2<20jortega2>	kmod-xfs-1.0-sgi606r1.rhel5
+T 1334096023 2<20tdm2>	see what version of xfs.ko is listed in modules.dep, run depmod manually, and check modules.dep again.
+T 1334096069 2<20tdm2>	I need to read the depmod manpage.   From the looks of the postinstall script for kmod-xfs, the depmod command may be wrong.
+T 1334096189 2<20jortega2>	well, here is the current setup:
+T 1334096190 2<20jortega2>	---------
+T 1334096191 2<20jortega2>	[root@dino ~]# grep xfs /lib/modules/`uname -r`/modules.dep
+T 1334096191 2<20jortega2>	/lib/modules/2.6.18-238.5.1.el5/kernel/fs/freevxfs/freevxfs.ko:
+T 1334096191 2<20jortega2>	/lib/modules/2.6.18-238.5.1.el5/kernel/fs/xfs/xfs.ko:
+T 1334096191 2<20jortega2>	/lib/modules/2.6.18-238.5.1.el5/weak-updates/xfs_quota.ko:
+T 1334096193 2<20jortega2>	-----------
+T 1334096220 2<20jortega2>	however, the kernel/fs/xfs/xfs.ko does not work
+T 1334096227 2<20jortega2>	it's the one under weak-updates that works
+T 1334096271 2<20jortega2>	I ran 'depmod -a', and it now looks quite different
+T 1334096279 2<20tdm2>	 /lib/modules/2.6.18-238.5.1.el5/kernel/fs/xfs/xfs.ko is the Red Hat supplied xfs.ko.  We don't want that one.
+T 1334096328 2<20jortega2>	yep
+T 1334096359 2<20jortega2>	it now works, after I manually ran 'depmod -a'
+T 1334096370 2<20jortega2>	it changed the order of the entries in the modules.dep
+T 1334096420 2<20jortega2>	so, perhaps there is something wrong in the postinstall
+T 1334096493 2<20tdm2>	weak-modules should kick off depmod.   It did something xfs_quota.ko ended up in modules.dep
+T 1334096522 2<20jortega2>	yes
+T 1334096540 2<20tdm2>	this version of the postinstall scripts does not create /etc/depmod.d/sgi.conf
+T 1334096549 2<20tdm2>	did you run depmod after creating /etc/depmod.d/sgi.conf?
+T 1334096550 2<20jortega2>	well, perhaps I should have the customer reboot to make sure it will work fine
+T 1334096561 2<20jortega2>	yes, I did depmod after creating the sgi.conf file
+T 1334096571 2<20jortega2>	but reinstalling the rpm didn't seem to help
+T 1334096577 2<20jortega2>	I had to manually run depmod -a myself
+T 1334096598 2<20jortega2>	I will call the customer and have him reboot to test
+T 1334096674 2<20tdm2>	why would running "depmod -a" now versus running is after /etc/depmod.d/sgi.conf was created?  hmmm
+T 1334096703 2<20tdm2>	why would running "depmod -a" now versus running is after /etc/depmod.d/sgi.conf was created produce a different outcome? hmmm...
+T 1334096771 -10-11>	Cornel 14(10~cboac@cf-vpn-sw-corp-69-212.corp.sgi.com14) has joined #linux
+T 1334096821 2<20tdm2>	the postinstall script is busted for kmod-xfs.
+T 1334096921 2<20jortega2>	well, customer already went home, it seems
+T 1334096927 2<20jortega2>	so, I'll check with him tomorrow
+T 1334096935 2<20jortega2>	it seems to work fine now, but it'd be nice to see what it does on boot
+T 1334096937 2<20jortega2>	thx, tdm
+T 1334096992 2<20tdm2>	jortega, you're welcome.   I fully expect the correct version of xfs will be loaded after a reboot now that modules.dep is as expected.
+T 1334097012 2<20jortega2>	me too, but I always like to run the empirical test    :)
+T 1334097066 2<20jortega2>	well, time to cook dinner now. hehee.
+T 1334097075 2<20jortega2>	have a good evening
+T 1334098281 <10-11-	harrison has quit 14(ChatZilla 0.9.88.2 [Firefox 11.0/2012031200]14)
+T 1334098311 -10-11>	harrison 14(10~harrison@10.220.3.21014) has joined #linux
+T 1334098432 -10-11-	swift is now known as swift|awa
+T 1334099704 <10-11-	harrison has quit 14(ChatZilla 0.9.88.2 [Firefox 11.0/2012031200]14)
+T 1334101128 <10-11-	dmk has quit 14(Ping timeout: 120 seconds14)
+T 1334107608 <10-11-	jortega has quit 14(Ex-Chat14)
+T 1334108588 <10-11-	payton has quit 14(Read error: 131 (Connection reset by peer)14)
+T 1334108698 -10-11>	payton 14(10~Adium@cf-vpn-sw-corp-69-181.corp.sgi.com14) has joined #linux
+T 1334112212 <10-11-	payton has quit 14(Read error: 131 (Connection reset by peer)14)
+T 1334115926 <10-11-	Cornel has quit 14(Leaving14)
+T 1334117256 -10-11>	jamesm 14(10jamesm@dhcp-169-238-221-142.americas.sgi.com14) has joined #linux
+T 1334117392 <10-11-	jamesm has quit 14(Ping timeout: 120 seconds14)
+T 1334119405 -10-11>	Cornel 14(10~cboac@cf-vpn-sw-corp-69-41.corp.sgi.com14) has joined #linux
+T 1334120969 <10-11-	Cornel has quit 14(Leaving14)
+T 1334125951 -10-11>	olli 14(10~olli@cf-vpn-sw-corp-69-76.corp.sgi.com14) has joined #linux
+T 1334126495 -10-11>	olaf 14(10~olaf@cornwerd.emea.sgi.com14) has joined #linux
+T 1334129458 <10-11-	Jeffjr has quit 14(Read error: 131 (Connection reset by peer)14)
+T 1334136139 -10-11>	payton 14(10~Adium@cf-vpn-sw-corp-69-135.corp.sgi.com14) has joined #linux
+T 1334144032 -10-11>	andya 14(10~andya@junkyard.americas.sgi.com14) has joined #linux
+T 1334144251 -10-11>	dmk 14(10~dmk@cf-vpn-hw-dmk-3.corp.sgi.com14) has joined #linux
+T 1334144998 -10-11>	cleacock 14(10cleacock@169.238.221.16114) has joined #linux
+T 1334145628 -10-11>	jamesm 14(10jamesm@dhcp-169-238-221-142.americas.sgi.com14) has joined #linux
+T 1334146030 <10-11-	jamesm has quit 14(Leaving14)
+T 1334146723 -10-11>	jamesm 14(10jamesm@dhcp-169-238-221-142.americas.sgi.com14) has joined #linux
+T 1334146816 <10-11-	olli has quit 14(Read error: 131 (Connection reset by peer)14)
+T 1334147003 <10-11-	npearl has quit 14(Leaving.14)
+T 1334147017 -10-11>	npearl 14(10~npearl@cf-vpn-hw-npearl-2.corp.sgi.com14) has joined #linux
+T 1334147930 -10-11>	olli 14(10~olli@cf-vpn-sw-corp-69-116.corp.sgi.com14) has joined #linux
+T 1334148262 -10-11>	jortega 14(10~jortega@cf-vpn-sw-corp-68-242.corp.sgi.com14) has joined #linux
+T 1334148859 <10-11-	gbeshers has quit 14(Remote closed the connection14)
+T 1334151125 <10-11-	olaf has quit 14(Remote closed the connection14)
+T 1334151294 <10-11-	npearl has quit 14(Leaving.14)
+T 1334151386 <10-11-	olli has quit 14(Read error: 131 (Connection reset by peer)14)
+T 1334151968 -10-11>	npearl 14(10~npearl@cf-vpn-hw-npearl-2.corp.sgi.com14) has joined #linux
+T 1334152492 -10-11>	olli 14(10~olli@cf-vpn-sw-corp-69-187.corp.sgi.com14) has joined #linux
+T 1334152863 -10-11>	kenh 14(10~kenh@sshcf.sgi.com14) has joined #linux
+T 1334153980 <10-11-	kenh has quit 14(Remote closed the connection14)
+T 1334154019 -10-11>	kenh 14(10~kenh@sshcf.sgi.com14) has joined #linux
+T 1334155552 -10-11-	swift|awa is now known as swift
+T 1334155731 -10-11>	gbeshers 14(10~gbeshers@sshcf.sgi.com14) has joined #linux
+T 1334156417 -10-11>	olaf 14(10~olaf@eu01-vpn-134-15-144-120.emea.sgi.com14) has joined #linux
+T 1334156949 -10-11>	tdm_lap 14(10~chatzilla@eagdhcp-233-155.americas.sgi.com14) has joined #linux
+T 1334157596 -10-11>	harrison 14(10~harrison@lt-nickc.workstations.corp.sgi.com14) has joined #linux
+T 1334158863 2<27jhanson2>	michel, are you upgrading uv44-smn at this time?
+T 1334159300 <10-11-	tdm_lap has quit 14(ChatZilla 0.9.88.2 [Firefox 11.0/20120310193829]14)
+T 1334159973 -10-11>	Cornel 14(10~cboac@cf-vpn-sw-corp-69-183.corp.sgi.com14) has joined #linux
+T 1334167251 <10-11-	Cornel has quit 14(Remote closed the connection14)
+T 1334167618 -10-11>	Cornel 14(10~cboac@cf-vpn-sw-corp-69-57.corp.sgi.com14) has joined #linux
+T 1334167943 2<26michel2>	jhanson. no. why ?
+T 1334167986 2<27jhanson2>	I wasn't able to login when I asked.
+T 1334167991 2<26michel2>	hm
+T 1334168014 2<27jhanson2>	I didn't check again.
+T 1334168020 2<26michel2>	still the same
+T 1334168021 2<27jhanson2>	I went to play with uv182-smn
+T 1334168255 2<26michel2>	oh oh . power was off
+T 1334168259 2<26michel2>	turned it on
+T 1334168263 2<26michel2>	now attempting pxe
+T 1334168266 2<26michel2>	hmmm
+T 1334169171 2<26michel2>	uv44-smn is back btw.
+T 1334169803 <10-11-	olaf has quit 14(Remote closed the connection14)
+T 1334170085 <10-11-	Cornel has quit 14(Ping timeout: 120 seconds14)
+T 1334173792 <10-11-	harrison has quit 14(Ping timeout: 120 seconds14)
+T 1334174801 -10-11>	harrison 14(10~harrison@10.220.3.21914) has joined #linux
+T 1334175637 2<29bhaxo2>	http://www.novell.com/support/search.do?cmd=displayKC&docType=kc&externalId=7010297&sliceId=1&docTypeID=DT_TID_1_1
+T 1334175695 2<29bhaxo2>	Does anyone have really good knowledge of SuSEconfig.postfix?
+T 1334175763 2<29bhaxo2>	See also 1025511: stout706 SLES11SP2 RLC not forwarding mail to admin.
+T 1334175771 <10-11-	cleacock has quit 14(Leaving14)
+T 1334175998 <10-11-	andya has quit 14(andya14)
+T 1334176740 <10-11-	gbeshers has quit 14(Remote closed the connection14)
+T 1334177173 -10-11>	Cornel 14(10~cboac@cf-vpn-sw-corp-69-183.corp.sgi.com14) has joined #linux
+T 1334181369 <10-11-	olli has quit 14(Remote closed the connection14)
+T 1334182233 <10-11-	harrison has quit 14(Ping timeout: 180 seconds14)
+T 1334182266 -10-11>	harrison 14(10~harrison@10.220.3.21914) has joined #linux
+T 1334182495 <10-11-	harrison has quit 14(Ping timeout: 180 seconds14)
+T 1334182555 -10-11>	harrison 14(10~harrison@10.220.3.21914) has joined #linux
+T 1334182647 <10-11-	jamesm has quit 14(Ping timeout: 120 seconds14)
+T 1334183462 -10-11-	swift is now known as swift|awa
+T 1334190155 <10-11-	harrison has quit 14(ChatZilla 0.9.88.2 [Firefox 11.0/2012031200]14)
+T 1334192175 <10-11-	jortega has quit 14(Ex-Chat14)
+T 1334197398 <10-11-	Cornel has quit 14(Ping timeout: 120 seconds14)
+T 1334197410 -10-11>	Cornel 14(10~cboac@cf-vpn-sw-corp-69-183.corp.sgi.com14) has joined #linux
+T 1334204278 -10-11>	jamesm 14(10~jamesm@dhcp-169-238-221-142.americas.sgi.com14) has joined #linux
+T 1334204414 <10-11-	jamesm has quit 14(Ping timeout: 120 seconds14)
+T 1334211808 -10-11>	olli 14(10~olli@cf-vpn-sw-corp-69-211.corp.sgi.com14) has joined #linux
+T 1334211820 <10-11-	Cornel has quit 14(Remote closed the connection14)
+T 1334224430 -10-11>	arun 14(10~arunr@cf-vpn-sw-corp-69-137.corp.sgi.com14) has joined #linux
+T 1334224977 <10-11-	arun 14(~arunr@cf-vpn-sw-corp-69-137.corp.sgi.com14) has left #linux
+T 1334230670 -10-11>	andya 14(10~andya@junkyard.americas.sgi.com14) has joined #linux
+T 1334231031 -10-11>	cleacock 14(10cleacock@169.238.221.16114) has joined #linux
+T 1334232756 -10-11>	jamesm 14(10jamesm@dhcp-169-238-221-142.americas.sgi.com14) has joined #linux
+T 1334232829 <10-11-	jamesm has quit 14(Leaving14)
+T 1334232849 -10-11>	jamesm 14(10jamesm@dhcp-169-238-221-142.americas.sgi.com14) has joined #linux
+T 1334234560 <10-11-	tdm has quit 14(Remote closed the connection14)
+T 1334234582 -10-11>	tdm 14(10~chatzilla@porter.americas.sgi.com14) has joined #linux
+T 1334235523 -10-11>	jortega 14(10~jortega@cf-vpn-sw-corp-69-241.corp.sgi.com14) has joined #linux
+T 1334240295 -10-11>	harrison 14(10~harrison@lt-fung.workstations.corp.sgi.com14) has joined #linux
+T 1334240442 -10-11>	gbeshers 14(10~gbeshers@sshcf.sgi.com14) has joined #linux
+T 1334240503 <10-11-	gbeshers has quit 14(Ex-Chat14)
+T 1334240509 -10-11>	gbeshers 14(10~gbeshers@sshcf.sgi.com14) has joined #linux
+T 1334241117 2<28sivanich2>	Anyone know if we have ever shipped 32-bit Linux libraries for any customer?
+T 1334241137 2<28sivanich2>	Or has any customer even asked for them, for that matter?
+T 1334241158 2<27jhanson2>	sivanich, at one time we shipped a full on ia32 linux
+T 1334241164 2<27jhanson2>	but that was a decade ago or so.
+T 1334241204 2<28sivanich2>	so never on x86.
+T 1334241240 2<27jhanson2>	on x86_64?
+T 1334241262 2<28sivanich2>	yes
+T 1334241270 2<27jhanson2>	well when we shipped ofed in pp we might have included 32 bit libraries.
+T 1334241284 2<27jhanson2>	but if you really mean sgi core software then I don't think so.
+T 1334241294 2<27jhanson2>	kgsnow, is the source to inquire against.
+T 1334241348 2<29kgsnow2>	some of the distros include 32-bit libs IIRC, sivanich.
+T 1334241362 2<27jhanson2>	both sles and rhel do
+T 1334241362 2<28sivanich2>	sles?
+T 1334241369 2<29kgsnow2>	yes, i believe both.
+T 1334241409 2<28sivanich2>	in case you're wondering, Irix customer is asking about 32 bit React Linux libraries.
+T 1334241436 2<29kgsnow2>	no, we've never shipped those as part of propack or performance suite.
+T 1334241452 2<28sivanich2>	i didn't think so.
+T 1334241472 2<29kgsnow2>	now, whether there was an effort managed by Lori's team separately, outside of my scope, i can't answer, but I would think not.
+T 1334241490 2<29kgsnow2>	focus was on irix, then ia64, then x86_64 i think.
+T 1334241552 2<28sivanich2>	nobody seems to recall any such effort.
+T 1334241586 2<29kgsnow2>	could have been a PS engagement, I suppose, but even that sounds unlikely without Lori's team knowing about it.
+T 1334241942 -10-11-	dmk is now known as dmk2
+T 1334242050 -10-11>	dmk 14(10dmk@cf-vpn-hw-dmk-3.corp.sgi.com14) has joined #linux
+T 1334242395 <10-11-	dmk has quit 14(Quit: leaving14)
+T 1334242412 <10-11-	dmk2 has quit 14(Leaving14)
+T 1334242414 <10-11-	dimitri has quit 14(Ping timeout: 120 seconds14)
+T 1334242499 -10-11>	dmk 14(10dmk@cf-vpn-hw-dmk-3.corp.sgi.com14) has joined #linux
+T 1334243436 <10-11-	ecain 14(~ecain@10.202.12.7714) has left #linux
+T 1334243576 -10-11>	ecain 14(10~ecain@10.202.12.7714) has joined #linux
+T 1334244219 -10-11>	dimitri 14(10~dimitri@sshcf.sgi.com14) has joined #linux
+T 1334244933 -10-11>	dimitri_ 14(10~dimitri@sshcf.sgi.com14) has joined #linux
+T 1334244950 <10-11-	dimitri has quit 14(Ping timeout: 120 seconds14)
+T 1334245019 -10-11-	dimitri_ is now known as dimitri
+T 1334245302 -10-11>	bcasavan_ 14(10bcasavan@pkunk.americas.sgi.com14) has joined #linux
+T 1334245325 <10-11-	bcasavan 14(~bcasavan@pkunk.americas.sgi.com14) has left #linux
+T 1334245375 <10-11-	bcasavan_ 14(bcasavan@pkunk.americas.sgi.com14) has left #linux
+T 1334245459 -10-11>	bcasavan 14(10bcasavan@pkunk.americas.sgi.com14) has joined #linux
+T 1334247903 -10-11>	Cornel 14(10~cboac@cf-vpn-sw-corp-69-187.corp.sgi.com14) has joined #linux
+T 1334249346 <10-11-	ecain has quit 14(Remote closed the connection14)
+T 1334249441 -10-11>	ecain 14(10~ecain@10.202.12.7714) has joined #linux
+T 1334250169 <10-11-	npearl has quit 14(Leaving.14)
+T 1334250532 -10-11>	npearl 14(10~npearl@cf-vpn-hw-npearl-2.corp.sgi.com14) has joined #linux
+T 1334253605 -10-11>	tdm_ 14(10chatzilla@porter.americas.sgi.com14) has joined #linux
+T 1334253657 <10-11-	tdm has quit 14(ChatZilla 0.9.86.1 [Firefox 2.0.0.6/2007073000]14)
+T 1334253664 -10-11-	tdm_ is now known as tdm
+T 1334253680 <10-11-	tdm 14(chatzilla@porter.americas.sgi.com14) has left #linux
+T 1334253688 -10-11>	tdm 14(10chatzilla@porter.americas.sgi.com14) has joined #linux
+T 1334256691 -10-11-	Disconnected ().
+T 1334256836 -10-11>	You are now talking on 11#linux
+T 1334256896 <10-11-	sivanich has quit 14(sivanich14)
+T 1334256913 -10-11>	sivanich 14(10~sivanich@santana.americas.sgi.com14) has joined #linux
+T 1334257399 <10-11-	dfrayer has quit 14(Remote closed the connection14)
+T 1334257432 -10-11>	dfrayer 14(10~dfrayer__@cf-vpn-hw-dfrayer-2.corp.sgi.com14) has joined #linux
+T 1334257748 <10-11-	sivanich has quit 14(sivanich14)
+T 1334257924 -10-11>	sivanich 14(10~sivanich@santana.americas.sgi.com14) has joined #linux
+T 1334257933 <10-11-	sivanich has quit 14(sivanich14)
+T 1334257945 -10-11>	sivanich 14(10~sivanich@santana.americas.sgi.com14) has joined #linux
+T 1334257977 <10-11-	sivanich has quit 14(sivanich14)
+T 1334258242 <10-11-	dfrayer has quit 14(Remote closed the connection14)
+T 1334258257 -10-11>	tee 14(10~tee@summit.americas.sgi.com14) has joined #linux
+T 1334258278 -10-11>	sivanich 14(10sivanich@santana.americas.sgi.com14) has joined #linux
+T 1334258301 -10-11>	dfrayer 14(10~dfrayer__@cf-vpn-hw-dfrayer-2.corp.sgi.com14) has joined #linux
+T 1334258390 <10-11-	tee has quit 14(Leaving14)
+T 1334258434 -10-11>	tee 14(10tee@summit.americas.sgi.com14) has joined #linux
+T 1334258443 <10-11-	tee has quit 14(Quit: Leaving14)
+T 1334258445 -10-11>	tee 14(10tee@summit.americas.sgi.com14) has joined #linux
+T 1334260800 -10-11>	timp 14(10timp@cfdhcp-87-87.americas.sgi.com14) has joined #linux
+T 1334261492 <10-11-	bcasavan has quit 14(Quit: Ex-Chat14)
+T 1334261623 -10-11>	bcasavan 14(10~bcasavan@pkunk.americas.sgi.com14) has joined #linux
+T 1334261657 <10-11-	bcasavan has quit 14(Ex-Chat14)
+T 1334261693 -10-11>	bcasavan 14(10bcasavan@pkunk.americas.sgi.com14) has joined #linux
+T 1334261830 <10-11-	cleacock has quit 14(Leaving14)
+T 1334262204 <10-11-	jamesm has quit 14(Leaving14)
+T 1334262445 <10-11-	andya has quit 14(Remote closed the connection14)
+T 1334262803 <10-11-	sivanich has quit 14(Quit: sivanich14)
+T 1334262916 -10-11>	sivanich 14(10sivanich@santana.americas.sgi.com14) has joined #linux
+T 1334262946 <10-11-	sivanich has quit 14(Quit: sivanich14)
+T 1334262963 -10-11>	sivanich 14(10sivanich@santana.americas.sgi.com14) has joined #linux
+T 1334264240 <10-11-	olli has quit 14(Remote closed the connection14)
+T 1334265828 <10-11-	sivanich has quit 14(Quit: sivanich14)
+T 1334266419 <10-11-	timp has quit 14(Leaving14)
+T 1334267424 2<20dmk2>	# the kernel nfs-server supports multiple server threads
+T 1334267424 2<20dmk2>	#
+T 1334267424 2<20dmk2>	USE_KERNEL_NFSD_NUMBER="4"
+T 1334267430 2<20dmk2>	is this set dynamically?
+T 1334267447 2<20dmk2>	count cores?
+T 1334267482 2<20dmk2>	4 seems standard.
+T 1334267501 2<20dmk2>	don't mind me.
+T 1334267509 2<20dmk2>	thanks for listening.
+T 1334268124 <10-11-	gbeshers has quit 14(Ex-Chat14)
+T 1334268675 <10-11-	jortega has quit 14(Ex-Chat14)
+T 1334269148 <10-11-	harrison has quit 14(ChatZilla 0.9.88.2 [Firefox 11.0/2012031200]14)
+T 1334278523 <10-11-	Cornel has quit 14(Remote closed the connection14)
+T 1334291338 <10-11-	npearl has quit 14(Ping timeout: 120 seconds14)
+T 1334295577 <10-11-	schamp has quit 14(Ping timeout: 120 seconds14)
+T 1334298534 -10-11>	olli 14(10~olli@cf-vpn-sw-corp-69-227.corp.sgi.com14) has joined #linux
+T 1334299419 <10-11-	dmk has quit 14(Read error: Connection reset by peer14)
+T 1334299814 <10-11-	olli has quit 14(Read error: 131 (Connection reset by peer)14)
+T 1334301215 -10-11>	olli 14(10~olli@cf-vpn-sw-corp-69-156.corp.sgi.com14) has joined #linux
+T 1334306864 -10-11>	olaf 14(10~olaf@cornwerd.emea.sgi.com14) has joined #linux
+T 1334313907 -10-11>	npearl 14(10~npearl@cf-vpn-hw-npearl-2.corp.sgi.com14) has joined #linux
+T 1334315690 -10-11>	dmk 14(10dmk@cf-vpn-hw-dmk-3.corp.sgi.com14) has joined #linux
+T 1334316813 -10-11>	cleacock 14(10cleacock@169.238.221.16114) has joined #linux
+T 1334316839 -10-11>	andya 14(10~andya@junkyard.americas.sgi.com14) has joined #linux
+T 1334317109 -10-11>	jamesm 14(10jamesm@dhcp-169-238-221-142.americas.sgi.com14) has joined #linux
+T 1334322050 -10-11>	jortega 14(10~jortega@cf-vpn-sw-corp-69-125.corp.sgi.com14) has joined #linux
+T 1334323081 <10-11-	arenaud has quit 14(Leaving14)
+T 1334324676 <10-11-	olaf has quit 14(Remote closed the connection14)
+T 1334330534 -10-11-	swift|awa is now known as swift
+T 1334331317 -10-11>	olaf 14(10~olaf@134.15.144.13614) has joined #linux
+T 1334331877 -10-11>	Cornel 14(10~cboac@cf-vpn-sw-corp-69-18.corp.sgi.com14) has joined #linux
+T 1334336096 <10-11-	michel has quit 14(Leaving 14)
+T 1334336163 -10-11>	michel 14(10~michel@cf-vpn-sw-corp-69-143.corp.sgi.com14) has joined #linux
+T 1334337819 <10-11-	cleacock has quit 14(Read error: 131 (Connection reset by peer)14)
+T 1334337900 <10-11-	tee has quit 14(Remote host closed the connection14)
+T 1334338168 <10-11-	olaf has quit 14(Remote closed the connection14)
+T 1334339940 -10-11>	cleacock 14(10cleacock@169.238.221.16114) has joined #linux
+T 1334340202 -10-11>	timp 14(10timp@cfdhcp-87-87.americas.sgi.com14) has joined #linux
+T 1334342189 <10-11-	Cornel has quit 14(Remote closed the connection14)
+T 1334342399 -10-11>	harrison 14(10~harrison@lt-itloaner4.workstations.corp.sgi.com14) has joined #linux
+T 1334345271 <10-11-	dimitri has quit 14(Ping timeout: 121 seconds14)
+T 1334345701 -10-11>	dimitri 14(10~dimitri@sshcf.sgi.com14) has joined #linux
+T 1334348133 <10-11-	jamesm has quit 14(Leaving14)
+T 1334348310 <10-11-	cleacock has quit 14(Leaving14)
+T 1334348456 <10-11-	andya has quit 14(andya14)
+T 1334348706 <10-11-	jortega has quit 14(Ping timeout: 120 seconds14)
+T 1334348717 -10-11>	jortega 14(10~jortega@cf-vpn-sw-corp-69-125.corp.sgi.com14) has joined #linux
+T 1334349896 -10-11>	Cornel 14(10~cboac@cf-vpn-sw-corp-69-163.corp.sgi.com14) has joined #linux
+T 1334350210 <10-11-	kenh has quit 14(Ping timeout: 120 seconds14)
+T 1334350390 -10-11>	kenh 14(10~kenh@sshcf.sgi.com14) has joined #linux
+T 1334351851 <10-11-	borno has quit 14(Leaving14)
+T 1334352171 <10-11-	Cornel has quit 14(Remote closed the connection14)
+T 1334352256 <10-11-	olli has quit 14(Remote closed the connection14)
+T 1334352298 <10-11-	bcasavan has quit 14(Quit: Ex-Chat14)
+T 1334352685 <10-11-	timp has quit 14(Leaving14)
+T 1334353103 <10-11-	payton has quit 14(Leaving.14)
+T 1334353693 -10-11>	tdm_lap 14(10~chatzilla@cf-vpn-sw-corp-69-206.corp.sgi.com14) has joined #linux
+T 1334354717 <10-11-	harrison has quit 14(ChatZilla 0.9.88.2 [Firefox 11.0/2012031200]14)
+T 1334354734 -10-11>	borno 14(10borno@cf-vpn-sw-corp-68-8.corp.sgi.com14) has joined #linux
+T 1334354982 <10-11-	jortega has quit 14(Ex-Chat14)
+T 1334356503 -10-11-	swift is now known as swift|awa
+T 1334357418 -10-11>	yuyan 14(10~chatzilla@postofc.csd.sgi.com14) has joined #linux
+T 1334357852 <10-11-	dimitri has quit 14(Ping timeout: 120 seconds14)
+T 1334358603 -10-11>	dimitri 14(10~dimitri@sshcf.sgi.com14) has joined #linux
+T 1334358687 2<26michel2>	ping yuyan
+T 1334359943 <10-11-	jlan has quit 14(Remote closed the connection14)
+T 1334361044 -10-11>	schamp 14(10~schamp@sshcf.sgi.com14) has joined #linux
+T 1334362523 <10-11-	tdm_lap has quit 14(ChatZilla 0.9.88.2 [Firefox 11.0/20120310193829]14)
+T 1334389206 -10-11>	dmk_ 14(10dmk@cf-vpn-hw-dmk-3.corp.sgi.com14) has joined #linux
+T 1334389206 <10-11-	dmk has quit 14(Read error: Connection reset by peer14)
+T 1334394504 <10-11-	rkerrym has quit 14(Ping timeout: 120 seconds14)
+T 1334399287 <10-11-	mjo has quit 14(Ping timeout: 120 seconds14)
+T 1334399881 -10-11>	mjo 14(10~badmojo@cf-vpn-sw-corp-69-82.corp.sgi.com14) has joined #linux
+T 1334404601 -10-11>	rkerrym 14(10~Adium@cf-vpn-hw-rkerry-4.corp.sgi.com14) has joined #linux
+T 1334409795 <10-11-	rkerrym has quit 14(Leaving.14)
+T 1334409828 -10-11>	rkerrym 14(10~Adium@cf-vpn-hw-rkerry-4.corp.sgi.com14) has joined #linux
+T 1334422462 <10-11-	rkerrym has quit 14(Ping timeout: 120 seconds14)
+T 1334422579 -10-11>	rkerrym 14(10~Adium@cf-vpn-hw-rkerry-4.corp.sgi.com14) has joined #linux
+T 1334432458 -10-11>	emery 14(10~emery@sshcf.sgi.com14) has joined #linux
+T 1334433453 <10-11-	dmk_ has quit 14(Remote host closed the connection14)
+T 1334445206 <10-11-	emery has quit 14(Leaving14)
+T 1334448729 <10-11-	dimitri has quit 14(dimitri14)
+T 1334456743 <10-11-	dfrayer has quit 14(Remote closed the connection14)
+T 1334494691 -10-11>	dfrayer 14(10~dfrayer__@cf-vpn-hw-dfrayer-4.corp.sgi.com14) has joined #linux
+T 1334498748 <10-11-	mjo has quit 14(Read error: 104 (Connection reset by peer)14)
+T 1334501105 -10-11>	dimitri 14(10~dimitri@sshcf.sgi.com14) has joined #linux
+T 1334504767 -10-11>	mjo 14(10~badmojo@cf-vpn-sw-corp-69-82.corp.sgi.com14) has joined #linux
+T 1334513748 -10-11>	cleacock 14(10cleacock@cf-vpn-sw-corp-68-40.corp.sgi.com14) has joined #linux
+T 1334513794 <10-11-	cleacock has quit 14(Leaving14)
+T 1334516321 -10-11>	cleacock 14(10cleacock@cf-vpn-sw-corp-68-40.corp.sgi.com14) has joined #linux
+T 1334519413 <10-11-	mjo has quit 14(Leaving.14)
+T 1334519770 <10-11-	kenh has quit 14(Ping timeout: 120 seconds14)
+T 1334520654 <10-11-	cleacock has quit 14(Leaving14)
+T 1334521071 -10-11>	mjo 14(10~badmojo@cf-vpn-sw-corp-69-39.corp.sgi.com14) has joined #linux
+T 1334523481 -10-11>	cleacock 14(10cleacock@cf-vpn-sw-corp-68-40.corp.sgi.com14) has joined #linux
+T 1334523513 <10-11-	cleacock has quit 14(Leaving14)
+T 1334529026 <10-11-	kgsnow has quit 14(Ping timeout: 180 seconds14)
+T 1334548915 <10-11-	swift|awa has quit 14(Leaving...14)
+T 1334554156 <10-11-	ddean_ has quit 14(Remote closed the connection14)
+T 1334557663 -10-11>	olli 14(10~olli@cf-vpn-sw-corp-68-50.corp.sgi.com14) has joined #linux
+T 1334562371 <10-11-	olli has quit 14(Read error: 131 (Connection reset by peer)14)
+T 1334563114 <10-11-	ddean has quit 14(Ping timeout: 120 seconds14)
+T 1334563145 <10-11-	dfrayer_ has quit 14(Ping timeout: 180 seconds14)
+T 1334563152 <10-11-	dfrayer__ has quit 14(Ping timeout: 180 seconds14)
+T 1334563900 -10-11>	dfrayer_ 14(10~dfrayer__@169.238.221.17014) has joined #linux
+T 1334563906 -10-11>	ddean 14(10~riot@riot.americas.sgi.com14) has joined #linux
+T 1334563928 -10-11>	dfrayer__ 14(10~dfrayer__@169.238.221.17014) has joined #linux
+T 1334563931 -10-11>	olli 14(10~olli@cf-vpn-sw-corp-69-136.corp.sgi.com14) has joined #linux
+T 1334570577 -10-11>	swift 14(10~swift@cf-vpn-hw-swift-1.corp.sgi.com14) has joined #linux
+T 1334570840 -10-11>	dmk 14(10dmk@cf-vpn-hw-dmk-3.corp.sgi.com14) has joined #linux
+T 1334571055 <10-11-	olli has quit 14(Read error: 131 (Connection reset by peer)14)
+T 1334572155 -10-11>	olli 14(10~olli@cf-vpn-sw-corp-69-156.corp.sgi.com14) has joined #linux
+T 1334575795 -10-11>	andya 14(10~andya@shade.americas.sgi.com14) has joined #linux
+T 1334576154 <10-11-	roland has quit 14(Remote closed the connection14)
+T 1334576268 -10-11>	cleacock 14(10cleacock@169.238.221.17514) has joined #linux
+T 1334576329 -10-11>	roland 14(10~richter@stupsi.emea.sgi.com14) has joined #linux
+T 1334576746 <10-11-	roland has quit 14(Remote closed the connection14)
+T 1334576900 <10-11-	borno has quit 14(Leaving14)
+T 1334577523 -10-11>	roland 14(10~richter@stupsi.emea.sgi.com14) has joined #linux
+T 1334578077 -10-11>	jamesm 14(10jamesm@dogwood.americas.sgi.com14) has joined #linux
+T 1334578753 -10-11>	arenaud 14(10~arenaud@cf-vpn-hw-arenaud-3.corp.sgi.com14) has joined #linux
+T 1334578813 -10-11>	borno 14(10borno@cfdhcp-87-36.americas.sgi.com14) has joined #linux
+T 1334579617 <10-11-	ddean has quit 14(giggity14)
+T 1334579658 -10-11>	ddean 14(10riot@riot.americas.sgi.com14) has joined #linux
+T 1334579900 -10-11>	sivanich 14(10sivanich@santana.americas.sgi.com14) has joined #linux
+T 1334580539 <10-11-	npearl has quit 14(Leaving.14)
+T 1334581445 -10-11>	jortega 14(10~jortega@cf-vpn-sw-corp-68-91.corp.sgi.com14) has joined #linux
+T 1334581554 -10-11>	npearl 14(10~npearl@cf-vpn-hw-npearl-2.corp.sgi.com14) has joined #linux
+T 1334583129 -10-11>	gbeshers 14(10~gbeshers@sshcf.sgi.com14) has joined #linux
+T 1334583313 <10-11-	gbeshers has quit 14(Remote closed the connection14)
+T 1334584269 <10-11-	sivanich has quit 14(Quit: sivanich14)
+T 1334584308 -10-11>	sivanich 14(10sivanich@santana.americas.sgi.com14) has joined #linux
+T 1334587069 <10-11-	sivanich 14(sivanich@santana.americas.sgi.com14) has left #linux
+T 1334587110 <10-11-	yuyan has quit 14(Ping timeout: 120 seconds14)
+T 1334587169 -10-11>	sivanich 14(10sivanich@santana.americas.sgi.com14) has joined #linux
+T 1334587913 -10-11>	gbeshers 14(10~gbeshers@sshcf.sgi.com14) has joined #linux
+T 1334589706 <10-11-	sivanich has quit 14(Quit: ZNC - http://znc.sourceforge.net14)
+T 1334590276 -10-11>	sivanich 14(10sivanich@santana.americas.sgi.com14) has joined #linux
+T 1334590282 2<26michel2>	ping jhanson
+T 1334590411 2<27jhanson2>	pong michel 
+T 1334590431 2<26michel2>	icenine updates nodes automatically. can we stop that and how ?
+T 1334590440 2<26michel2>	it breaks stuff I do for OM
+T 1334590453 2<27jhanson2>	nothing updates automatically that I know of.
+T 1334590456 2<27jhanson2>	and which nodes?
+T 1334590483 2<26michel2>	well, I know a fix I did isn't there
+T 1334590491 2<26michel2>	bizarre
+T 1334590492 2<27jhanson2>	where, when?
+T 1334590501 2<26michel2>	from yesterday to today
+T 1334590516 2<27jhanson2>	where?
+T 1334590521 2<27jhanson2>	what node?
+T 1334590549 2<26michel2>	r1 r2
+T 1334590562 2<27jhanson2>	node
+T 1334590564 2<27jhanson2>	not rack
+T 1334590595 2<26michel2>	I mean all nodes on r1 r2
+T 1334590612 2<27jhanson2>	and the change was?
+T 1334590623 2<26michel2>	mpiexec_mpt for instance
+T 1334590650 2<26michel2>	anyway, nvm, i'll fix it
+T 1334590655 2<27jhanson2>	the exact path please.
+T 1334591925 <10-11-	sivanich has quit 14(Quit: ZNC - http://znc.sourceforge.net14)
+T 1334592227 -10-11>	sivanich 14(10sivanich@santana.americas.sgi.com14) has joined #linux
+T 1334594291 <10-11-	swift has quit 14(Bye!14)
+T 1334594593 -10-11>	swift 14(10~swift@cf-vpn-hw-swift-1.corp.sgi.com14) has joined #linux
+T 1334595410 2<20tdm2>	jhanson, quick ask Al about making ISSP patches available on the update server :)
+T 1334595705 2<27jhanson2>	crap I missed my moment?
+T 1334595736 2<20tdm2>	you were to busy celebrating
+T 1334595763 2<27jhanson2>	"not going to be windows or some oddball stuff"
+T 1334595766 2<27jhanson2>	I like THAT!
+T 1334595825 2<27jhanson2>	there you go tdm
+T 1334595832 2<20tdm2>	at a boy!!!
+T 1334595858 2<27rkerrym2>	He's the Man of LaMancha!
+T 1334595917 2<27jhanson2>	yeah conroy!
+T 1334597311 -10-11>	jlan 14(10~jlan@sshcf.sgi.com14) has joined #linux
+T 1334597699 2<27jhanson2>	michel, are you doing anything with uv44-smn?
+T 1334597703 2<27jhanson2>	it's down again.
+T 1334597713 2<26michel2>	nope, doing nothing
+T 1334598255 2<27jhanson2>	michel, I reset it and it was going to image
+T 1334598263 2<27jhanson2>	but that seems to have failed for some reason.
+T 1334598271 2<27jhanson2>	I can reset again and chose local
+T 1334598273 2<26michel2>	hm
+T 1334598287 2<26michel2>	pls, pick local
+T 1334598295 2<26michel2>	sounds like default is to pxe. 
+T 1334598299 2<26michel2>	we shoudl make it local default
+T 1334598300 2<27jhanson2>	of course
+T 1334598601 2<27jhanson2>	well booting again.
+T 1334598611 2<27jhanson2>	too bad the console isn't going out the serial port
+T 1334598616 2<27jhanson2>	or I could SEE something.
+T 1334598715 2<27jhanson2>	okay it's booted.
+T 1334598803 2<26michel2>	yeah. noticed that. missing /proc/cmdline serial stuff
+T 1334601541 -10-11>	timp 14(10timp@cfdhcp-87-87.americas.sgi.com14) has joined #linux
+T 1334603188 <10-11-	swift has quit 14(Linkinus is updating...14)
+T 1334603199 -10-11>	swift 14(10~swift@cf-vpn-hw-swift-1.corp.sgi.com14) has joined #linux
+T 1334605268 <10-11-	gbeshers has quit 14(Ex-Chat14)
+T 1334607437 <10-11-	cleacock has quit 14(Leaving14)
+T 1334609699 <10-11-	olli has quit 14(Remote closed the connection14)
+T 1334610733 <10-11-	andya has quit 14(andya14)
+T 1334611519 <10-11-	beagan has quit 14(Remote closed the connection14)
+T 1334611740 <10-11-	timp has quit 14(Leaving14)
+T 1334612026 -10-11>	beagan 14(10~beagan@cf-vpn-hw-rcj-1.corp.sgi.com14) has joined #linux
+T 1334612401 <10-11-	dmk has quit 14(Quit: This computer has gone to sleep14)
+T 1334613941 <10-11-	jortega has quit 14(Ex-Chat14)
+T 1334621820 -10-11>	Cornel 14(10~cboac@cf-vpn-sw-corp-69-196.corp.sgi.com14) has joined #linux
+T 1334622124 <10-11-	beagan has quit 14(Ping timeout: 120 seconds14)
+T 1334622507 <10-11-	Cornel has quit 14(Ping timeout: 120 seconds14)
+T 1334622584 -10-11>	Cornel 14(10~cboac@cf-vpn-sw-corp-69-158.corp.sgi.com14) has joined #linux
+T 1334626580 <10-11-	Cornel has quit 14(Ping timeout: 120 seconds14)
+T 1334627720 <10-11-	dfrayer has quit 14(Remote closed the connection14)
+T 1334627794 <10-11-	roland has quit 14(Ping timeout: 121 seconds14)
+T 1334627910 -10-11>	roland 14(10~richter@stupsi.emea.sgi.com14) has joined #linux
+T 1334637219 <10-11-	swift has quit 14(Leaving...14)
+T 1334641849 <10-11-	npearl has quit 14(Ping timeout: 120 seconds14)
+T 1334641926 -10-11>	npearl 14(10~npearl@cf-vpn-hw-npearl-2.corp.sgi.com14) has joined #linux
+T 1334643482 <10-11-	npearl has quit 14(Ping timeout: 120 seconds14)
+T 1334644031 -10-11>	olli 14(10~olli@cf-vpn-sw-corp-68-92.corp.sgi.com14) has joined #linux
+T 1334661457 -10-11>	npearl 14(10~npearl@cf-vpn-hw-npearl-2.corp.sgi.com14) has joined #linux
+T 1334661734 <10-11-	dimitri has quit 14(Ping timeout: 121 seconds14)
+T 1334662813 -10-11>	cleacock 14(10cleacock@dhcp-169-238-221-188.americas.sgi.com14) has joined #linux
+T 1334663656 -10-11>	payton 14(10~Adium@cf-vpn-sw-corp-69-195.corp.sgi.com14) has joined #linux
+T 1334663834 <10-11-	cleacock has quit 14(Leaving14)
+T 1334663839 -10-11>	cleacock 14(10cleacock@dhcp-169-238-221-188.americas.sgi.com14) has joined #linux
+T 1334664058 -10-11>	andya 14(10~andya@dhcp-169-238-221-187.americas.sgi.com14) has joined #linux
+T 1334664197 -10-11>	dfrayer 14(10~dfrayer__@cf-vpn-hw-dfrayer-5.corp.sgi.com14) has joined #linux
+T 1334664444 -10-11>	dmk 14(10dmk@cf-vpn-hw-dmk-4.corp.sgi.com14) has joined #linux
+T 1334667229 -10-11>	jortega 14(10~jortega@cf-vpn-sw-corp-68-70.corp.sgi.com14) has joined #linux
+T 1334667473 <10-11-	jamesm has quit 14(Leaving14)
+T 1334668058 -10-11>	jamesm 14(10jamesm@dogwood.americas.sgi.com14) has joined #linux
+T 1334671343 -10-11>	dimitri 14(10~dimitri@sshcf.sgi.com14) has joined #linux
+T 1334671364 -10-11>	timp 14(10timp@cfdhcp-87-87.americas.sgi.com14) has joined #linux
+T 1334671395 <10-11-	dimitri 14(~dimitri@sshcf.sgi.com14) has left #linux
+T 1334671399 -10-11>	dimitri_ 14(10~dimitri@sshcf.sgi.com14) has joined #linux
+T 1334671522 -10-11-	dimitri_ is now known as dimitri
+T 1334672679 -10-11>	beagan 14(10~beagan@cf-vpn-sw-corp-68-90.corp.sgi.com14) has joined #linux
+T 1334673355 -10-11>	swift 14(10~swift@cf-vpn-hw-swift-1.corp.sgi.com14) has joined #linux
+T 1334674020 -10-11>	Cornel 14(10~cboac@cf-vpn-sw-corp-68-62.corp.sgi.com14) has joined #linux
+T 1334674117 -10-11>	harrison 14(10~harrison@10.220.3.1814) has joined #linux
+T 1334674293 <10-11-	Cornel has quit 14(Read error: 131 (Connection reset by peer)14)
+T 1334681403 <10-11-	andya has quit 14(Ping timeout: 120 seconds14)
+T 1334681566 -10-11>	andya 14(10~andya@dhcp-169-238-221-187.americas.sgi.com14) has joined #linux
+T 1334682976 -10-11-	harrison is now known as Grandpa-S
+T 1334682986 -10-11-	Grandpa-S is now known as harrison
+T 1334687968 -10-11>	Cornel 14(10~cboac@cf-vpn-sw-corp-69-149.corp.sgi.com14) has joined #linux
+T 1334689696 -10-11>	gbeshers 14(10~gbeshers@sshcf.sgi.com14) has joined #linux
+T 1334693766 <10-11-	jamesm has quit 14(Leaving14)
+T 1334693820 <10-11-	andya has quit 14(andya14)
+T 1334695200 <10-11-	olli has quit 14(Remote closed the connection14)
+T 1334699085 <10-11-	timp has quit 14(Leaving14)
+T 1334701061 2<26michel2>	trev: our hero :)
+T 1334701297 2<29trev2>	guitar hero?
+T 1334701307 2<29trev2>	:^)
+T 1334701386 <10-11-	jortega has quit 14(Ex-Chat14)
+T 1334702724 -10-11-	swift is now known as swift|awa
+T 1334710216 <10-11-	jlan 14(~jlan@sshcf.sgi.com14) has left #linux
+T 1334712088 <10-11-	Cornel has quit 14(Ping timeout: 120 seconds14)
+T 1334713028 <10-11-	dimitri has quit 14(Remote closed the connection14)
+T 1334714247 <10-11-	harrison has quit 14(Read error: 131 (Connection reset by peer)14)
+T 1334715961 <10-11-	mjo has quit 14(Ping timeout: 120 seconds14)
+T 1334716326 -10-11>	mjo 14(10~badmojo@cf-vpn-sw-corp-69-39.corp.sgi.com14) has joined #linux
+T 1334724444 <10-11-	dmk has quit 14(Ping timeout: 240 seconds14)
+T 1334730364 -10-11>	olli 14(10~olli@cf-vpn-sw-corp-68-50.corp.sgi.com14) has joined #linux
+T 1334734074 <10-11-	olli has quit 14(Read error: 131 (Connection reset by peer)14)
+T 1334735676 -10-11>	olli 14(10~olli@cf-vpn-sw-corp-69-162.corp.sgi.com14) has joined #linux
+T 1334748963 -10-11>	andya 14(10~andya@dhcp-169-238-221-187.americas.sgi.com14) has joined #linux
+T 1334749998 -10-11>	dmk 14(10dmk@cf-vpn-hw-dmk-4.corp.sgi.com14) has joined #linux
+T 1334753259 <10-11-	mjo has quit 14(Ping timeout: 122 seconds14)
+T 1334753391 -10-11>	mjo 14(10~badmojo@cf-vpn-sw-corp-69-39.corp.sgi.com14) has joined #linux
+T 1334754290 -10-11>	jortega 14(10~jortega@cf-vpn-sw-corp-68-100.corp.sgi.com14) has joined #linux
+T 1334754863 -10-11>	cleacock_ 14(10cleacock@dhcp-169-238-221-188.americas.sgi.com14) has joined #linux
+T 1334754875 <10-11-	cleacock has quit 14(Leaving14)
+T 1334754877 <10-11-	cleacock_ has quit 14(Read error: 131 (Connection reset by peer)14)
+T 1334754879 -10-11>	cleacock 14(10cleacock@dhcp-169-238-221-188.americas.sgi.com14) has joined #linux
+T 1334754920 -10-11>	cleacock_ 14(10cleacock@dhcp-169-238-221-188.americas.sgi.com14) has joined #linux
+T 1334754934 <10-11-	cleacock has quit 14(Leaving14)
+T 1334754935 <10-11-	cleacock_ has quit 14(Read error: 131 (Connection reset by peer)14)
+T 1334754954 -10-11>	cleacock 14(10cleacock@dhcp-169-238-221-188.americas.sgi.com14) has joined #linux
+T 1334756402 <10-11-	npearl has quit 14(Leaving.14)
+T 1334757108 -10-11>	timp 14(10timp@cfdhcp-87-87.americas.sgi.com14) has joined #linux
+T 1334757205 -10-11>	npearl 14(10~npearl@cf-vpn-hw-npearl-2.corp.sgi.com14) has joined #linux
+T 1334758279 <10-11-	beagan has quit 14(Read error: 131 (Connection reset by peer)14)
+T 1334758858 -10-11>	beagan 14(10~beagan@cf-vpn-hw-rcj-1.corp.sgi.com14) has joined #linux
+T 1334759764 -10-11-	swift|awa is now known as swift
+T 1334763162 -10-11>	tdm_lap 14(10~chatzilla@eagdhcp-233-189.americas.sgi.com14) has joined #linux
+T 1334763533 -10-11>	dimitri 14(10~dimitri@sshcf.sgi.com14) has joined #linux
+T 1334765050 <10-11-	tdm_lap has quit 14(ChatZilla 0.9.88.2 [Firefox 11.0/20120310193829]14)
+T 1334765073 -10-11>	tdm_ 14(10chatzilla@eagdhcp-233-189.americas.sgi.com14) has joined #linux
+T 1334765107 <10-11-	tdm_ has quit 14(Quit: ChatZilla 0.9.88.2 [Firefox 11.0/20120310193829]14)
+T 1334766020 -10-11>	Cornel 14(10~cboac@cf-vpn-sw-corp-69-61.corp.sgi.com14) has joined #linux
+T 1334766075 -10-11-	Cornel is now known as Cornel_NA
+T 1334766099 -10-11-	Cornel_NA is now known as Cornel_CA
+T 1334766275 <10-11-	swift has quit 14(Bye!14)
+T 1334766497 -10-11>	swift 14(10~swift@cf-vpn-hw-swift-1.corp.sgi.com14) has joined #linux
+T 1334770340 -10-11>	jlan 14(10~jlan@sshcf.sgi.com14) has joined #linux
+T 1334770426 -10-11>	harrison 14(10~chatzilla@10.220.3.9214) has joined #linux
+T 1334773041 <10-11-	harrison has quit 14(ChatZilla 0.9.88.2 [Firefox 10.0.2/2012021500]14)
+T 1334776064 -10-11>	harrison 14(10~harrison@10.220.3.2314) has joined #linux
+T 1334777012 <10-11-	bhaxo has quit 14(Remote closed the connection14)
+T 1334777802 -10-11>	bhaxo 14(10~bhaxo@10.202.12.10414) has joined #linux
+T 1334779373 <10-11-	cleacock has quit 14(Leaving14)
+T 1334780244 <10-11-	andya has quit 14(andya14)
+T 1334783847 <10-11-	timp has quit 14(Leaving14)
+T 1334785285 <10-11-	olli has quit 14(Remote closed the connection14)
+T 1334787436 <10-11-	swift has quit 14(Ping timeout: 120 seconds14)
+T 1334788147 <10-11-	jortega has quit 14(Ex-Chat14)
+T 1334788392 -10-11>	swift 14(10~swift@cf-vpn-hw-swift-1.corp.sgi.com14) has joined #linux
+T 1334788408 -10-11-	swift is now known as swift|awa
+T 1334790874 2<24beagan2>	looks like relay.engr.sgi.com backed up on sending e-mails.  maybe from the earlier network issue.
+T 1334791022 2<22emk2>	dns seems to be fudged all over
+T 1334791026 2<22emk2>	maybe other things too
+T 1334793417 <10-11-	harrison has quit 14(Remote closed the connection14)
+T 1334798580 <10-11-	Cornel_CA has quit 14(Remote closed the connection14)
+T 1334816167 <10-11-	roland has quit 14(Remote closed the connection14)
+T 1334816827 -10-11>	olli 14(10~olli@cf-vpn-sw-corp-68-107.corp.sgi.com14) has joined #linux
+T 1334817850 -10-11>	roland 14(10~richter@144.253.156.1614) has joined #linux
+T 1334823514 -10-11>	dmk_ 14(10dmk@cf-vpn-hw-dmk-4.corp.sgi.com14) has joined #linux
+T 1334823514 <10-11-	dmk has quit 14(Read error: Connection reset by peer14)
+T 1334834790 -10-11>	andya 14(10~andya@dhcp-169-238-221-187.americas.sgi.com14) has joined #linux
+T 1334836531 -10-11>	ddean_ 14(10~ddean@134.15.87.16514) has joined #linux
+T 1334837657 -10-11>	jamesm 14(10jamesm@dogwood.americas.sgi.com14) has joined #linux
+T 1334838265 -10-11>	cleacock 14(10cleacock@134.15.87.17014) has joined #linux
+T 1334839625 <10-11-	npearl has quit 14(Leaving.14)
+T 1334840443 -10-11>	jortega 14(10~jortega@cf-vpn-sw-corp-69-249.corp.sgi.com14) has joined #linux
+T 1334840578 -10-11>	npearl 14(10~npearl@cf-vpn-hw-npearl-2.corp.sgi.com14) has joined #linux
+T 1334843316 <10-11-	cleacock has quit 14(Leaving14)
+T 1334846612 <10-11-	bpm has quit 14(leaving14)
+T 1334847848 -10-11>	harrison 14(10~harrison@lt-dboulter.workstations.corp.sgi.com14) has joined #linux
+T 1334850886 -10-11>	Cornel 14(10~cboac@cf-vpn-sw-corp-68-86.corp.sgi.com14) has joined #linux
+T 1334850934 -10-11-	Cornel is now known as Cornel_CA
+T 1334856780 -10-11>	timp 14(10~timp@cfdhcp-87-87.americas.sgi.com14) has joined #linux
+T 1334857917 -10-11>	cleacock 14(10cleacock@134.15.87.17014) has joined #linux
+T 1334860526 -10-11>	lorenzou 14(10~lorenzou@10.220.3.9514) has joined #linux
+T 1334862935 <10-11-	dfults has quit 14(Ex-Chat14)
+T 1334866492 <10-11-	jamesm has quit 14(Leaving14)
+T 1334866640 <10-11-	andya has quit 14(andya14)
+T 1334866885 2<27rkerrym2>	is system imager in eagan known to be functioning correctly?
+T 1334866943 2<27rkerrym2>	I am partitioning and imaging a new system … it images the system but on reboot to the lone slot I have imaged I just get a blank screen after the BIOS stuff
+T 1334866951 2<27rkerrym2>	and it never boots, just hangs there
+T 1334867011 2<27rkerrym2>	I am trying again now and repartitioned the drive again in case the first time just had a problem with the sda1 partition for the chain load grub menu 
+T 1334867231 2<22emk2>	is it redhat that you're imaging? I think I heard ecain mumble the other day that some redhat image was failing to install grub properly
+T 1334867311 2<27rkerrym2>	no … sles11 sp1
+T 1334867327 2<27rkerrym2>	this is a new (to me) piece of hardware
+T 1334867357 2<27rkerrym2>	I just set up the system imager configuration'it should be identical to the setup for my other peralta box nodes
+T 1334867379 2<27rkerrym2>	I did verify that … verified the BIOS settings too and I beleive them to be identical
+T 1334867568 2<27rkerrym2>	given the whole boot appears as normal right up until it should be loading the grub on sda1 to present the slot options ...
+T 1334867597 2<27rkerrym2>	I am guessing there is something amiss with what is being laid down on that little sda1 extfs filesystem
+T 1334867653 2<27rkerrym2>	hence I decided to image slot 1 again and check the re-partition again as well … start from scratch and try again
+T 1334867958 2<20tdm2>	rkerrym, should "just work".   What RootFS did you select?
+T 1334867999 2<27rkerrym2>	xfs
+T 1334868005 <10-11-	olli has quit 14(Remote closed the connection14)
+T 1334868025 2<20tdm2>	okay.
+T 1334868044 2<27rkerrym2>	the imaging proceeds fine, but when I try to boot it fails … never even provide the chainload menu so the failure is before it even gets to what I imaged
+T 1334868081 2<27rkerrym2>	x86_64 … another peralta box in the GPS DMF lab I am trying to image
+T 1334868120 2<27rkerrym2>	so something amiss with sda1 which I think is a little fat partition or maybe a ext3 partition … whateer that is
+T 1334868160 2<27rkerrym2>	O am about to reboot -f after imaging and partitioning one more time now … keeping my fingers crossed
+T 1334868245 2<20tdm2>	we did see a problem with the "root" value being incorrect in menu.lst on the slot partition.   But with that error, you should at least get the first grub menu.
+T 1334868454 2<27rkerrym2>	ah … much better this time
+T 1334868458 2<27rkerrym2>	it is booting
+T 1334868486 2<27rkerrym2>	I am guessing there was some error the first time I did this that I missed
+T 1334868496 2<27rkerrym2>	this time I went back thru and saw nothing amias
+T 1334868498 2<27rkerrym2>	amiss
+T 1334868526 2<27rkerrym2>	even remount /dev/sda1 as /a and looked at the contents of /a/boot/grub to verify they looked reasonable
+T 1334868548 2<27rkerrym2>	they did so I did the reboot -f and it looks to be booting normally this time
+T 1334868578 2<27rkerrym2>	Welcome to SUSE Linux Enterprise Server 11 SP1  (x86_64) - Kernel 2.6.32.46-0.3-default (console).
+T 1334868578 2<27rkerrym2>	caiman login: 
+T 1334868580 2<27rkerrym2>	:-)
+T 1334868593 2<27rkerrym2>	one down, three to go
+T 1334869422 2<27rkerrym2>	hey tdm … what is the domain to login to tdmf1/tdmf1 in longmont ??
+T 1334869426 2<27rkerrym2>	and is root just sgisgi ??
+T 1334869438 2<27rkerrym2>	tdmf1/tdmf2
+T 1334869443 2<20tdm2>	10.4.2.61       tdmf.tst.copansys.com
+T 1334869447 2<20tdm2>	10.4.2.34       tdmf2.tst.copansys.com
+T 1334869487 2<20tdm2>	yep, root is sgisgi
+T 1334869533 2<27rkerrym2>	ok thks'
+T 1334870555 <10-11-	timp has quit 14(Leaving14)
+T 1334871584 <10-11-	cleacock has quit 14(Ping timeout: 180 seconds14)
+T 1334873405 <10-11-	jortega has quit 14(Ex-Chat14)
+T 1334874262 -10-11>	cleacock 14(10cleacock@134.15.87.17014) has joined #linux
+T 1334875756 <10-11-	Cornel_CA has quit 14(Remote closed the connection14)
+T 1334876334 -10-11>	cleacock_ 14(10cleacock@134.15.87.17314) has joined #linux
+T 1334876415 <10-11-	cleacock_ has quit 14(Leaving14)
+T 1334876484 <10-11-	cleacock has quit 14(Ping timeout: 180 seconds14)
+T 1334877038 -10-11>	cleacock 14(10cleacock@134.15.87.17314) has joined #linux
+T 1334877423 <10-11-	cleacock has quit 14(Read error: 131 (Connection reset by peer)14)
+T 1334878306 -10-11>	cleacock 14(10cleacock@134.15.87.17014) has joined #linux
+T 1334878366 <10-11-	cleacock has quit 14(Leaving14)
+T 1334878369 -10-11>	cleacock 14(10cleacock@134.15.87.17014) has joined #linux
+T 1334879538 <10-11-	cleacock has quit 14(Ping timeout: 180 seconds14)
+T 1334880104 -10-11>	cleacock 14(10cleacock@cf-vpn-sw-corp-68-99.corp.sgi.com14) has joined #linux
+T 1334881274 <10-11-	dmk_ has quit 14(Remote host closed the connection14)
+T 1334882745 <10-11-	harrison has quit 14(ChatZilla 0.9.88.2 [Firefox 11.0/2012031200]14)
+T 1334884363 <10-11-	lorenzou has quit 14(Leaving14)
+T 1334886095 -10-11>	cleacock_ 14(10cleacock@cf-vpn-sw-corp-68-99.corp.sgi.com14) has joined #linux
+T 1334886095 <10-11-	cleacock has quit 14(Connection reset by peer14)
+T 1334887548 <10-11-	sivanich has quit 14(Quit: ZNC - http://znc.sourceforge.net14)
+T 1334887585 -10-11>	sivanich 14(10sivanich@santana.americas.sgi.com14) has joined #linux
+T 1334894337 <10-11-	cleacock_ has quit 14(Leaving14)
+T 1334898781 <10-11-	vaclavb has quit 14(Ping timeout: 120 seconds14)
+T 1334898788 -10-11>	vaclavb 14(10~vaclavb@mrcha.emea.sgi.com14) has joined #linux
+T 1334899749 <10-11-	ddean_ has quit 14(Remote closed the connection14)
+T 1334903337 -10-11>	olli 14(10~olli@cf-vpn-sw-corp-68-138.corp.sgi.com14) has joined #linux
+T 1334907609 <10-11-	rkerrym has quit 14(Leaving.14)
+T 1334920645 -10-11>	rkerrym 14(10~Adium@cf-vpn-hw-rkerry-4.corp.sgi.com14) has joined #linux
+T 1334921683 -10-11>	andya 14(10~andya@dhcp-169-238-221-196.americas.sgi.com14) has joined #linux
+T 1334926786 -10-11>	jortega 14(10~jortega@cf-vpn-sw-corp-68-54.corp.sgi.com14) has joined #linux
+T 1334930214 -10-11>	timp 14(10timp@cfdhcp-87-87.americas.sgi.com14) has joined #linux
+T 1334931335 -10-11>	rjohnston 14(10chatzilla@lnx-rjohnston.americas.sgi.com14) has joined #linux
+T 1334931610 <10-11-	olli has quit 14(Read error: 131 (Connection reset by peer)14)
+T 1334931902 -10-11>	tee 14(10~tee@sshcf.sgi.com14) has joined #linux
+T 1334932728 -10-11>	olli 14(10~olli@cf-vpn-sw-corp-68-102.corp.sgi.com14) has joined #linux
+T 1334934298 -10-11>	harrison 14(10~harrison@10.220.3.914) has joined #linux
+T 1334934908 -10-11>	emery 14(10~emery@sshcf.sgi.com14) has joined #linux
+T 1334935161 <10-11-	sivanich has quit 14(Quit: ZNC - http://znc.sourceforge.net14)
+T 1334935192 -10-11>	sivanich 14(10sivanich@santana.americas.sgi.com14) has joined #linux
+T 1334935273 Tcl interface unloaded
+T 1334935274 Python interface unloaded

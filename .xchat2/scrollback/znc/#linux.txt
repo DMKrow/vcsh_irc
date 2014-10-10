@@ -1,0 +1,699 @@
+T 1382476786 <10-11-	tdm has quit 14(Ping timeout: 240 seconds14)
+T 1382477169 -10-11>	tdm 14(10~chatzilla@porter.americas.sgi.com14) has joined #linux
+T 1382477220 2<26michel2>	well, I will post the "directives" to the stout7/git wiki page. So, please comment once I update the page. Are you "wiki watching" the page ?
+T 1382477676 <10-11-	timp 14(~timp@cfdhcp-87-22.americas.sgi.com14) has left #linux
+T 1382478541 <10-11-	sgosse has quit 14(Ping timeout: 240 seconds14)
+T 1382479045 <10-11-	erikj has quit 14(Remote host closed the connection14)
+T 1382479071 <10-11-	nzimmer has quit 14(Ping timeout: 240 seconds14)
+T 1382479572 <10-11-	sivanich has quit 14(Quit: ZNC - http://znc.sourceforge.net14)
+T 1382479593 <10-11-	jortega has quit 14(Quit: Ex-Chat14)
+T 1382479893 <10-11-	rjohnsto1 has quit 14(Read error: Connection reset by peer14)
+T 1382482058 <10-11-	xemery has quit 14(Quit: Leaving14)
+T 1382485455 -10-11>	xemery 14(10~xemery@sshcf.sgi.com14) has joined #linux
+T 1382486840 -10-11>	erikj 14(10~erikj@cf-sslvpn-1-105.corp.sgi.com14) has joined #linux
+T 1382488809 <10-11-	xemery has quit 14(Quit: Leaving14)
+T 1382488912 -10-11>	xemery 14(10~xemery@sshcf.sgi.com14) has joined #linux
+T 1382489010 <10-11-	xemery has quit 14(Quit: Leaving14)
+T 1382490584 <10-11-	gwh has quit 14(Remote host closed the connection14)
+T 1382494401 <10-11-	swift has quit 14(Quit: Bye!14)
+T 1382507476 -10-11>	msuchy 14(10msuchy@eu-sslvpn-144-133.emea.sgi.com14) has joined #linux
+T 1382507561 -10-11>	jmaly 14(10jmaly@ca-sslvpn-129-40.corp.sgi.com14) has joined #linux
+T 1382511637 -10-11>	jonathans 14(10~jonathans@feck.emea.sgi.com14) has joined #linux
+T 1382519784 <10-11-	msuchy has quit 14(Ping timeout: 240 seconds14)
+T 1382521440 -10-11>	msuchy 14(10msuchy@eu-sslvpn-145-209.emea.sgi.com14) has joined #linux
+T 1382524815 <10-11-	jmaly has quit 14(Quit: Leaving14)
+T 1382532567 -10-11>	swift 14(10~swift@cf-vpn-hw-swift-1.corp.sgi.com14) has joined #linux
+T 1382532735 -10-11>	sivanich 14(10~sivanich@santana.americas.sgi.com14) has joined #linux
+T 1382533352 -10-11>	jortega 14(10~jortega@cf-vpn-hw-jortega-3.corp.sgi.com14) has joined #linux
+T 1382533594 -10-11>	Jeffjr 14(10~jeffjr@cf-sslvpn-0-123.corp.sgi.com14) has joined #linux
+T 1382535196 <10-11-	rkerrym has quit 14(Read error: Connection reset by peer14)
+T 1382535499 -10-11>	rkerrym 14(10~Adium@ca-sslvpn-128-151.corp.sgi.com14) has joined #linux
+T 1382535933 -10-11>	sgosse 14(10sgosse@eagdhcp-232-182.americas.sgi.com14) has joined #linux
+T 1382536278 <10-11-	npearl has quit 14(Quit: Leaving.14)
+T 1382536836 -10-11>	npearl 14(10~npearl@cf-vpn-hw-npearl-2.corp.sgi.com14) has joined #linux
+T 1382537525 <10-11-	athorlton has quit 14(Quit: Lost terminal14)
+T 1382537778 2<22erikj2>	tdm I'm trying to do a full sgi-install build for something and I'm missing sgi-dmf_copy-plugin-for-claritynow (needed by mangrove sgi-install stuff).  I'm having trouble figuring out where in the tree to build that
+T 1382537933 2<22erikj2>	I'll just h ack out mangrove for now even though it's a less valid test
+T 1382538268 2<27rkerrym2>	haha … that just got added
+T 1382538285 2<22erikj2>	do you know the path? I just want to build it so it's in my work area
+T 1382538643 2<20tdm2>	erikj,  just checked sgi-dmf_copy-plugin-for-claritynow in last night.
+T 1382538684 2<20tdm2>	build target is mangrove/cmds/dmf_copy-plugin-for-claritynow
+T 1382538692 2<22erikj2>	thanks! 
+T 1382538730 2<22erikj2>	I see what happened, I thought I had p_tupdated mangrove but I did not. no wonder searching didn't find it :)
+T 1382539193 -10-11>	timp 14(10~timp@cfdhcp-87-22.americas.sgi.com14) has joined #linux
+T 1382540927 <10-11-	kgsnow1 has quit 14(Quit: kgsnow114)
+T 1382542334 -10-11>	gbanks 14(10~gnb@ca-sslvpn-128-7.corp.sgi.com14) has joined #linux
+T 1382544158 -10-11>	kgsnow 14(10~Thunderbi@ca-sslvpn-129-191.corp.sgi.com14) has joined #linux
+T 1382544219 <10-11-	jonathans has quit 14(Quit: Leaving14)
+T 1382544440 <10-11-	jortega has quit 14(Ping timeout: 240 seconds14)
+T 1382544491 -10-11>	jortega 14(10~jortega@cf-vpn-hw-jortega-3.corp.sgi.com14) has joined #linux
+T 1382544647 2<28altman2>	so cb10 is having some IB connectivity issues... I could file a ticket to have someone go reseat the blades that are having issues, but I could also go try do it myself.  never done it before... how big of a can of worms would I be opening?
+T 1382544876 2<22erikj2>	kgsnow pigz - lakshmy is reviewing my changes. for rhel6, I dump in EPEL version. for rhel7 (at least until there is an EPEL) and sles11, I build it based on the epel source rpm for ease of maintenance. Should ube going in today. Doing some sgi-install tests now
+T 1382544898 2<22erikj2>	fyi only unless you have a concern
+T 1382545500 -10-11>	jcuster 14(10jcuster@eagdhcp-232-164.americas.sgi.com14) has joined #linux
+T 1382545521 6<danielp6>	altman, cb10 is a couple hours drive :)
+T 1382545541 2<28altman2>	good to know.  thought it was in eagan for some reason
+T 1382545624 6<danielp6>	maybe emk could chime in with advice on how to get a board reseat on cb10?
+T 1382545712 2<28altman2>	in an email thread where Eugene Kremenetsky recommended that debug step, he said I should file a bug for it.  only reason I haven't was I was thinking about doing it myself, but it's probably not worth a drive across state lines.
+T 1382545771 -10-11>	gwh 14(10~gwh@150.166.2.9914) has joined #linux
+T 1382545817 6<danielp6>	everything in eagan is under http://linux.engr.sgi.com/reserve/index.php
+T 1382546824 2<22emk2>	i thought cb10 was in CF?
+T 1382546905 2<28altman2>	what group should I assign the cb10 reseat ticket to
+T 1382546906 2<28altman2>	?
+T 1382546918 2<22emk2>	hold on, talking to borno in another chat :)
+T 1382547085 2<25borno2>	altman, send an email to either [cchovan|leather|cswoboda]
+T 1382547131 2<25borno2>	I'm in the middle of some cb12 configs.  if you don't get an answer, ping me around 1:30pm CT today and I'll see what I can do
+T 1382547138 2<28altman2>	OK, thanks
+T 1382547147 2<22emk2>	thanks borno 
+T 1382547537 -10-11>	jrunnings 14(10~jrunnings@cf-sslvpn-1-91.corp.sgi.com14) has joined #linux
+T 1382547550 <10-11-	jrunnings has quit 14(Quit: Leaving.14)
+T 1382547991 <10-11-	dfrayer_ has quit 14(Remote host closed the connection14)
+T 1382548116 -10-11>	dfrayer_ 14(10~dfrayer__@cf-vpn-hw-dfrayer-2.corp.sgi.com14) has joined #linux
+T 1382550085 <10-11-	swift has quit 14(Ping timeout: 240 seconds14)
+T 1382550086 -10-11>	xemery 14(10~xemery@sshcf.sgi.com14) has joined #linux
+T 1382550811 2<28jlan2>	:q
+T 1382550840 6<danielp6>	try :qa! instead
+T 1382550947 <10-11-	jcuster has quit 14(14)
+T 1382551034 2<28sivanich2>	c
+T 1382551528 -10-11>	swift 14(10~swift@cf-vpn-hw-swift-1.corp.sgi.com14) has joined #linux
+T 1382553353 -10-11-	You have left channel #linux
+T 1382553435 -10-11>	You are now talking on 11#linux
+T 1382553461 -10-11>	gbeshers 14(10~gbeshers@sshcf.sgi.com14) has joined #linux
+T 1382553548 <10-11-	swift has quit 14(Quit: Bye!14)
+T 1382554093 -10-11>	swift 14(10~swift@cf-vpn-hw-swift-1.corp.sgi.com14) has joined #linux
+T 1382557246 -10-11>	rjohnsto1 14(10~rich@eagdhcp-232-185.americas.sgi.com14) has joined #linux
+T 1382557262 <10-11-	gbeshers has quit 14(Quit: Ex-Chat14)
+T 1382557282 -10-11>	jrunnings 14(10~jrunnings@cf-sslvpn-1-27.corp.sgi.com14) has joined #linux
+T 1382558020 <10-11-	cornel has quit 14(Read error: Connection reset by peer14)
+T 1382558380 <10-11-	rjohnsto1 has quit 14(Quit: Leaving.14)
+T 1382561583 -10-11>	npearl1 14(10~npearl@cf-vpn-hw-npearl-2.corp.sgi.com14) has joined #linux
+T 1382561583 <10-11-	msuchy has quit 14(Read error: Connection reset by peer14)
+T 1382561660 <10-11-	npearl has quit 14(Ping timeout: 240 seconds14)
+T 1382564707 <10-11-	timp 14(~timp@cfdhcp-87-22.americas.sgi.com14) has left #linux
+T 1382565707 <10-11-	jortega has quit 14(Quit: Ex-Chat14)
+T 1382567181 <10-11-	quinten has quit 14(Remote host closed the connection14)
+T 1382569631 <10-11-	sgosse has quit 14(Ping timeout: 240 seconds14)
+T 1382571972 <10-11-	xemery has quit 14(Quit: Leaving14)
+T 1382572337 <10-11-	jrunnings has quit 14(Quit: Leaving.14)
+T 1382572697 <10-11-	bbice has quit 14(Quit: Leaving.14)
+T 1382574095 <10-11-	rkerrym has quit 14(Read error: Connection reset by peer14)
+T 1382574311 <10-11-	gwh has quit 14(Remote host closed the connection14)
+T 1382584785 <10-11-	jlan has quit 14(Remote host closed the connection14)
+T 1382587574 -10-11>	cornel 14(10~cboac@cf-sslvpn-1-115.corp.sgi.com14) has joined #linux
+T 1382591210 <10-11-	cornel has quit 14(Read error: Connection reset by peer14)
+T 1382591668 -10-11>	xemery 14(10~xemery@sshcf.sgi.com14) has joined #linux
+T 1382592450 -10-11>	cornel 14(10~cboac@cf-sslvpn-1-224.corp.sgi.com14) has joined #linux
+T 1382592830 <10-11-	cornel has quit 14(Read error: Connection reset by peer14)
+T 1382594690 <10-11-	gbanks has quit 14(Ping timeout: 240 seconds14)
+T 1382596239 -10-11>	msuchy 14(10msuchy@cz-250-46.emea.sgi.com14) has joined #linux
+T 1382596824 <10-11-	msuchy has quit 14(Ping timeout: 240 seconds14)
+T 1382597782 -10-11>	jonathans 14(10~jonathans@feck.emea.sgi.com14) has joined #linux
+T 1382598959 <10-11-	xemery has quit 14(Quit: Leaving14)
+T 1382605587 <10-11-	mjo has quit 14(Quit: Leaving.14)
+T 1382611337 -10-11>	msuchy 14(10msuchy@eu-sslvpn-144-234.emea.sgi.com14) has joined #linux
+T 1382613885 <10-11-	kenh 14(~kenh@sshcf.sgi.com14) has left #linux
+T 1382616006 <10-11-	tmoore has quit 14(Ping timeout: 240 seconds14)
+T 1382617263 -10-11>	tmoore 14(10~tmoore@eagdhcp-232-152.americas.sgi.com14) has joined #linux
+T 1382617304 <10-11-	msuchy has quit 14(Ping timeout: 240 seconds14)
+T 1382618640 -10-11>	gwh 14(10~gwh@sshcf.sgi.com14) has joined #linux
+T 1382619581 -10-11>	jortega 14(10~jortega@cf-vpn-hw-jortega-3.corp.sgi.com14) has joined #linux
+T 1382621552 -10-11>	msuchy 14(10msuchy@eu-sslvpn-145-73.emea.sgi.com14) has joined #linux
+T 1382623334 -10-11>	quinten 14(10~quinten@lnx-quinten.americas.sgi.com14) has joined #linux
+T 1382624145 <10-11-	npearl1 has quit 14(Quit: Leaving.14)
+T 1382624154 -10-11>	npearl 14(10~npearl@cf-vpn-hw-npearl-2.corp.sgi.com14) has joined #linux
+T 1382624276 <10-11-	tmoore has quit 14(Quit: Lost terminal14)
+T 1382624539 <10-11-	msuchy has quit 14(Ping timeout: 240 seconds14)
+T 1382624581 -10-11>	msuchy 14(10msuchy@eu-sslvpn-145-73.emea.sgi.com14) has joined #linux
+T 1382624916 -10-11>	sgosse 14(10sgosse@eagdhcp-232-196.americas.sgi.com14) has joined #linux
+T 1382628075 -10-11>	xemery 14(10~xemery@sshcf.sgi.com14) has joined #linux
+T 1382628638 -10-11>	bbice 14(10~bbice@lnx-bbice.corp.sgi.com14) has joined #linux
+T 1382628641 <10-11-	swift has quit 14(Quit: Bye!14)
+T 1382629587 -10-11>	swift 14(10~swift@cf-vpn-hw-swift-1.corp.sgi.com14) has joined #linux
+T 1382629772 <10-11-	msuchy has quit 14(Read error: Connection reset by peer14)
+T 1382629804 -10-11>	msuchy 14(10msuchy@cz-250-46.emea.sgi.com14) has joined #linux
+T 1382630403 -10-11>	jcuster 14(10jcuster@eagdhcp-232-205.americas.sgi.com14) has joined #linux
+T 1382630427 <10-11-	jonathans has quit 14(Quit: Leaving14)
+T 1382630505 <10-11-	xemery has quit 14(Quit: Leaving14)
+T 1382630835 <10-11-	npearl has quit 14(Ping timeout: 240 seconds14)
+T 1382632572 <10-11-	gwh has quit 14(Remote host closed the connection14)
+T 1382632677 <10-11-	quinten has quit 14(Remote host closed the connection14)
+T 1382632865 -10-11>	quinten 14(10~quinten@lnx-quinten.americas.sgi.com14) has joined #linux
+T 1382634111 <10-11-	quinten has quit 14(Remote host closed the connection14)
+T 1382635446 -10-11>	npearl 14(10~npearl@cf-vpn-hw-npearl-2.corp.sgi.com14) has joined #linux
+T 1382635717 -10-11>	timp 14(10~timp@cfdhcp-87-22.americas.sgi.com14) has joined #linux
+T 1382636006 -10-11>	gbanks 14(10~gnb@dhcp-engr2-us02-145.americas.sgi.com14) has joined #linux
+T 1382636258 -10-11>	xemery 14(10~xemery@sshcf.sgi.com14) has joined #linux
+T 1382636591 -10-11>	jlan 14(10~jlan@sshcf.sgi.com14) has joined #linux
+T 1382637418 -10-11>	gwh 14(10~gwh@150.166.2.9914) has joined #linux
+T 1382637643 -10-11>	lorenzou 14(10~lorenzou@mtv-vpn-hw-lorenzou-1.corp.sgi.com14) has joined #linux
+T 1382638579 -10-11>	gbeshers 14(10~gbeshers@sshcf.sgi.com14) has joined #linux
+T 1382640439 <10-11-	msuchy has quit 14(Ping timeout: 240 seconds14)
+T 1382641118 -10-11>	quinten 14(10~quinten@lnx-quinten.americas.sgi.com14) has joined #linux
+T 1382641198 -10-11>	tmoore 14(10~tmoore@eagdhcp-232-152.americas.sgi.com14) has joined #linux
+T 1382642358 <10-11-	Jeffjr has quit 14(Quit: Leaving.14)
+T 1382645771 <10-11-	npearl has quit 14(Read error: Connection reset by peer14)
+T 1382646392 2<24sgosse2>	Something happen to gulag1? My terminals on there are hung, I can't ssh in, and it won't ping.
+T 1382646418 2<24sgosse2>	And my hung connections just reset.
+T 1382646449 2<28sivanich2>	same here.
+T 1382646534 2<24sgosse2>	So I guess the question isn't so much did something happen but does anyone know what, why, and possible ETA on resurrection? Or time to send email to esahelp@engr.sgi.com?
+T 1382646717 2<28sivanich2>	probably time for the email.
+T 1382646744 2<24sgosse2>	Just did. Got the open automated bug and learned that outlook formatting doesn't play well with the auto-bug-opener...
+T 1382646813 2<24sgosse2>	!pv 1039574
+T 1382646824 2<24sgosse2>	oh, newbot isn't here...
+T 1382646831 -10-11>	newbot 14(10~stockbot@mirage.emea.sgi.com14) has joined #linux
+T 1382646834 2<24sgosse2>	!pv 1039574
+T 1382646835 2<28newbot2>	bug 1039574: P3 - Open - gulag1 died - nsdsa/nsdsa
+T 1382646844 2<28sivanich2>	Thanks sgosse.
+T 1382646852 2<24sgosse2>	no problem
+T 1382646858 2<24sgosse2>	ping jaj ;-)
+T 1382647531 2<26michel2>	asylum build hang too because of gulag1
+T 1382647697 2<26michel2>	!pv 1039574
+T 1382647698 2<28newbot2>	bug 1039574: P2 - Open - gulag1 died - nsdsa/nsdsa
+T 1382647763 -10-11>	npearl 14(10~npearl@cf-vpn-hw-npearl-2.corp.sgi.com14) has joined #linux
+T 1382648000 <10-11-	quinten has quit 14(Remote host closed the connection14)
+T 1382648090 <10-11-	sivanich has quit 14(Quit: ZNC - http://znc.sourceforge.net14)
+T 1382648509 -10-11>	quinten 14(10~quinten@lnx-quinten.americas.sgi.com14) has joined #linux
+T 1382648795 <10-11-	gbanks has quit 14(Ping timeout: 240 seconds14)
+T 1382649809 -10-11>	gbanks 14(10~gnb@dhcp-engr1-us02-129.americas.sgi.com14) has joined #linux
+T 1382650108 -10-11>	nzimmer 14(10~nzimmer@eagdhcp-233-123.americas.sgi.com14) has joined #linux
+T 1382652461 <10-11-	jortega has quit 14(Quit: Ex-Chat14)
+T 1382652630 <10-11-	gbanks has quit 14(Ping timeout: 240 seconds14)
+T 1382653657 -10-11>	gbanks 14(10~gnb@dhcp-engr2-us02-220.americas.sgi.com14) has joined #linux
+T 1382654541 <10-11-	erikj has quit 14(Remote host closed the connection14)
+T 1382655902 <10-11-	xemery has quit 14(Remote host closed the connection14)
+T 1382656181 <10-11-	sgosse has quit 14(Ping timeout: 240 seconds14)
+T 1382658237 -10-11-	swift is now known as swift|awa
+T 1382658706 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1382659975 <10-11-	gwh has quit 14(Remote host closed the connection14)
+T 1382660564 -10-11>	sgosse 14(10sgosse@eagdhcp-232-196.americas.sgi.com14) has joined #linux
+T 1382662978 <10-11-	bbice has quit 14(Quit: Leaving.14)
+T 1382663770 <10-11-	gbanks has quit 14(Quit: Leaving.14)
+T 1382664735 <10-11-	tmoore has quit 14(Ping timeout: 240 seconds14)
+T 1382666796 -10-11>	beagan_ 14(10~beagan@ca-sslvpn-129-166.corp.sgi.com14) has joined #linux
+T 1382666804 <10-11-	beagan_ has quit 14(Read error: Connection reset by peer14)
+T 1382672470 <10-11-	lorenzou has quit 14(Ping timeout: 240 seconds14)
+T 1382678661 <10-11-	nzimmer has quit 14(Ping timeout: 240 seconds14)
+T 1382680120 -10-11>	jcuster 14(10jcuster@eagdhcp-232-205.americas.sgi.com14) has joined #linux
+T 1382680361 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1382684128 -10-11>	jonathans 14(10~jonathans@feck.emea.sgi.com14) has joined #linux
+T 1382684624 <10-11-	roland has quit 14(Read error: Connection reset by peer14)
+T 1382686112 -10-11>	tmoore 14(10~tmoore@eagdhcp-232-152.americas.sgi.com14) has joined #linux
+T 1382686355 <10-11-	tmoore has quit 14(Ping timeout: 240 seconds14)
+T 1382687174 -10-11>	msuchy 14(10msuchy@cz-250-46.emea.sgi.com14) has joined #linux
+T 1382689924 <10-11-	msuchy has quit 14(Read error: Connection reset by peer14)
+T 1382689959 -10-11>	msuchy 14(10msuchy@cz-250-46.emea.sgi.com14) has joined #linux
+T 1382690119 <10-11-	msuchy has quit 14(Read error: Connection reset by peer14)
+T 1382690154 -10-11>	msuchy 14(10msuchy@cz-250-46.emea.sgi.com14) has joined #linux
+T 1382690412 <10-11-	msuchy has quit 14(Quit: Leaving14)
+T 1382691158 -10-11>	msuchy 14(10msuchy@cz-250-46.emea.sgi.com14) has joined #linux
+T 1382702822 -10-11>	olaf 14(10~quassel@nl-208-98.emea.sgi.com14) has joined #linux
+T 1382704338 -10-11>	erikj 14(10~erikj@cf-sslvpn-1-6.corp.sgi.com14) has joined #linux
+T 1382704847 -10-11>	roland 14(10~richter@stupsi.emea.sgi.com14) has joined #linux
+T 1382706080 -10-11>	jortega 14(10~jortega@cf-vpn-hw-jortega-3.corp.sgi.com14) has joined #linux
+T 1382706211 -10-11>	sivanich 14(10~sivanich@santana.americas.sgi.com14) has joined #linux
+T 1382706566 -10-11>	osmond 14(10~osmond@cf-sslvpn-0-202.corp.sgi.com14) has joined #linux
+T 1382707372 -10-11>	gwh 14(10~gwh@150.166.2.9914) has joined #linux
+T 1382707726 <10-11-	kgsnow has quit 14(Read error: Connection reset by peer14)
+T 1382707943 <10-11-	olaf has quit 14(Remote host closed the connection14)
+T 1382709271 -10-11>	gbanks 14(10~gnb@ca-sslvpn-128-182.corp.sgi.com14) has joined #linux
+T 1382710090 -10-11>	jeffjr 14(10~jeffjr@169.238.26.22814) has joined #linux
+T 1382710301 -10-11>	tmoore 14(10~tmoore@eagdhcp-232-152.americas.sgi.com14) has joined #linux
+T 1382710619 -10-11>	kgsnow 14(10~Thunderbi@ca-sslvpn-128-234.corp.sgi.com14) has joined #linux
+T 1382711190 <10-11-	tmoore has quit 14(Read error: Connection reset by peer14)
+T 1382712239 -10-11>	tmoore 14(10~tmoore@lnx-tmoore.americas.sgi.com14) has joined #linux
+T 1382712673 <10-11-	tmoore has quit 14(Quit: Lost terminal14)
+T 1382712953 -10-11>	bbice 14(10~bbice@lnx-bbice.corp.sgi.com14) has joined #linux
+T 1382713771 <10-11-	quinten has quit 14(Remote host closed the connection14)
+T 1382713970 <10-11-	dfrayer_ has quit 14(Remote host closed the connection14)
+T 1382714158 -10-11>	dfrayer_ 14(10~dfrayer__@cf-vpn-hw-dfrayer-2.corp.sgi.com14) has joined #linux
+T 1382714621 -10-11>	tmoore 14(10~tmoore@lnx-tmoore.americas.sgi.com14) has joined #linux
+T 1382714831 -10-11>	quinten 14(10~quinten@lnx-quinten.americas.sgi.com14) has joined #linux
+T 1382715317 -10-11>	tee 14(10~tee@sshcf.sgi.com14) has joined #linux
+T 1382715654 -10-11>	rkerrym 14(10~Adium@ca-sslvpn-129-201.corp.sgi.com14) has joined #linux
+T 1382715661 <10-11-	rkerrym has quit 14(Remote host closed the connection14)
+T 1382716640 <10-11-	quinten has quit 14(Remote host closed the connection14)
+T 1382717140 <10-11-	jortega has quit 14(Ping timeout: 240 seconds14)
+T 1382717305 <10-11-	jonathans has quit 14(Quit: Leaving14)
+T 1382717916 -10-11>	jortega 14(10~jortega@cf-vpn-hw-jortega-1.corp.sgi.com14) has joined #linux
+T 1382719063 -10-11>	jcuster 14(10jcuster@eagdhcp-232-205.americas.sgi.com14) has joined #linux
+T 1382720144 -10-11>	quinten 14(10~quinten@lnx-quinten.americas.sgi.com14) has joined #linux
+T 1382721934 -10-11>	xemery 14(10~xemery@sshcf.sgi.com14) has joined #linux
+T 1382722599 <10-11-	msuchy has quit 14(Ping timeout: 240 seconds14)
+T 1382723939 <10-11-	rjohnston has quit 14(Quit: Leaving.14)
+T 1382725485 <10-11-	quinten has quit 14(Read error: Connection reset by peer14)
+T 1382726248 -10-11>	quinten 14(10~quinten@lnx-quinten.americas.sgi.com14) has joined #linux
+T 1382727432 <10-11-	borno has quit 14(Read error: Connection reset by peer14)
+T 1382727538 -10-11>	rjohnston 14(10~rich@ca-sslvpn-129-68.corp.sgi.com14) has joined #linux
+T 1382727624 -10-11>	borno 14(10~borno@cfdhcp-87-36.americas.sgi.com14) has joined #linux
+T 1382730714 <10-11-	borno has quit 14(Quit: Leaving14)
+T 1382730812 -10-11>	beagan_ 14(10~beagan@ca-sslvpn-129-166.corp.sgi.com14) has joined #linux
+T 1382730820 <10-11-	beagan_ has quit 14(Remote host closed the connection14)
+T 1382733071 <10-11-	tee has quit 14(Quit: Leaving14)
+T 1382733300 <10-11-	gbanks has quit 14(Read error: Connection reset by peer14)
+T 1382734456 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1382735271 <10-11-	bbice has quit 14(Quit: Leaving.14)
+T 1382736690 <10-11-	timp has quit 14(Quit: Leaving.14)
+T 1382737465 -10-11>	gbanks 14(10~gnb@ca-sslvpn-129-146.corp.sgi.com14) has joined #linux
+T 1382738636 <10-11-	jortega has quit 14(Quit: Ex-Chat14)
+T 1382738780 <10-11-	dfults has quit 14(Ping timeout: 240 seconds14)
+T 1382739492 <10-11-	sivanich has quit 14(Quit: ZNC - http://znc.sourceforge.net14)
+T 1382740168 <10-11-	altman has quit 14(Remote host closed the connection14)
+T 1382741194 -10-11>	rkerrym 14(10~Adium@ca-sslvpn-129-201.corp.sgi.com14) has joined #linux
+T 1382741199 <10-11-	rkerrym has quit 14(Remote host closed the connection14)
+T 1382741621 <10-11-	sgosse has quit 14(Ping timeout: 240 seconds14)
+T 1382741707 <10-11-	rjohnston has quit 14(Quit: Leaving.14)
+T 1382744614 <10-11-	gwh has quit 14(Remote host closed the connection14)
+T 1382750561 <10-11-	erikj has quit 14(Read error: Connection reset by peer14)
+T 1382752431 <10-11-	jlan has quit 14(Remote host closed the connection14)
+T 1382755856 -10-11>	jcuster 14(10jcuster@eagdhcp-232-205.americas.sgi.com14) has joined #linux
+T 1382756101 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1382756375 <10-11-	gbanks has quit 14(Ping timeout: 240 seconds14)
+T 1382768087 -10-11>	cornel 14(10~cboac@cf-sslvpn-1-129.corp.sgi.com14) has joined #linux
+T 1382768781 <10-11-	cornel has quit 14(Read error: Connection reset by peer14)
+T 1382771180 <10-11-	kgsnow has quit 14(Ping timeout: 240 seconds14)
+T 1382772298 <10-11-	xemery has quit 14(Quit: Leaving14)
+T 1382790810 -10-11>	jhanson 14(10~jhanson@carenath.corp.sgi.com14) has joined #linux
+T 1382800295 <10-11-	beagan has quit 14(Ping timeout: 240 seconds14)
+T 1382801045 -10-11>	gbanks 14(10~gnb@ca-sslvpn-129-114.corp.sgi.com14) has joined #linux
+T 1382801067 -10-11>	beagan 14(10~beagan@ca-sslvpn-129-166.corp.sgi.com14) has joined #linux
+T 1382801420 <10-11-	beagan has quit 14(Ping timeout: 240 seconds14)
+T 1382802619 -10-11>	beagan 14(10~beagan@ca-sslvpn-129-166.corp.sgi.com14) has joined #linux
+T 1382803435 <10-11-	beagan has quit 14(Ping timeout: 240 seconds14)
+T 1382804435 -10-11>	beagan 14(10~beagan@ca-sslvpn-129-166.corp.sgi.com14) has joined #linux
+T 1382804700 <10-11-	beagan has quit 14(Ping timeout: 240 seconds14)
+T 1382805630 -10-11>	beagan 14(10~beagan@ca-sslvpn-129-166.corp.sgi.com14) has joined #linux
+T 1382805880 <10-11-	beagan has quit 14(Ping timeout: 240 seconds14)
+T 1382809263 -10-11>	beagan 14(10~beagan@ca-sslvpn-129-6.corp.sgi.com14) has joined #linux
+T 1382809500 <10-11-	beagan has quit 14(Remote host closed the connection14)
+T 1382811530 -10-11>	beagan 14(10~beagan@ca-sslvpn-129-44.corp.sgi.com14) has joined #linux
+T 1382811537 <10-11-	beagan has quit 14(Quit: Leaving14)
+T 1382814952 -10-11>	lorenzou 14(10~lorenzou@mtv-vpn-hw-lorenzou-1.corp.sgi.com14) has joined #linux
+T 1382816320 <10-11-	gbanks has quit 14(Ping timeout: 240 seconds14)
+T 1382838072 <10-11-	bcasavan has quit 14(Quit: Ex-Chat14)
+T 1382843368 -10-11>	rkerrym 14(10~Adium@cf-vpn-hw-rkerry-1.corp.sgi.com14) has joined #linux
+T 1382851525 <10-11-	lorenzou has quit 14(Ping timeout: 240 seconds14)
+T 1382851690 <10-11-	osmond has quit 14(Read error: Connection reset by peer14)
+T 1382851705 -10-11>	osmond 14(10~osmond@cf-sslvpn-0-202.corp.sgi.com14) has joined #linux
+T 1382852013 <10-11-	osmond 14(~osmond@cf-sslvpn-0-202.corp.sgi.com14) has left #linux
+T 1382897606 -10-11>	gbanks 14(10~gnb@ca-sslvpn-128-109.corp.sgi.com14) has joined #linux
+T 1382900040 <10-11-	gbanks has quit 14(Ping timeout: 240 seconds14)
+T 1382903982 -10-11>	gbanks 14(10~gnb@ca-sslvpn-128-93.corp.sgi.com14) has joined #linux
+T 1382905665 <10-11-	gbanks has quit 14(Ping timeout: 240 seconds14)
+T 1382909052 -10-11>	lorenzou 14(10~lorenzou@mtv-vpn-hw-lorenzou-1.corp.sgi.com14) has joined #linux
+T 1382917468 <10-11-	lorenzou has quit 14(Quit: Leaving14)
+T 1382947785 -10-11>	jonathans 14(10~jonathans@feck.emea.sgi.com14) has joined #linux
+T 1382961976 -10-11>	dfults 14(10~dfults@sshcf.sgi.com14) has joined #linux
+T 1382962540 -10-11>	borno 14(10~borno@cfdhcp-87-36.americas.sgi.com14) has joined #linux
+T 1382964099 -10-11>	rjohnston 14(10~rjohnston@lnx-rjohnston2.americas.sgi.com14) has joined #linux
+T 1382965057 -10-11>	jortega 14(10~jortega@cf-vpn-hw-jortega-2.corp.sgi.com14) has joined #linux
+T 1382965140 -10-11>	erikj 14(10~erikj@metalio.americas.sgi.com14) has joined #linux
+T 1382965734 <10-11-	erikj has quit 14(Remote host closed the connection14)
+T 1382966019 -10-11>	erikj 14(10~erikj@metalio.americas.sgi.com14) has joined #linux
+T 1382967417 -10-11>	sivanich 14(10~sivanich@santana.americas.sgi.com14) has joined #linux
+T 1382968527 -10-11>	beagan 14(10~beagan@ca-sslvpn-128-250.corp.sgi.com14) has joined #linux
+T 1382968548 -10-11>	beagan_ 14(10~beagan@ca-sslvpn-128-250.corp.sgi.com14) has joined #linux
+T 1382968961 -10-11>	beagan__ 14(10~beagan@ca-sslvpn-128-250.corp.sgi.com14) has joined #linux
+T 1382968975 <10-11-	beagan__ has quit 14(Remote host closed the connection14)
+T 1382968975 <10-11-	beagan has quit 14(Remote host closed the connection14)
+T 1382968975 <10-11-	beagan_ has quit 14(Remote host closed the connection14)
+T 1382968989 -10-11>	beagan 14(10~beagan@ca-sslvpn-128-250.corp.sgi.com14) has joined #linux
+T 1382969430 <10-11-	beagan has quit 14(Remote host closed the connection14)
+T 1382969523 -10-11>	beagan 14(10~beagan@ca-sslvpn-128-250.corp.sgi.com14) has joined #linux
+T 1382969533 <10-11-	beagan has quit 14(Remote host closed the connection14)
+T 1382970089 -10-11>	beagan 14(10~beagan@ca-sslvpn-128-160.corp.sgi.com14) has joined #linux
+T 1382970187 -10-11>	kgsnow 14(10~Thunderbi@ca-sslvpn-128-234.corp.sgi.com14) has joined #linux
+T 1382970208 <10-11-	kgsnow has quit 14(Quit: kgsnow14)
+T 1382970420 -10-11>	kgsnow 14(10~Thunderbi@ca-sslvpn-128-234.corp.sgi.com14) has joined #linux
+T 1382971205 -10-11>	sgosse 14(10sgosse@eagdhcp-232-196.americas.sgi.com14) has joined #linux
+T 1382971208 -10-11>	beagan_ 14(10~beagan@ca-sslvpn-128-160.corp.sgi.com14) has joined #linux
+T 1382971216 <10-11-	beagan_ has quit 14(Remote host closed the connection14)
+T 1382971756 -10-11>	dimitri 14(10~dimitri@sshcf.sgi.com14) has joined #linux
+T 1382975811 -10-11>	jcuster 14(10jcuster@eagdhcp-232-198.americas.sgi.com14) has joined #linux
+T 1382976059 <10-11-	dmk has quit 14(Quit: Leaving14)
+T 1382977563 -10-11>	gwh 14(10~gwh@150.166.2.9914) has joined #linux
+T 1382978594 -10-11>	dmk 14(10~dmk@ca-sslvpn-128-66.corp.sgi.com14) has joined #linux
+T 1382979162 <10-11-	beagan has quit 14(Read error: Connection timed out14)
+T 1382980052 2<27jhanson2>	tdm, latest greatest?
+T 1382980055 2<27jhanson2>	latest maybe
+T 1382980062 2<27jhanson2>	Not sure greatest always applies.
+T 1382980064 2<27jhanson2>	:-)
+T 1382980123 -10-11>	beagan 14(10~beagan@ca-sslvpn-128-160.corp.sgi.com14) has joined #linux
+T 1382980376 <10-11-	jonathans has quit 14(Quit: Leaving14)
+T 1382981101 -10-11>	xemery 14(10~xemery@sshcf.sgi.com14) has joined #linux
+T 1382982143 2<22gwh2>	anyone know what package hwinfo is in RHEL 6.4?
+T 1382982204 2<27jhanson2>	none
+T 1382982212 2<27jhanson2>	hwinfo is sles specific.
+T 1382982306 2<27jhanson2>	gwh, is there something specific you want to be able to find out in the hardware?
+T 1382982438 2<22gwh2>	I have a lun and want to know what array it is on. I have 3 IS5500 and a IS5600 to choose from. I was hoping that hwinfo might give me a clue as to what array it is on.
+T 1382982472 2<27jhanson2>	lsscsi help?
+T 1382982474 2<22gwh2>	sq_inq returns IS500 which is no help at all
+T 1382982479 2<22gwh2>	no lsscsi on RHEL
+T 1382982485 2<27jhanson2>	yes there is
+T 1382982489 2<27jhanson2>	you just need to install it
+T 1382982492 2<27jhanson2>	yum install lsscsi
+T 1382982603 2<22gwh2>	ok. I guess I did try that. All I get is IS500 for all 4 of the arrays. Nothing that tells me what one it is.
+T 1382982630 2<27jhanson2>	and -vvv does not help either.
+T 1382982638 2<22emk2>	you probably want smee installed
+T 1382982640 2<27jhanson2>	I mean you get the path but what wire goes to what.
+T 1382982641 2<22emk2>	and use smeedevices
+T 1382982701 2<22gwh2>	I have smee, but the firmware on the arrays is old and my smee will not talk to it. arrays are at 7.86.29.00
+T 1382982726 2<22gwh2>	Also looking around for how to upgrade the arrays, but can't find instructions anywhere
+T 1382982794 2<27jhanson2>	did you check on supportfolio?
+T 1382982809 2<22gwh2>	not yet.
+T 1382982859 2<22gwh2>	what does smeedevices do? all i get is "no devices found". And there is no man page or --help
+T 1382982894 2<22gwh2>	And I have lots of arrays that show in the GUI.
+T 1382982906 2<22gwh2>	and are manageable
+T 1382982967 2<22emk2>	gwh: it should print ISXXXX devices visible from the machine
+T 1382983037 2<22emk2>	i.e.  /dev/sg10 [Storage Array cy001-nas, Volume lun7, LUN 7, Volume ID <600a0b8000388de300000f9e4e3819ae>, Preferred Path (Controller-B): In Use]
+T 1382983037 2<22emk2>	  /dev/sg11 [Storage Array cy001-nas, Volume Access, LUN 31, Volume ID <600a0b8000388de300000f6f4e371e30>]
+T 1382983040 2<22emk2>	ad nauseum
+T 1382983059 2<22emk2>	smwedevices for older software/hardware
+T 1382983203 2<22gwh2>	I have everything set up to manage out of band. So don't have smee on the machine that mounts the luns in question.
+T 1382983286 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1382983640 -10-11-	swift|awa is now known as swift
+T 1382983758 2<19xemery2>	If you know the world wide names of the controllers, I'm fairly sure that disk by path has wwn information in it.
+T 1382983891 2<22gwh2>	I know the IP addresses and that is all. I would normally use smee to get the WWNN. But the version I have does not work since the firmware is so old. BTW looking/searching on supportfolio is not finding anything on how to upgrade.
+T 1382983968 2<22gwh2>	I was hoping that hwinfo would give me the wwnn for the luns.
+T 1382984029 2<19xemery2>	https://support.sgi.com/kb_request/solution/display?KB_NODEUUID=a872bbeb-327a-4eb3-ae2e-4b6cd59f6f70&MODE=multiple
+T 1382984034 2<19xemery2>	That doesn't answer your question
+T 1382984055 2<27jhanson2>	btw hwinfo just copied from a sles system to a rhel system doesn't run because it is missing a library
+T 1382984062 2<27jhanson2>	among other issues I expect.
+T 1382984209 2<19xemery2>	if there are xvm labels on the disk, then the last set of instructions should give you the wwns (but not tell you which wwns belong with which RAIDS)
+T 1382984254 2<19xemery2>	If the machine doesn't own the labels, try foreign.  If the luns are unlabeled try unlabeled.
+T 1382984268 -10-11>	gwh_ 14(10~gwh@150.166.2.9914) has joined #linux
+T 1382984282 2<28newbot2>	#linux welcomes careful typers...
+T 1382984288 <10-11-	gwh_ has quit 14(Remote host closed the connection14)
+T 1382984309 2<19xemery2>	my experimentation with "unlabeled' makes me think you won't need all that grep filtering.
+T 1382984352 <10-11-	gwh has quit 14(Remote host closed the connection14)
+T 1382984504 -10-11>	gwh 14(10~gwh@150.166.2.9914) has joined #linux
+T 1382984782 2<22gwh2>	no XVM. These are lustre nodes.
+T 1382984886 2<22gwh2>	thanks for the suggestions. It is a typical Monday. If you hear a big explosion from Fremont, you'll know that I'm in the lab and pulled the wrong wire :-)
+T 1382984890 2<19xemery2>	ah, sorry, 
+T 1382985337 -10-11>	gbanks 14(10~gnb@ca-sslvpn-129-97.corp.sgi.com14) has joined #linux
+T 1382985807 -10-11>	timp 14(10~timp@cfdhcp-87-22.americas.sgi.com14) has joined #linux
+T 1382986600 <10-11-	gbanks has quit 14(Ping timeout: 240 seconds14)
+T 1382990365 -10-11>	rjohnsto1 14(10~rich@ca-sslvpn-129-118.corp.sgi.com14) has joined #linux
+T 1382991710 -10-11>	jlan 14(10~jlan@sshcf.sgi.com14) has joined #linux
+T 1382991923 -10-11>	gbanks 14(10~gnb@ca-sslvpn-129-36.corp.sgi.com14) has joined #linux
+T 1382992280 <10-11-	jortega has quit 14(Ping timeout: 240 seconds14)
+T 1382992412 -10-11>	jortega 14(10~jortega@cf-vpn-hw-jortega-2.corp.sgi.com14) has joined #linux
+T 1382993420 -10-11>	karlw 14(10karlw@eagdhcp-233-124.americas.sgi.com14) has joined #linux
+T 1382995801 <10-11-	sgosse has quit 14(Ping timeout: 240 seconds14)
+T 1382996607 -10-11>	erikj_ 14(10~erikj@cf-sslvpn-0-156.corp.sgi.com14) has joined #linux
+T 1382997687 <10-11-	jortega has quit 14(Quit: Ex-Chat14)
+T 1383001227 <10-11-	rjohnsto1 has quit 14(Read error: Connection reset by peer14)
+T 1383004739 -10-11>	jcuster 14(10jcuster@eagdhcp-232-198.americas.sgi.com14) has joined #linux
+T 1383004981 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1383005520 <10-11-	xemery has quit 14(Quit: Leaving14)
+T 1383008125 <10-11-	gbanks has quit 14(Ping timeout: 240 seconds14)
+T 1383008388 <10-11-	gwh has quit 14(Remote host closed the connection14)
+T 1383017745 <10-11-	erikj_ has quit 14(Read error: Connection reset by peer14)
+T 1383019320 <10-11-	swift has quit 14(Quit: Leaving...14)
+T 1383024051 <10-11-	jlan has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	timp has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	beagan has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	dmk has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	dimitri has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	kgsnow has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	erikj has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	borno has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	dfults has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	rkerrym has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	jhanson has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	tmoore has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	dfrayer_ has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	jeffjr has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	npearl has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	gbeshers has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	borno_ has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	emk has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	olli has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	michel has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	trev has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	jaj has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	dfrayer has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	ecain has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	bhaxo has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	roland has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	newbot has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	Sue has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024051 <10-11-	ChanServ has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024466 -10-11>	bhaxo 14(10~bhaxo@10.202.12.10414) has joined #linux
+T 1383024466 -10-11>	trev 14(10~trev@150.166.2.3614) has joined #linux
+T 1383024466 -10-11>	ecain 14(10~ecain@10.202.12.7714) has joined #linux
+T 1383024466 -10-11>	tmoore 14(10~tmoore@lnx-tmoore.americas.sgi.com14) has joined #linux
+T 1383024466 -10-11>	jaj 14(10~jaj@fauna.americas.sgi.com14) has joined #linux
+T 1383024466 -10-11>	erikj 14(10~erikj@metalio.americas.sgi.com14) has joined #linux
+T 1383024466 -10-11>	dfrayer 14(10~dfrayer__@dhcp-169-238-222-103.americas.sgi.com14) has joined #linux
+T 1383024466 -10-11>	emk 14(10~emk@150.166.2.5314) has joined #linux
+T 1383024466 -10-11>	beagan 14(10~beagan@ca-sslvpn-128-160.corp.sgi.com14) has joined #linux
+T 1383024466 -10-11>	dmk 14(10~dmk@ca-sslvpn-128-66.corp.sgi.com14) has joined #linux
+T 1383024466 -10-11>	kgsnow 14(10~Thunderbi@ca-sslvpn-128-234.corp.sgi.com14) has joined #linux
+T 1383024466 -10-11>	jlan 14(10~jlan@sshcf.sgi.com14) has joined #linux
+T 1383024466 -10-11>	timp 14(10~timp@cfdhcp-87-22.americas.sgi.com14) has joined #linux
+T 1383024466 -10-11>	dimitri 14(10~dimitri@sshcf.sgi.com14) has joined #linux
+T 1383024466 -10-11>	borno 14(10~borno@cfdhcp-87-36.americas.sgi.com14) has joined #linux
+T 1383024466 -10-11>	dfults 14(10~dfults@sshcf.sgi.com14) has joined #linux
+T 1383024466 -10-11>	rkerrym 14(10~Adium@cf-vpn-hw-rkerry-1.corp.sgi.com14) has joined #linux
+T 1383024466 -10-11>	jhanson 14(10~jhanson@carenath.corp.sgi.com14) has joined #linux
+T 1383024466 -10-11>	dfrayer_ 14(10~dfrayer__@cf-vpn-hw-dfrayer-2.corp.sgi.com14) has joined #linux
+T 1383024466 -10-11>	jeffjr 14(10~jeffjr@169.238.26.22814) has joined #linux
+T 1383024466 -10-11>	npearl 14(10~npearl@cf-vpn-hw-npearl-2.corp.sgi.com14) has joined #linux
+T 1383024466 -10-11>	gbeshers 14(10~gbeshers@sshcf.sgi.com14) has joined #linux
+T 1383024466 -10-11>	borno_ 14(10~borno@mancity.americas.sgi.com14) has joined #linux
+T 1383024466 -10-11>	olli 14(10~olli@cf-sslvpn-0-239.corp.sgi.com14) has joined #linux
+T 1383024466 -10-11>	michel 14(10~michel@cf-sslvpn-1-205.corp.sgi.com14) has joined #linux
+T 1383024466 -10-11>	ChanServ 14(10ChanServ@sgircserv-irc.corp.sgi.com14) has joined #linux
+T 1383024466 -10-11-	11new-irc.corp.sgi.com gives channel operator status to 11ChanServ
+T 1383024600 <10-11-	npearl has quit 14(Ping timeout: 240 seconds14)
+T 1383026051 <10-11-	jlan has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383026051 <10-11-	tmoore has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383026051 <10-11-	timp has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383026051 <10-11-	olli has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383026051 <10-11-	michel has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383026051 <10-11-	jeffjr has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383026051 <10-11-	jhanson has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383026051 <10-11-	dmk has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383026051 <10-11-	beagan has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383026051 <10-11-	trev has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383026051 <10-11-	dfrayer_ has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383026051 <10-11-	dfrayer has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383026051 <10-11-	borno has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383026051 <10-11-	borno_ has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383026051 <10-11-	gbeshers has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383026051 <10-11-	dimitri has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383026051 <10-11-	rkerrym has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383026051 <10-11-	dfults has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383026051 <10-11-	kgsnow has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383026051 <10-11-	erikj has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383026051 <10-11-	jaj has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383026051 <10-11-	emk has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383026051 <10-11-	ecain has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383026051 <10-11-	bhaxo has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383026051 <10-11-	ChanServ has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383026170 -10-11>	bhaxo 14(10~bhaxo@10.202.12.10414) has joined #linux
+T 1383026170 -10-11>	kgsnow 14(10~Thunderbi@ca-sslvpn-128-234.corp.sgi.com14) has joined #linux
+T 1383026170 -10-11>	beagan 14(10~beagan@ca-sslvpn-128-160.corp.sgi.com14) has joined #linux
+T 1383026170 -10-11>	dfrayer 14(10~dfrayer__@dhcp-169-238-222-103.americas.sgi.com14) has joined #linux
+T 1383026170 -10-11>	trev 14(10~trev@150.166.2.3614) has joined #linux
+T 1383026170 -10-11>	ecain 14(10~ecain@10.202.12.7714) has joined #linux
+T 1383026170 -10-11>	dmk 14(10~dmk@ca-sslvpn-128-66.corp.sgi.com14) has joined #linux
+T 1383026170 -10-11>	jlan 14(10~jlan@sshcf.sgi.com14) has joined #linux
+T 1383026170 -10-11>	timp 14(10~timp@cfdhcp-87-22.americas.sgi.com14) has joined #linux
+T 1383026170 -10-11>	dimitri 14(10~dimitri@sshcf.sgi.com14) has joined #linux
+T 1383026170 -10-11>	borno 14(10~borno@cfdhcp-87-36.americas.sgi.com14) has joined #linux
+T 1383026170 -10-11>	dfults 14(10~dfults@sshcf.sgi.com14) has joined #linux
+T 1383026170 -10-11>	rkerrym 14(10~Adium@cf-vpn-hw-rkerry-1.corp.sgi.com14) has joined #linux
+T 1383026170 -10-11>	jhanson 14(10~jhanson@carenath.corp.sgi.com14) has joined #linux
+T 1383026170 -10-11>	dfrayer_ 14(10~dfrayer__@cf-vpn-hw-dfrayer-2.corp.sgi.com14) has joined #linux
+T 1383026170 -10-11>	jeffjr 14(10~jeffjr@169.238.26.22814) has joined #linux
+T 1383026170 -10-11>	gbeshers 14(10~gbeshers@sshcf.sgi.com14) has joined #linux
+T 1383026170 -10-11>	borno_ 14(10~borno@mancity.americas.sgi.com14) has joined #linux
+T 1383026170 -10-11>	olli 14(10~olli@cf-sslvpn-0-239.corp.sgi.com14) has joined #linux
+T 1383026170 -10-11>	michel 14(10~michel@cf-sslvpn-1-205.corp.sgi.com14) has joined #linux
+T 1383026170 -10-11>	ChanServ 14(10ChanServ@sgircserv-irc.corp.sgi.com14) has joined #linux
+T 1383026170 -10-11-	11new-irc.corp.sgi.com gives channel operator status to 11ChanServ
+T 1383026196 -10-11>	erikj 14(10~erikj@metalio.americas.sgi.com14) has joined #linux
+T 1383026199 -10-11>	jaj 14(10~jaj@fauna.americas.sgi.com14) has joined #linux
+T 1383026215 -10-11>	tmoore 14(10~tmoore@lnx-tmoore.americas.sgi.com14) has joined #linux
+T 1383026216 -10-11>	emk 14(10~emk@150.166.2.5314) has joined #linux
+T 1383030351 -10-11>	olaf 14(10~quassel@cf-sslvpn-1-24.corp.sgi.com14) has joined #linux
+T 1383031400 <10-11-	kgsnow has quit 14(Ping timeout: 240 seconds14)
+T 1383031510 -10-11>	kgsnow 14(10~Thunderbi@ca-sslvpn-128-234.corp.sgi.com14) has joined #linux
+T 1383033349 -10-11>	Sue 14(10~smiller@eu-sslvpn-144-160.emea.sgi.com14) has joined #linux
+T 1383033349 -10-11>	roland 14(10~richter@stupsi.emea.sgi.com14) has joined #linux
+T 1383033882 -10-11>	jonathans 14(10~jonathans@feck.emea.sgi.com14) has joined #linux
+T 1383045424 -10-11>	npearl 14(10~npearl@cf-vpn-hw-npearl-2.corp.sgi.com14) has joined #linux
+T 1383046343 -10-11>	swift 14(10~swift@cf-vpn-hw-swift-1.corp.sgi.com14) has joined #linux
+T 1383050788 <10-11-	npearl has quit 14(Quit: Leaving.14)
+T 1383051476 -10-11>	jortega 14(10~jortega@cf-vpn-hw-jortega-2.corp.sgi.com14) has joined #linux
+T 1383052296 <10-11-	beagan has quit 14(Read error: Connection reset by peer14)
+T 1383053430 -10-11>	npearl 14(10~npearl@cf-vpn-hw-npearl-2.corp.sgi.com14) has joined #linux
+T 1383053935 -10-11>	msuchy 14(10msuchy@cz-250-46.emea.sgi.com14) has joined #linux
+T 1383054497 -10-11>	jmaly 14(10jmaly@cf-sslvpn-0-13.corp.sgi.com14) has joined #linux
+T 1383055153 -10-11>	cornel 14(10~cboac@eagdhcp-233-181.americas.sgi.com14) has joined #linux
+T 1383055895 <10-11-	gbeshers has quit 14(Ping timeout: 240 seconds14)
+T 1383056058 -10-11>	gbeshers 14(10~gbeshers@sshcf.sgi.com14) has joined #linux
+T 1383056891 <10-11-	quinten has quit 14(Ping timeout: 240 seconds14)
+T 1383056980 -10-11>	quinten 14(10~quinten@lnx-quinten.americas.sgi.com14) has joined #linux
+T 1383058088 -10-11>	sgosse 14(10sgosse@eagdhcp-232-155.americas.sgi.com14) has joined #linux
+T 1383058922 -10-11>	bbice 14(10~bbice@lnx-bbice.corp.sgi.com14) has joined #linux
+T 1383060918 -10-11>	gwh 14(10~gwh@150.166.2.9914) has joined #linux
+T 1383061378 <10-11-	quinten has quit 14(Remote host closed the connection14)
+T 1383062874 <10-11-	msuchy has quit 14(Ping timeout: 240 seconds14)
+T 1383064941 -10-11>	gbanks 14(10~gnb@ca-sslvpn-128-249.corp.sgi.com14) has joined #linux
+T 1383065878 <10-11-	jortega has quit 14(Read error: Connection reset by peer14)
+T 1383065882 -10-11>	jortega_ 14(10~jortega@cf-vpn-hw-jortega-2.corp.sgi.com14) has joined #linux
+T 1383066339 -10-11>	quinten 14(10~quinten@lnx-quinten.americas.sgi.com14) has joined #linux
+T 1383066488 <10-11-	swift has quit 14(Quit: Bye!14)
+T 1383066805 -10-11>	xemery 14(10~xemery@sshcf.sgi.com14) has joined #linux
+T 1383067208 -10-11>	swift 14(10~swift@cf-vpn-hw-swift-1.corp.sgi.com14) has joined #linux
+T 1383068373 <10-11-	jonathans has quit 14(Quit: Leaving14)
+T 1383068906 -10-11>	kgsnow1 14(10~Thunderbi@ca-sslvpn-128-234.corp.sgi.com14) has joined #linux
+T 1383069045 <10-11-	kgsnow has quit 14(Ping timeout: 240 seconds14)
+T 1383069643 <10-11-	olaf has quit 14(Remote host closed the connection14)
+T 1383071624 -10-11>	rjohnsto1 14(10~rich@ca-sslvpn-129-189.corp.sgi.com14) has joined #linux
+T 1383072610 <10-11-	jmaly has quit 14(Quit: Leaving14)
+T 1383073502 <10-11-	borno_ has quit 14(Quit: Leaving14)
+T 1383074391 -10-11>	nzimmer 14(10~nzimmer@eagdhcp-233-184.americas.sgi.com14) has joined #linux
+T 1383076005 -10-11>	kenh 14(10~kenh@sshcf.sgi.com14) has joined #linux
+T 1383076459 2<27jhanson2>	kgsnow1, so much for a 30 minute meeting
+T 1383076615 <10-11-	gbanks has quit 14(Ping timeout: 240 seconds14)
+T 1383076818 2<24kgsnow12>	jhanson, i know....
+T 1383076841 2<24kgsnow12>	but that's what happens when we go for weeks without meeting...
+T 1383076846 -10-11-	kgsnow1 is now known as kgsnow
+T 1383081300 -10-11-	jortega_ is now known as jortega
+T 1383081361 <10-11-	sgosse has quit 14(Ping timeout: 240 seconds14)
+T 1383083970 <10-11-	gbeshers has quit 14(Ping timeout: 240 seconds14)
+T 1383084048 -10-11>	gbeshers 14(10~gbeshers@sshcf.sgi.com14) has joined #linux
+T 1383084721 <10-11-	timp 14(~timp@cfdhcp-87-22.americas.sgi.com14) has left #linux
+T 1383089039 <10-11-	xemery has quit 14(Quit: Leaving14)
+T 1383090226 <10-11-	jortega has quit 14(Quit: Ex-Chat14)
+T 1383092112 <10-11-	bbice has quit 14(Quit: Leaving.14)
+T 1383094659 -10-11>	beagan 14(10~beagan@ca-sslvpn-128-111.corp.sgi.com14) has joined #linux
+T 1383095626 <10-11-	rjohnsto1 has quit 14(Read error: Connection reset by peer14)
+T 1383096718 <10-11-	gwh has quit 14(Remote host closed the connection14)
+T 1383103281 -10-11>	gwh 14(10~gwh@150.166.2.9914) has joined #linux
+T 1383103916 <10-11-	gwh has quit 14(Remote host closed the connection14)
+T 1383105563 <10-11-	swift has quit 14(Quit: Leaving...14)
+T 1383106338 -10-11>	beagan_ 14(10~beagan@ca-sslvpn-128-111.corp.sgi.com14) has joined #linux
+T 1383106346 <10-11-	beagan_ has quit 14(Remote host closed the connection14)
+T 1383118285 <10-11-	kgsnow has quit 14(Ping timeout: 240 seconds14)
+T 1383119619 -10-11>	kgsnow 14(10~Thunderbi@ca-sslvpn-128-234.corp.sgi.com14) has joined #linux
+T 1383120284 -10-11>	jonathans 14(10~jonathans@feck.emea.sgi.com14) has joined #linux
+T 1383120856 -10-11>	msuchy 14(10msuchy@eu-sslvpn-144-44.emea.sgi.com14) has joined #linux
+T 1383121103 <10-11-	msuchy has quit 14(Ping timeout: 240 seconds14)
+T 1383121176 -10-11>	msuchy 14(10msuchy@eu-sslvpn-145-119.emea.sgi.com14) has joined #linux
+T 1383121936 <10-11-	nzimmer has quit 14(Ping timeout: 240 seconds14)
+T 1383127650 -10-11>	jmaly 14(10jmaly@ca-sslvpn-129-75.corp.sgi.com14) has joined #linux
+T 1383130120 <10-11-	jeffjr has quit 14(Ping timeout: 240 seconds14)
+T 1383132784 -10-11>	swift 14(10~swift@cf-vpn-hw-swift-1.corp.sgi.com14) has joined #linux
+T 1383133515 -10-11>	jeffjr 14(10~jeffjr@169.238.26.22814) has joined #linux
+T 1383133715 <10-11-	gbeshers has quit 14(Ping timeout: 240 seconds14)
+T 1383134211 -10-11>	gbeshers 14(10~gbeshers@sshcf.sgi.com14) has joined #linux
+T 1383134680 <10-11-	gbeshers has quit 14(Ping timeout: 240 seconds14)
+T 1383136921 -10-11>	altman 14(10~altman@lnx-altman.americas.sgi.com14) has joined #linux
+T 1383138002 -10-11>	jortega 14(10~jortega@cf-vpn-hw-jortega-2.corp.sgi.com14) has joined #linux
+T 1383138062 -10-11>	mjo 14(10~badmojo@cf-sslvpn-0-79.corp.sgi.com14) has joined #linux
+T 1383143224 -10-11>	sgosse 14(10sgosse@eagdhcp-232-196.americas.sgi.com14) has joined #linux
+T 1383145606 -10-11>	gbeshers 14(10~gbeshers@sshcf.sgi.com14) has joined #linux
+T 1383148042 <10-11-	jmaly has quit 14(Quit: Leaving14)
+T 1383148116 <10-11-	beagan has quit 14(Remote host closed the connection14)
+T 1383148790 -10-11>	gwh 14(10~gwh@150.166.2.9914) has joined #linux
+T 1383148906 -10-11>	beagan 14(10~beagan@ca-sslvpn-128-35.corp.sgi.com14) has joined #linux
+T 1383149784 -10-11>	bbice 14(10~bbice@lnx-bbice.corp.sgi.com14) has joined #linux
+T 1383149905 <10-11-	swift has quit 14(Ping timeout: 240 seconds14)
+T 1383151871 2<28altman2>	trying to get the standard /sw mounts set up on icenine... using dewberry for comparison, I don't see any NFS lines in /etc/fstab.  how do paths like /sw/sdev and /sw/modules usually get mounted on boot?
+T 1383151962 2<22emk2>	altman: on an ice machine?
+T 1383152006 2<22emk2>	it's a bit complicated, first there's the question of where is /sw export coming from, if it's from an external source, you need 1) NAT enabled on the service node, and 2) ensure that the nfs server has icenine listed as a server to export to
+T 1383152098 2<28altman2>	OK.  I'm trying to get this set up as a backup since I got kicked off of CB10 earlier.  who was doing the BIOS update on there?
+T 1383152100 2<22emk2>	as far as making the actual mount, it's a two step process, you need to edit /opt/sgi/share/per-host-customization/global/sgi-fstab on the admin node
+T 1383152106 2<22emk2>	and then push the image out
+T 1383152119 2<22emk2>	which if you're not familiar with ICE operation can be daunting (I can help if you like)
+T 1383152131 2<22emk2>	I have no idea, noone from hpc_support probably
+T 1383152140 2<27jhanson2>	emk, icenine MIGHT have enough disk space to hold a mirror
+T 1383152141 2<22emk2>	maybe someone from engineering, did the reservation page say who it was?
+T 1383152151 2<27jhanson2>	altman, you have icenine reserved?
+T 1383152159 2<22emk2>	is icenine in building 2?
+T 1383152161 2<27jhanson2>	and you realize icenine is OLD....
+T 1383152164 2<27jhanson2>	emk, yes
+T 1383152166 2<28altman2>	jhanson: I don't have 
+T 1383152170 2<28altman2>	icenine reserved
+T 1383152185 2<28altman2>	emk: I've had CB10 reserved (marked as shared) all day.  
+T 1383152214 2<22emk2>	sounds like someone douched all over you
+T 1383152218 2<22emk2>	I believe that's the technical term 
+T 1383152304 2<28altman2>	I've been getting it all over me for the past month on the same bug.  I JUST NEED A SYSTEM WHERE I CAN RUN MPINSIDE DEBUG AND NOT BE BOTHERED FOR LIKE AN HOUR OR TWO AT A STRETCH
+T 1383152365 2<27jhanson2>	icenine will do well for that.
+T 1383152399 2<27jhanson2>	I was just wondering if you had checked in case any of the usual players (me, beagan, dmk, mikeh) had it reserved.
+T 1383152426 2<27jhanson2>	oh and I understand the SHOUTING.
+T 1383152461 2<22emk2>	altman: book icenine, i'll help you get situated ;)
+T 1383152475 2<27jhanson2>	gps reservation page.
+T 1383152476 2<27jhanson2>	btw
+T 1383152504 2<28altman2>	done.
+T 1383152554 2<22emk2>	do you want me to show you what I do in case you need to repeat this again in the future, or would you like me to just get it done and out of your hair?
+T 1383152597 2<27jhanson2>	emk in case you are talking to me (or the general ICE user community) sure show us how.
+T 1383152604 2<27jhanson2>	Or point to your wiki or ..
+T 1383152614 2<22emk2>	jhanson: altman obviously, i'm pretty sure you know how to make mounts on an ICE ;)
+T 1383152622 2<27jhanson2>	true, true
+T 1383152628 2<22emk2>	and everything else
+T 1383152630 2<27jhanson2>	and I can make NATs
+T 1383152632 2<27jhanson2>	and routes
+T 1383152635 2<27jhanson2>	and pbs
+T 1383152638 2<22emk2>	beat you to it
+T 1383152639 2<27jhanson2>	and ...
+T 1383152643 2<28altman2>	yeah, I'd like to step through this, seeing as there's no end in sight to the problem of getting a system available to debug issues that can cause node failures and getting the needed time on it.
+T 1383152646 2<22emk2>	can you make cronuts though?
+T 1383152650 2<27jhanson2>	oh and I can be annoying too
+T 1383152769 <10-11-	jonathans has quit 14(Quit: Leaving14)
+T 1383152904 <10-11-	msuchy has quit 14(Read error: Connection reset by peer14)
+T 1383152939 2<28dimitri2>	pooh, emk said Cronuts.
+T 1383153074 2<27jhanson2>	apparently I can't make them.
+T 1383156175 -10-11>	lorenzou 14(10~lorenzou@mtv-vpn-hw-lorenzou-1.corp.sgi.com14) has joined #linux
+T 1383156485 2<27jhanson2>	kgsnow, for the RFE to get engr to tell mfg what to install for flat clusters would you suggest group of ?
+T 1383156494 2<27jhanson2>	linxu-release?
+T 1383156580 2<27rkerrym2>	how about ksogy-mdoelt
+T 1383157079 2<29kgsnow2>	jhanson, i suggest using linux-release
+T 1383157123 2<27jhanson2>	and not the gobbleygook suggested by rkerrym 
+T 1383157135 2<27jhanson2>	whose mind seems to have a hole in it.
+T 1383157154 2<22emk2>	open an opus ticket, duh
+T 1383157161 2<29kgsnow2>	actually, i would like to use linux-installer, but i didn't find it when I did a search
+T 1383157212 2<29kgsnow2>	now it does show up.
+T 1383157220 2<27jhanson2>	okay
+T 1383157242 2<29kgsnow2>	weird.
+T 1383157542 2<27jhanson2>	kgsnow, is a pattern invisible if it isn't mentioned in sgi/setup/descr/patterns ?
+T 1383157573 2<27jhanson2>	no
+T 1383157578 2<27jhanson2>	=Vis: true
+T 1383157581 2<27jhanson2>	in the pattern file
+T 1383157586 2<27jhanson2>	that is sneaky.
+T 1383158272 2<29kgsnow2>	yes, built-in sneakiness.
+T 1383158565 -10-11>	gbanks 14(10~gnb@ca-sslvpn-128-82.corp.sgi.com14) has joined #linux
+T 1383158821 -10-11>	rjohnsto1 14(10~rich@ca-sslvpn-128-73.corp.sgi.com14) has joined #linux
+T 1383159002 <10-11-	lorenzou has quit 14(Quit: Leaving14)
+T 1383159573 -10-11>	lorenzou 14(10~lorenzou@mtv-vpn-hw-lorenzou-1.corp.sgi.com14) has joined #linux
+T 1383159573 <10-11-	rjohnsto1 has quit 14(Read error: Connection reset by peer14)
+T 1383160774 -10-11>	rjohnsto1 14(10~rich@ca-sslvpn-129-49.corp.sgi.com14) has joined #linux
+T 1383161050 -10-11>	osmond 14(10~osmond@cf-sslvpn-0-199.corp.sgi.com14) has joined #linux
+T 1383161519 <10-11-	borno has quit 14(Quit: Leaving14)
+T 1383161885 <10-11-	osmond has quit 14(Quit: ~ Trillian Astra - www.trillian.im ~14)
+T 1383162102 -10-11>	borno 14(10borno@cf-sslvpn-1-122.corp.sgi.com14) has joined #linux
+T 1383167137 <10-11-	rjohnsto1 has quit 14(Read error: Connection reset by peer14)
+T 1383167241 -10-11>	swift 14(10~swift@cf-vpn-hw-swift-1.corp.sgi.com14) has joined #linux
+T 1383167947 <10-11-	rkerrym has quit 14(Remote host closed the connection14)
+T 1383168024 -10-11>	rkerrym 14(10~Adium@cf-vpn-hw-rkerry-1.corp.sgi.com14) has joined #linux
+T 1383168270 <10-11-	rkerrym has quit 14(Ping timeout: 240 seconds14)
+T 1383168305 <10-11-	swift has quit 14(Ping timeout: 240 seconds14)
+T 1383168818 -10-11>	rkerrym 14(10~Adium@cf-vpn-hw-rkerry-1.corp.sgi.com14) has joined #linux
+T 1383169678 -10-11>	msuchy 14(10msuchy@eu-sslvpn-145-85.emea.sgi.com14) has joined #linux
+T 1383169756 <10-11-	cornel has quit 14(Remote host closed the connection14)
+T 1383170507 -10-11>	erikj_ 14(10~erikj@cf-sslvpn-1-73.corp.sgi.com14) has joined #linux
+T 1383170648 <10-11-	jortega has quit 14(Quit: Ex-Chat14)
+T 1383171071 <10-11-	sgosse has quit 14(Ping timeout: 240 seconds14)
+T 1383173160 -10-11>	swift 14(10~swift@cf-vpn-hw-swift-1.corp.sgi.com14) has joined #linux
+T 1383173213 <10-11-	swift has quit 14(Quit: Bye!14)
+T 1383174633 -10-11>	xemery 14(10~xemery@sshcf.sgi.com14) has joined #linux
+T 1383174634 <10-11-	msuchy has quit 14(Read error: Connection reset by peer14)
+T 1383174646 <10-11-	xemery has quit 14(Remote host closed the connection14)
+T 1383175029 -10-11>	cornel 14(10~cboac@cf-sslvpn-1-220.corp.sgi.com14) has joined #linux
+T 1383176184 <10-11-	bbice has quit 14(Quit: Leaving.14)
+T 1383181306 <10-11-	cornel has quit 14(Read error: Connection reset by peer14)
+T 1383182372 <10-11-	gwh has quit 14(Remote host closed the connection14)

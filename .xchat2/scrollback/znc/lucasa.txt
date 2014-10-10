@@ -1,0 +1,38 @@
+T 1361480607 2<lucasa2>	what is address of ur wiki?
+T 1361480631 6<danielp6>	what is this dcc nonsense
+T 1361480653 6<danielp6>	http://lnx-danielp.americas.sgi.com/dokuwiki/
+T 1361481176 2<lucasa2>	best way to add a bunch of files in ptools?
+T 1361481193 6<danielp6>	you add with p_fetal
+T 1361481215 2<lucasa2>	ie an entire dir structure
+T 1361481222 2<lucasa2>	ie an entire dir structure
+T 1361481227 6<danielp6>	find |xargs?
+T 1361481243 2<lucasa2>	really?
+T 1361481251 6<danielp6>	why not?
+T 1361481267 6<danielp6>	all it is doing is marking files in census
+T 1361481416 6<danielp6>	maybe it works on directory, dunno
+T 1361481431 6<danielp6>	If the argument to p_modify is a  directory,  it  will  recur-
+T 1361481431 6<danielp6>	       sively perform its operation on all the files in that directory and its
+T 1361481431 6<danielp6>	       sub-directories.
+T 1361481450 6<danielp6>	p_fetal is p_modify -f
+T 1362070361 2<lucasa2>	smashburger?
+T 1362070379 6<danielp6>	can't today - too busy with reelase
+T 1362070379 -10-11-	DCC CHAT to 11lucasa lost. Connection reset by peer.
+T 1362070392 2<lucasa2>	smashburger?
+T 1362070400 6<danielp6>	?
+T 1362070411 6<danielp6>	this DCC thing seems broken
+T 1362070411 2<lucasa2>	for lunch today?
+T 1362070420 6<danielp6>	can't today - too busy with reelase
+T 1362070423 2<lucasa2>	k
+T 1362070434 6<danielp6>	DCC keeps reseting
+T 1362070445 6<danielp6>	 /query works too
+T 1362070463 6<danielp6>	smashburger may be better tomorrow/next week
+T 1362070488 6<danielp6>	we also have a Thursday 11-12 meeting
+T 1362070585 2<lucasa2>	boo
+T 1362524548 2<lucasa2>	yo
+T 1362524611 2<lucasa2>	any idea why recursive make wouldn't work inside a makefile.sub
+T 1362524728 2<lucasa2>	so dmf has a bunch of makefile.sub for each subdirectory.... for some reason other than just using recursive make
+T 1362524987 2<lucasa2>	nope, make just autoruns them..... yet the folder also has a Makefile in it that doesnt ref the Makefile.sub
+T 1362525384 2<lucasa2>	fair enough
+T 1362525404 2<lucasa2>	i think i figured it out anyway...... crazy ness
+T 1362525451 2<lucasa2>	yar?
+T 1362525574 2<lucasa2>	yeah, but he's still a tool ;)

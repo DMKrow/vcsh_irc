@@ -1,0 +1,105 @@
+T 1371142233 6<danielp6>	Do you have time to go over some of the customer SELinux desires for PV 1035319: enable SGI MPI bundle in selinux environment?
+T 1371142577 2<jhanson2>	I think so.
+T 1371142588 2<jhanson2>	As in I think I can represent what they want.
+T 1371142623 6<danielp6>	preference: email, phone, more IRC?
+T 1371142649 2<jhanson2>	let's have a call.  Say in 5 minutes if that works for you?
+T 1371142672 6<danielp6>	gimmie 10, can I call you?
+T 1371142687 6<danielp6>	nvm meeting over, quick bio brk
+T 1371142688 2<jhanson2>	yes and yes
+T 1371142695 2<jhanson2>	216 227 0902
+T 1371143663 2<jhanson2>	1030220
+T 1372349360 6<danielp6>	more SELinux questions if you don't mind
+T 1372349452 6<danielp6>	q1 would customer have a special SELinux user for running jobs with access to XPMEM/GRU/array services?
+T 1372349473 6<danielp6>	I am assuming allowing user_u access for jobs is fine (default authenticated user)
+T 1372354678 2<jhanson2>	I would assume so as well
+T 1372354683 2<jhanson2>	sorry I was out at lunch
+T 1372354702 2<jhanson2>	We could ask the customer's SME for SELInux.
+T 1372354707 2<jhanson2>	who seems responsive enough.
+T 1372357068 6<danielp6>	np, I wasn't looking for an immediate answer
+T 1372357080 6<danielp6>	and it maybe a role rather than a user
+T 1372357139 6<danielp6>	I will probably just set it to user_r role for now, I will look at some other policies to see if I can find precedent
+T 1372357407 2<jhanson2>	I did not get an answer to your query before so I'll add this one and repeat
+T 1372393223 <10-11-	jhanson has quit 14(Ping timeout: 240 seconds14)
+T 1374597290 6<danielp6>	Can you find out what version of stout LM is running for the SELinux machine?
+T 1374597304 2<jhanson2>	yes
+T 1374597333 6<danielp6>	I am packaging device policies (GRU,MMTIMER,XPMEM) in sgi-base-configuration, and I am wondering if I should just get them the policies
+T 1374597346 6<danielp6>	then I don't need to worry about messing with uvconfig
+T 1374597427 6<danielp6>	are they going to want/need access to the text policies (for review/suggestion)?
+T 1374597453 6<danielp6>	I was going to ship just the bzipped pp files and interface files
+T 1374597460 2<jhanson2>	Let's give them what you think a standard and resonable setup would be
+T 1374597483 6<danielp6>	OK, they can always request more
+T 1374770626 6<danielp6>	Lori is getting anxious about me getting the SELinux stuff out because marketing has been selling our skills already - I have the stuff out for review, but I hope I can get you files tomorrow to try
+T 1374770692 6<danielp6>	do you think tomorrow is any better than Monday?
+T 1374770771 2<jhanson2>	Monday is better as some gov't contractors take friday off
+T 1374770787 2<jhanson2>	I don't know if this is one
+T 1374770798 6<danielp6>	some of LockMar takes Fridays off
+T 1374770805 2<jhanson2>	regardless I don't think one day is much better than other.
+T 1374770835 6<danielp6>	I can run a few more sanity checks before getting it to them
+T 1374770864 6<danielp6>	so I will target Monday morning then
+T 1374770874 6<danielp6>	thx
+T 1374771280 6<danielp6>	almost - Chris got an offer from Cray
+T 1374771302 2<jhanson2>	danielp are you telling me about Chris?
+T 1374771308 2<jhanson2>	or is this in the wrong window
+T 1374771319 6<danielp6>	wrong window :)
+T 1374771339 6<danielp6>	Chris is the wife
+T 1374771358 6<danielp6>	not anyone here
+T 1374771366 2<jhanson2>	thanks.
+T 1374771379 2<jhanson2>	we used to have a fairly free flow between sgi and cray
+T 1374771387 2<jhanson2>	I don't think we've gotten anyone back recently.
+T 1374771418 6<danielp6>	we had weekly meeting going on, someone mentioned talking smack to Cray about our stock ratings (I guess they are helping our price a lot)
+T 1374771441 6<danielp6>	Lori said, I don't think we have any spouses at Cray
+T 1374771488 6<danielp6>	I like that there is not so much for hard feelings between the Computer Tech companies in the area
+T 1374771509 6<danielp6>	Cray/SGI/GD/LM/UD/etc
+T 1374771525 2<jhanson2>	In CF there are Cray/SGI splits too
+T 1374771560 6<danielp6>	I hope things go all right with the MFG change - that concerns me a little
+T 1374771576 2<jhanson2>	I have a huge concern
+T 1374771591 2<jhanson2>	so all we can do is stay engaged and work with whatever comes our way.
+T 1374771596 6<danielp6>	yeah
+T 1374771653 6<danielp6>	GD had some rough experience with outsourcing some of its exceptional MFG in one area - not quite the same situation, but it did end up pushing out schedules
+T 1374771668 6<danielp6>	oh well, lunchtime
+T 1376939869 2<jhanson2>	robinmholt requests your presence on freenode channel #sgi-expats
+T 1376939874 2<jhanson2>	where robin is awaiting you.
+T 1377548024 6<danielp6>	you want me to send you SELinux files in an email to send to customer or point to a location?
+T 1377548039 6<danielp6>	for beta testing purposes
+T 1377548070 2<jhanson2>	just tell me where they are
+T 1377548079 2<jhanson2>	and I can figure out how they want them.
+T 1377548140 6<danielp6>	 /data/lwork/alcatraz1/danielp/selinux/testing
+T 1377548146 6<danielp6>	 ignore tmp dir
+T 1377548162 6<danielp6>	I used that to explode sgi-base-configuration
+T 1377548180 6<danielp6>	which is where the bz2 policy files are shipped
+T 1377548206 6<danielp6>	I will add a script to label and load in about 20 minutes
+T 1377548252 6<danielp6>	so far I tested with harp10 32 processes/cores booted/running with MLS enforcing
+T 1377548364 6<danielp6>	it will likely run into problems if they 1.use jobs across partitioned UV 2. run jobs in special (non-default) user context
+T 1377548432 6<danielp6>	the arraysvcs RPM attempts to apply labels if SELinux is enabled - I don't know how to install RPMs while Enforcing, so I have never tested that (just permissive)
+T 1377548463 6<danielp6>	....I will just copy all this into an e-mail
+T 1377549862 6<danielp6>	send a big confusing mess of an email away
+T 1377549870 6<danielp6>	s/send/sent
+T 1377550761 2<jhanson2>	I shall read, add the asterisks into the right place and contact the user.
+T 1377552673 6<danielp6>	thanx - feel free to add/remove as desired
+T 1379338443 6<danielp6>	could you ping the (SELinux) customer to see if they ever tried the beta?
+T 1379339268 2<jhanson2>	Yes
+T 1379339275 2<jhanson2>	I did get a reply that they had it.
+T 1379339362 6<danielp6>	I am hoping no news is good news, but Michael/Lori want some confirmation that it works
+T 1380642920 6<danielp6>	what did you do to harp33-cmc? grumble grumble
+T 1380642920 -10-11-	12[jhanson12] is away 14(lunch14)
+T 1380644722 2<jhanson2>	mtb is going to fix it.
+T 1380644723 2<jhanson2>	promise.
+T 1380644740 6<danielp6>	heh,
+T 1380644780 6<danielp6>	did you cause this insanity with your work yesterday? or was it a case of the random cable plugging gremlins?
+T 1380644800 2<jhanson2>	yes my work
+T 1380644841 6<danielp6>	I think you owe me a cookie...of course I owe you quite a few for earlier debugging
+T 1380644841 2<jhanson2>	turns out that the ACC port is wired to the house network
+T 1380644919 6<danielp6>	while I have you on the line, 2 q's
+T 1380644939 6<danielp6>	is there any way to get feedback from LM on SELinux testing
+T 1380644940 6<danielp6>	and
+T 1380644967 6<danielp6>	Iceberry hardware - is there any other resources we can find to help debug if it is hardware (backplane) issue?
+T 1380645005 2<jhanson2>	They (LM) are still working getting their test setup.
+T 1380645036 6<danielp6>	wow - they are going to rival the time I took to get the implementation
+T 1380645053 2<jhanson2>	yes indeed.
+T 1380645097 2<jhanson2>	Tell jaj to open a case.
+T 1380645107 2<jhanson2>	for iceberry
+T 1380645159 6<danielp6>	he was trying to get me to do it, I would rather not
+T 1380645198 6<danielp6>	cb10 is my dream machine right now, and as long as it is fairly accessible, iceberry is pretty unappealling
+T 1380646298 2<jhanson2>	all the better to open the case on iceberry
+T 1380646315 2<jhanson2>	it's not a problem now so if we have to hack it into little pieces so be it.
+T 1380646340 6<danielp6>	OK, jaj is trying one more install

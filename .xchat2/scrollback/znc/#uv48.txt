@@ -1,0 +1,27 @@
+T 1339523283 -10-11>	You are now talking on 11#uv48
+T 1339523589 -10-11>	dfults 14(10~dfults@sshcf.sgi.com14) has joined #uv48
+T 1339523644 2<20dfults2>	Ok, that test finally failed
+T 1339523675 2<20dfults2>	and now we have a bunch of cart.c zombies
+T 1339523741 2<20dfults2>	I'm going to kill off this test run, since we've got a failure and potentially unkillable procs
+T 1339523764 6<danielp6>	ok
+T 1339523976 6<danielp6>	anything to make of those bt's?
+T 1339524018 2<20dfults2>	Not really.. Those can come about if there's and earlier problem and then xpmem can't clean up properly
+T 1339524091 2<20dfults2>	I can dissect the xpmem structs with crash and maybe get more insight
+T 1339526173 2<20dfults2>	Tests are off and running again.  I ran mpich112/cart.c again and it didn't fail this time
+T 1339526358 6<danielp6>	what about this zombie process phenomenon?
+T 1339526412 2<20dfults2>	Not sure at this point.  
+T 1339526443 2<20dfults2>	The crash dump hung
+T 1339526532 2<20dfults2>	We were seeing this same thing in stout706.. but other bugs were fixed and then we didn't see it anymore
+T 1339526613 2<20dfults2>	I should try mpisanity a few times in a row just to verify we're not seeing Karl's problem on uv182
+T 1339527249 2<20dfults2>	Not sure why we aren't seeing any shared_high dropins when that variable is on.  huge dropins are low too
+T 1339527582 2<20dfults2>	now our huge dropins are up to what I'd expect
+T 1339532677 2<20dfults2>	What was this error again?
+T 1339532680 2<20dfults2>	0  0x00007ffff3e002e5 in gru_check_status_proc () from /usr/lib64/libgru.so.0
+T 1339532680 2<20dfults2>	#1  0x00007ffff743688f in MPI_SGI_gru_wait (cb=<optimized out>) at bar_gru.c:61
+T 1339532680 2<20dfults2>	#2  MPI_SGI_barrier_wait_gru (comm=<optimized out>) at bar_gru.c:256
+T 1339532680 2<20dfults2>	#3  0x00007ffff74373dd in MPI_SGI_barrier (comm=1) at barrier.c:174
+T 1339532680 2<20dfults2>	#4  0x0000000000400b79 in check (sym=0x400d72 "libbitmask.so")
+T 1339532681 2<20dfults2>	    at same_amap.c:60
+T 1339532683 2<20dfults2>	#5  0x0000000000400ae9 in main () at same_amap.c:36
+T 1339532742 2<20dfults2>	same_amap.c is failing.  When I kill it, then I've seen it stuck in gru or xpmem cleanup, but this one has been spinning in user space
+T 1339944821 <10-11-	dfults has quit 14(Remote host closed the connection14)

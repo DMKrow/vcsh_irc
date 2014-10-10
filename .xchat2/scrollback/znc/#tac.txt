@@ -1,0 +1,515 @@
+T 1361829157 2<20jortega2>	errr, ok?
+T 1361829172 2<20jortega2>	they definitely have a strategy moving forward
+T 1361829180 2<20jortega2>	:)
+T 1361829257 2<22emk2>	jortega: wizard and warlock are off to elect the new pope ;)
+T 1361829266 2<20jortega2>	ah, that explains it!
+T 1361829325 2<22emk2>	witch and sorceress are of course not invited, bro spellcasters only
+T 1361829473 2<20jortega2>	do you think they will be guarded by dementors?  
+T 1361829515 2<27jhanson2>	swiss dementors?
+T 1361829529 2<20jortega2>	ooooh, those are bad
+T 1361829558 2<20jortega2>	that's why so many rich people deposit their money over there
+T 1361829700 2<27rkerrym2>	are withch and sorceress excommunicated like that scottish cardinal ??
+T 1361830015 2<22emk2>	no they get moved to another coven
+T 1361830022 2<22emk2>	or a WB show
+T 1361830200 <10-11-	kkc has quit 14(Quit: Leaving14)
+T 1361831189 <10-11-	olli has quit 14(Remote host closed the connection14)
+T 1361832973 <10-11-	jont has quit 14(Quit: Leaving.14)
+T 1361833120 <10-11-	barryk has quit 14(Quit: ~ Trillian Astra - www.trillian.im ~14)
+T 1361833851 <10-11-	jortega has quit 14(Quit: Ex-Chat14)
+T 1361838398 <10-11-	vjo has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1361838398 <10-11-	budd has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1361838398 <10-11-	Sue has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1361838398 <10-11-	Lysiane has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1361838398 <10-11-	vaclavb has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1361838398 <10-11-	t has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1361838398 <10-11-	clive has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1361838398 <10-11-	stockbot has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1361838993 -10-11>	budd 14(10Budd@134.15.87.18014) has joined #tac
+T 1361838993 -10-11>	vjo 14(10vjo@eu-sslvpn-145-9.emea.sgi.com14) has joined #tac
+T 1361838993 -10-11>	Sue 14(10~smiller@eu-sslvpn-144-107.emea.sgi.com14) has joined #tac
+T 1361838993 -10-11>	Lysiane 14(10~Dunno@viper.emea.sgi.com14) has joined #tac
+T 1361838993 -10-11>	vaclavb 14(10~vaclavb@mrcha.emea.sgi.com14) has joined #tac
+T 1361838993 -10-11>	t 14(10~t@roma.emea.sgi.com14) has joined #tac
+T 1361838993 -10-11>	clive 14(10~clive@bluesky.emea.sgi.com14) has joined #tac
+T 1361838993 -10-11>	stockbot 14(10~StockBot@mirage.emea.sgi.com14) has joined #tac
+T 1361839054 2<19stockbot2>	#tac welcomes careful typers...
+T 1361839635 -10-11>	barryk 14(10~barryk@cf-sslvpn-1-44.corp.sgi.com14) has joined #tac
+T 1361839693 <10-11-	barryk has quit 14(Quit: ~ Trillian Astra - www.trillian.im ~14)
+T 1361839884 -10-11>	alex 14(10~alexng@syd-dhcp48.asiapac.sgi.com14) has joined #tac
+T 1361842353 <10-11-	alex has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1361842353 <10-11-	Sue has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1361842353 <10-11-	budd has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1361842353 <10-11-	vjo has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1361842353 <10-11-	clive has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1361842353 <10-11-	Lysiane has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1361842353 <10-11-	stockbot has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1361842353 <10-11-	t has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1361842353 <10-11-	vaclavb has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1361844163 <10-11-	sgosse has quit 14(Ping timeout: 240 seconds14)
+T 1361844323 -10-11>	kim_ 14(10~kim@cf-sslvpn-1-240.corp.sgi.com14) has joined #tac
+T 1361844418 <10-11-	kim has quit 14(Ping timeout: 240 seconds14)
+T 1361844699 -10-11>	vjo 14(10vjo@eu-sslvpn-145-9.emea.sgi.com14) has joined #tac
+T 1361844699 -10-11>	Sue 14(10~smiller@eu-sslvpn-144-107.emea.sgi.com14) has joined #tac
+T 1361844699 -10-11>	Lysiane 14(10~Dunno@viper.emea.sgi.com14) has joined #tac
+T 1361844699 -10-11>	vaclavb 14(10~vaclavb@mrcha.emea.sgi.com14) has joined #tac
+T 1361844699 -10-11>	t 14(10~t@roma.emea.sgi.com14) has joined #tac
+T 1361844699 -10-11>	clive 14(10~clive@bluesky.emea.sgi.com14) has joined #tac
+T 1361844699 -10-11>	stockbot 14(10~StockBot@mirage.emea.sgi.com14) has joined #tac
+T 1361844793 <10-11-	stockbot has quit 14(Ping timeout: 120 seconds14)
+T 1361844795 -10-11>	stockbot 14(10~StockBot@mirage.emea.sgi.com14) has joined #tac
+T 1361845045 -10-11>	alex 14(10~alexng@syd-dhcp48.asiapac.sgi.com14) has joined #tac
+T 1361847468 <10-11-	mjo has quit 14(Ping timeout: 600 seconds14)
+T 1361853218 <10-11-	alex has quit 14(alex14)
+T 1361853738 -10-11>	alex 14(10~alexng@syd-dhcp48.asiapac.sgi.com14) has joined #tac
+T 1361855368 <10-11-	rgilley has quit 14(Ping timeout: 240 seconds14)
+T 1361855390 -10-11>	rgilley 14(10~rgilley@cf-sslvpn-0-232.corp.sgi.com14) has joined #tac
+T 1361858357 <10-11-	bings has quit 14(Quit: Leaving.14)
+T 1361861711 -10-11>	mjo 14(10~badmojo@ca-sslvpn-129-35.corp.sgi.com14) has joined #tac
+T 1361861825 -10-11>	dleger 14(10~dleger@luggage.emea.sgi.com14) has joined #tac
+T 1361862163 -10-11>	jonathans 14(10~jonathans@feck.emea.sgi.com14) has joined #tac
+T 1361863023 -10-11>	olli 14(10~olli@cf-sslvpn-0-159.corp.sgi.com14) has joined #tac
+T 1361863023 <10-11-	mjo has quit 14(Read error: Connection reset by peer14)
+T 1361863696 <10-11-	Lysiane has quit 14(A plus tard!14)
+T 1361863706 -10-11>	Lysiane 14(10~Dunno@viper.emea.sgi.com14) has joined #tac
+T 1361865829 -10-11>	jmaly 14(10jmaly@cf-sslvpn-1-8.corp.sgi.com14) has joined #tac
+T 1361865882 <10-11-	jmaly has quit 14(Quit: Leaving14)
+T 1361865889 -10-11>	jmaly 14(10jmaly@cf-sslvpn-1-8.corp.sgi.com14) has joined #tac
+T 1361866314 -10-11>	fiona 14(10~fgarratt@uk-67-235.emea.sgi.com14) has joined #tac
+T 1361866314 -10-11>	fgarratt_ 14(10fgarratt@uk-67-235.emea.sgi.com14) has joined #tac
+T 1361866320 <10-11-	fgarratt_ has quit 14(Read error: 131 (Connection reset by peer)14)
+T 1361866334 -10-11>	msuchy 14(10~MSuchy@cz-250-48.emea.sgi.com14) has joined #tac
+T 1361872591 <10-11-	vjo has quit 14(Leaving14)
+T 1361872713 <10-11-	dleger has quit 14(Leaving14)
+T 1361872953 -10-11>	dleger 14(10~dleger@luggage.emea.sgi.com14) has joined #tac
+T 1361875518 -10-11>	vjo 14(10vjo@uk-67-253.emea.sgi.com14) has joined #tac
+T 1361876286 -10-11>	budd 14(10Budd@134.15.87.18014) has joined #tac
+T 1361882214 -10-11>	andya 14(10~andya@169.238.221.19914) has joined #tac
+T 1361882330 <10-11-	andya has quit 14(Quit: andya14)
+T 1361882344 -10-11>	andya 14(10~andya@169.238.221.19914) has joined #tac
+T 1361883121 -10-11>	cleacock 14(10cleacock@dhcp-169-238-221-193.americas.sgi.com14) has joined #tac
+T 1361883373 -10-11>	mjo 14(10~badmojo@cf-sslvpn-1-39.corp.sgi.com14) has joined #tac
+T 1361883578 -10-11>	kkc 14(10kkc@cf-sslvpn-0-39.corp.sgi.com14) has joined #tac
+T 1361883718 <10-11-	dmk has quit 14(Ping timeout: 240 seconds14)
+T 1361884185 -10-11>	sgosse 14(10~chatzilla@cf-sslvpn-1-253.corp.sgi.com14) has joined #tac
+T 1361885081 -10-11>	dmk 14(10~dmk@ca-sslvpn-128-49.corp.sgi.com14) has joined #tac
+T 1361886310 -10-11>	clive1 14(10~clive@bluesky.emea.sgi.com14) has joined #tac
+T 1361886506 -10-11>	jortega 14(10~jortega@cf-vpn-hw-jortega-3.corp.sgi.com14) has joined #tac
+T 1361889976 <10-11-	Lysiane has quit 14(Remote closed the connection14)
+T 1361890110 -10-11>	Lysiane 14(10~Dunno@viper.emea.sgi.com14) has joined #tac
+T 1361890111 -10-11>	Lousiane 14(10~Dunno@viper.emea.sgi.com14) has joined #tac
+T 1361890143 <10-11-	Lousiane has quit 14(A plus tard!14)
+T 1361890290 <10-11-	Sue has quit 14(Remote closed the connection14)
+T 1361890933 -10-11>	Sue 14(10~smiller@eu-sslvpn-144-172.emea.sgi.com14) has joined #tac
+T 1361891415 <10-11-	jmaly has quit 14(Quit: Leaving14)
+T 1361891568 <10-11-	msuchy has quit 14(Leaving.14)
+T 1361893252 -10-11>	jmaly 14(10jmaly@cf-sslvpn-0-200.corp.sgi.com14) has joined #tac
+T 1361893272 2<20jmaly2>	join #pcss
+T 1361894462 -10-11>	jont 14(10~jont@cf-sslvpn-1-166.corp.sgi.com14) has joined #tac
+T 1361894704 <10-11-	jonathans has quit 14(Have a good one!14)
+T 1361895084 13*	26Lysiane is away: Au Revoir!
+T 1361895906 2<20dmk2>	fac!
+T 1361898020 <10-11-	fiona has quit 14(Leaving14)
+T 1361899263 <10-11-	dleger has quit 14(Leaving14)
+T 1361899310 2<27jhanson2>	oasis has gone off the deep end again.
+T 1361899323 2<27jhanson2>	rsync and mikeh in bugs should find one really really good hit.
+T 1361899332 2<27jhanson2>	best match is 7.56%
+T 1361900785 2<24andya2>	:-)
+T 1361900812 2<24andya2>	13.33% 
+T 1361900839 2<24andya2>	are you using an 'AND" boolean search? 
+T 1361900844 2<27jhanson2>	no
+T 1361900845 2<24andya2>	default is "OrR"
+T 1361900848 2<27jhanson2>	just the two terms
+T 1361900849 2<24andya2>	OR
+T 1361900865 2<24andya2>	see the pull down menu just under the search box
+T 1361900890 2<25clive12>	stupid stupid stupid stupid
+T 1361900895 2<25clive12>	stupid
+T 1361900901 2<24andya2>	LOL
+T 1361900935 2<20lynne2>	is that stupid AND stupid, or stupid OR stupid?
+T 1361900952 2<27jhanson2>	stupid is as stupid does
+T 1361900957 2<24andya2>	stupid AND xor OR
+T 1361900968 2<25clive12>	well oasis is certainly like a box of chocolates
+T 1361900973 2<24andya2>	LOL
+T 1361900976 2<27jhanson2>	so which then does
+T 1361900977 2<27jhanson2>	http://bugworks.engr.sgi.com/code/bwxquery.cgi?search=Search&wlong=1&view_type=Bug&wi=1022484
+T 1361901007 2<27jhanson2>	which contains multiple instances of both mike and rsync have only 13.33% match?
+T 1361901042 2<24andya2>	let me know when you figure out what the "Title" search box is for.
+T 1361901745 <10-11-	vjo has quit 14(Leaving14)
+T 1361901831 -10-11>	barryk 14(10~barryk@dhcp-169-238-1-87.americas.sgi.com14) has joined #tac
+T 1361904193 2<29yobbo2>	Hmm... I'm having a problem with supportfolio, but I'm trying to do something I've never done before, so... may be me.
+T 1361904311 <10-11-	yuyan has quit 14(Quit: yuyan14)
+T 1361904335 -10-11>	yuyan 14(10~Thunderbi@globe.csd.sgi.com14) has joined #tac
+T 1361904361 2<29yobbo2>	I attempt to go directly to https://support.sgi.com/browse_request/firmware_diagnostic_software and I get an error message "unable to find definition file".  It behaves the same whether I go through sshgate or come in from the "outside".
+T 1361904390 2<24andya2>	same here.
+T 1361904402 2<29yobbo2>	It also behaves the same if I click the "System Firmware and Diagnostic Software" box.
+T 1361904424 2<29yobbo2>	Okay,  not (only) me... will file an Opus ticket.
+T 1361904433 2<29yobbo2>	thanks Nils
+T 1361904446 2<24andya2>	even if you start from the home and work your way down to it.
+T 1361904474 2<24andya2>	np
+T 1361904762 2<29yobbo2>	heh...  FYI OPUS preprocesses away "tags".   I cut and pasted our conversation into the ticket.  Our  "handles" were surrounded by broken brackets  (i.e. <yobbo> ).  Our handles did not show up in the OPUS ticket itself.
+T 1361905005 2<29yobbo2>	ah... it's complicated... but the "tags" are preserved in the ticket itself and can be read in the "Check Status" screen.
+T 1361905438 2<24npearl2>	not to self, xz −9 on a 200 GB file takes a long damn time,  anyone know of a mac version of pxz?
+T 1361905487 -10-11>	vjo 14(10vjo@eu-sslvpn-144-16.emea.sgi.com14) has joined #tac
+T 1361907052 2<24npearl2>	well i put one together had to change some mmap flags etc grumble grumble
+T 1361909041 <10-11-	budd has quit 14(14)
+T 1361909399 <10-11-	barryk has quit 14(Quit: ~ Trillian Astra - www.trillian.im ~14)
+T 1361911136 <10-11-	jmaly has quit 14(Quit: Leaving14)
+T 1361911199 2<26linny2>	what is the calendar password, I never remmeber
+T 1361911216 2<26linny2>	http://mirage.emea.sgi.com/cgi-bin/calendar.cgi
+T 1361911235 2<27jhanson2>	enter iirc
+T 1361911269 -10-11>	mriojas 14(10mriojas@cf-sslvpn-1-100.corp.sgi.com14) has joined #tac
+T 1361911354 2<26linny2>	yup, that's it
+T 1361912488 <10-11-	vjo has quit 14(Leaving14)
+T 1361913854 <10-11-	npearl has quit 14(Quit: Leaving.14)
+T 1361913958 <10-11-	cleacock has quit 14(Quit: Leaving14)
+T 1361915126 <10-11-	mriojas has quit 14(14)
+T 1361915288 <10-11-	olli has quit 14(Remote host closed the connection14)
+T 1361915458 -10-11>	npearl 14(10~npearl@cf-vpn-hw-npearl-5.corp.sgi.com14) has joined #tac
+T 1361915584 -10-11>	bings 14(10~bings@au-bings.asiapac.sgi.com14) has joined #tac
+T 1361915751 <10-11-	andya has quit 14(Quit: andya14)
+T 1361917631 <10-11-	kkc has quit 14(Quit: Leaving14)
+T 1361917734 <10-11-	jortega has quit 14(Quit: Ex-Chat14)
+T 1361918430 <10-11-	npearl has quit 14(Quit: Leaving.14)
+T 1361919643 -10-11>	npearl 14(10~npearl@cf-vpn-hw-npearl-5.corp.sgi.com14) has joined #tac
+T 1361924641 <10-11-	jont has quit 14(Quit: Leaving.14)
+T 1361924686 <10-11-	npearl has quit 14(Quit: Leaving.14)
+T 1361926341 -10-11>	npearl 14(10~npearl@cf-vpn-hw-npearl-5.corp.sgi.com14) has joined #tac
+T 1361930141 2<22emk2>	!uru gbctask
+T 1361930142 2<19stockbot2>	URU: gbctask is unassigned
+T 1361933687 2<22emk2>	hyper-v blows
+T 1361933690 2<22emk2>	urgh
+T 1361933717 2<22emk2>	I guess baremetal deployment for windows means i get 2 cmd.exe shells that spawn on me with no clear instructions on what to do next
+T 1361944815 <10-11-	bings has quit 14(Quit: Leaving.14)
+T 1361947409 -10-11>	dleger 14(10~dleger@luggage.emea.sgi.com14) has joined #tac
+T 1361948014 -10-11>	jonathans 14(10~jonathans@feck.emea.sgi.com14) has joined #tac
+T 1361948298 <10-11-	mjo has quit 14(Read error: Connection reset by peer14)
+T 1361948920 -10-11>	jmaly 14(10jmaly@cf-sslvpn-1-170.corp.sgi.com14) has joined #tac
+T 1361948927 -10-11>	mjo 14(10~badmojo@cf-sslvpn-1-39.corp.sgi.com14) has joined #tac
+T 1361949035 13*	26Lysiane is back (gone 14:59:11)
+T 1361949278 -10-11>	msuchy 14(10~MSuchy@cz-250-48.emea.sgi.com14) has joined #tac
+T 1361949278 <10-11-	jmaly has quit 14(Read error: Connection reset by peer14)
+T 1361949302 -10-11>	olli 14(10~olli@cf-sslvpn-1-200.corp.sgi.com14) has joined #tac
+T 1361952738 -10-11>	fiona 14(10fgarratt@uk-67-235.emea.sgi.com14) has joined #tac
+T 1361953296 -10-11>	vjo 14(10vjo@eu-sslvpn-144-155.emea.sgi.com14) has joined #tac
+T 1361953339 <10-11-	reynolds has quit 14(Read error: Connection reset by peer14)
+T 1361956865 -10-11>	olaf 14(10~quassel@cf-sslvpn-0-115.corp.sgi.com14) has joined #tac
+T 1361958228 2<29t2>	we seem to be selling quite a few UVs with no SMNs. This makes it much harder to get the customers to gather diags information when they have problems. Does anyone know if this has been addressed at all?
+T 1361958453 2<26Lysiane2>	yes
+T 1361958473 <10-11-	vjo has quit 14(Leaving14)
+T 1361958487 2<26Lysiane2>	they can  get the uvdmp utility on another laptop and run it from there
+T 1361959539 <10-11-	olaf has quit 14(Ping timeout: 120 seconds14)
+T 1361961407 -10-11>	vjo 14(10vjo@uk-67-253.emea.sgi.com14) has joined #tac
+T 1361965979 <10-11-	dmk has quit 14(Read error: Connection reset by peer14)
+T 1361968356 2<27jhanson2>	t uv2 without smn is SUPPOSED to be confined to 1 iru
+T 1361968403 2<27jhanson2>	and Lysiane have you found the rpm with uvdmp (and uv2dmp) on Supportfolio?
+T 1361968542 -10-11>	olaf 14(10~quassel@cf-sslvpn-0-198.corp.sgi.com14) has joined #tac
+T 1361968987 2<26Lysiane2>	Hi jhanson it is not on supportfolio
+T 1361968999 2<27jhanson2>	then how do they get it?
+T 1361969043 2<26Lysiane2>	well by that stage, they already have a case open with level 1
+T 1361969064 2<27jhanson2>	so they have to have a problem, call us, we slide them over the rpm, they have the problem again, ..
+T 1361969082 2<27jhanson2>	which rpm are you giving them?
+T 1361969090 2<26Lysiane2>	so as per our very effective way to store that kind of information, each of the level 1 will take 2 to 3h to figure out where it is
+T 1361969129 2<26Lysiane2>	maybe even enroll ppl from the upper levels or  from field to find it
+T 1361969142 2<27jhanson2>	hypo efficient
+T 1361969172 2<26Lysiane2>	and then create a ftp to make it availabl to them because of course it can be done via e-mail. 
+T 1361969223 2<26Lysiane2>	it is in docdepot somewhere btw
+T 1361969229 -10-11>	cleacock 14(10cleacock@dhcp-169-238-221-193.americas.sgi.com14) has joined #tac
+T 1361969276 2<27jhanson2>	http://docdepot.americas.sgi.com/diags/index.php?pch=13 in tools
+T 1361969320 2<26Lysiane2>	yep voila!
+T 1361969357 2<27jhanson2>	it is also here - http://update.sgi.com/smn/1/1.5/sles11sp2/x86_64/x86_64/
+T 1361969365 2<27jhanson2>	http://update.sgi.com/smn/1/1.5/sles11sp2/x86_64/x86_64/sysco_uv-tools-1.21-20121114.i386.rpm
+T 1361969369 2<27jhanson2>	to be specific
+T 1361969437 2<26Lysiane2>	awww now you have done jhanson by being specific, you just cursed us with this file disappearing tomorrow
+T 1361969449 2<27jhanson2>	actually no it won't
+T 1361969562 <10-11-	mjo has quit 14(Remote host closed the connection14)
+T 1361969581 -10-11>	mjo 14(10~badmojo@cf-sslvpn-1-39.corp.sgi.com14) has joined #tac
+T 1361969649 2<26Lysiane2>	adamant and specific! chapeau bas Monsieur!
+T 1361969796 2<27jhanson2>	as the smn versions roll out newer version of sysco_uv-tools will go to the current smn version.
+T 1361969821 2<27jhanson2>	like this http://update.sgi.com/smn/1/1.6/sles11sp2/x86_64/x86_64/
+T 1361969930 -10-11>	kkc 14(10kkc@cf-sslvpn-0-39.corp.sgi.com14) has joined #tac
+T 1361970165 2<26Lysiane2>	i guess we could tell ppl without smn to install that repo on their laptops
+T 1361970182 2<27jhanson2>	and it will work with ia32 laptops
+T 1361970192 2<26Lysiane2>	yep. 
+T 1361970203 2<27jhanson2>	they should JUST install the sysco_uv-tools rpm
+T 1361970224 2<27jhanson2>	and here is a not too tightly guarded secret - any uv customer can get the smn iso
+T 1361970225 2<26Lysiane2>	i know.. t is the one who needed to knoe
+T 1361970233 2<27jhanson2>	so they can build their own.
+T 1361970296 2<26Lysiane2>	that would be not increasing Services Revenue in FY14
+T 1361970325 2<27jhanson2>	nope
+T 1361970336 2<27jhanson2>	would make for delivery better
+T 1361970487 2<26Lysiane2>	maybe making a smn compulsory part of  selling a UV would increase  Services Revenue in FY14 ?
+T 1361970759 2<29t2>	I knew about the sysco_uv-tools rpm, I also wrote an alfresco solution about it :-)
+T 1361970782 2<29t2>	but  http://docdepot.americas.sgi.com/diags/index.php?pch=13 says it's for "Internal use only"
+T 1361970825 2<26Lysiane2>	i ask the BSM in that case to approve
+T 1361970833 2<26Lysiane2>	(that i send it)
+T 1361970917 2<27jhanson2>	well since it's on update.sgi.com it can't be for internal use only
+T 1361971186 -10-11>	budd 14(10Budd@134.15.87.18014) has joined #tac
+T 1361971293 <10-11-	payton has quit 14(Ping timeout: 240 seconds14)
+T 1361971340 <10-11-	npearl has quit 14(Quit: Leaving.14)
+T 1361971584 -10-11>	npearl 14(10~npearl@cf-vpn-hw-npearl-5.corp.sgi.com14) has joined #tac
+T 1361971584 <10-11-	mjo has quit 14(Read error: Connection reset by peer14)
+T 1361971627 <10-11-	npearl has quit 14(Quit: Leaving.14)
+T 1361971640 2<29t2>	if the sysco stuff is not actually internal only, shouldn't it be on Supportfolio?
+T 1361971695 -10-11>	payton 14(10~Adium@cf-sslvpn-1-24.corp.sgi.com14) has joined #tac
+T 1361971696 2<29t2>	and maybe shouldn't be marked as "internal only" on docdepot?
+T 1361971910 -10-11>	andya 14(10~andya@169.238.221.20614) has joined #tac
+T 1361971938 <10-11-	payton has quit 14(Ping timeout: 240 seconds14)
+T 1361971994 -10-11>	payton 14(10~Adium@cf-sslvpn-1-24.corp.sgi.com14) has joined #tac
+T 1361972029 2<27jhanson2>	t to answer question 1 it is part of a product (SMN)
+T 1361972059 2<27jhanson2>	that we (stupidly) decided not to make universal
+T 1361972085 2<27jhanson2>	so we decided to make just the sysco_uv-tools universally available
+T 1361972108 2<27jhanson2>	now you are telling me that we forgot to tell anyone?
+T 1361972109 2<27jhanson2>	sigh.
+T 1361972204 2<26Lysiane2>	don't jump jhanson !
+T 1361972216 2<27jhanson2>	nah I just want to shove something.
+T 1361972230 2<29t2>	ah so you mean if people had been told then somebody might have put it on Supportfolio?
+T 1361972240 <10-11-	gbeshers has quit 14(Remote host closed the connection14)
+T 1361972253 2<27jhanson2>	t no I think we'll continue to put it on udpate.sgi.com
+T 1361972257 2<27jhanson2>	update
+T 1361972266 2<27jhanson2>	we can write an alfresco solution.
+T 1361972281 2<27jhanson2>	AND (if you think it warranted) have a bulletin put out.
+T 1361972283 2<26Lysiane2>	tsk tsk tsk t is not specific "people" and "somebody"
+T 1361972287 2<27jhanson2>	that is customer viewable.
+T 1361972344 2<27jhanson2>	engineering (kgsnow as the responsible person if not the actual do-er) will continue to put sysco_uv-tools on update.sgi.com
+T 1361972355 2<27jhanson2>	as new version of either smn or sysco_uv-tools release.
+T 1361973151 -10-11>	reynolds 14(10~Thunderbi@dhcp-169-238-222-178.americas.sgi.com14) has joined #tac
+T 1361973151 <10-11-	payton has quit 14(Read error: Connection reset by peer14)
+T 1361973307 -10-11>	jortega 14(10~jortega@cf-vpn-hw-jortega-3.corp.sgi.com14) has joined #tac
+T 1361974888 -10-11>	payton 14(10~Adium@ca-sslvpn-129-240.corp.sgi.com14) has joined #tac
+T 1361975250 -10-11>	dmk 14(10~dmk@ca-sslvpn-128-187.corp.sgi.com14) has joined #tac
+T 1361977064 <10-11-	nkruglov has quit 14(Read error: Connection reset by peer14)
+T 1361977064 <10-11-	payton has quit 14(Read error: Connection reset by peer14)
+T 1361977159 -10-11>	mjo 14(10~badmojo@cf-sslvpn-1-80.corp.sgi.com14) has joined #tac
+T 1361977554 <10-11-	mjo has quit 14(Read error: Connection reset by peer14)
+T 1361977607 -10-11>	jont 14(10~jont@cf-sslvpn-0-197.corp.sgi.com14) has joined #tac
+T 1361978080 <10-11-	msuchy has quit 14(Leaving.14)
+T 1361978542 -10-11>	payton 14(10~Adium@cf-sslvpn-1-237.corp.sgi.com14) has joined #tac
+T 1361978583 -10-11>	npearl 14(10~npearl@cf-vpn-hw-npearl-5.corp.sgi.com14) has joined #tac
+T 1361978822 -10-11>	gbeshers 14(10~gbeshers@sshcf.sgi.com14) has joined #tac
+T 1361979258 <10-11-	jonathans has quit 14(Have a good one!14)
+T 1361981159 -10-11>	mjo 14(10~badmojo@cf-sslvpn-0-224.corp.sgi.com14) has joined #tac
+T 1361982581 2<20connieg2>	mjo?
+T 1361982588 2<20connieg2>	are you home or still on the west coast?
+T 1361984713 13*	26Lysiane is away: Au Revoir!
+T 1361984736 <10-11-	fiona has quit 14(Leaving14)
+T 1361984746 <10-11-	dleger has quit 14(Leaving14)
+T 1361985401 <10-11-	payton has quit 14(Quit: Leaving.14)
+T 1361985401 -10-11>	payton 14(10~Adium@cf-sslvpn-1-237.corp.sgi.com14) has joined #tac
+T 1361985786 <10-11-	yuyan has quit 14(Quit: yuyan14)
+T 1361987487 <10-11-	athorlton has quit 14(Quit: Ex-Chat14)
+T 1361987626 <10-11-	olaf has quit 14(Ping timeout: 120 seconds14)
+T 1361988636 2<22mjo2>	yes, am still on the west coast
+T 1361988657 2<22mjo2>	hopefully will be able to make it out of the west coast tomorrow given the bad weather on the east coast
+T 1361988681 2<22mjo2>	what did you need help with?
+T 1361988824 <10-11-	vjo has quit 14(Leaving14)
+T 1361989213 <10-11-	payton has quit 14(Read error: Connection reset by peer14)
+T 1361990281 -10-11>	yuyan 14(10~Thunderbi@dhcp-engr2-us02-253.americas.sgi.com14) has joined #tac
+T 1361993560 -10-11>	jmaly 14(10jmaly@cf-sslvpn-0-76.corp.sgi.com14) has joined #tac
+T 1361993683 <10-11-	lucasa has quit 14(Read error: Connection reset by peer14)
+T 1361994820 <10-11-	jmaly has quit 14(Read error: Connection reset by peer14)
+T 1361995203 2<20dmk2>	oh hey look, I'm q-monitor for tomorrow
+T 1361995245 2<20dmk2>	are the duties and responsibilities spelled out somewhere? Or are we just supposed to beg people to take cases
+T 1361995516 2<27jhanson2>	you are to coordinate the taking of cases
+T 1361995525 2<27jhanson2>	begging flogging ...
+T 1361995698 <10-11-	budd has quit 14(14)
+T 1361995952 2<24andya2>	don't let Lysiane here that bit about flogging. 
+T 1361995959 2<20lynne2>	http://globalcsc.corp.sgi.com/GLOBAL/Escalations/GlobalEscProcess/globalsupport.escprocess.html#queuemonitor
+T 1361995981 2<20lynne2>	You can only flog someone if you can reach them, like if they're in the neighboring state e.g.....
+T 1361996017 -10-11>	nkruglov 14(10~Owner@ca-sslvpn-129-174.corp.sgi.com14) has joined #tac
+T 1361996234 -10-11>	vjo 14(10vjo@eu-sslvpn-145-78.emea.sgi.com14) has joined #tac
+T 1361996429 -10-11>	jmaly 14(10jmaly@cf-sslvpn-0-92.corp.sgi.com14) has joined #tac
+T 1361996858 <10-11-	sgosse has quit 14(Ping timeout: 240 seconds14)
+T 1361997144 <10-11-	nkruglov has quit 14(Read error: Connection reset by peer14)
+T 1361998224 -10-11>	payton 14(10~Adium@cf-sslvpn-0-143.corp.sgi.com14) has joined #tac
+T 1361998932 2<28bgstone2>	A customer received a CH-C3108-TY11 recently and the Windows Server 2008 License on the outside of the box was damaged and is unreadable. Any idea where I can find that license?
+T 1361998956 2<24andya2>	just a guess, install base?
+T 1361998992 2<28bgstone2>	I looked at IB, SO, Contract, and I can't find it. Do I need to go to MFG?
+T 1361999011 2<28bgstone2>	Would SWL be any help?
+T 1361999038 2<24andya2>	ping reynolds. he my have an idea.
+T 1361999353 <10-11-	cleacock has quit 14(Quit: Leaving14)
+T 1361999359 <10-11-	jmaly has quit 14(Quit: Leaving14)
+T 1362000555 2<28bgstone2>	Any SLURM expertise out there?
+T 1362000560 2<27jhanson2>	yuyan
+T 1362000567 2<27jhanson2>	this is lanl or mpo?
+T 1362000572 2<28bgstone2>	mpo
+T 1362000598 2<28bgstone2>	SLURM agent queue is full
+T 1362000643 2<28bgstone2>	Another message made suggestion to restart SLURM DBD, which has been done
+T 1362000664 2<28bgstone2>	cannot submit jobs
+T 1362000667 2<20lynne2>	dmk
+T 1362000670 2<27jhanson2>	yuyan
+T 1362000675 2<20lynne2>	ok yuyan
+T 1362000681 <10-11-	andya has quit 14(Quit: andya14)
+T 1362000729 2<28bgstone2>	Would yuyan be a GPS escalation?
+T 1362000736 2<27jhanson2>	yes
+T 1362000741 2<28bgstone2>	thx
+T 1362000745 2<27jhanson2>	feel free to pass gts by
+T 1362000764 2<20lynne2>	YEah, michelle is out this week so she can't yell at us.
+T 1362000767 2<20lynne2>	:-)
+T 1362000829 2<27jhanson2>	oh better yet, find a MAILING LIST like storage se to work it in.
+T 1362000868 2<20lynne2>	jhanson you are full of spit and vinegar today
+T 1362000896 2<27jhanson2>	too many doughnuts
+T 1362000931 2<20lynne2>	Maybe you should ride your bike to get your car, work off some of that energy. :-)
+T 1362000938 2<20lynne2>	Of course, I did start this one. Hmmm.
+T 1362000967 2<27rkerrym2>	I am watching ...
+T 1362000981 2<20lynne2>	oh dang it - dont' tell on us.
+T 1362000998 2<27rkerrym2>	just like a kid …I will go tell maw
+T 1362001048 2<24npearl2>	:-)
+T 1362001132 13*	28dimitri rolls eyes..
+T 1362001254 <10-11-	payton has quit 14(Read error: Connection reset by peer14)
+T 1362001616 -10-11>	bings 14(10~bings@au-bings.asiapac.sgi.com14) has joined #tac
+T 1362001773 <10-11-	gbeshers has quit 14(Quit: Ex-Chat14)
+T 1362001864 -10-11>	kellym 14(10Kelly@cf-sslvpn-1-241.corp.sgi.com14) has joined #tac
+T 1362002249 -10-11>	payton 14(10~Adium@cf-sslvpn-0-186.corp.sgi.com14) has joined #tac
+T 1362003052 2<27jhanson2>	bgstone, 2946089-2 is in level2
+T 1362003061 2<27jhanson2>	don't you want that in gps unix?
+T 1362003108 2<28bgstone2>	trying to follow protocol
+T 1362003137 2<27jhanson2>	after we told you not to bother
+T 1362003144 2<28bgstone2>	yep
+T 1362003144 2<27jhanson2>	and lynne didn't rip my head off?
+T 1362003146 2<27jhanson2>	okay.
+T 1362003193 2<27jhanson2>	Expertise is needed. GPS has it. We don't.
+T 1362003202 2<27jhanson2>	I reject-forwarded it to gps-unix
+T 1362003270 2<28bgstone2>	This is a P1 and it supposed to be hot-handoff. I'm not sure how quickly it will get picked up in a queue.
+T 1362003355 2<27jhanson2>	would you be so kind as to call Yuyan and check on his ability to help?
+T 1362003367 2<27jhanson2>	I apologize for breaking protocol on this.
+T 1362003591 2<28bgstone2>	ok
+T 1362003740 2<20lynne2>	What, sorry, wasn't paying attention. I'll rip your head off in a little bit. I think it's ok to go to GPS if it's a P1 and we don't have expertise.
+T 1362003765 2<20lynne2>	Michelle says escalate sooner rather than later on P1s (and maybe P2s too until we get bombarded).
+T 1362003815 <10-11-	kkc has quit 14(Quit: Leaving14)
+T 1362003860 2<27jhanson2>	Then I have successfully channeled Michelle.
+T 1362003885 2<20lynne2>	Hmmmm. 
+T 1362003905 <10-11-	olli has quit 14(Remote host closed the connection14)
+T 1362003949 2<24npearl2>	I don't see her nick on this channel
+T 1362003960 2<20lynne2>	SHe doesn't do IRC.
+T 1362003971 2<24npearl2>	once in a blue moon she does
+T 1362003976 2<20lynne2>	maybe jhanson should change his to maw.
+T 1362003977 2<24npearl2>	or did
+T 1362003991 2<20lynne2>	I do it for the comedic relief. :-)
+T 1362004066 -10-11-	jhanson is now known as jhMAWon
+T 1362004078 2<24jhMAWon2>	being the middle of the channel
+T 1362004087 -10-11-	jhMAWon is now known as jhanson
+T 1362004096 2<20lynne2>	how do I even pronounce that?
+T 1362004097 2<27jhanson2>	well that felt weird
+T 1362004116 2<27jhanson2>	just like it is written - that
+T 1362004118 2<27jhanson2>	:-))
+T 1362004156 2<20lynne2>	Waiting for dimitri to roll his eyes again.
+T 1362004196 2<24npearl2>	sorta like c'mon
+T 1362004204 -10-11>	sgosse 14(10~chatzilla@eagdhcp-232-206.americas.sgi.com14) has joined #tac
+T 1362004204 2<24npearl2>	but with a j
+T 1362004208 2<27jhanson2>	he's still having his latte earlier
+T 1362004215 2<27jhanson2>	latte from earlier
+T 1362004222 2<24npearl2>	sounds a little rasta too me
+T 1362004233 2<24npearl2>	err a little too rasta to me
+T 1362004246 2<28dimitri2>	no, nose burried in cxfs foo..
+T 1362004314 2<24npearl2>	little bunny foo foo hoping through the mangrove forest scooping up the tokens and bopping the messages on the head
+T 1362004322 2<27jhanson2>	haha
+T 1362004322 2<24npearl2>	err hopping
+T 1362004324 2<27jhanson2>	nice
+T 1362004336 2<27jhanson2>	hoping to be hopping
+T 1362004342 2<27jhanson2>	he's got spring fever
+T 1362004465 2<27jhanson2>	just like these people - http://www.paddling.net/photography/showPhoto.html?showID=718
+T 1362004517 -10-11>	barryk 14(10~barryk@cf-sslvpn-0-138.corp.sgi.com14) has joined #tac
+T 1362004517 <10-11-	barryk has quit 14(Quit: ~ Trillian Astra - www.trillian.im ~14)
+T 1362005190 2<28dimitri2>	https://www.youtube.com/watch?v=Xy-yIsQgJEA
+T 1362005287 <10-11-	yuyan has quit 14(Quit: yuyan14)
+T 1362005826 2<22jont2>	dmitri's lost it
+T 1362007642 2<28dimitri2>	http://upload.wikimedia.org/wikipedia/en/b/bb/Billthecat.jpg
+T 1362008206 <10-11-	jont has quit 14(Quit: Leaving.14)
+T 1362008467 -10-11>	yuyan 14(10~Thunderbi@globe.csd.sgi.com14) has joined #tac
+T 1362008495 -10-11>	nkruglov 14(10~Owner@cf-sslvpn-0-209.corp.sgi.com14) has joined #tac
+T 1362009127 -10-11>	hedi 14(10~hedi@zorg.emea.sgi.com14) has joined #tac
+T 1362009283 <10-11-	jortega has quit 14(Quit: Ex-Chat14)
+T 1362009873 <10-11-	sgosse has quit 14(Ping timeout: 240 seconds14)
+T 1362010178 <10-11-	dmk has quit 14(Read error: Connection reset by peer14)
+T 1362010711 <10-11-	kellym has quit 14(14)
+T 1362015053 <10-11-	nkruglov has quit 14(Read error: Connection reset by peer14)
+T 1362021363 -10-11-	hedi is now known as hedi|AWAY
+T 1362030393 -10-11>	npearl1 14(10~npearl@cf-vpn-hw-npearl-5.corp.sgi.com14) has joined #tac
+T 1362030528 <10-11-	npearl has quit 14(Ping timeout: 240 seconds14)
+T 1362031200 <10-11-	bings has quit 14(Quit: Leaving.14)
+T 1362034441 -10-11>	jonathans 14(10~jonathans@feck.emea.sgi.com14) has joined #tac
+T 1362035861 -10-11>	olli 14(10~olli@cf-sslvpn-1-220.corp.sgi.com14) has joined #tac
+T 1362036089 -10-11>	msuchy 14(10~MSuchy@cz-250-60.emea.sgi.com14) has joined #tac
+T 1362037626 -10-11>	dleger 14(10~dleger@luggage.emea.sgi.com14) has joined #tac
+T 1362038451 13*	26Lysiane is back (gone 14:55:38)
+T 1362038591 -10-11>	olaf 14(10~quassel@nl-208-66.emea.sgi.com14) has joined #tac
+T 1362038766 <10-11-	msuchy has quit 14(Leaving.14)
+T 1362041812 <10-11-	vjo has quit 14(Leaving14)
+T 1362043155 <10-11-	hedi|AWAY has quit 14(Ping timeout: 120 seconds14)
+T 1362045681 -10-11>	vjo 14(10vjo@uk-67-253.emea.sgi.com14) has joined #tac
+T 1362049985 -10-11>	barryk 14(10~barryk@cf-sslvpn-1-109.corp.sgi.com14) has joined #tac
+T 1362050007 <10-11-	barryk has quit 14(Quit: ~ Trillian Astra - www.trillian.im ~14)
+T 1362054737 -10-11>	andya 14(10~andya@169.238.221.20614) has joined #tac
+T 1362054739 2<19stockbot2>	#tac welcomes careful typers...
+T 1362055289 -10-11>	fiona 14(10~fgarratt@uk-67-235.emea.sgi.com14) has joined #tac
+T 1362055913 -10-11>	dmk 14(10~dmk@ca-sslvpn-129-56.corp.sgi.com14) has joined #tac
+T 1362056277 -10-11>	cleacock 14(10cleacock@dhcp-169-238-221-215.americas.sgi.com14) has joined #tac
+T 1362056392 -10-11>	kkc 14(10kkc@cf-sslvpn-0-39.corp.sgi.com14) has joined #tac
+T 1362057266 -10-11>	budd 14(10Budd@134.15.87.18014) has joined #tac
+T 1362057588 <10-11-	fiona has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1362057588 <10-11-	vjo has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1362057588 <10-11-	olaf has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1362057588 <10-11-	dleger has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1362057588 <10-11-	jonathans has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1362057588 <10-11-	Sue has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1362057588 <10-11-	Lysiane has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1362057588 <10-11-	alex has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1362057588 <10-11-	stockbot has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1362057588 <10-11-	clive1 has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1362057588 <10-11-	clive has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1362057588 <10-11-	t has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1362057588 <10-11-	vaclavb has quit 14(new-irc.corp.sgi.com irc.emea.sgi.com14)
+T 1362058228 2<20dmk2>	is it just me, or is mirage.emea.sgi.com down?
+T 1362058236 2<20dmk2>	oh. look at that split
+T 1362058428 -10-11>	jmaly 14(10jmaly@cf-sslvpn-1-31.corp.sgi.com14) has joined #tac
+T 1362058661 -10-11>	t 14(10t@cf-sslvpn-1-68.corp.sgi.com14) has joined #tac
+T 1362058683 <10-11-	t has quit 14(Leaving14)
+T 1362058688 2<22dfrayer2>	Hi,
+T 1362058688 2<22dfrayer2>	UK and possibly the rest of EMEA has lost connectivity with the corp network (Citrix, Opus, email etc).
+T 1362058688 2<22dfrayer2>	Raj is currently working on getting us back.
+T 1362058688 2<22dfrayer2>	Some are able to connect by vpn to the US.
+T 1362058688 2<22dfrayer2>	Tarit. 
+T 1362058752 -10-11>	t 14(10t@cf-sslvpn-1-68.corp.sgi.com14) has joined #tac
+T 1362059933 -10-11>	jortega 14(10~jortega@cf-vpn-hw-jortega-3.corp.sgi.com14) has joined #tac
+T 1362060423 -10-11-	t is now known as t_
+T 1362060906 <10-11-	mjo has quit 14(Quit: Leaving.14)
+T 1362062221 -10-11>	vjo 14(10vjo@cf-sslvpn-1-11.corp.sgi.com14) has joined #tac
+T 1362063052 <10-11-	npearl1 has quit 14(Quit: Leaving.14)
+T 1362063060 -10-11>	npearl 14(10~npearl@cf-vpn-hw-npearl-5.corp.sgi.com14) has joined #tac
+T 1362063459 -10-11>	mriojas 14(10mriojas@cf-sslvpn-1-22.corp.sgi.com14) has joined #tac
+T 1362066485 <10-11-	mriojas has quit 14(14)
+T 1362067065 -10-11>	olaf 14(10~quassel@cf-sslvpn-1-91.corp.sgi.com14) has joined #tac
+T 1362067241 -10-11>	Lysiane 14(10~Dunno@viper.emea.sgi.com14) has joined #tac
+T 1362067241 -10-11>	t 14(10~t@144.253.67.6114) has joined #tac
+T 1362067241 -10-11>	clive1 14(10~clive@bluesky.emea.sgi.com14) has joined #tac
+T 1362067241 -10-11>	stockbot 14(10~StockBot@mirage.emea.sgi.com14) has joined #tac
+T 1362067241 -10-11>	vaclavb 14(10~vaclavb@mrcha.emea.sgi.com14) has joined #tac
+T 1362067241 -10-11>	clive 14(10~clive@bluesky.emea.sgi.com14) has joined #tac
+T 1362067285 -10-11>	jonathans 14(10~jonathans@feck.emea.sgi.com14) has joined #tac
+T 1362067374 -10-11>	dleger 14(10~dleger@luggage.emea.sgi.com14) has joined #tac
+T 1362067468 -10-11>	jont 14(10~jont@cf-sslvpn-1-53.corp.sgi.com14) has joined #tac
+T 1362067607 <10-11-	t_ has quit 14(Read error: 104 (Connection reset by peer)14)
+T 1362067615 -10-11>	t___ 14(10t@lt-tmitra.emea.sgi.com14) has joined #tac
+T 1362067624 <10-11-	t___ has quit 14(Read error: 104 (Connection reset by peer)14)
+T 1362067934 -10-11>	alex 14(10~alexng@syd-dhcp48.asiapac.sgi.com14) has joined #tac
+T 1362068267 -10-11>	Sue 14(10~smiller@cf-sslvpn-1-150.corp.sgi.com14) has joined #tac
+T 1362068465 -10-11>	kellym 14(10Kelly@cf-sslvpn-1-241.corp.sgi.com14) has joined #tac
+T 1362068683 <10-11-	vjo has quit 14(Quit: Leaving14)
+T 1362068705 -10-11>	vjo 14(10~vjo@uk-67-253.emea.sgi.com14) has joined #tac
+T 1362068854 -10-11>	t_ 14(10t@lt-tmitra.emea.sgi.com14) has joined #tac
+T 1362068855 -10-11>	t___ 14(10~t@lt-tmitra.emea.sgi.com14) has joined #tac
+T 1369421274 -10-11>	You are now talking on 11#tac
+T 1369421274 -10-11-	Topic for 11#tac is 11we aren't a censor, if you don't like it /leave #tac
+T 1369421274 -10-11-	Topic for 11#tac set by 11ChanServ!ChanServ@sgircserv-irc.corp.sgi.com at 11Tue May 22 20:42:48 2012
+T 1369422155 <10-11-	dimitri 14(~dimitri@sshcf.sgi.com14) has left #tac
+T 1369422206 <10-11-	budd has quit 14(14)
+T 1369422496 -10-11>	jrunning1 14(10~jrunnings@cf-sslvpn-0-65.corp.sgi.com14) has joined #tac
+T 1369422496 <10-11-	jrunnings has quit 14(Read error: Connection reset by peer14)
+T 1369423685 <10-11-	lynne has quit 14(Quit: Leaving.14)
+T 1369425594 <10-11-	yuyan has quit 14(Remote host closed the connection14)
+T 1369425888 -10-11>	barryk 14(10~barryk@cf-sslvpn-1-211.corp.sgi.com14) has joined #tac
+T 1369426056 <10-11-	andy-lnx has quit 14(Quit: Konversation terminated!14)
+T 1369426691 2<22mjo2>	anyone have a rhel 6.4 system with latest kernel src isntalled on it?
+T 1369426903 2<27jhanson2>	Yes.
+T 1369426914 2<27jhanson2>	Well I can get the kernel src installed if it isn't.
+T 1369427001 2<22mjo2>	thx
+T 1369427320 <10-11-	beagan has quit 14(Read error: Connection reset by peer14)

@@ -1,0 +1,37 @@
+T 1306346992 18<billodo>	got your irc fu goin I see
+T 1306433912 18<billodo>	take a look where I'll be riding tomorrow night: http://www.nscsports.org/sports/cycling/index.htm
+T 1306433955 31<danielp>30	cool...don't fall
+T 1306434000 18<billodo>	that would result in splinters
+T 1306434018 18<billodo>	250m track with 43deg banking
+T 1306434045 18<billodo>	one falls if one's speed is less than 16mph or so
+T 1306434047 31<danielp>30	43 - that is steep
+T 1306434062 18<billodo>	it's a lesson in physics
+T 1306434070 31<danielp>30	how long is ride?
+T 1306434110 18<billodo>	not long... maybe a few iterations of 15 min each
+T 1306434129 31<danielp>30	how many people at a time?
+T 1306434135 18<billodo>	it's the last night of the beginner race program that I'm coordinating
+T 1306434148 18<billodo>	20 riders about
+T 1306434161 18<billodo>	races are 10-20 riders
+T 1306434179 18<billodo>	I'm not a track racer, so I just go to experience it for a bit
+T 1306434189 18<billodo>	too scary for me
+T 1306434199 18<billodo>	fixed gear track bikes with no brakes
+T 1306434218 18<billodo>	I have a couple friends that are track racers
+T 1306434220 31<danielp>30	checking out the photo gallery now
+T 1306434230 18<billodo>	thighs like large pistons
+T 1306434244 31<danielp>30	:-)
+T 1307028111 18<billodo>	willie accepted a position in my group
+T 1307028127 31<danielp>30	cool
+T 1307028141 31<danielp>30	I heard Dave Harder is going Compellant
+T 1307028161 18<billodo>	good for him
+T 1307028185 18<billodo>	the power of Kurt compels him :/
+T 1307028200 18<billodo>	(exorcist reference) :P
+T 1307028217 31<danielp>30	yeah
+T 1307028248 31<danielp>30	that was a quick trip
+T 1307028269 18<billodo>	eh?
+T 1307028335 18<billodo>	everything at sgi is quick, particularly comparted to the slothlike motion of GD and defense
+T 1307028350 31<danielp>30	:-)
+T 1307028371 18<billodo>	so glad I escaped that joint
+T 1307028390 31<danielp>30	so far, me too
+T 1307038377 22*	Disconnected (Connection reset by peer).
+T 1307112725 22*	Disconnected (Connection reset by peer).
+T 1307368574 22*	Disconnected (Connection reset by peer).

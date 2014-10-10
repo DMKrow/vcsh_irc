@@ -1,0 +1,43 @@
+T 1370370532 6<danielp6>	do you know where array services transition from running as root to the user's ID/environment?
+T 1370370565 2<michel2>	I used to know but it's "far" away
+T 1370370583 2<michel2>	lemme try
+T 1370370594 6<danielp6>	that's all right - I am digging in now to understand how to add SELinux checks
+T 1370370707 2<michel2>	cmd/arrayd/exec.c       ExecProgram    242 setreuid(Info->RUID, Info->EUID) < 0)
+T 1370370711 2<michel2>	I think it's there
+T 1370370741 6<danielp6>	would you think it would be anywhere else additionally?
+T 1370370759 2<michel2>	yes but that is code still left around for secure array
+T 1370370767 2<michel2>	mmost likely
+T 1370370788 2<michel2>	just don't account for anything related to Sarray
+T 1370370807 2<michel2>	u use cscope ?
+T 1370370811 6<danielp6>	is sarray all deprecated?
+T 1370370821 2<michel2>	if yes, check for who calls setreuid ...
+T 1370370823 6<danielp6>	I use ctags+cscope
+T 1370370866 2<michel2>	yes. sarray is deprecated? ... BUT it would be wise not to destroy it.
+T 1370370873 2<michel2>	well, imo. 
+T 1370370895 2<michel2>	because we never received a complaint fro a sarray customer and the fact we dropped it in favor of using munge
+T 1370370899 6<danielp6>	I just have to find any paths that would have a user transition
+T 1370370917 6<danielp6>	wrap w/ SELinux checks
+T 1370370918 2<michel2>	yes, just regular array and you'll be fine, essentially.
+T 1370370929 2<michel2>	yeah. check initgroups and such
+T 1370370936 6<danielp6>	./arraysvcs/cmd/sasremex/sasremex.c:	setreuid(ruid, ruid);
+T 1370370936 6<danielp6>	./arraysvcs/cmd/sasremex/sasremex.c:	if (setreuid(ruid, ruid)) {
+T 1370370936 6<danielp6>	./arraysvcs/cmd/arrayd/simple.c:	if (setreuid(UserInfo.RUID, UserInfo.EUID) < 0) {
+T 1370370936 6<danielp6>	./arraysvcs/cmd/arrayd/exec.c:	    setreuid(Info->RUID, Info->EUID) < 0)
+T 1370370946 2<michel2>	sas == secure array
+T 1370370955 6<danielp6>	I figured
+T 1370370960 2<michel2>	great
+T 1370370968 6<danielp6>	what is the simple.c for?
+T 1370370977 2<michel2>	hold on
+T 1370371051 2<michel2>	poorly named. not me ;)
+T 1370371079 2<michel2>	but it's essentially a buch of callback functions used by arrayd
+T 1370371081 2<michel2>	ex:
+T 1370371090 2<michel2>	cmd/arrayd/arrayd.c 147 /*  3 : ALLOCASH  */ { ProcessAllocASH, 0 },
+T 1370371107 2<michel2>	that table is ReqAttrs[]
+T 1370371115 2<michel2>	defined in arrayd
+T 1370371164 2<michel2>	That table wasn't commented before. I had "enough" and added those /* ... */ comments
+T 1370371168 2<michel2>	so I could debug
+T 1370371193 2<michel2>	does that help ?
+T 1370371199 6<danielp6>	yeah, thanks
+T 1370371217 2<michel2>	a side-effect is you will not find the caller of ProcessAllocASH ... 
+T 1370371243 2<michel2>	ProcessExec in particular :)
+T 1370416589 <10-11-	michel has quit 14(Ping timeout: 240 seconds14)

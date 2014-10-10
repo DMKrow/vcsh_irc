@@ -1,0 +1,509 @@
+T 1380212692 6<danielp6>	bang, we can replace people who do that stuff now!
+T 1380213985 6<danielp6>	wait, what are we talking about?
+T 1380214469 2<altman2>	what were you asking what we were talking about about? :D
+T 1380214488 6<danielp6>	nope
+T 1380214500 2<altman2>	what was the subject?
+T 1380214509 6<danielp6>	it was the weird ext-interrupt pci card disc
+T 1380214589 2<altman2>	yeah, I wasn't quite following that either
+T 1380214619 6<danielp6>	all of the sudden they were talking about parallel ports, and I was like what?!
+T 1380214737 2<altman2>	yeah, going for those industry leading parallel port performance numbers.  fastest spooling around for my black and white canon
+T 1380214811 6<danielp6>	24pin color dm, with 5min/page at fulres
+T 1380221477 2<altman2>	got a sec?  I could use a hand getting paths and variables set up right to do a code review Michael requested
+T 1380221508 6<danielp6>	fire away
+T 1380221597 6<danielp6>	what is the path he gave you?
+T 1380221604 2<altman2>	the path he gave me is /data/lwork/alcatraz1/mraymond/0/stout7/bldroot.sles11sp2/tmp/mpi.A.  
+T 1380221624 2<altman2>	I set WORKAREA=`pwd` and did p_list -c but workarea.location is undefined.  so I took a look at the workarea file and it's pointing to a different chroot path.
+T 1380221630 2<altman2>	oh... maybe I need to do chrootcmd from two dirs up?
+T 1380221636 6<danielp6>	nope
+T 1380221667 6<danielp6>	export WORKAREA
+T 1380221693 6<danielp6>	export WORKAREA=/data/lwork/alcatraz1/mraymond/0/stout7/bldroot.sles11sp2/tmp/mpi.A
+T 1380221727 6<danielp6>	p_list -c
+T 1380221732 6<danielp6>	works for me
+T 1380221771 6<danielp6>	lib/libmpi/src/coll/allgather.c
+T 1380221771 6<danielp6>	lib/libmpi/src/comm/comm_split.c
+T 1380221782 6<danielp6>	include/mpifunctions.h
+T 1380221815 6<danielp6>	is that working for you?
+T 1380221907 2<altman2>	yeah.  weird.  I exported workarea after setting it.  oh well.  glad to know I was MOSTLY on the right track... SLOWLY figuring out some of this workflow stuff
+T 1380221909 2<altman2>	thanks for your help
+T 1380221917 6<danielp6>	np
+T 1380221940 6<danielp6>	keep the easy questions coming, I am no good at the hard ones ;)
+T 1380225574 2<altman2>	what's a keyword I can look for in the build log to see if the RPM complains about having splint unpackaged files under the src dir?
+T 1380225733 2<altman2>	nvm, just looked through the logs and it looks like I'm OK
+T 1380225747 2<altman2>	the RPM install script only references src/lib/*.so and src/bin/*
+T 1380225794 2<altman2>	I'm curious about one change I made though - before MPInside libs weren't built with -ldl even though they use dlsym.  I changed that in the makefile in this workarea.  still builds fine and ran regression tests OK on grommit. 
+T 1380226965 6<danielp6>	implicit linking of dl?
+T 1380226975 2<altman2>	yeah
+T 1380227005 6<danielp6>	that caused failures in rhel7 builds for somethings because of a security change in gcc
+T 1380227019 2<altman2>	oh weird
+T 1380227025 6<danielp6>	or something
+T 1380227030 2<altman2>	I went ahead and committed it... do I need to back that change out?
+T 1380227067 6<danielp6>	no, I think it would have been broken before you fixed?
+T 1380227087 2<altman2>	I don't know
+T 1380227097 6<danielp6>	wouldn't worry about it
+T 1380227164 2<altman2>	k
+T 1380227218 6<danielp6>	there was some change for "security" that made gcc no longer inherit or implicitly add some linking of libraries - can't find the info though
+T 1380227274 6<danielp6>	I think it was linking to a lib used to bring all of it's required libs implicitly, but no more
+T 1380227295 6<danielp6>	Robin ran into it with regression tests and rhel7
+T 1380320925 <10-11-	altman has quit 14(Remote host closed the connection14)
+T 1380638608 2<altman2>	hi
+T 1380638614 6<danielp6>	hello
+T 1380638619 2<altman2>	ran into a problem with a shepherd process this morning.  got a sec?
+T 1380638643 6<danielp6>	maybe
+T 1380638690 6<danielp6>	ibnetdiscover needed to be run as root before for cluster I believe (x86apps q)
+T 1380638700 2<altman2>	OK
+T 1380638708 2<altman2>	I will forward that on if you haven't replied already
+T 1380638719 2<altman2>	the error I'm seeing:
+T 1380638719 2<altman2>	MPT ERROR: shepherd terminated: r1i1n15 - job aborting
+T 1380638719 2<altman2>	Command exited with non-zero status 137
+T 1380638726 2<altman2>	this is on cy001 with a 255-rank job.
+T 1380638750 6<danielp6>	they may have ibnetdiscover in their homedir?
+T 1380638760 2<altman2>	possible
+T 1380638775 2<altman2>	I don't know if ibnetdiscover is part of mpiplace or if mpiplace expects another package to provide it
+T 1380638778 6<danielp6>	so no more info than shepherd term?
+T 1380638840 6<danielp6>	[root@service0 ~]# rpm -qf $(which ibnetdiscover )
+T 1380638840 6<danielp6>	infiniband-diags-1.5.12-5.el6.x86_64
+T 1380638845 6<danielp6>	on iceberry
+T 1380638845 2<altman2>	that's all the error output.  I can tell you from extra info the calling script dumps that that's the last node we need to allocate to the job
+T 1380638870 6<danielp6>	is node healthy?
+T 1380638895 6<danielp6>	can you log in? arraysvcs running?
+T 1380638925 6<danielp6>	ascheck should work as user (I believe)
+T 1380638963 2<altman2>	nah, needs to be root.
+T 1380638970 2<altman2>	I can log into the node though
+T 1380638991 6<danielp6>	ascheck doesn't need root on iceb?
+T 1380639041 2<altman2>	altman@r1i1n15:~> ascheck
+T 1380639041 2<altman2>	Absolute path to 'ascheck' is '/usr/sbin/ascheck', so it might be intended to be run only by user with superuser privileges (eg. root).
+T 1380639041 2<altman2>	-bash: ascheck: command not found
+T 1380639075 2<altman2>	nvm, permissions are OK on that it's just not in the path
+T 1380639110 2<altman2>	yup, node is up, no errors reported
+T 1380639131 6<danielp6>	ibstat ?
+T 1380639160 2<altman2>	2x links up/active
+T 1380639225 6<danielp6>	can you mpirun  on node?
+T 1380639282 2<altman2>	it's on there and gives options.  I probably shouldn't try running an actual program with it... other people are on cy002 right now.
+T 1380639318 6<danielp6>	on the node?
+T 1380639330 6<danielp6>	r1i1n15
+T 1380639346 6<danielp6>	can you schedule interactive?
+T 1380639431 2<altman2>	I'm the only one that shows up on r1i1n15 in who.  is that enough to say nobody's using it for a job right nwo?
+T 1380639472 6<danielp6>	if you have a job allocated on r1i1n15, it should be fine to log onto it
+T 1380639504 6<danielp6>	I don't know enough about PBS and our setup to say how likely it is to put two jobs on same node
+T 1380639521 6<danielp6>	I think that would be avoided if possible
+T 1380639546 2<altman2>	you would think
+T 1380639570 6<danielp6>	to find out if anyone is using an MPT job, try "array who"
+T 1380639585 6<danielp6>	array jobs don't show up in who, I don't think
+T 1380639699 2<altman2>	Ok, yeah, mpirun works
+T 1380639781 6<danielp6>	I am not sure offhand,
+T 1380639792 2<altman2>	that will give me some ammo for the pv though.  thanks!
+T 1380639809 6<danielp6>	maybe next step is add fork delay and attach to last job
+T 1380639855 6<danielp6>	looking up env var for that....
+T 1380639897 6<danielp6>	MPI_DEBUG_FORK_SLEEP ?
+T 1380639971 6<danielp6>	if (getenv("MPI_DEBUG_FORK_SLEEP") != NULL) {
+T 1380639971 6<danielp6>	                fprintf(stderr,"sleeping 30 seconds after each fork of slave\n")
+T 1380639996 6<danielp6>	that gives you time to attach before job dies?
+T 1380640005 2<altman2>	OK, I'll try it out
+T 1380640019 6<danielp6>	and MPI_DAEMON_DEBUG_ATTACH
+T 1380640025 6<danielp6>	"MPT Daemon sleeping for %d seconds while you attach the debugger.\n"
+T 1380640025 6<danielp6>	"You can use the command\n"
+T 1380640088 6<danielp6>	that is what Karl generally suggested if you are getting early aborts w/o much info
+T 1380640469 6<danielp6>	yay, looks like I sortof remembered correctly about ibnetdiscover
+T 1380647066 2<altman2>	have you ever gotten an error from dplace: "syntax error: invalid cpu specified - too big"
+T 1380647067 2<altman2>	?
+T 1380647084 6<danielp6>	nope, I barely use dplace though
+T 1380647149 2<altman2>	ah, I think I see what's going on.  how could it be that we only have two processor threads running on db2?
+T 1380647243 6<danielp6>	cpumap
+T 1380647253 6<danielp6>	1 socket, 2 cores, no HT
+T 1380647273 2<altman2>	yeah.  does it need a reboot?
+T 1380647311 6<danielp6>	not sure what that would do
+T 1380647344 2<altman2>	just a wild ass guess that missing processors might be due to a BIOS setting
+T 1380647368 6<danielp6>	that would be the only place to hide them
+T 1380647399 6<danielp6>	looks like everyone is idle on db2
+T 1380647461 6<danielp6>	telnet b10ts7 7040
+T 1380647465 6<danielp6>	consle for db4
+T 1380647496 6<danielp6>	if you want to reboot/check BIOS
+T 1380647517 6<danielp6>	http://linux.engr.sgi.com/reserve/sysinfo.php?sys=dewberry
+T 1380651481 2<altman2>	I think I was just confused about db/db2... it looks like the hardware is set up as it should be, I was just confusing which system I should be using for perfsocket scaling testing.  I thought I had been doing that on the dbs but harp34 is probably a better place for it.
+T 1380742529 2<altman2>	think it'd be OK to use cy008, 009, 22 or 23 for my mpinside debug?
+T 1380744442 6<danielp6>	sorry, long lunch
+T 1380744491 6<danielp6>	as long as time is open, I don't see any problem with using whichever works best
+T 1380744565 2<altman2>	thanks
+T 1380747018 2<altman2>	I'm logged into toji trying to debug MPInside failures and I don't see the libtools module.  tried module use ~mpi/modulefiles but there's no modulefiles under ~mpi.  where should I be logged into and how should I set my env up to debug these failures?
+T 1380756428 6<danielp6>	~mpi is in eagan, you mean /home/estes07/mpi (if avail)
+T 1380809529 2<altman2>	not available.  what to try next?
+T 1380809562 6<danielp6>	then you have to use GBC testing method
+T 1380809582 6<danielp6>	http://wwwmn.americas.sgi.com/mpi/doc/mpt_general/ltrun_on_gbc_ice.txt
+T 1380810921 2<altman2>	that seems to be working, thank you
+T 1380824738 2<altman2>	OK, got it imaged.  now I want to login to root@harp37-cmc, right?  what's the pass?
+T 1380825198 6<danielp6>	sry, bk
+T 1380825206 6<danielp6>	uvcon
+T 1380825230 6<danielp6>	you mean you selected the image to use?
+T 1380825243 6<danielp6>	you need to boot network from uvcon to image on UV
+T 1380825266 2<altman2>	went to the imager page, selected the stout7 uv fs0 image, applied it. instructions now say to reboot.
+T 1380825281 2<altman2>	I'm in uvcon and connected to harp34-sys.  just do a reboot as root?
+T 1380825297 6<danielp6>	nope
+T 1380825301 6<danielp6>	not harp34-sys
+T 1380825327 6<danielp6>	harp34-sys is shared OS, don't reboot it
+T 1380825340 2<altman2>	said harp34, meant harp37
+T 1380825344 6<danielp6>	ok
+T 1380825359 6<danielp6>	yes just reboot
+T 1380825388 6<danielp6>	if you are imaging the slot to be rebooted, you don't have to bring it down nicely
+T 1380825407 6<danielp6>	Russ and some others just hit sync a couple times and reboot from cmc
+T 1380825415 6<danielp6>	ctl-] q
+T 1380825420 6<danielp6>	to break out of uvcon
+T 1380825434 6<danielp6>	you will want to reset single blade for imaging
+T 1380825438 6<danielp6>	power -s reset
+T 1380825451 6<danielp6>	when command returns, open uvcon again
+T 1380825472 2<altman2>	getting two messages here... reboot from console  - OR - do ctl ] q + power -s reset?
+T 1380825478 6<danielp6>	if you image a machine with too many blades up, it slows down or has problems booting the imaging kernel
+T 1380825501 6<danielp6>	eventually you should do power -s reset
+T 1380825549 6<danielp6>	before that, you can reboot machine to sync changes
+T 1380826006 2<altman2>	what's the command to boot from EFI after I get into fs0:\?
+T 1380826063 6<danielp6>	\efi\ tab complet
+T 1380826090 6<danielp6>	either grub or the other one...
+T 1380826097 2<altman2>	fs0:\> \efi\SuSE
+T 1380826097 2<altman2>	'\efi\SuSE' is not recognized as an internal or external command, operable program, or batch file
+T 1380826141 6<danielp6>	hold on...
+T 1380826266 6<danielp6>	\efi\SuSe\syslinux.efi ?
+T 1380826304 2<altman2>	looks like it might've been elilo.efi
+T 1380826309 2<altman2>	thanks
+T 1380826314 6<danielp6>	yeah
+T 1380826316 2<altman2>	I didn't realize SuSE was a directory
+T 1380826325 6<danielp6>	too much tab completion to remember
+T 1380826345 6<danielp6>	just remember elilo as !grub
+T 1380826371 2<altman2>	did you originally learn this stuff from the UV sys admin guide or...?
+T 1380826393 6<danielp6>	from working with group
+T 1380826403 6<danielp6>	never learned much of anything from guides
+T 1380826420 6<danielp6>	they never seem to come from the right direction for our use
+T 1380826456 6<danielp6>	keep in mind that Michael forgets how to do this stuff :)
+T 1380826484 2<altman2>	I know.  I tend to find the directions confusing though.  I rarely have the necessary context for the concepts to stick when I hear them once, twice or 5 times.
+T 1380826527 6<danielp6>	you have to do the thing a few times, then you can understand it enough to write notes about it
+T 1380826571 6<danielp6>	I think I got a lot of this from Russ - I worked a lot with him originally, then later with Robin
+T 1380826576 2<altman2>	well, my ideal would be to learn a rediscoverable path through this stuff so I could remind myself of the right steps as I'm going through it.  notes are good but tend to get unwieldy.
+T 1380826629 6<danielp6>	well for UV, just try to setup partitioned tests, you will be forced to learn a lot ;)
+T 1380826655 6<danielp6>	just about anything that goes wrong will break partitioned runs
+T 1380826680 6<danielp6>	but you end up burning half a day + getting a machine setup for testing
+T 1380832878 2<altman2>	so I find myself going back through ltrun instructions looking for a way to just run one test at a time... it seemed to me there was an easy way to do this.  what was it?
+T 1380832891 6<danielp6>	ltrun
+T 1380832902 6<danielp6>	-D dir -t test
+T 1380832929 2<altman2>	ok, thanks
+T 1381157813 2<altman2>	do any of the regression test systems run stout7 instead of stout709?  wondering if I can leave that pathconf fix you recommended for MPInside to run overnight before I request backporting to 709
+T 1381159708 6<danielp6>	the way to do that is keywords
+T 1381159743 6<danielp6>	you filter out releases you do not want
+T 1381159761 6<danielp6>	a default run will essentially be "stout7"
+T 1381159796 6<danielp6>	specifying -K stout709,stout710,stout711 filters out anything with those tags
+T 1381160344 2<altman2>	so do I take that to mean that the overnight runs are doing stout7 by default?  that's what I'm hoping for.
+T 1381161143 6<danielp6>	it depends
+T 1381161183 6<danielp6>	e.g. Oct 05 MPI Development ( 117) AUTOTEST failure: uv-mpt-full : ./131005-142411-ai_summary_file
+T 1381161214 6<danielp6>	/usr/share/Modules/modulefiles/mpt/2.09: and -K stout710 -K stout711 -K stout712 -K stout713 -K stout714 -K stout715
+T 1381161222 6<danielp6>	that was a 709 run
+T 1381161247 6<danielp6>	AUTOTEST failure: uv-mpt-full : ./131005-202040-grommit_summary_file
+T 1381161259 6<danielp6>	was stout7/710 run
+T 1381161281 6<danielp6>	those variables get changed just like distro (RHEL/SLES)
+T 1381162873 2<altman2>	ok, thanks
+T 1381179807 2<altman2>	so I guess I'm unclear on some of the testing concerns... are we up in the air about who's implementing the changes?  is the problem that we're going to have the same people to support AT either way and we're not really focusing them on what's costing the most time?
+T 1381179821 2<altman2>	I get the issue about reporting either way, I think.
+T 1381179858 2<altman2>	and the broader problem that if we get everybody moving behind one set of changes to the test infrastructure we might be leaving stuff on the table.
+T 1381180412 6<danielp6>	I don't know if there is expectation of implementing changes (outside of my ideas), most of what I hear is, do what we do now
+T 1381180434 2<altman2>	so we're being dragged along with the kernel group
+T 1381180444 6<danielp6>	I believe our infrastructure is inadequate, I don't know how much others share that idea
+T 1381180486 6<danielp6>	the viewpoints (as interpreted by me):
+T 1381180523 6<danielp6>	MR: don't steal time from forward development to keep checking things
+T 1381180572 6<danielp6>	JB: we want better checking of performance, because it feels like we get lucky, or sometimes find things late (if ever)
+T 1381180613 6<danielp6>	Kernel: they just want to verify it boots, have someone else exercise system
+T 1381180679 2<altman2>	anyone else?  Lori?  kaf?
+T 1381180710 6<danielp6>	I lump Lori in Kernel, but maybe she is more concerned with getting early warning to kernel group
+T 1381180805 2<altman2>	so if I'm hearing you right, we've got these conflicting demands that aren't leaving time for infrastructure improvements
+T 1381180806 6<danielp6>	KF, not sure, but prefers running test env he helped build and continuing to feed in end cases
+T 1381180832 6<danielp6>	I think so
+T 1381180872 2<altman2>	do you get the impression kernel is asking you and me to do infrastructure improvements to help early boot?
+T 1381180886 2<altman2>	I mean I know you've been expected to help them out with UV issues
+T 1381180928 6<danielp6>	I don't think MR's view of our duty is to proof all the kernel variants against bad behavior, kernel's viewpoint seems to want us to help them find and narrow down issues
+T 1381180944 6<danielp6>	I think there is a gap
+T 1381180970 6<danielp6>	maybe like our build system:
+T 1381181040 6<danielp6>	we don't check full builds, because it takes too long, we just leave a gap between testing and build
+T 1381181055 2<altman2>	there are a lot of gaps in my understanding of points we're covering here
+T 1381181082 6<danielp6>	a lot is probably not formed in my head, so probably not doing a great job conveying ideas
+T 1381181099 2<altman2>	well, I'm trying to talk through it with you.  seemed like that'd be a good conversation to have if you're game
+T 1381181152 6<danielp6>	sure, I will keep tossing it over in my mind, so hopefully something comes together
+T 1381181225 2<altman2>	what I can think of for partially overlapping root issues we've been talking about: 1) noise from repeated autotest failures that we already know about 2) reliable but clunky process to reproduce those failures once we know they're worth investigating (more a problem for me than you maybe) ...
+T 1381181240 2<altman2>	3) big gaps in knowledge of what Jim Grisham is doing with AT
+T 1381181274 2<altman2>	4) manual intervention required for test scenarios
+T 1381181287 2<altman2>	5) system availability and setup time
+T 1381181294 2<altman2>	6) being asked to help chase down issues that aren't really ours
+T 1381181300 2<altman2>	what else?
+T 1381182462 2<altman2>	sorry if I'm grilling you about it, just trying to get my head around the scope of the problem
+T 1381182763 6<danielp6>	back - had to check on h50
+T 1381182822 6<danielp6>	3) maybe more worries over when others run tests, AT are somewhat understood
+T 1381182858 6<danielp6>	6) the issue is that we don't have a good place for the narrow down problems
+T 1381182909 6<danielp6>	I don't think it is necessarily kernel's area, but I think it is work that should be tracked
+T 1381182928 6<danielp6>	hopefully there will be a category for it in the time reporting system
+T 1381183214 2<altman2>	I could use some help understanding whether the fix you proposed for MPInside's use of pathconf is going to apply to the test runs tonight.
+T 1381183230 2<altman2>	if they're flagged with -K stout710 -K stout711... I'm OK as long as I committed to stout7 and not one of those tags, right?
+T 1381183575 6<danielp6>	all the failing tests are flagged stout705, so the will run everytime
+T 1381183611 2<altman2>	I guess what I'm confused about is whether the patch I'm submitted is going to be applied to the test systems
+T 1381183651 6<danielp6>	they will get an image build from latest build
+T 1381183659 6<danielp6>	what time did you check in?
+T 1381183660 2<altman2>	OK, great.
+T 1381183680 2<altman2>	we'll see if this fixes it then (god I hope so)
+T 1381183701 6<danielp6>	you can check http://info.engr.sgi.com/build-group/docs/build_linux.html to see when the build is done
+T 1381183726 6<danielp6>	it will have to be a build that started after you committed changes
+T 1381183744 2<altman2>	k.  tests can take a while to kick off with the new images though, yeah?
+T 1381183813 6<danielp6>	we assume 2 days minimum after checkin before we start to worry about fix
+T 1381183863 2<altman2>	fuuuuck me, I should've gotten this in over the weekend.  I was thinking about it around about 5:15pm when I was getting out of here on Friday and decided instead I'd take the conservative approach
+T 1381184024 2<altman2>	anyways, I tried buildbot for CI and it seems like it might work, but it's not super feature rich.  Jenkins was also easy to install and seems like it'll do a better job of having a plugin for whatever we might want to do with it.  already got the conversation going with Glen and Jason about getting an installation of it on one of our servers.
+T 1381184047 2<altman2>	it looks like it would actually be a pretty good complement to ltrun for some of the stuff where we might be committing more frequently like MPInside
+T 1381184111 6<danielp6>	Erik Jacobson has Jenkins exp, so that would be the route I would try to head down
+T 1381184119 2<altman2>	oh, cool
+T 1381184140 2<altman2>	I forget, does he sit in Eagan?
+T 1381184149 6<danielp6>	I have to try to look at getting in a change tomorrow for perfsocket :)
+T 1381184153 6<danielp6>	kinda
+T 1381184166 6<danielp6>	he is on Tempo team (ICEX)
+T 1381184196 6<danielp6>	so he is ooo a lot, and works from elsalvador ~1/3 of the time
+T 1381348971 6<danielp6>	pond walk?
+T 1381348979 2<altman2>	yeah
+T 1381418623 6<danielp6>	I admit, I don't often read through all of the Kernel/BIOS/MPT status
+T 1381423157 6<danielp6>	paper references interesting technology, Google technology : top result is original paper <sigh>
+T 1381423279 2<altman2>	hm?
+T 1381423811 6<danielp6>	when you want to find out more, and it turns out there isn't much more
+T 1381437008 6<danielp6>	pondwalk?
+T 1381437020 2<altman2>	yeah
+T 1381760986 2<altman2>	hey, I was just thinking about persisting tmux sessions over reboot and it occurred to me I could just ssh into gulag or another not heavily used server and run from there... do you ever do that?  does gulag tend to stay up long enough for that to be practical to leave stuff running overnight and over the weekend?
+T 1381761111 6<danielp6>	I leave my machine on, but yes gulag or other build machines would be fine
+T 1381761330 2<altman2>	cool, thanks.  how was your weekend?
+T 1381761337 6<danielp6>	meh
+T 1381761341 6<danielp6>	not long enough
+T 1381761591 2<altman2>	hm.  neither gulag nor alcatraz sees a tmux package in their zypper/yum repos.  wondering how much I should screw around with this
+T 1381761601 6<danielp6>	nope
+T 1381761604 6<danielp6>	use module load tmux
+T 1381761639 2<altman2>	ah
+T 1381764809 <10-11-	altman has quit 14(Remote host closed the connection14)
+T 1381766832 2<altman2>	is it OK if I edit /home/estes07/mpi/testing/regression/at_libtools_tarfilelist to add ffio?
+T 1381766887 6<danielp6>	I would ask Michael, I don't have objections - we can disable quickly if it causes a problem
+T 1381767309 6<danielp6>	OK, Michael submitted PV, I would assume he wants tests turned on :)
+T 1381768502 2<altman2>	any idea if there's a module I might need to load to run ffio tests?  what package is it a part of?
+T 1381768517 6<danielp6>	never used it...
+T 1381770452 2<altman2>	if jgrisham isn't in and I need a test system to repro and debug MPInside AT failures, what should I do next?  ping his boss?
+T 1381770524 6<danielp6>	why do you need a QE system?
+T 1381770536 6<danielp6>	why not just Eng UV?
+T 1381770983 2<altman2>	because I'm starting to think that properly debugging these failures requires having the environment in pretty close to the exact config on which they failed.  I'm not sure db2 for example has the right stout packages
+T 1381771107 6<danielp6>	should be able to image a uv system with exactly the same as QE
+T 1381771118 2<altman2>	OK
+T 1381771129 2<altman2>	will try that out, thanks
+T 1381772331 2<altman2>	when we're talking about eng uv, do the systems on this page qualify?  http://wwwcf.americas.sgi.com/PUBLIC/UV2_bringup/reserve/reserve.html
+T 1381773885 6<danielp6>	yeah
+T 1381786762 2<altman2>	would you be able to help out with a problem where testing on db2 should be generating a core dump in the current dir but it's not showing up?
+T 1381787283 6<danielp6>	back now
+T 1381787313 6<danielp6>	I assume you set ulimit -c unlimited?
+T 1381787315 2<altman2>	think I got it
+T 1381787326 2<altman2>	I assumed ulimit -c 0 was the same as unlimited... turns out that's not true
+T 1381787329 2<altman2>	:D
+T 1381787377 6<danielp6>	now you know, and that's half the battle
+T 1381788184 2<altman2>	have you ever had p_rdiff corrupt permissions on a file you had changed?  -????????? ? ?      ?         ?            ? non_blocking_wait.c
+T 1381788194 2<altman2>	sorry, to make that more clear:
+T 1381788195 2<altman2>	-r--r--r-- 1 altman sgiemp  150 Aug 13 13:49 mpt_ignore_bug.c
+T 1381788195 2<altman2>	-????????? ? ?      ?         ?            ? non_blocking_wait.c
+T 1381788271 6<danielp6>	where is your workarea?
+T 1381788282 6<danielp6>	maybe an NFS thing?
+T 1381788305 2<altman2>	 /data/lwork/gulag1b/altman/pv/1038574/stout7.  could be.  the permissions look fine if I check it from lnx-altman instead of gulag
+T 1381788310 6<danielp6>	I don't think p_tools can cause that situation
+T 1381788438 2<altman2>	is it possible LDAP or NFS is partitioned right now so lnx-altman is seeing different permissions than gulag?
+T 1381788458 6<danielp6>	maybe stale NFS handle
+T 1381790783 <10-11-	altman has quit 14(Remote host closed the connection14)
+T 1381954034 2<altman2>	I'm also running into a problem where just "ssh cb10" doesn't accept my login.  should I be logging in as root?
+T 1381954052 6<danielp6>	yes
+T 1381954057 6<danielp6>	sgisgi password
+T 1381954070 6<danielp6>	there is no yp/NIS/autofs setup on cb10
+T 1381955121 2<altman2>	looks like there isn't a whole lot of disk space on cb10.  do I need to log into cb10-service or something if I want to copy some large files?
+T 1381955307 6<danielp6>	cb10 has 144gB avail?
+T 1381955343 6<danielp6>	service has 164GB
+T 1381955364 6<danielp6>	how much space do you need?
+T 1381955376 2<altman2>	altman@cy002:~/debug> du -hs TI13.bad_mpinside
+T 1381955376 2<altman2>	du: cannot read directory `TI13.bad_mpinside/ABTP/ded/hycom/lrgp/hycom_lrgp_00500_85890': Permission denied
+T 1381955376 2<altman2>	129G    TI13.bad_mpinside
+T 1381955404 6<danielp6>	wow, that may take awhile to move...
+T 1381955463 6<danielp6>	it is our image, so you can take the space
+T 1381955506 2<altman2>	looks like I can trim that space down some
+T 1381955536 6<danielp6>	would recommend deleting off admin once copied to service0:/data/work/
+T 1381955772 2<altman2>	is this the service0 I'm looking for? [root@cb10 ~]# ping service0
+T 1381955772 2<altman2>	PING service0.ice.americas.sgi.com (172.23.0.8) 56(84) bytes of data.
+T 1381955772 2<altman2>	64 bytes from service0.ice.americas.sgi.com (172.23.0.8): icmp_seq=1 ttl=64 time=0.091 ms
+T 1381956341 6<danielp6>	no, you can't reach it directly
+T 1381956368 6<danielp6>	ok nvm
+T 1381956375 6<danielp6>	yeah, that is the service
+T 1381956395 6<danielp6>	didn't notice root@cb10 prompt at first
+T 1381956448 6<danielp6>	cnodes --all will list all nodes configured on ICEX
+T 1381956538 6<danielp6>	r*i*c is cmc, r*i*s* is switch, r*lead is rack leader (NFS server for RO-mounted rootfs), service* is general-purpose/often login node
+T 1381956560 2<altman2>	good to know, thanks
+T 1381956576 6<danielp6>	r<rack number>i<iru number>n<node #>
+T 1381956613 6<danielp6>	r1i0c = cmc for rack 1 iru 1 (shared among all nodes in iru)
+T 1381956637 6<danielp6>	notice there are two switches (s0 and s1) per iru
+T 1381956660 6<danielp6>	r1lead = there is on leader per rack
+T 1381956725 6<danielp6>	engineering systems, they don't always bother plugging in separate network for service, normally you login to service, not admin
+T 1381956766 6<danielp6>	usually one service node per cluster, but you can have 2 (don't know about more)
+T 1381957621 2<altman2>	got a question for you about the ltrun TESTLIST
+T 1381957692 6<danielp6>	yeah?
+T 1381957726 2<altman2>	nvm, think I answered it for myself... spelling issue
+T 1381957750 2<altman2>	I was trying to get the NAS parallel benchmarks to run for mpinside regression testing.  I think I misspelled the path to them.
+T 1381958275 2<altman2>	OK, got a question now.  I'm trying to run some of NPB with these testlist lines: check_detailed_mpinside_stats_contents.py npbtests/bt.A.4/basicstats |0|||linux stout710
+T 1381958275 2<altman2>	check_detailed_mpinside_stats_contents.py npbtests/bt.A.4/basicstats |0|||linux stout710
+T 1381958275 2<altman2>	check_detailed_mpinside_stats_contents.py npbtests/cg.A.4/basicstats |0|||linux stout710
+T 1381958275 2<altman2>	check_detailed_mpinside_stats_contents.py npbtests/ep.A.4/basicstats |0|||linux stout710
+T 1381958327 2<altman2>	ltrun seems to think these need compiling.  what I'd like to do instead is just run these as "./check_detailed_mpinside_stats_contents npbtests/bt.A.4/basicstats"... do I need to have these wrapped in a simple shell script or something to build a line in TESTLIST that ltrun will understand without trying to compile these?
+T 1381958341 2<altman2>	error signature is like this:
+T 1381958341 2<altman2>	COMPILATION PHASE ------------------------
+T 1381958341 2<altman2>	        -> COMPILATION OK
+T 1381958341 2<altman2>	LINK PHASE ------------------------
+T 1381958342 2<altman2>	LINK PHASE SUPPRESSED --------------------------------
+T 1381958343 2<altman2>	EXECUTING PROGRAM ./check_detailed_mpinside_stats_contents.py.x
+T 1381958345 2<altman2>	/home/estes07/syslib/libtools/bin_x86_64/ltrun: line 1646: ./check_detailed_mpinside_stats_contents.py.x: No such file or directory
+T 1381958348 2<altman2>	        -> BAD EXIT STATUS from check_detailed_mpinside_stats_contents.py : 127  (expect 0)
+T 1381958377 6<danielp6>	yeah, or add a processing rule for .py
+T 1381958395 2<altman2>	would that be a reasonable solution?
+T 1381958432 6<danielp6>	either way - shell script is probably faster, depending on the amount of work you want to do
+T 1381958618 6<danielp6>	line 1403 in ltrun parses file extension to determine compile options
+T 1381958710 6<danielp6>	I am not sure why the *) case didn't handle it reasonably though...
+T 1382021372 2<altman2>	does cb10 not have pbs or do I need to log into a rack leader or something to kick off a job?
+T 1382021484 6<danielp6>	cb10 does not have pbs, you launch from the service node with mpirun
+T 1382021504 6<danielp6>	nothing is ever done from the rack leader, that is just for storage
+T 1382021518 2<altman2>	do I need to be worried about other people running jobs on it concurrently?
+T 1382021528 6<danielp6>	not if you have it checked out
+T 1382021556 6<danielp6>	and you should only use cb10 when you have it checked out
+T 1382021592 2<altman2>	forgot about that, thank you
+T 1382021930 2<altman2>	seem to be missing a bunch of module files on the service node, intel-compilers-13 in particular.  do you know the path to the appropriate modulefile?
+T 1382021996 6<danielp6>	I hacked to together something in /data/work
+T 1382022005 6<danielp6>	module load /data/work/intel-fc
+T 1382032906 6<danielp6>	mtg?
+T 1382034919 2<altman2>	oh boy.  I seem to have locked up cb10-service0.  what's a good first step to try getting it back and fixing it?
+T 1382034929 6<danielp6>	let me take a look
+T 1382035026 6<danielp6>	hmmm...must be wedged, can't get console
+T 1382035142 6<danielp6>	maybe killing it with NFS
+T 1382035147 6<danielp6>	a lot of file IO?
+T 1382035171 2<altman2>	possible.  I don't know enough about HYCOM to say for sure
+T 1382035206 6<danielp6>	cyclone systems have lustre available (if you were using it), it can handle load better
+T 1382035248 2<altman2>	Lori Olsen asked me not to run this job on cy002 or 003 for the next week or two... she may have meant any of the cyclones.  
+T 1382035270 6<danielp6>	nothing running on the computes
+T 1382035279 2<altman2>	lame-o
+T 1382035280 6<danielp6>	I will reset service
+T 1382035374 6<danielp6>	commands to see info
+T 1382035386 6<danielp6>	console <hostname>
+T 1382035397 6<danielp6>	cpower --status --node service0
+T 1382035414 6<danielp6>	cpower --status --rack r1
+T 1382035426 6<danielp6>	from admin: cexec uptime
+T 1382035441 6<danielp6>	cpower --status will print the power and boot status
+T 1382035467 6<danielp6>	console attempts to connect to console over ipmi
+T 1382035575 6<danielp6>	rebooting nodes to make sure NFS connections OK
+T 1382035591 6<danielp6>	cpower --reboot --noleader --rack r1
+T 1382035622 6<danielp6>	errors are always reported for switches - I don't know how to skip booting them
+T 1382035635 2<altman2>	what's the keystroke to disconnect from console again?
+T 1382035637 6<danielp6>	command blocks until booted
+T 1382035672 6<danielp6>	ipmi/console command is ctrl-e c . I believe
+T 1382035678 6<danielp6>	or ctrl-E c .
+T 1382035692 6<danielp6>	from ssh is is ~.
+T 1382035731 6<danielp6>	from uvcon it is ctrl-] q
+T 1382035766 2<altman2>	so I'm thinking I might kick the next run off in a simpler mode that we assume will place less load on the system.  anything else I should change or check for before I potentially cause the same problem again?
+T 1382035800 6<danielp6>	probably run console in another window to see if things go boom
+T 1382035826 6<danielp6>	cpower command is still running
+T 1382035851 6<danielp6>	often it can hit timeout on a few nodes
+T 1382035868 6<danielp6>	running boot command again usually clears up the remaining nodes
+T 1382035942 6<danielp6>	cpower --status --rack r1 : is showing everything ok, although earlier command completed with errors
+T 1382035980 6<danielp6>	cpower --boot --rack r1  : is what I would have run otherwise
+T 1382039578 2<altman2>	locked up cb10 again and am having problems rebooting: [root@cb10 ~]# cpower --reboot --noleader --rack r1
+T 1382039578 2<altman2>	--noleader specified.  Not booting r1lead.
+T 1382039578 2<altman2>	r1lead: power is On (Booted)
+T 1382039578 2<altman2>	r1: Sending reboot command to: r1i0 r1i1 
+T 1382039578 2<altman2>	Error return from 'ipmitool -I lanplus -H 192.168.160.10  -U 'ADMIN' -P 'ADMIN' power reset': Set Chassis Power Control to Reset failed: Unspecified error
+T 1382039580 2<altman2>	Error return from 'ipmitool -I lanplus -H 192.168.160.11  -U 'ADMIN' -P 'ADMIN' power reset': Set Chassis Power Control to Reset failed: Unspecified error
+T 1382039582 2<altman2>	Error return from 'ipmitool -I lanplus -H 192.168.160.10  -U 'ADMIN' -P 'ADMIN' power reset': Set Chassis Power Control to Reset failed: Unspecified error
+T 1382040403 6<danielp6>	are those the switches? they will print that error every time
+T 1382040412 6<danielp6>	check cpower --status --rack r1
+T 1382040480 2<altman2>	power is on but most of the rack isn't booted. 
+T 1382040566 6<danielp6>	cpower --boot --rack r1
+T 1382040650 6<danielp6>	ssh r1lead; tail -f /var/log/consoles/r1i0n0
+T 1382040665 6<danielp6>	or which ever one you would like to look at log off
+T 1382040710 6<danielp6>	I forgot about this earlier with the debugging
+T 1382041482 2<altman2>	that improved the situation but I still have 4 not booted.  try again?
+T 1382041586 6<danielp6>	yep
+T 1382042022 2<altman2>	oh.  it looks like the only ones not booted are the switches.  I suppose that's intended, huh?
+T 1382042028 6<danielp6>	right
+T 1382042055 6<danielp6>	admin can only read if they are powered or not
+T 1382042086 2<altman2>	OK, so I think the system is back in a working state.  question now is what should I do to try to debug this failure?
+T 1382042096 2<altman2>	I guess I can try running the job without MPInside
+T 1382043374 2<altman2>	hm.  when I run with no MPInside it hangs but this message is at the bottom: fork_slaves/fork: Cannot allocate memory.  look like maybe I'm out of drive space?
+T 1382131394 <10-11-	altman has quit 14(Remote host closed the connection14)
+T 1382380418 2<altman2>	hey, how's it going?
+T 1382380427 6<danielp6>	fighting diff
+T 1382380449 2<altman2>	you're starting to sound like a kernel dude
+T 1382380479 2<altman2>	I'm having a brain fart today (a sequence of brain farts?  brain gas?)  is there a reservation page for cb10?
+T 1382380483 6<danielp6>	nah, just hate that there doesn't seem to be a non-gui difftool that does moved sections
+T 1382380491 6<danielp6>	yes
+T 1382380493 6<danielp6>	hold on
+T 1382380513 6<danielp6>	http://wwwcf.americas.sgi.com/PUBLIC/Carlsbad_3/reserve/reserve.html
+T 1382380532 6<danielp6>	you can always check http://lnx-danielp.americas.sgi.com/scuttle/bookmarks.php/danielp/reservation for reservation pages
+T 1382380559 2<altman2>	cool, thank you
+T 1382380592 2<altman2>	that was dumb... I kicked off an mpinside debug job this morning that might've taken down nodes while someone else had it reserved.
+T 1382380631 6<danielp6>	fortunately, it was derek
+T 1382380660 2<altman2>	you saying he deserves it?  was I doing the company a favor?
+T 1382380662 6<danielp6>	a lot of other names will be running more offline stuff
+T 1382380668 6<danielp6>	he was offline
+T 1382380679 6<danielp6>	cable was down this morning
+T 1382380702 2<altman2>	ah, right
+T 1382380730 6<danielp6>	gotta get in the habbit of checking reserve first though - UV people will get ornery
+T 1382380775 2<altman2>	no doubt.  I would be too.
+T 1382384538 2<altman2>	any idea which log to check to see if an MPI job is running out of memory?
+T 1382384627 6<danielp6>	stdout should be logging failures with failed allocations
+T 1382384662 6<danielp6>	you can check system log for OOM
+T 1382385619 2<altman2>	do you know a quick way to affinitize jobs started directly with mpirun to cores, ignoring hyperthreads?
+T 1382385690 6<danielp6>	omplace
+T 1382387845 2<altman2>	I feel like I forgot all my cb10 mojo from last week... do I need to be starting mpi jobs from service0 or a rack leader or...?
+T 1382387864 6<danielp6>	never rack leader, get rack leader out of your head
+T 1382387882 6<danielp6>	you always start ICE jobs from service
+T 1382387906 2<altman2>	ok
+T 1382387908 6<danielp6>	:)
+T 1382388049 2<altman2>	how should I kill a job if it's hung service0?
+T 1382388169 6<danielp6>	kill
+T 1382455327 2<altman2>	is it OK to give out root for cb10 to Jim Tuccillo so he can help me out on mpinside bugs?
+T 1382455352 6<danielp6>	sure
+T 1382455382 6<danielp6>	everyone is welcome to party on eng machines - they are supposed to be ready for destruction at a minutes notice
+T 1382467388 2<altman2>	the NFS mount for /data/work is missing from some of the cb10 nodes - r1i0n4 in particular.  I might have the info that I need to remount it from another system but I just thought I'd ask if there's anything special required as far as permissions or credentials or whatever before I go ahead with a fix
+T 1382467430 6<danielp6>	doing a mount -a on nodes should fix that
+T 1382467472 6<danielp6>	if they still don't mount it, it means the root image has been changed so that the fstab is broken
+T 1382467502 2<altman2>	cool, thank you
+T 1382467511 6<danielp6>	the default process of updating images re-writes the compute fstab
+T 1382467540 6<danielp6>	I may or may not have hand updated the scripts to do the right thing when updating fstab - don't remember
+T 1382467865 2<altman2>	NFS timeout.  email hpc_support?
+T 1382467875 6<danielp6>	not on cb10
+T 1382467885 6<danielp6>	I don't think they manage it
+T 1382467902 6<danielp6>	could be wrong
+T 1382467907 6<danielp6>	where was the timeout?
+T 1382467917 2<altman2>	[root@r1i0n4 ~]# mount -a
+T 1382467917 2<altman2>	mount.nfs: Connection timed out
+T 1382467969 6<danielp6>	looking...
+T 1382468004 6<danielp6>	r1i0n4 doesn't seem so hot right now....
+T 1382468019 2<altman2>	I could push my job over to another node.  we have some to spare for the 500 rank case.
+T 1382468034 6<danielp6>	nvm
+T 1382468150 2<altman2>	OK, subbing out r1i0n4 for another node gets me a little further.  I could probably do to fire this one back to Jim Tuccillo
+T 1382468151 6<danielp6>	hmmmm....very slow access to lead
+T 1382468170 2<altman2>	I just made a few attempts to kick off jobs.  failed, so it should clear up - is it still slow?
+T 1382468236 6<danielp6>	better
+T 1382468438 6<danielp6>	cchovan is someone to email if having issues
+T 1382468504 6<danielp6>	the irc channel #tempo can answer some questions - they are mostly concerned with SGI ICE sw though
+T 1382468522 6<danielp6>	they will not be familiar with MPT/MPI/3rd party apps
+T 1382468574 6<danielp6>	I got the cchovan (Cory Chovan) name from pjd (Pat Donlin)
+T 1382468605 6<danielp6>	I don't have an immediate answer to why the nodes are behaving badly
+T 1382470454 2<altman2>	what system is the deep dive tmux on?
+T 1382470490 6<danielp6>	asylum
+T 1382470493 6<danielp6>	mostly over
+T 1382470534 6<danielp6>	only a couple minutes actually spent on the git script for builds, Nate can easily give an overview
+T 1382476222 2<altman2>	so what was James interested in doing as far as documentation?  where was I maybe going to figure into that?
+T 1382477027 6<danielp6>	general improvements in documentation/wiki
+T 1382545910 6<danielp6>	we are going to lunch (barbeque place) back in 1hr, or gtalk me if you need anything
+T 1382645003 2<altman2>	so I'm checking out the specjbb2013 leader board (http://www.spec.org/jbb2013/results/res2013q4/) and it looks like we could probably crush the top performer by throwing a big enough UV on it.  I was thinking about filing an RFE but... should that be an RFE, task or something else?
+T 1382730683 2<altman2>	would you mind sending me a link to that IB memory usage PV?
+T 1382740168 <10-11-	altman has quit 14(Remote host closed the connection14)
+T 1383151210 2<altman2>	trying to get going on icenine... no intel-compilers-13 module and no /sw... do I need to mount an NFS share?
+T 1383151544 2<altman2>	would it be a good idea to try any of the other systems on http://gpsws3.csd.sgi.com/?
+T 1383165696 6<danielp6>	did you ever get your grid card setup? so you are not stranded again?
+T 1383165875 2<altman2>	no, thank you for reminding me.  I have two emails in my inbox with what's supposed to be a grid card attachment but only one of them is a valid PDF... do you know how to test if that card is still valid?
+T 1383165966 2<altman2>	nevermind, tried logging into the site listed on the card, it asked me for numbers from it and they worked.  I can try it tonight when I get home.
+T 1383167290 2<altman2>	who maintains pages like http://wwwcf.americas.sgi.com/PUBLIC/UV2_bringup/reserve/reserve.html?
+T 1383167297 2<altman2>	or the other CB or x86 reservation pages
+T 1383167329 6<danielp6>	each group probably has it within their own responsibility
+T 1383167432 6<danielp6>	Tony said John Janicek
+T 1383167449 2<altman2>	ok, thanks

@@ -1,0 +1,695 @@
+T 1380742174 2<20dfults2>	ooh ok
+T 1380742270 2<24jcuster2>	are we gonna try screen again? tmux?
+T 1380742271 2<20dfults2>	so info that would be useful in this test would be to add a trace point on xpmem_mmu_notifier_invalidate_range_start
+T 1380742282 2<20dfults2>	that showed tgid, segid and the address range
+T 1380742294 2<24jcuster2>	k
+T 1380742330 2<24jcuster2>	What's the benefit to adding these tracepoints vs. just adding printk's?
+T 1380742331 2<20dfults2>	Do you want to work on that? I think the template for adding tracepoints is pretty easy these days
+T 1380742348 2<24jcuster2>	(I mean in this case)
+T 1380742350 2<24jcuster2>	not in general
+T 1380742373 2<24jcuster2>	easier to enable/disable?
+T 1380742402 2<20dfults2>	all the debug output is in one place. enable/disable, and I think the output is more consistant. The trace logging is more efficient than printks
+T 1380742409 2<20dfults2>	I believe
+T 1380742410 2<24jcuster2>	ah ok
+T 1380742445 2<24jcuster2>	I'll take a look at the tracepoint stuff and add that
+T 1380742510 2<20dfults2>	With that info, we'll know a lot more. If the sial scripts were/are working we could use them as well. 
+T 1380742536 2<20dfults2>	But learning to add the tracepoints will be something you'll use all the time as well
+T 1380743696 2<24jcuster2>	dfults: you there?
+T 1380743701 2<20dfults2>	yeah
+T 1380743768 2<24jcuster2>	When you say print out the seg... this function iterates over the segs of the tg and exits if you have an "overlapping range" or XPMEM_FLAG_RECALLINGPFNS is set
+T 1380743790 2<24jcuster2>	so, should I stick the trace inside the iteration and note the status of those two conditions?
+T 1380743815 2<20dfults2>	hmm.. let me look, 
+T 1380744011 2<20dfults2>	I have to make a call.. I'll get back to you in a bit
+T 1380744065 2<24jcuster2>	k
+T 1380745438 2<20dfults2>	Ok I'm back
+T 1380745470 2<20dfults2>	what? You rebooted?
+T 1380745855 2<24jcuster2>	Oh, I was going to try something while you were gone
+T 1380745858 2<24jcuster2>	and got distracted
+T 1380745881 2<24jcuster2>	we needed to rerun for the new tracing stuff anyway, right?
+T 1380745946 2<24jcuster2>	btw I almost got crash working with xpmemseg
+T 1380745949 2<24jcuster2>	but hit a new error
+T 1380746255 2<20dfults2>	the problem with crash and xpmemseg is the sial include path env variables
+T 1380746266 2<20dfults2>	Cliff should be able to help with that. I was working on it before the call.
+T 1380746367 2<24jcuster2>	Cliff is out of the office still
+T 1380746382 2<24jcuster2>	What I did was the dwarfextract stuff that was included in the eppic scrpit
+T 1380746400 2<24jcuster2>	now it complains about __rb_parent_color or something like that
+T 1380746411 2<24jcuster2>	from utilities
+T 1380746894 2<20dfults2>	uck
+T 1380746932 2<20dfults2>	Run this thing 1 more time. I want to see the trace. Then I'll have to call it a night.. at least take a break for a while
+T 1380746965 2<20dfults2>	Cliff's last add is kind of curious. It hints at a reason why the overlapping range check might not be working.
+T 1380747038 2<24jcuster2>	hrmm
+T 1380747192 2<24jcuster2>	I tried running on 24 for a bit, didn't hit in ~10 mins, so I'm running on 32 now
+T 1380747199 2<24jcuster2>	oh it just hung
+T 1380747201 2<24jcuster2>	on 32
+T 1380747209 2<24jcuster2>	let me dump the trace
+T 1380747232 2<20dfults2>	hung right when I did a ps, so now that's stuck. grr
+T 1380747246 2<24jcuster2>	lol
+T 1380747268 2<24jcuster2>	oh crap....
+T 1380747283 2<24jcuster2>	It hasn't been clearing the trace the whole time because I'm running it as a non-root user
+T 1380747293 2<20dfults2>	eh.. no biggie
+T 1380747334 2<24jcuster2>	k the dump is in /home/estes08/jcuster/xpmem/pvs/pv1038341/hung_trace_dump
+T 1380747353 2<24jcuster2>	oh
+T 1380747355 2<24jcuster2>	it's empty
+T 1380747370 2<24jcuster2>	because I forgot to enable xpmem tracing after reboot argggggg
+T 1380747398 2<24jcuster2>	so frustrating
+T 1380747412 2<24jcuster2>	I should add that to the script'
+T 1380747426 2<24jcuster2>	want me to reboot and try again?
+T 1380747433 2<20dfults2>	good idea.. yeah give it another try
+T 1380747468 2<24jcuster2>	k if I'm doing that I'm also going to edit it so it saves the last successful trace
+T 1380747477 2<24jcuster2>	might as well
+T 1380747821 2<24jcuster2>	dfults which tracing events did you want to see?
+T 1380747830 2<24jcuster2>	tg and mm_ref_deref?
+T 1380747844 2<20dfults2>	att and mm_ref_deref.  And you're new one of course
+T 1380747851 2<20dfults2>	enable the tg as well
+T 1380747859 2<20dfults2>	we can always grep out what we need
+T 1380747918 2<24jcuster2>	one sec I gotta rebuild xvma and compile my xpmem against it
+T 1380748062 2<24jcuster2>	ok testing with 2 cpus first
+T 1380748306 2<24jcuster2>	k I think everything should work now
+T 1380748322 2<20dfults2>	cool.., lets hang it
+T 1380748489 2<24jcuster2>	still running, waiting for it to hang
+T 1380748621 2<24jcuster2>	ok it hung
+T 1380748741 2<24jcuster2>	Do you want to try getting tmux up again?
+T 1380748799 2<20dfults2>	If you want, I'll join your session
+T 1380748827 2<24jcuster2>	yeah let me try and get it running on asylum
+T 1380748892 2<24jcuster2>	k you can connect on asylum
+T 1380748900 2<24jcuster2>	tmux -S /tmp/pair attach
+T 1380749062 2<24jcuster2>	is that the new output?
+T 1380749073 2<24jcuster2>	I put the old one in a different spot
+T 1380749078 2<24jcuster2>	err new one
+T 1380749081 2<24jcuster2>	in a different spot
+T 1380749213 2<20dfults2>	I was going to say, I wanted you to print out the tgid and segid, but this might work better
+T 1380749225 2<24jcuster2>	they are printed out
+T 1380749234 2<24jcuster2>	it's in the format segaddr(segid)
+T 1380749239 2<24jcuster2>	tgaddr(tgid)
+T 1380749246 2<20dfults2>	Oh can you change that to hex for next time
+T 1380749269 2<24jcuster2>	oh yeah, I was just following the convention of the other tracepoints..
+T 1380749282 2<20dfults2>	I think they are always in hex
+T 1380749291 2<20dfults2>	at least the segid should be
+T 1380749317 2<24jcuster2>	I don't think the segid is ever printed out in the tracepoints
+T 1380749323 2<24jcuster2>	(I searched for seg and got nothing)
+T 1380749330 2<24jcuster2>	so I just printed it in the same format as tgid
+T 1380749631 2<20dfults2>	Ok, Now what we need to figure out:
+T 1380749663 2<20dfults2>	not sure
+T 1380749667 2<24jcuster2>	lol
+T 1380749675 2<20dfults2>	I might need to just stare at this for a bit
+T 1380749684 2<20dfults2>	and make myself a drawing as to why this is stuck
+T 1380749710 2<24jcuster2>	That's kinda what I try to do, too... except I was trying to do this with printks
+T 1380749717 2<24jcuster2>	having crash seems like it'll hepl
+T 1380749730 2<24jcuster2>	just hard to do with two people at the same time it seems like
+T 1380749733 2<24jcuster2>	heh
+T 1380749754 2<20dfults2>	let me find the other pid, then I'll let you have it
+T 1380749797 2<24jcuster2>	so are you trying to figure out which pids have the mmap_sem held?
+T 1380749839 2<20dfults2>	yeah trying to find all pids attempting to access that mmap_sem
+T 1380749846 2<24jcuster2>	yeah
+T 1380749862 2<24jcuster2>	does crash have awk/sed ?
+T 1380749868 2<24jcuster2>	basic scripting?
+T 1380749892 2<20dfults2>	No, what I've done is put this output into another screen and then do the awk/sed there
+T 1380749892 2<24jcuster2>	would be nice to automate some of this stuff
+T 1380749899 2<24jcuster2>	ah
+T 1380749916 2<20dfults2>	but often it takes longer for me to figure out the script 
+T 1380749946 2<24jcuster2>	well something like "get all pids" -> "bt (all pids that you got)"
+T 1380749968 2<20dfults2>	What would be ideal, since we have 3 active processes is to get a crash dump.. that might give us more info on the active processes. Or I could figure that out via kdb
+T 1380749979 2<20dfults2>	last time we tried that it failed... so I'm avoiding that.
+T 1380749983 2<24jcuster2>	yeah
+T 1380750043 2<20dfults2>	anyway, have at it for a while. See if you can verify the mmap_sem hang we think it is and what condition needs to be met to get us moving.
+T 1380750061 2<24jcuster2>	k I'll try :)
+T 1380751814 2<20dfults2>	Looks like you're on the right path
+T 1380751829 2<24jcuster2>	Really? I'm still trying to figure out what's going on lol
+T 1380751897 2<20dfults2>	looking at the thread group and the mmap_sem_borrowers_wq
+T 1380751899 2<24jcuster2>	so these two processes are accessing the same tg
+T 1380751922 2<20dfults2>	I believe so
+T 1380751964 2<20dfults2>	I'm rusty.. Trying to print out task struct for that addr
+T 1380752037 2<24jcuster2>	oh that works
+T 1380752044 2<24jcuster2>	?
+T 1380752050 2<20dfults2>	eh.. maybe hex would be better
+T 1380752061 2<20dfults2>	its another way to do it
+T 1380752062 2<24jcuster2>	you can do p /x task_struct then 
+T 1380752062 2<24jcuster2>	?
+T 1380752067 2<20dfults2>	I think so
+T 1380752076 2<20dfults2>	I'll let you drive again
+T 1380752085 2<24jcuster2>	guess not
+T 1380752094 2<24jcuster2>	why are you looking at task_struct ?
+T 1380752105 2<20dfults2>	wanted to match up the pids
+T 1380752126 2<20dfults2>	so I wouldn't need to.. 
+T 1380752130 2<20dfults2>	I think what I did was wrong
+T 1380752136 2<20dfults2>	that's why everything looks messed up
+T 1380752159 2<20dfults2>	Its basically just casting that struct over the address.. 
+T 1380752165 2<24jcuster2>	right
+T 1380752168 2<24jcuster2>	umm
+T 1380752180 2<20dfults2>	with all those messed up values, something isn't right with my method
+T 1380752193 2<20dfults2>	obviously not a task struct addr I used
+T 1380752217 2<24jcuster2>	what was the address
+T 1380752220 2<24jcuster2>	oh ok
+T 1380752572 2<24jcuster2>	So
+T 1380752635 2<24jcuster2>	hrm
+T 1380753528 2<24jcuster2>	dfults: So, looking at the backtraces here, I've determined that process 32876 and 32877 both get have xpmem_mmu_notifier_invalidate_start_range called with the same address range, which both in turn end up calling zap_xvma_ptes, which causes xpmem_mmu_notifier_invalidate_start_range to get called with same address range (different from the first, in GRU space) but with the same tg
+T 1380753559 2<24jcuster2>	I think that's what's causing the deadlock ?
+T 1380754292 2<24jcuster2>	oh whoops I lied above
+T 1380754301 2<24jcuster2>	I'm going to write it all up and post it in the PV
+T 1380765021 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1380786436 -10-11>	jcuster 14(10jcuster@eagdhcp-232-126.americas.sgi.com14) has joined #xpmem
+T 1380786681 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1380813930 -10-11>	jcuster 14(10jcuster@eagdhcp-232-126.americas.sgi.com14) has joined #xpmem
+T 1380836143 2<24jcuster2>	dfults: you there?
+T 1380836228 <10-11-	sivanich has quit 14(Quit: ZNC - http://znc.sourceforge.net14)
+T 1380846286 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1380867689 -10-11>	jcuster 14(10jcuster@eagdhcp-232-126.americas.sgi.com14) has joined #xpmem
+T 1380867931 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1380892286 -10-11>	sivanich 14(10~sivanich@santana.americas.sgi.com14) has joined #xpmem
+T 1380901408 -10-11>	jcuster 14(10jcuster@eagdhcp-232-126.americas.sgi.com14) has joined #xpmem
+T 1380902918 <10-11-	jcuster has quit 14(14)
+T 1380902931 -10-11>	jcuster 14(10~jcuster@eagdhcp-233-141.americas.sgi.com14) has joined #xpmem
+T 1380902945 2<24jcuster2>	dfults: you there?
+T 1380902955 2<20dfults2>	yeah
+T 1380903010 2<24jcuster2>	I got crash running with xpmemseg and have been trying to trace the logic of what's going on. I have a question about the logic in xpmem_clear_PTEs_of_att
+T 1380903044 2<24jcuster2>	specifically, the part where it checks n_active_recalls in the context of borrowing the mmap sem
+T 1380903055 2<28sivanich2>	dfults, tee made a hack to the stout7 -ltt patches yesterday to add in a temporary define for is_uv3_hub, until the rollups for rhel6 are added for 6.5.
+T 1380903113 2<20dfults2>	ok
+T 1380903115 2<24jcuster2>	in xpmem_recall_PFNs_of_tg, n_active_recalls is always incremented (once) before ever entering xpmem_recall_PFNs it looks like -- so when do we do a down_read on mmap_sem ?
+T 1380903143 2<24jcuster2>	that's where I'm confused
+T 1380903190 2<24jcuster2>	also I got your email -- I've been trying to keep notes on what I'm doing, so I'll definitely write something similar as I get further into this
+T 1380903191 2<28sivanich2>	dfults, he def'ed it to '0', so gru (and anything else that looks at is_uv3_hub) won't work with the -ltt kernel.
+T 1380903371 2<20dfults2>	Ok, those RHEL patches are maybe for RHEL 6.1. We've never released RHEL LTT ASFIK. 
+T 1380903423 2<20dfults2>	So basically it doesn't matter. As soon as the rollup patches are in the UV variant, I'll start working on LTTng for RHEL 6.5
+T 1380903473 2<20dfults2>	Sorry LTT on 6.5 . LTTng is the easy way where I don't have to do these crazy patches.
+T 1380904008 2<28sivanich2>	dfults, i -think- lori had wanted one more refresh of those patches (for 6.5), but talk to her just to make sure.
+T 1380904037 2<28sivanich2>	anyway, right now running rhel6 -ltt on uv3 would be a bad thing.
+T 1380904145 2<20dfults2>	Yeah, we are going to actually create the LTT patches for 6.5. I don't think those patches are refreshable. Looking back, there was no working RHEL LTT. Those patches never worked. I got it setup to work on it if we ever got a request for RHEL LTT. Request never came.
+T 1380905001 2<20dfults2>	jcuster: Show me the trace where you're wondering where the mmap_sem is downed. Send in an email or point me to the console
+T 1380905478 2<24jcuster2>	dfults: I'm going to do another run with more prints -- give me like 15-20 mins to set things up
+T 1380908541 -10-11>	jcuster_ 14(10~jcuster@eagdhcp-233-128.americas.sgi.com14) has joined #xpmem
+T 1380908650 2<29jcuster_2>	dfults: are you connected to my tmux?
+T 1380908726 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1380908759 -10-11-	jcuster_ is now known as jcuster
+T 1380908765 2<20dfults2>	no
+T 1380908776 2<24jcuster2>	oh weird... it's cutting off my terminal like someone else is connected
+T 1380908801 2<24jcuster2>	oh nevermind, I figured it out
+T 1380911745 2<24jcuster2>	dfults: I found the race condition!
+T 1380911774 2<24jcuster2>	going to write up my findings right now
+T 1380912189 2<20dfults2>	Nice.. If its the same as the original I think I know it and the write up will verify. Then it will be a matter of understanding why the check's didn't work. 
+T 1380917254 2<24jcuster2>	dfults: just added the info the PV
+T 1380917259 2<24jcuster2>	to the PV, that is
+T 1380918975 2<20dfults2>	I'm going to look at it and try to understand 
+T 1380921805 <10-11-	sivanich has quit 14(Quit: ZNC - http://znc.sourceforge.net14)
+T 1380926064 <10-11-	jcuster has quit 14(Quit: leaving14)
+T 1381149104 -10-11>	sivanich 14(10~sivanich@santana.americas.sgi.com14) has joined #xpmem
+T 1381159587 -10-11>	jcuster 14(10~jcuster@cf-sslvpn-0-201.corp.sgi.com14) has joined #xpmem
+T 1381171052 <10-11-	jcuster has quit 14(Read error: Connection reset by peer14)
+T 1381172124 -10-11>	jcuster 14(10~jcuster@cf-sslvpn-1-238.corp.sgi.com14) has joined #xpmem
+T 1381176827 <10-11-	jcuster has quit 14(Read error: Connection reset by peer14)
+T 1381190880 <10-11-	dfults has quit 14(Ping timeout: 240 seconds14)
+T 1381231667 -10-11>	dfults 14(10~dfults@sshcf.sgi.com14) has joined #xpmem
+T 1381231674 <10-11-	dfults has quit 14(Remote host closed the connection14)
+T 1381232521 -10-11>	dfults 14(10~dfults@sshcf.sgi.com14) has joined #xpmem
+T 1381247110 -10-11>	jcuster 14(10~jcuster@eagdhcp-233-141.americas.sgi.com14) has joined #xpmem
+T 1381247118 2<24jcuster2>	dfults: good morning
+T 1381247126 2<20dfults2>	hello
+T 1381247152 2<24jcuster2>	I'm currently trying to figure out why Cliff's new patch works
+T 1381247165 2<24jcuster2>	(I think I might know why, just verifying it soon)
+T 1381247212 2<20dfults2>	Ok.. that's sounds good. 
+T 1381247359 2<24jcuster2>	Did you get a chance to look at my add to the PV yet?
+T 1381247507 2<20dfults2>	Yeah I browsed over it.. IIRC, I thought it was missing some info, but I really needed more time to wrap my head around it. I'm in this cpuset slab/cache mindset so I haven't given it the time it needs
+T 1381247532 2<24jcuster2>	ah ok
+T 1381247605 2<20dfults2>	I think if you lay out your call stack that outlines the hang, and then inject where Cliff's patch stops that code path, the reason why it works should be pretty clear
+T 1381247826 2<24jcuster2>	Yeah, I'm fairly certain it's in in xpmem_recall_PFNs where the xpmem_get_overlapping_range call is. The seg->vaddr and seg->size I think are going to be 0x0 and the new limited range (below GRU space), while vaddr will be above GRU space, and so we simply return there, eliminating the possibility of sleeping in the recursion (which I've found causes the deadlock when we do get overlap)
+T 1381248252 2<20dfults2>	Sounds accurate. 
+T 1381269780 <10-11-	jcuster has quit 14(Quit: leaving14)
+T 1381345222 -10-11>	jcuster 14(10jcuster@eagdhcp-232-185.americas.sgi.com14) has joined #xpmem
+T 1381353843 2<24jcuster2>	dfults: Are you familiar with the vma stuff going on in xpmem_attach?
+T 1381365926 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1381387385 -10-11>	jcuster 14(10jcuster@eagdhcp-232-185.americas.sgi.com14) has joined #xpmem
+T 1381387626 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1381414037 <10-11-	dfults has quit 14(Remote host closed the connection14)
+T 1381414263 -10-11>	dfults 14(10~dfults@sshcf.sgi.com14) has joined #xpmem
+T 1381420170 -10-11>	jcuster 14(10jcuster@eagdhcp-232-185.americas.sgi.com14) has joined #xpmem
+T 1381421187 <10-11-	jcuster has quit 14(14)
+T 1381421195 -10-11>	jcuster 14(10~jcuster@eagdhcp-233-188.americas.sgi.com14) has joined #xpmem
+T 1381421257 2<24jcuster2>	dfults: I noticed that you posted you were trying to change how xpmem_attach works with regards to vm_mmap -- the directory you posted in the PV no longer exists. I was wondering if you still have those changes?
+T 1381421292 2<20dfults2>	oh I gotcha.  Where did you see that post? I'll see if I can refresh my memory
+T 1381421350 2<24jcuster2>	http://bugworks.engr.sgi.com/query.cgi/1029459
+T 1381421804 2<20dfults2>	hopefully I can remember what I did.. I think it was pretty easy
+T 1381421833 2<20dfults2>	I remember it feeling kind of "hacky" tho.. but maybe now.
+T 1381421835 2<20dfults2>	not*
+T 1381422049 2<20dfults2>	We're short a lot of ppl
+T 1381422063 2<20dfults2>	No sherri. No george, Alex hasn't done his status yet
+T 1381422133 6<danielp6>	wrong window?
+T 1381422141 2<20dfults2>	yea
+T 1381422179 2<20dfults2>	but yeah, the meeting is almost over I think
+T 1381422437 2<20dfults2>	jcuster: I think I found my changes
+T 1381422522 2<20dfults2>	data/lwork/gulag1a/dfults/git-opensource/xpmem/xpmem/kernel/xpmem_attach.c
+T 1381422557 2<24jcuster2>	ah ok
+T 1381422559 2<24jcuster2>	I'll take a look at those
+T 1381422612 2<20dfults2>	Its out of date, but the changes are pretty independent 
+T 1381422674 2<24jcuster2>	Oh, I see you pretty much just unlock the att mutex and mmap_sem and call the functions
+T 1381422756 2<20dfults2>	yeah.. Seemed like a potential for deadlock. I wanted to get Robin's input on it but never heard anything. I thought there was another solution so this wasn't needed.
+T 1381422758 2<24jcuster2>	But I was wondering if that really can be done -- are we relying on the VMA not changing throughout the attach?
+T 1381422841 2<20dfults2>	I'm not sure anymore. That was a quick attempt and it worked with some basic testing. Could very well have issues.
+T 1381428276 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1381428551 -10-11>	jcuster 14(10~jcuster@eagdhcp-233-188.americas.sgi.com14) has joined #xpmem
+T 1381431028 -10-11>	You are now talking on 11#xpmem
+T 1381431182 2<24jcuster2>	dfults: Can you explain the patch process?
+T 1381431272 2<20dfults2>	I'll give you the wiki... and then you'll have some specific questions. 
+T 1381431283 2<20dfults2>	Its kind of confusing
+T 1381431326 2<20dfults2>	http://linux.engr.sgi.com/wiki/index.php/Stout7-patch-howto
+T 1381431333 2<24jcuster2>	thanks
+T 1381431350 2<20dfults2>	Has this been checked in to Stout7 already?
+T 1381431358 2<24jcuster2>	No
+T 1381431365 2<24jcuster2>	That's what I was asking about I guess
+T 1381431395 2<20dfults2>	Ok.. has it been reviewed to be checked in to stout7?
+T 1381431411 2<24jcuster2>	No... that's what I was asking about I guess ;)
+T 1381431431 2<20dfults2>	Ok.. first thing is to have your changes reviewed. That is done for every check-in.
+T 1381431438 2<24jcuster2>	Should I review it with you or Cliff?
+T 1381431443 2<20dfults2>	both
+T 1381431445 2<24jcuster2>	k
+T 1381431456 2<24jcuster2>	Should I post my writeup now in the PV?
+T 1381431462 2<24jcuster2>	I was going to put it in the git commit
+T 1381431478 2<20dfults2>	Umm.. I would post to the PV, and then ask for a review.
+T 1381431493 2<20dfults2>	Usually you put a pointer to the workarea, and list the files changed, etc.
+T 1381431662 6<danielp6>	best practice, post info in PV, and send email review request to someone
+T 1381431679 6<danielp6>	others can comment in PV if motivated
+T 1381432384 2<20dfults2>	btw.. here is the patch howto. A lot of it is extra info you won't need. When it comes to that time I'll point you in the right section. But your ways off from there yet. I'm not certain its a good idea to make a 709 patch without a fair amount of testing with these current changes. 
+T 1381432386 2<20dfults2>	http://linux.engr.sgi.com/wiki/index.php/Stout7-patch-howto
+T 1381432461 6<danielp6>	during lunch Lori viewed this as a non-showstopper/not day1 patch
+T 1381432468 2<20dfults2>	I don't think customers are hitting this problem. 
+T 1381432470 2<20dfults2>	yeah...
+T 1381432490 6<danielp6>	kick the tires on it and debate if we patch 709 or just leave it to 710
+T 1381432519 2<20dfults2>	I forget, was it determined for certain that it was a new test exposing this problem? Or a change in xpmem 709?
+T 1381432571 2<24jcuster2>	Well the hang didn't occur when we changed rolled back the change
+T 1381432583 2<20dfults2>	the xvma change..
+T 1381432585 2<24jcuster2>	right
+T 1381432591 2<24jcuster2>	Ummm
+T 1381432598 2<24jcuster2>	I see what you're saying
+T 1381432646 2<24jcuster2>	If you want I can investigate it....
+T 1381432724 2<20dfults2>	Its more of a sanity type check. Probably a question that will be asked if we want to patch older versions. "What release does this hang first show up?"
+T 1381432799 2<20dfults2>	Since our theory is that this test exposed it, we may want to verify. Although, its also kind of pointless since a customer hasn't hit the problem. 
+T 1381432882 2<20dfults2>	BTW, if you change segid printouts to hex, you'll be much happier. There's a little segid magic "see comments".
+T 1381432932 2<24jcuster2>	Yeah, I've seen how the segids are created, I just haven't changed all my prints to hex
+T 1381433058 2<24jcuster2>	btw didn't Robin have some code that changed xpmem so that the version would be a git commit id?
+T 1381433064 2<24jcuster2>	I can't seem to locate it
+T 1381433102 2<20dfults2>	I don't remember that.. Maybe, but I didn't know about it
+T 1381435384 2<24jcuster2>	dfults: So should we handle addresses from GRU space?
+T 1381435671 2<20dfults2>	That happens, right? The case that caused the hang just happened to be one that crossed over the boundary. There was nothing wrong with it, was there?  If you run the xpmem1 test using shared highspace, won't you get vaddrs in gru addressable range?
+T 1381435762 2<20dfults2>	I could be wrong.  I'll need to look more closely. But I'm not sold on that fix yet. I'll check it out in the morning. I need to get moving now.
+T 1381436937 2<24jcuster2>	alright
+T 1381446046 <10-11-	jcuster has quit 14(Quit: leaving14)
+T 1381495576 <10-11-	sivanich has quit 14(Quit: ZNC - http://znc.sourceforge.net14)
+T 1381495670 -10-11>	sivanich 14(10~sivanich@santana.americas.sgi.com14) has joined #xpmem
+T 1381505999 -10-11>	jcuster 14(10~jcuster@cf-sslvpn-1-183.corp.sgi.com14) has joined #xpmem
+T 1381506007 2<24jcuster2>	dfults: Hi Derek, I'm here
+T 1381506021 2<20dfults2>	ok
+T 1381506052 2<20dfults2>	setting up for a call... 1 sec
+T 1381506091 2<20dfults2>	can you call me at 612-384-1742
+T 1381506173 2<24jcuster2>	sure
+T 1381517690 2<24jcuster2>	dfults: I updated the PV with the exact patch I ran my tests with earlier
+T 1381517694 2<24jcuster2>	I didn't see any failures
+T 1381517695 2<24jcuster2>	no hangs
+T 1381517765 2<24jcuster2>	whoops I forgot to update my comment on XPMEM_MAXADDR_SIZE
+T 1381517942 2<20dfults2>	Ok.. So we're confident that limiting to user space address range is OK? Robin said to check with Cliff and the MPT guys were alright with the idea?
+T 1381518116 2<24jcuster2>	Yeah, Michael said it was fine. Cliff said it should be fine to his knowledge.
+T 1381518146 2<28sivanich2>	are you guys talking about limiting virtual addresses in userspace (supplied by xpmem)?
+T 1381518185 2<20dfults2>	virtual address given to xpmem_make. 
+T 1381518212 2<28sivanich2>	what are you limiting it to?
+T 1381518250 2<24jcuster2>	the end of userspace
+T 1381518324 2<28sivanich2>	IOW don't infringe on kernel space?
+T 1381518400 2<24jcuster2>	Basically... to me it makes no sense to try to make a segment across an address range for addresses you cannot access from the process
+T 1381518420 2<28sivanich2>	unless you're going cross-partition maybe?
+T 1381518452 2<28sivanich2>	since you'd be using the GRU?
+T 1381518479 2<24jcuster2>	But you'd be using the high attaches for that, right?
+T 1381518502 2<24jcuster2>	Basically I'm talking about what addresses you can use xpmem_make on
+T 1381518516 2<28sivanich2>	ok
+T 1381518524 2<24jcuster2>	Does it make sense to do xpmem_make on GRU addresses?
+T 1381518566 2<20dfults2>	sivanich, these addresses are typically returned from mmap, alloc_hugepages. I was trying to think of a scenario where that wouldn't be the case.
+T 1381518584 2<28sivanich2>	asking because I'm wondering how many vaddr bits we support right now for cross partition xfers (via gru of course).
+T 1381518630 2<28sivanich2>	dfults, what about the vaddrs that a remote partition is given to access that memory?
+T 1381518654 13*	28sivanich knows very little about xpmem
+T 1381518668 2<24jcuster2>	same here ;)
+T 1381518672 2<24jcuster2>	lol
+T 1381518676 2<20dfults2>	I think your confusion is the same as what mine was.. 
+T 1381518693 2<20dfults2>	for example
+T 1381518715 2<20dfults2>	a shared high space gru virt add looks like this
+T 1381518718 2<20dfults2>	0x8000000070800000
+T 1381518737 2<20dfults2>	This part of xpmem_make does not deal with those addrs. 
+T 1381518795 2<20dfults2>	That's why I was so concerned with limiting the address range. I thought we'd be screwing up a LOT of end cases.
+T 1381518850 2<28sivanich2>	right, shared high space always sets bit 63.
+T 1381518875 2<28sivanich2>	are all cross partition xfers done with shared high space addresses?
+T 1381518890 2<20dfults2>	No
+T 1381518939 2<28sivanich2>	so on the ones that aren't, how are those generated?
+T 1381518953 2<28sivanich2>	and more importantly, what range can they have?
+T 1381519045 2<24jcuster2>	Here's my understanding of what can typically go on when using XPMEM:
+T 1381519045 2<24jcuster2>	Process 1 wants to make memory available to other processors (this memory must be accessible to the process!)
+T 1381519048 2<24jcuster2>	So, process 1 does xpmem_make with a start address and size -- returns a handle for accessing the AP
+T 1381519051 2<24jcuster2>	Process 2 can use the handle to get access using xpmem_get which returns an access permission id
+T 1381519054 2<24jcuster2>	Now process 2 can attach to all of/part of the memory on process 1 (you can do regular attach,
+T 1381519057 2<24jcuster2>	high attach, shared high attach)
+T 1381519101 2<28sivanich2>	ok, so where do process 2's virtual addresses to that memory come from (they can't necessarily be the same as process 1's, right?)?
+T 1381519136 2<24jcuster2>	If it is a regular attach an mmap is done I believe
+T 1381519149 2<24jcuster2>	and the address from mmap is returned for the attach
+T 1381519189 2<24jcuster2>	1246         if (!(att_flags & XPMEM_ATTACH_GRU_ADDRESSABLE)) {
+T 1381519189 2<24jcuster2>	1247                 at_vaddr = do_mmap(file, vaddr, size, prot_flags,
+T 1381519190 2<24jcuster2>	1248                                    flags, offset);
+T 1381519210 2<24jcuster2>	Is that what you're asking?
+T 1381519242 2<28sivanich2>	Yes, I believe so.  So it would fall under the usual userpace vaddr range.
+T 1381519280 2<28sivanich2>	and that would always be the case?
+T 1381519292 2<24jcuster2>	Unless you do an attach_high
+T 1381519301 2<24jcuster2>	or attach_shared
+T 1381519302 2<20dfults2>	I don't know that this is accurate. Process 2 uses the address returned from xpmem_attach
+T 1381519325 2<24jcuster2>	Right, process 2 uses the address returned from attach to access the memory on process 1
+T 1381519359 2<24jcuster2>	Not sure what you guys are getting at though
+T 1381519393 2<24jcuster2>	The address returned by xpmem_attach are distinct from the addresses allowed in xpmem_make
+T 1381519418 2<28sivanich2>	My questions come from thoughts about the UV4 verbs interface and how many bits of vaddr we absolutely need to send across.
+T 1381519450 2<28sivanich2>	So not in any way related to what dfults is talking about.
+T 1381519472 2<28sivanich2>	Thanks for answering my questions though.
+T 1381519473 2<24jcuster2>	I haven't even started on trying to understand the cross-partition part of XPMEM :-/
+T 1381519478 2<20dfults2>	ok.. I'm out :)
+T 1381519538 2<28sivanich2>	as long as we do an mmap on every attach, it'll always be limited to the 46 (or 47?) bits of userspace vaddr.
+T 1381519601 2<24jcuster2>	I believe that is the case
+T 1381519617 2<28sivanich2>	jcuster, dfults, thanks again.
+T 1381519646 2<24jcuster2>	No problem
+T 1381520169 <10-11-	jcuster has quit 14(Quit: leaving14)
+T 1381520193 -10-11>	jcuster 14(10~jcuster@cf-sslvpn-1-183.corp.sgi.com14) has joined #xpmem
+T 1381521907 <10-11-	jcuster has quit 14(Read error: Connection reset by peer14)
+T 1381522590 -10-11>	jcuster 14(10~jcuster@cf-sslvpn-0-72.corp.sgi.com14) has joined #xpmem
+T 1381524061 <10-11-	jcuster has quit 14(Read error: Connection reset by peer14)
+T 1381528293 -10-11>	jcuster 14(10~jcuster@cf-sslvpn-0-28.corp.sgi.com14) has joined #xpmem
+T 1381529827 <10-11-	jcuster has quit 14(Read error: Connection reset by peer14)
+T 1381778031 -10-11>	jcuster 14(10jcuster@eagdhcp-232-154.americas.sgi.com14) has joined #xpmem
+T 1381778040 2<24jcuster2>	dfults: whoops I wasn't connected to IRC
+T 1381778051 2<24jcuster2>	just now got your emails
+T 1381778099 2<24jcuster2>	I just submitted what I think should probably be the "final" patch
+T 1381778119 2<24jcuster2>	MPI uses XPMEM_MAXADDR_SIZE when doing xpmem_make
+T 1381778156 2<24jcuster2>	also, since we can't get TASK_SIZE when compiling non-kernel programs I simply hard-coded XPMEM_MAXADDR_SIZE to match TASK_SIZE
+T 1381778182 2<24jcuster2>	which on x86-64 is simply (1UL << 47) - PAGE_SIZE
+T 1381778194 2<24jcuster2>	where PAGE_SIZE = 0x1000
+T 1381778217 2<20dfults2>	I think that's the best route. 
+T 1381778237 2<20dfults2>	I forget, what doe pr_crit do?
+T 1381778250 2<24jcuster2>	it's printk(KERN_CRIT
+T 1381778251 2<24jcuster2>	I think
+T 1381778255 2<24jcuster2>	something like that
+T 1381778265 2<24jcuster2>	you're not "supposed" to use printks anymore for kernel stuff
+T 1381778271 2<24jcuster2>	you're supposed to use the pr_*
+T 1381778278 2<20dfults2>	Ok, I just wanted to make sure it wasn't completely stopping the loading of the module.
+T 1381778328 2<24jcuster2>	It does stop the loading of the module
+T 1381778332 2<24jcuster2>	not pr_crit
+T 1381778342 2<24jcuster2>	but I return from the init routine
+T 1381778374 2<24jcuster2>	oh crap
+T 1381778380 2<24jcuster2>	I forgot to add in the return
+T 1381778421 2<20dfults2>	Yes.. 
+T 1381778425 2<24jcuster2>	Do you think we should not fail to load the the module?
+T 1381778433 2<24jcuster2>	Or just saying I forgot to exit?
+T 1381778435 2<24jcuster2>	heh
+T 1381778456 2<20dfults2>	Right.. I wasn't sure if its worth completely failing to load the module on that error
+T 1381778479 2<20dfults2>	Sorry, this is confusing.. let me clarify.
+T 1381778489 2<20dfults2>	I was agreeing that you didn't have the return code in your patch.
+T 1381778533 2<20dfults2>	I was debating if we needed to fail to load the module and return on that check. 
+T 1381778569 2<24jcuster2>	Also, I promise I'm not usually this bad writing code, I'm just not used to submitting stuff to other people
+T 1381778612 2<24jcuster2>	Right, well these values are unlikely to change unless the processor changes the max address/page size
+T 1381778651 2<24jcuster2>	So if these values did change I'd say it would be good to fail to load the module since we'd be unsure if we would have had to make other changes also
+T 1381778813 2<20dfults2>	No worries. I should go over the code in your workarea as well. Or just double check it for white spaces, formatting etc. I think it all looked good. Holt worked hard at getting the xpmem code looking good and was very critical of any sort of ugliness I tried to introduce. 
+T 1381778852 2<20dfults2>	So we should try to keep up what  he's left
+T 1381778950 2<24jcuster2>	Alright I posted the location in the PV
+T 1381781256 2<20dfults2>	jcuster: see emails. Sorry for flood.
+T 1381781373 2<24jcuster2>	Ah, I noticed that MPT begins their long quoted lines with no indents
+T 1381781378 2<24jcuster2>	that's why I did it that way
+T 1381784623 <10-11-	jcuster has quit 14(14)
+T 1381784783 -10-11>	jcuster 14(10jcuster@eagdhcp-232-154.americas.sgi.com14) has joined #xpmem
+T 1381798266 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1381819642 -10-11>	jcuster 14(10jcuster@eagdhcp-232-154.americas.sgi.com14) has joined #xpmem
+T 1381819886 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1381853282 -10-11>	jcuster 14(10~jcuster@cf-sslvpn-0-129.corp.sgi.com14) has joined #xpmem
+T 1381868703 2<28sivanich2>	jcuster, can u tell me what's wrong with the following xpmem_get call?
+T 1381868727 2<28sivanich2>	i get back an invalid argument error:
+T 1381868736 2<28sivanich2>	src_apid = xpmem_get_2(handle_anon, XPMEM_RDWR, XPMEM_PERMIT_MODE, NULL);
+T 1381868760 2<24jcuster2>	one sec, let me look
+T 1381868776 2<28sivanich2>	handle_anon 0x000200010000bbeb  vaddr 0x7ffff7ff8000
+T 1381868806 2<28sivanich2>	above was from get_xpmem_handle().
+T 1381868895 2<28sivanich2>	this used to work.
+T 1381868909 2<28sivanich2>	i'm running this on harp31-sys2 and harp31-sys3
+T 1381868932 2<24jcuster2>	what is get_xpmem_handle() ?
+T 1381868946 2<24jcuster2>	that has the call to xpmem_make ?
+T 1381868981 2<28sivanich2>	sorry, that's a local routine i'm using.  will email it to you.
+T 1381869003 2<24jcuster2>	the flags, permit_type, and permit_value look fine
+T 1381869028 2<24jcuster2>	one spot I see that returns invalid arg is the segid (which would be handle_anon)
+T 1381869126 2<24jcuster2>	hrm, that looks fine
+T 1381869145 2<24jcuster2>	is this multithreaded code? is it possible you're destroying a segment before trying to get it?
+T 1381869153 2<24jcuster2>	err multiprocess*
+T 1381869211 2<24jcuster2>	e.g. launching process A that makes the segment, you pass the handle to process B, but process A destroys it before doing the get ?
+T 1381869284 2<28sivanich2>	it's possible.
+T 1381869299 2<28sivanich2>	wanted to make sure that i wasn't passing anything that is now invalid.
+T 1381869327 2<28sivanich2>	it's actually running multi-partition.
+T 1381869342 2<24jcuster2>	I don't see anything that jumps out immediately
+T 1381869384 2<24jcuster2>	I do wish we had better error messages
+T 1381869398 2<24jcuster2>	I might do something about that in the near future
+T 1381869701 2<28sivanich2>	Doh!  It certainly helps if xpc is running.
+T 1381869717 2<24jcuster2>	Ah, yeah..
+T 1381869722 2<28sivanich2>	fs2 on all partitions of harp31 has xpc disabled.
+T 1381869733 2<28sivanich2>	test runs great now.
+T 1381869745 2<28sivanich2>	sorry about the false alarm.
+T 1381869753 2<24jcuster2>	np
+T 1381869921 2<24jcuster2>	dfults: you there?
+T 1381876255 2<25danielp2>	jcuster: which machine is giving you NFS problems?
+T 1381876937 2<8jcuster2>	danielp: whoops missed your ping since irssi didn't make the bell sound for some reason
+T 1381876954 2<25danielp2>	how long do you have system?
+T 1381876995 2<24jcuster2>	I reserved it until 6
+T 1381877001 2<24jcuster2>	but no one else has it reserved
+T 1381877027 2<24jcuster2>	you have to login through uvcon since ypbind isn't running I guess
+T 1381877067 2<25danielp2>	logged in as root
+T 1381877095 2<25danielp2>	going to play with systemd if you don't mind - let me know if you want to reboot though
+T 1381877161 2<24jcuster2>	you can have it, I'm done with it for today
+T 1381877173 2<24jcuster2>	I have some other stuff to look at in the mean time
+T 1381877183 2<25danielp2>	wow, rhel7 has ack-grep?
+T 1381877204 2<25danielp2>	or just fancy grep with highlighting
+T 1381877234 2<24jcuster2>	I dunno
+T 1381877384 2<25danielp2>	grep --color=auto
+T 1381877417 2<24jcuster2>	yeah that's what I usually run with in my configs
+T 1381878047 <10-11-	jcuster has quit 14(Quit: leaving14)
+T 1381913725 <10-11-	dfults has quit 14(Ping timeout: 240 seconds14)
+T 1381924157 -10-11>	dfults 14(10~dfults@sshcf.sgi.com14) has joined #xpmem
+T 1381938821 -10-11>	jcuster 14(10jcuster@eagdhcp-232-154.americas.sgi.com14) has joined #xpmem
+T 1381940869 -10-11>	jcuster_ 14(10~jcuster@eagdhcp-233-161.americas.sgi.com14) has joined #xpmem
+T 1381940874 2<29jcuster_2>	dfults: you there?
+T 1381940881 2<20dfults2>	yeah
+T 1381940893 2<29jcuster_2>	I'm sitting with Cliff about to check in the patch
+T 1381940913 2<29jcuster_2>	We were wondering if we're supposed to commit to git first then check in with ptools?
+T 1381940926 2<29jcuster_2>	Or does checking in the ptools automatically add the commit to git?
+T 1381940996 2<20dfults2>	I believe its the latter, but Dan would be a good person to check with. I've never done anything with git outside my own personal workarea. I don't think the changeover from ptools to git has happened yet.
+T 1381941029 2<8dfults2>	danielp: ^^^
+T 1381941240 2<29jcuster_2>	THanks
+T 1381941258 2<29jcuster_2>	Yeah Dan says we're not supposed to touch it ourselves he thinks
+T 1381941312 6<danielp6>	was chatting old-school IRC (IRL-style)
+T 1381941570 2<20dfults2>	That's silly.. that's how germs are exchanged. I'll stay in my bubble. ;)
+T 1381941657 2<20dfults2>	BTW, I was forced to change my windows password again... Can I tell you guys so when I forget next time I have to log in, at least someone will know?
+T 1381942507 6<danielp6>	wait, windows password changing is still a thing?
+T 1381942517 6<danielp6>	it has been many months for me....
+T 1381942594 6<danielp6>	hey jcuster , did you know jcuster_ is impersonating you?
+T 1381944587 2<20dfults2>	Yeah it seemed to be a longer amount of time between passwd changes. My post-it with my previous password is pretty tattered 
+T 1381944661 <10-11-	jcuster_ has quit 14(Ping timeout: 240 seconds14)
+T 1381946064 6<danielp6>	so if you keep the post-it in good condition, can you keep the password?
+T 1381966811 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1381988281 -10-11>	jcuster 14(10jcuster@eagdhcp-232-154.americas.sgi.com14) has joined #xpmem
+T 1381988526 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1382026870 -10-11>	jcuster 14(10jcuster@eagdhcp-232-154.americas.sgi.com14) has joined #xpmem
+T 1382038915 2<8jcuster2>	danielp: of course things never could be easy -- I get hangs with my symbols fix :-(
+T 1382038950 6<danielp6>	obviously you need shorter symbols, less likely to clog the xp gears
+T 1382045596 <10-11-	sivanich has quit 14(Quit: ZNC - http://znc.sourceforge.net14)
+T 1382048781 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1382049339 -10-11>	jcuster 14(10jcuster@eagdhcp-232-154.americas.sgi.com14) has joined #xpmem
+T 1382057046 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1382078433 -10-11>	jcuster 14(10jcuster@eagdhcp-232-154.americas.sgi.com14) has joined #xpmem
+T 1382078676 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1382102691 -10-11>	sivanich 14(10~sivanich@santana.americas.sgi.com14) has joined #xpmem
+T 1382113443 -10-11>	jcuster 14(10jcuster@eagdhcp-232-151.americas.sgi.com14) has joined #xpmem
+T 1382127836 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1382129162 -10-11>	jcuster 14(10jcuster@eagdhcp-232-151.americas.sgi.com14) has joined #xpmem
+T 1382129942 <10-11-	sivanich has quit 14(Quit: ZNC - http://znc.sourceforge.net14)
+T 1382138066 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1382159464 -10-11>	jcuster 14(10jcuster@eagdhcp-232-151.americas.sgi.com14) has joined #xpmem
+T 1382159706 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1382182015 <10-11-	dfults has quit 14(Ping timeout: 240 seconds14)
+T 1382356261 -10-11>	dfults 14(10~dfults@sshcf.sgi.com14) has joined #xpmem
+T 1382360963 -10-11>	sivanich 14(10~sivanich@santana.americas.sgi.com14) has joined #xpmem
+T 1382365335 <10-11-	dfults has quit 14(Ping timeout: 240 seconds14)
+T 1382368812 18*	danielp notices a tumbleweed rolling through the channel
+T 1382370858 -10-11>	jcuster 14(10jcuster@eagdhcp-232-164.americas.sgi.com14) has joined #xpmem
+T 1382376367 -10-11>	dfults 14(10~dfults@sshcf.sgi.com14) has joined #xpmem
+T 1382376579 2<20dfults2>	Turns out some idiot unplugged the cable amplifier in the garage, causing my internet outage. 
+T 1382379051 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1382379067 -10-11>	jcuster 14(10jcuster@eagdhcp-232-164.americas.sgi.com14) has joined #xpmem
+T 1382379362 6<danielp6>	ahhh...the old DOS from the garage attack vector...
+T 1382390624 6<danielp6>	vim undo branching to the rescue
+T 1382396590 <10-11-	dfults has quit 14(Ping timeout: 240 seconds14)
+T 1382402251 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1382423706 -10-11>	jcuster 14(10jcuster@eagdhcp-232-164.americas.sgi.com14) has joined #xpmem
+T 1382423951 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1382441247 -10-11>	dfults 14(10~dfults@sshcf.sgi.com14) has joined #xpmem
+T 1382457891 -10-11>	jcuster 14(10~jcuster@cf-sslvpn-1-152.corp.sgi.com14) has joined #xpmem
+T 1382474977 <10-11-	jcuster has quit 14(Read error: Connection reset by peer14)
+T 1382479572 <10-11-	sivanich has quit 14(Quit: ZNC - http://znc.sourceforge.net14)
+T 1382532739 -10-11>	sivanich 14(10~sivanich@santana.americas.sgi.com14) has joined #xpmem
+T 1382545500 -10-11>	jcuster 14(10jcuster@eagdhcp-232-164.americas.sgi.com14) has joined #xpmem
+T 1382550176 -10-11>	jcuster_ 14(10~jcuster@eagdhcp-233-141.americas.sgi.com14) has joined #xpmem
+T 1382550947 <10-11-	jcuster has quit 14(14)
+T 1382550958 -10-11>	jcuster 14(10~jcuster@eagdhcp-233-141.americas.sgi.com14) has joined #xpmem
+T 1382550964 2<24jcuster2>	dfults: you there?
+T 1382550977 2<20dfults2>	yup
+T 1382550996 2<24jcuster2>	Are you familiar with the mmap_-sem_borrower stuff?
+T 1382551131 2<20dfults2>	familiar yes.. Probably can't answer many questions off the top of my head tho
+T 1382551135 2<20dfults2>	What's up?
+T 1382551174 2<24jcuster2>	Well I'm trying to make changes to use vm_mmap and vm_munmap instead of do_mmap etc.
+T 1382551192 2<24jcuster2>	I'm concerned about the "borrowing" of the mmap sem
+T 1382551274 2<24jcuster2>	To make sure my fix is _possible_ I removed all the mmap borrowing and simply grabbed the mmap_sem each time and I don't get any deadlocks or anything while running through the MPI regression tests
+T 1382551414 2<20dfults2>	wouldn't you be grabbing the incorrect mmap_sem?
+T 1382551469 2<24jcuster2>	Hrmm, well I'm not clear on what the "borrowing" stuff is supposed to be achieving in the first place
+T 1382551545 2<24jcuster2>	What I did was replaced this:
+T 1382551550 2<24jcuster2>	        if (atomic_read(&ap_tg->n_active_recalls) > 0) {
+T 1382551550 2<24jcuster2>	                atomic_inc(&ap_tg->n_mmap_sem_borrowers);
+T 1382551550 2<24jcuster2>	                if (atomic_read(&ap_tg->n_active_recalls) == 0) {
+T 1382551550 2<24jcuster2>	                        atomic_t *n = &ap_tg->n_mmap_sem_borrowers;
+T 1382551550 2<24jcuster2>	                        if (atomic_dec_return(n) == 0)
+T 1382551552 2<24jcuster2>	                                wake_up(&ap_tg->mmap_sem_borrowers_wq);
+T 1382551555 2<24jcuster2>	                        goto retry;
+T 1382551557 2<24jcuster2>	                }
+T 1382551560 2<24jcuster2>	                borrowing_mmap_sem = 1;
+T 1382551562 2<24jcuster2>	        } else {
+T 1382551565 2<24jcuster2>	                down_read(&att_mm->mmap_sem);
+T 1382551567 2<24jcuster2>	                borrowing_mmap_sem = 0;
+T 1382551570 2<24jcuster2>	        }
+T 1382551572 2<24jcuster2>	with simply:
+T 1382551575 2<24jcuster2>	down_read(&att_mm->mmap_sem);
+T 1382551587 2<24jcuster2>	and of course replaced the matching up_read code, too
+T 1382551624 2<20dfults2>	I can guarantee that's a bad idea. 
+T 1382551636 2<24jcuster2>	Alright...
+T 1382551641 2<20dfults2>	Just need to explain why
+T 1382551731 2<20dfults2>	Robin hammered on that code for a long time. I thought I had found a bug with it once, and he couldn't believe it. He went on to show me why I was wrong and why that code was needed. Those details are slipping my mind right now. :)
+T 1382551897 2<24jcuster2>	It's confusing to me because IIRC from looking at this code path, n_active_recalls is always > 0 and no one ever grabs the mmap_sem ?
+T 1382551962 2<24jcuster2>	or maybe that's only when detach is called
+T 1382552106 2<24jcuster2>	I just want to make sure that we don't accidentally do stuff with the mm while a non-xpmem process has the lock acquired
+T 1382552132 2<24jcuster2>	since to accomodate the vm_mmap/vm_munmap changes we have to release and acquire the locks a few times
+T 1382552245 2<20dfults2>	I need to look inside what get_task_mm
+T 1382552302 2<24jcuster2>	is xpmem_invalidate_range_start instigated by xpmem_free_xvma_of_att ?
+T 1382552413 2<20dfults2>	No.. that is an mmu_notifier callout
+T 1382552440 2<24jcuster2>	Well I understand that, but when we do an attach something has to force that callout?
+T 1382552446 2<24jcuster2>	err detach
+T 1382552569 2<24jcuster2>	Yeah I think it is... delete_this_xvma is called, then zap_xvma_ptes is called, then xvma_mmu_notifier_invalidate_range_start is called
+T 1382552608 2<24jcuster2>	I think I don't have to modify anything with the mmap_sem_borrower stuff then
+T 1382552652 2<24jcuster2>	because I'll do the acquire/release stuff before I ever enter into the invalidate_range_start routine
+T 1382552693 2<20dfults2>	You might want to look at how the callouts are initiated. Is the mmap_sem already held? 
+T 1382552737 2<20dfults2>	I thought it was. And one of the main problems we have is sleeping with the mmap_sem. Its a no no, but they needed to implement things that way due to remote partitions.
+T 1382552749 2<24jcuster2>	Yes, delete_this_xvma has this comment: "Assumes mmap_sem is held writeable by caller."
+T 1382552791 2<24jcuster2>	Well I don't think vm_mmap/vm_munmap will sleep with the mmap_sem
+T 1382552801 2<24jcuster2>	So that should be okay?
+T 1382552903 2<24jcuster2>	Let me clean up my code and write some comments. I'll post it to the PV and you can take a look at it.
+T 1382553005 2<20dfults2>	Ok.. I'm catching up with the earlier statements
+T 1382553385 -10-11-	You have left channel #xpmem
+T 1382553441 -10-11>	You are now talking on 11#xpmem
+T 1382553442 -10-11-	Channel #xpmem modes: +nst
+T 1382553442 -10-11-	Channel #xpmem created on Mon Jul 15 07:52:34 2013
+T 1382554214 <10-11-	jcuster_ has quit 14(Quit: Lost terminal14)
+T 1382570246 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1382630403 -10-11>	jcuster 14(10jcuster@eagdhcp-232-205.americas.sgi.com14) has joined #xpmem
+T 1382648090 <10-11-	sivanich has quit 14(Quit: ZNC - http://znc.sourceforge.net14)
+T 1382658706 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1382680120 -10-11>	jcuster 14(10jcuster@eagdhcp-232-205.americas.sgi.com14) has joined #xpmem
+T 1382680361 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1382706207 -10-11>	sivanich 14(10~sivanich@santana.americas.sgi.com14) has joined #xpmem
+T 1382719063 -10-11>	jcuster 14(10jcuster@eagdhcp-232-205.americas.sgi.com14) has joined #xpmem
+T 1382727075 -10-11>	jcuster_ 14(10~jcuster@eagdhcp-233-143.americas.sgi.com14) has joined #xpmem
+T 1382727114 2<29jcuster_2>	hi dfults: I sent you a response -- is it still okay that I asked for a review of my code to make sure doing this was possible?
+T 1382727252 2<20dfults2>	Yeah..  when asking for a review it usually ready to be checked in. So I was a little confused. 
+T 1382727356 2<29jcuster_2>	Yeah my bad, I copied/pasted the message I was writing for the cleanup PV
+T 1382727364 2<29jcuster_2>	since I was referencing the git repo
+T 1382727491 2<20dfults2>	Any word on the likely hood of that change being reverted?
+T 1382727847 2<29jcuster_2>	Well I haven't posted to lkml yet. I wanted to make sure this was possible before I did so
+T 1382727860 2<29jcuster_2>	It's a lot more likely than the alternative Robin suggested I would think
+T 1382728051 2<29jcuster_2>	The max number of ranks I used to test the changes was 512
+T 1382728969 2<20dfults2>	When you say 'make sure this was possible', what are you concerned with?
+T 1382731353 2<29jcuster_2>	dfults: possible deadlocks
+T 1382731390 2<29jcuster_2>	but I looked at what I think are all the relevant code paths and I think we're okay
+T 1382733101 2<20dfults2>	Before any final check-ins, I'd say give it a run on harp50 or something with 1024 ranks. 
+T 1382734456 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1382736821 <10-11-	jcuster_ has quit 14(Quit: leaving14)
+T 1382738780 <10-11-	dfults has quit 14(Ping timeout: 240 seconds14)
+T 1382739492 <10-11-	sivanich has quit 14(Quit: ZNC - http://znc.sourceforge.net14)
+T 1382755856 -10-11>	jcuster 14(10jcuster@eagdhcp-232-205.americas.sgi.com14) has joined #xpmem
+T 1382756101 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1382961976 -10-11>	dfults 14(10~dfults@sshcf.sgi.com14) has joined #xpmem
+T 1382967419 -10-11>	sivanich 14(10~sivanich@santana.americas.sgi.com14) has joined #xpmem
+T 1382975811 -10-11>	jcuster 14(10jcuster@eagdhcp-232-198.americas.sgi.com14) has joined #xpmem
+T 1382983286 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1383004739 -10-11>	jcuster 14(10jcuster@eagdhcp-232-198.americas.sgi.com14) has joined #xpmem
+T 1383004981 <10-11-	jcuster has quit 14(Ping timeout: 240 seconds14)
+T 1383024051 <10-11-	dfults has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383024466 -10-11>	dfults 14(10~dfults@sshcf.sgi.com14) has joined #xpmem
+T 1383026051 <10-11-	dfults has quit 14(irc-eag.americas.sgi.com new-irc.corp.sgi.com14)
+T 1383026170 -10-11>	dfults 14(10~dfults@sshcf.sgi.com14) has joined #xpmem
+T 1383059226 -10-11>	jcuster 14(10~jcuster@cf-sslvpn-1-231.corp.sgi.com14) has joined #xpmem
+T 1383074961 2<8jcuster2>	danielp: I partitioned harp31 into 4 partitions and got it booted into SLES11SP3. But when I try running mpirun -np 1 /bin/true, I get the error "MPT ERROR: could not run executable" Any ideas on what's going wrong?
+T 1383075017 6<danielp6>	add -v to mpirun
+T 1383075064 2<24jcuster2>	MPT: libxmpi.so 'SGI MPT 2.09  10/09/13 07:53:29'
+T 1383075087 6<danielp6>	is there something else you wanted from /bin/true?
+T 1383075136 2<24jcuster2>	I just wanted to make sure mpi would run successfully before I tried to run a command on the different partitions
+T 1383075154 2<24jcuster2>	it even does it for a simple script
+T 1383075217 2<24jcuster2>	#!/bin/bash
+T 1383075217 2<24jcuster2>	echo "test"
+T 1383075228 2<24jcuster2>	harp31-sys:~ # mpirun -np 4 ./test.sh
+T 1383075228 2<24jcuster2>	test
+T 1383075228 2<24jcuster2>	MPT ERROR: could not run executable
+T 1383075229 2<24jcuster2>	Killed
+T 1383075259 2<25danielp2>	MPT will expect an mpi_init I believe
+T 1383075264 2<24jcuster2>	oh
+T 1383075270 2<24jcuster2>	well that makes sense then
+T 1383075283 2<25danielp2>	you can run mpisanity (or copy code)
+T 1383075335 2<25danielp2>	 /home/estes07/syslib/libtools/bin_linux/mpisanity
+T 1383075384 2<24jcuster2>	harp31-sys:~ # mpirun -np 4 /home/estes07/syslib/libtools/bin_linux/mpisanity
+T 1383075384 2<24jcuster2>	/bin/sh: /home/estes07/syslib/libtools/bin_linux/mpisanity: cannot execute binary file
+T 1383075387 2<24jcuster2>	/bin/sh: /home/estes07/syslib/libtools/bin_linux/mpisanity: Success
+T 1383075389 2<24jcuster2>	MPT ERROR: could not run executable
+T 1383075399 2<24jcuster2>	Killed
+T 1383075440 2<25danielp2>	well then...
+T 1383075459 2<25danielp2>	I will maintain them on tmux
+T 1383075465 2<25danielp2>	:)
+T 1383075485 2<25danielp2>	that is mpisanity ia64...
+T 1383075490 2<24jcuster2>	ah
+T 1383075493 2<24jcuster2>	that makes sense
+T 1383075504 2<25danielp2>	I thought there was a precompiled mpisanity for amd64 somewhere....
+T 1383075519 2<25danielp2>	or you can just compile it with lmpi
+T 1383075545 2<25danielp2>	...or everyone learns tmux because VNC is bad
+T 1383075625 2<24jcuster2>	I just used ltrun
+T 1383075626 2<24jcuster2>	and it works fine
+T 1383075638 2<24jcuster2>	can you use ltrun and specify multiple hosts?
+T 1383075647 2<25danielp2>	yeah - just trying to find the no-compiler solution
+T 1383075651 2<25danielp2>	yest
+T 1383075667 2<25danielp2>	LTRUN_HOSTLIST="host1 host2 host3"
+T 1383075675 2<24jcuster2>	cool
+T 1383075701 2<25danielp2>	LTRUN_PPH (process per host) and LTRUN_NPES (number of parallel envs in ssi)
+T 1383076897 2<24jcuster2>	How can I verify that the program ran on all hosts?
+T 1383076912 2<24jcuster2>	e.g. mpisanity
+T 1383076947 2<8jcuster2>	danielp ^
+T 1383077030 6<danielp6>	isn't it in the output?
+T 1383077098 2<24jcuster2>	where?
+T 1383077101 2<24jcuster2>	I'm seeing something like
+T 1383077108 2<24jcuster2>	MPI rank 0 is on host harp31-sys
+T 1383077108 2<24jcuster2>	MPI rank 1 is on host harp31-sys
+T 1383077120 6<danielp6>	nothing on harp31-sys2 ?
+T 1383077123 2<24jcuster2>	nope
+T 1383077137 6<danielp6>	paste your ltrun line pls
+T 1383077176 6<danielp6>	should look like
+T 1383077205 6<danielp6>	LTRUN_HOSTLIST="harp31-sys harp31-sys2" LTRUN_PPH=16 ltrun -D mpi1 -t mpisanity.c
+T 1383077271 2<24jcuster2>	weird....
+T 1383077279 2<24jcuster2>	if I take it outside of my script it works
+T 1383077290 6<danielp6>	env setup failure
+T 1383077302 6<danielp6>	2 ranks is default
+T 1383077305 2<24jcuster2>	yeah
+T 1383077359 2<24jcuster2>	Oh I figured it out
+T 1383077379 2<24jcuster2>	you can't comment out a line in the middle of a string continuation
+T 1383077860 2<8jcuster2>	danielp: weird, I see all ranks now but it's saying test failure for mpisanity.
+T 1383077900 <10-11-	jcuster has quit 14(Quit: leaving14)
+T 1383077910 -10-11>	jcuster 14(10~jcuster@cf-sslvpn-1-231.corp.sgi.com14) has joined #xpmem
+T 1383078099 2<24jcuster2>	Oh, it says the test fails if I specify MPI_DISPLAY_SETTINGS=1
+T 1383078115 2<24jcuster2>	If I don't specify that the test succeeds.
+T 1383078322 2<25danielp2>	..not sure on that one
+T 1383078421 2<24jcuster2>	Well I got it working, that's all that matters at this point. I just need to be able to test xpmem cross-partition.
+T 1383146362 <10-11-	jcuster has quit 14(Read error: Connection reset by peer14)
+T 1383148013 -10-11>	jcuster 14(10~jcuster@eagdhcp-233-141.americas.sgi.com14) has joined #xpmem
+T 1383148029 <10-11-	jcuster has quit 14(Quit: leaving14)
+T 1383148033 -10-11>	jcuster 14(10~jcuster@eagdhcp-233-141.americas.sgi.com14) has joined #xpmem
+T 1383172850 <10-11-	jcuster has quit 14(Quit: leaving14)

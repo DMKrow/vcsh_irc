@@ -1,0 +1,11 @@
+T 1336490751 2<wmacris2>	hey danielp
+T 1336490768 6<danielp6>	heya
+T 1336490917 2<wmacris2>	I replaced my 17" all-in-one imac G5 1.6 with a PowerMac dual G5 2.0 GHz yesterday.
+T 1336490944 6<danielp6>	woohoo
+T 1336490956 2<wmacris2>	We were looking for the least painful upgrade.
+T 1336490968 2<wmacris2>	got it from Reboot store for 150
+T 1336491017 2<wmacris2>	put our old HD into it as the 2nd disk, set it as the startup disk, and Lo! it boots our old OS and all accounts are just the same
+T 1336491018 6<danielp6>	I guess that is good,hopefully fast enough
+T 1336491057 2<wmacris2>	well it is fast(er) than the old one and gets our stuff back with literally NO hassle
+T 1336491104 2<wmacris2>	so that was a nice surprise that we could just boot the old disk in the new system and have everything "just work"
+T 1336491129 6<danielp6>	sometimes that happens

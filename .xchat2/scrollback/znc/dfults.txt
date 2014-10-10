@@ -1,0 +1,514 @@
+T 1381258883 6<danielp6>	uhhhh thunderbird breaks?
+T 1381258893 2<dfults2>	?
+T 1381258905 6<danielp6>	Mike T on deep dive
+T 1381259042 2<dfults2>	You ever hear from Bill O ?
+T 1381259050 6<danielp6>	not in a long time
+T 1381259070 6<danielp6>	I barely hear from anyone in Dell  land
+T 1381259075 2<dfults2>	I sent him FB message.. didn't hear anyhting back.
+T 1381259080 2<dfults2>	This part of meeting is going to be about me
+T 1381259087 6<danielp6>	?
+T 1381259091 2<dfults2>	LTT kernel
+T 1381259105 6<danielp6>	you know anything about ?ftrace?
+T 1381259118 6<danielp6>	XFS team has some tracing with it
+T 1381259124 2<dfults2>	I'm using kernel tracer right now
+T 1381259144 6<danielp6>	is that the same thing as you use?
+T 1381259155 2<dfults2>	ftrace?
+T 1381259160 6<danielp6>	I lose track of the different generations/implementations
+T 1381259197 6<danielp6>	point of order: woof woof
+T 1381259203 2<dfults2>	fucking mutt
+T 1381259206 6<danielp6>	:)
+T 1381259214 2<dfults2>	god damn UPS guy ringing the door bell
+T 1381259230 6<danielp6>	they barely do that anymore
+T 1381259239 6<danielp6>	just dump the package
+T 1381417568 2<dfults2>	What kind of hours does James work? 11-7?
+T 1381417598 6<danielp6>	after 10 in often
+T 1381417608 6<danielp6>	often here after 6
+T 1381417625 6<danielp6>	sometimes travel time to home for dinner and work later
+T 1381417643 6<danielp6>	!robin
+T 1381417655 2<dfults2>	ha
+T 1381417838 2<dfults2>	Stocks are way up today on the *hopes* that there *might* be fiscal talks in the works. However, ppl that think not coming up with a deal for the debt ceiling would be catastrophic are being ridiculous. According to the economic scholars on the far right. 
+T 1381417860 6<danielp6>	I was guessing face-saving deal in the works
+T 1381417878 2<dfults2>	"economic scholars"
+T 1381417932 6<danielp6>	problem is, even in default, it is hard to find a replacement for US debt
+T 1381417962 6<danielp6>	world needs better economic power competition, rather then interdependence on US economy
+T 1381418730 6<danielp6>	is Lori in today's meeting?
+T 1381418749 2<dfults2>	I dunno.. I sent my status to Russ
+T 1381418775 6<danielp6>	did you have weekly with both or just Russ?
+T 1381418810 2<dfults2>	That's once every 3rd week
+T 1381418829 2<dfults2>	I had one last week w/ both
+T 1381418837 6<danielp6>	oh sweet, that 3rd week was my idea with Lori/MPT group
+T 1381418896 6<danielp6>	had a great moment in that meeting yesterday
+T 1381418904 2<dfults2>	?
+T 1381418929 6<danielp6>	Lori says to Michael "Maybe we should have you in the LRP meeting to discuss <topic>"
+T 1381418948 6<danielp6>	Micheal says "I suppose I could show up to that _one_ time"
+T 1381418961 6<danielp6>	she laughed
+T 1381418991 2<dfults2>	ha
+T 1381419021 6<danielp6>	I have rarely run into anyone so anti-meeting as Michael
+T 1381419136 6<danielp6>	we have a jokester in CB3 land http://wwwcf.americas.sgi.com/PUBLIC/Carlsbad_3/reserve/reserve.html
+T 1381419145 6<danielp6>	cb10 Wed night reserve
+T 1381419178 2<dfults2>	What's with all the traffic on CB3 systems?
+T 1381419189 2<dfults2>	I used to be on there w/ just Pat and Don
+T 1381419191 6<danielp6>	they heard I wanted to use them
+T 1381419195 2<dfults2>	Now I can't get on them anymore
+T 1381419223 2<dfults2>	Ok stupid question (as phyllis would say)...
+T 1381419226 6<danielp6>	Tempo has got a lot of stuff going on I guess
+T 1381419232 2<dfults2>	oh yeah..
+T 1381419249 2<dfults2>	What is the product name for CB3?
+T 1381419255 6<danielp6>	ICEX
+T 1381419266 2<dfults2>	OK.. so carlsbad stuff is related to ICE
+T 1381419278 6<danielp6>	cb2
+T 1381419299 6<danielp6>	is cb earlier the Altix 8400 or 8700 ?
+T 1381419307 2<dfults2>	I think I knew that at one point
+T 1381419330 2<dfults2>	That's a good question. 
+T 1381419343 2<dfults2>	I'm trying to remember what the Altix ia64 machines were called
+T 1381419363 6<danielp6>	before my time
+T 1381419385 2<dfults2>	They were nice machines. Just slow and expensive
+T 1381419405 6<danielp6>	sounds like a lot of cool ideas went into Itanium
+T 1381419443 6<danielp6>	did you see HP is turning off remote/telecommuting?
+T 1381419450 2<dfults2>	You can tell just looking at the kernel ia64 C/assembly code that its well designed, clean, programmed well.
+T 1381419458 2<dfults2>	oh really?
+T 1381419465 2<dfults2>	I hate hearing those stories.
+T 1381419483 6<danielp6>	it seems to be the new fad in avoiding layoffs
+T 1381419507 2<dfults2>	yeah, then its your own fault. 
+T 1381419570 6<danielp6>	some (slashdot) said his wife used to work there (she left earlier), she coordinated international team, said it wouldn't have mattered if she worked from the moon
+T 1381419587 6<danielp6>	like Bill O and the Australia teem
+T 1381419593 6<danielp6>	team
+T 1381419658 6<danielp6>	I get the feeling we are on a fairly conservative rise, so we shouldn't have to worry about something like that
+T 1381419686 6<danielp6>	of course raises would be cool...
+T 1381419703 2<dfults2>	yeah me either. Talked to Erik J about that too. He felt confident w/ the new direction and mgmt that we weren't going that route
+T 1381419770 6<danielp6>	that stuff is happening to _big_ companies that seem to need to re-invent themselves, we already did that
+T 1381419785 2<dfults2>	a couple times.. this one might be sticking
+T 1381419836 6<danielp6>	just more drastic with these stories; the one that shall not be named didn't approve remote, but he didn't force them back
+T 1381419910 2<dfults2>	He knew he was here short-term
+T 1381419914 6<danielp6>	true
+T 1381419922 2<dfults2>	Just voice his displeasure and leave
+T 1381419970 6<danielp6>	I heard someone say that woman who headed HP asked everyone to take an unpaid day to help, then later took $16M bonus
+T 1381420006 6<danielp6>	we have had a lot of people here this week
+T 1381420010 2<dfults2>	You might be confusing her with EVERY CEO EVER
+T 1381420033 2<dfults2>	Jabba essentially did the same
+T 1381420033 6<danielp6>	some of them like to congregate outside my office (in chairs) to make phone calls
+T 1381420085 6<danielp6>	weird overhearing conversation about guy bitching about dealing with Bob Braham and our announcement of FileTek acquisition
+T 1381420133 6<danielp6>	combination of "Why are you having this conversation right outside my door" and "hmmm...this is interesting insight into mngmt battle"
+T 1381420136 6<danielp6>	JC is in
+T 1381420800 6<danielp6>	and we are out of the meeting...just you kernel guys now
+T 1381420810 2<dfults2>	lucky
+T 1381420890 6<danielp6>	feel free to ping me if there are any q's or something interesting pops up
+T 1381420931 2<dfults2>	I'll let you know what annoys me
+T 1381420983 2<dfults2>	Russ is taking my suggestion about ppl rambling on about every detail
+T 1381421029 2<dfults2>	He said. "Just highlight a few things that would be interesting or relevant to the group. No need to go through every detail."
+T 1381421712 6<danielp6>	cool
+T 1381422038 6<danielp6>	is the mtg going faster?
+T 1381422190 2<dfults2>	that was a cover :)
+T 1381422627 6<danielp6>	awesome
+T 1381422642 6<danielp6>	found out that cb10 has the "bad" HCA for testing now
+T 1381422686 6<danielp6>	and I thought UV was bad for knowing what state a system was in
+T 1381763648 6<danielp6>	talked with Sherry about virt, got painful at the end
+T 1381763676 2<dfults2>	how so?  I would of thought all of it was painful
+T 1381763683 6<danielp6>	heh
+T 1381763712 6<danielp6>	started out simple questions, when I was trying to gather more info, I didn't like some of her though process
+T 1381763811 6<danielp6>	"Red Hat will just add a button in virtmanager"
+T 1381763829 2<dfults2>	what the?
+T 1381763833 6<danielp6>	but what if I want to call it from code?
+T 1381768505 6<danielp6>	athorlton: destroyer of networks
+T 1381768543 2<dfults2>	and attention span
+T 1381768566 6<danielp6>	did you like my fix last week?
+T 1381768644 2<dfults2>	?
+T 1381768673 6<danielp6>	I pointed out that his kernel had af_packet as module, but he had no modules loaded or available
+T 1381768692 6<danielp6>	packet-based internet without packet-based internet support is hard
+T 1381768700 2<dfults2>	oy,, I didn't bother to read
+T 1381768755 2<dfults2>	I was reading his lkml activity..
+T 1381768765 6<danielp6>	he is getting some bad ideas on his own or from the team as far as blaming other stuff
+T 1381768773 2<dfults2>	I was surprised to hear of his work related to kernel Hugepages etc.
+T 1381768803 6<danielp6>	yeah...I have my doubts about that
+T 1381768823 2<dfults2>	He rehashed someone else's patches that John Baron pointed out
+T 1381768838 2<dfults2>	Which showed improvement in a benchmark
+T 1381769556 6<danielp6>	how often do you cc people on bugs? Aaron and Alex both seem likely to add names alot. My default is not to add names.
+T 1381769619 2<dfults2>	Depends, If i'd open xpmem bug, I'd cc holt, maybe cpw. RT bugs, dimitri, HET bugs, pjd
+T 1381769640 2<dfults2>	actually for RT and HET dimitri and pjd are cc'd by default
+T 1381769643 6<danielp6>	but Lori?
+T 1381769648 2<dfults2>	Nooooo
+T 1381769650 6<danielp6>	or KGSnow?
+T 1381769664 2<dfults2>	She's cc'd on a lot of bugs by default.
+T 1381769669 6<danielp6>	yeah
+T 1381769681 2<dfults2>	never kgsnow
+T 1381769727 2<dfults2>	Well.. here's an example of a nate bug
+T 1381769729 2<dfults2>	http://bugworks.engr.sgi.com/query.cgi/1034549
+T 1381769777 6<danielp6>	why haven't you solved it yet?
+T 1381769792 2<dfults2>	I have.. its a REJECT
+T 1381769814 2<dfults2>	there was a holdoff and it sent an NMI to which probably didn't work on RHEL7
+T 1381769824 2<dfults2>	I'm just not dignifying it with an answer
+T 1381769847 6<danielp6>	I didn't even know there was that much info in the PV
+T 1381769871 6<danielp6>	rt_handle_IRQ ?
+T 1381769892 2<dfults2>	yup.. that's our handler for the rt test
+T 1381769949 6<danielp6>	RHEL7 bad with NMI?
+T 1381769966 2<dfults2>	the rt app module sends itself interrupts via a device through 2 apps. The timing info is sent thru device to judge how long the interrupts take. In kernel, handler etc.
+T 1381769984 2<dfults2>	I don't know, I"m assuming that's it. Like I said, its not worth looking into.
+T 1381770000 2<dfults2>	Fix the format, add some info, and then maybe its my issue. But most likely it not
+T 1381770144 6<danielp6>	I hope I was/am better new guy, although I probably would be shamed if I looked back at PV submissions...
+T 1381770180 6<danielp6>	has JC got a hold of this XPMEM problem or not?
+T 1381770362 2<dfults2>	yeah.. Cliff actually pointed out the problem. I would have had a hard time seeing the problem, because I didn't really know that it was an issue. 
+T 1381770381 2<dfults2>	Its kind of an xpmem/mpi problem 
+T 1381770393 6<danielp6>	are you familiar with xpc or xpnet at all?
+T 1381770404 2<dfults2>	a little bit.
+T 1381770413 2<dfults2>	mostly with the xpc part of xpmem
+T 1381770453 6<danielp6>	xpnet came up in conversation, I have never used it, Holt just said don't
+T 1381776406 6<danielp6>	Alex mentioned he was working on git bisect, but didn't think feature ever worked, I asked him how intended to bisect without a known working point, he said good good point
+T 1381864113 2<dfults2>	Alex to the rescue again
+T 1381864487 6<danielp6>	I am sure no questions will come to the group following testing
+T 1381864526 2<dfults2>	haha
+T 1381864653 6<danielp6>	awesome, Alex will save us again
+T 1381864669 6<danielp6>	...so you don't have info
+T 1381865291 2<dfults2>	lawn guy is here..I can't hear a thing
+T 1381865301 6<danielp6>	doesn't matter, does it?
+T 1381865320 2<dfults2>	Yes, only because I took off my headset and really stopped listening
+T 1381865331 2<dfults2>	nope
+T 1381865372 6<danielp6>	ugh
+T 1381865381 6<danielp6>	will have to filter this crap
+T 1381865402 6<danielp6>	don't care about uv3 bringup
+T 1381865446 6<danielp6>	meeting done
+T 1381865457 2<dfults2>	yup... he finished a little bit ago.
+T 1381865466 2<dfults2>	Dog was out here with me going nuts so I had to put him inside. 
+T 1381865470 2<dfults2>	zoo around here
+T 1381865486 6<danielp6>	it is dead in the office these days
+T 1381865804 2<dfults2>	Its never dead around here... New cat running around like a psycho, Dog barking at anything. Mostly ppl of color... (dog is a tad racist). And and older cat that just wants to be left alone, but needs tons of attention from me.
+T 1381866595 6<danielp6>	heh
+T 1381866608 6<danielp6>	racist dog
+T 1381933414 2<dfults2>	http://git-wt-commit.rubyforge.org/
+T 1381933429 2<dfults2>	specifically
+T 1381933432 2<dfults2>	http://git-wt-commit.rubyforge.org/#git-wtf
+T 1381935185 2<dfults2>	needs ruby installed tho.. blah
+T 1381935243 6<danielp6>	tmuxifier is bash-only version of tmuxinator (Ruby)
+T 1382026703 6<danielp6>	did Nate call in?
+T 1382026718 2<dfults2>	yup
+T 1382026743 6<danielp6>	office was dark, didn't see any info about wfh
+T 1382027169 2<dfults2>	you don't have to call in anymore?
+T 1382027202 6<danielp6>	the meeting is just kernel
+T 1382027220 2<dfults2>	yeah.. I"m barely kernel anymore :/
+T 1382027242 6<danielp6>	MR checked with Lori if she would be in meeting, and immediately emailed that we didn't have to attent
+T 1382027253 6<danielp6>	s/attent/attend
+T 1382027259 2<dfults2>	Sherri is rambling again...
+T 1382027269 6<danielp6>	sorry, I probably gave here ammo
+T 1382027274 2<dfults2>	yup
+T 1382027280 2<dfults2>	s/she/we?
+T 1382027334 6<danielp6>	I pointed out SPICE to her, she brought up that, I pointed out ivshmem/nahanni, so I assume she will go into that
+T 1382027353 2<dfults2>	exactly
+T 1382027500 6<danielp6>	I think I need to get some more sleep - been getting frustrated with a lot of people lately - keep feeling like I am repeating myself
+T 1382027517 2<dfults2>	more idiots around?
+T 1382027534 6<danielp6>	and worse knowing that I will have to say it again, because we have no good place to store info
+T 1382027649 6<danielp6>	I just hope I am not giving off an impatient vibe, that will discourage questions, leading to people doing the wrong thing
+T 1382027682 2<dfults2>	You mean the Software Engr vibe?
+T 1382027704 6<danielp6>	maybe
+T 1382027726 2<dfults2>	Did you tell you about my experience with the guy that taught me about PBS?
+T 1382027734 2<dfults2>	ooo Alex to the rescue again!!
+T 1382027756 6<danielp6>	I suddenly heard him through the wall....
+T 1382027765 2<dfults2>	I like to describe Alex speak as "Rambling Tangents"
+T 1382027776 6<danielp6>	A is RT
+T 1382027842 6<danielp6>	I have explained a bunch of things about using engineering machines many times to Aaron, but I keep having to do it again - wearing on me
+T 1382027882 6<danielp6>	he is a smart/ambitious guy, I feel if we had better info storage (than our wiki) this wouldn't keep happening
+T 1382027895 2<dfults2>	On the bright size.. James seems solid. I like working with him.. other than his hours. 
+T 1382027900 6<danielp6>	yeah
+T 1382027908 6<danielp6>	I am getting a good vibe from him
+T 1382027948 2<dfults2>	So.. what's the problem with the wiki? Why doesn't that info seem easily available? It seems like its all there, but I don't know. I feel lost about how to find things.
+T 1382027988 2<dfults2>	What's a better model?  I've only really worked here and GD. And at GD I didn't use any shared data.
+T 1382028007 6<danielp6>	...hold on...phone call
+T 1382028020 2<dfults2>	I'm asking in a, trying to find a solution, type of way. 
+T 1382028081 2<dfults2>	RT spinning community patches
+T 1382028326 6<danielp6>	awesome...working on SLURM issues
+T 1382028340 2<dfults2>	you are working on SLURM?
+T 1382028402 6<danielp6>	supporting ICEX setup...yeah
+T 1382028413 6<danielp6>	I know how to do almost everything :)
+T 1382028614 6<danielp6>	yeah, wiki info "discoverability" is bad
+T 1382028657 6<danielp6>	I got GD to use wiki from lab, adoption was pretty good later (most of the work was done by people after my setup)
+T 1382028668 2<dfults2>	Is it just bad search mechanism? 
+T 1382028677 2<dfults2>	Or a better central page?
+T 1382028690 6<danielp6>	it is bad that the home page is meeting notes
+T 1382028690 2<dfults2>	When I search for something it doesn't seem like I come up with the correct pages. Ever.
+T 1382028718 6<danielp6>	it has a lot of badly organized pages and very little emphasis on connecting pages
+T 1382028724 2<dfults2>	right
+T 1382028760 2<dfults2>	I think we all need to get on board with it too. Some people are using html, some are using doku wiki, (like us)
+T 1382028762 6<danielp6>	Russ is used to having bookmarks in his browser, rather than using the wiki infrastructure
+T 1382028803 6<danielp6>	I think dokuwiki makes sense for personal stuff, shared stuff should have more community buy-in
+T 1382028814 2<dfults2>	Can you have "private" wiki pages. So I can just stuff info that's not ready for the world?
+T 1382028845 6<danielp6>	it isn't much different than just creating a page without any links
+T 1382028864 6<danielp6>	right now creating a page, and announcing to kernel doesn't do much
+T 1382029101 6<danielp6>	most kernel pages seem to be big tables and only occasionally a link
+T 1382029315 6<danielp6>	it seems like we should have more pages with established information that we can link back to - less pages with a big table/list
+T 1382029397 2<dfults2>	Would the searching than work better or just plain work if things were linked better?
+T 1382029401 2<dfults2>	Seems obvious that it would
+T 1382029421 6<danielp6>	hopefully, but then meeting notes usually pollute results
+T 1382029424 2<dfults2>	Especially if you have more central type pages to link back to
+T 1382029434 6<danielp6>	I like http://linux.engr.sgi.com/wiki/index.php/OS.and.related.software.info
+T 1382029443 6<danielp6>	not the name, but the layout
+T 1382029467 6<danielp6>	building on that level of text vs links to info
+T 1382029524 6<danielp6>	but it should link to definition pages for all the acronyms
+T 1382029587 2<dfults2>	walking around for a bit
+T 1382029597 6<danielp6>	lunch time ...
+T 1382036844 6<danielp6>	Alex talks so loudly
+T 1382450686 6<danielp6>	do I need an Alex filter?
+T 1382452939 2<dfults2>	ha.. I was thinking he needs one
+T 1382468820 6<danielp6>	how it the "deep" dive / extra status meeting going?
+T 1382468836 2<dfults2>	Started off Alex heavy. 
+T 1382468851 6<danielp6>	I got a shot in on him during lunch
+T 1382468864 2<dfults2>	oh yea? was he there or what?
+T 1382468882 6<danielp6>	he made a comment about initramfs, not needing it or something
+T 1382468899 6<danielp6>	or maybe it was another topic
+T 1382468916 6<danielp6>	anyway, I poked at how it mattered last night
+T 1382468943 6<danielp6>	was able to connect something to him not thinking straight
+T 1382468992 2<dfults2>	harp31 not being harp31 stuff
+T 1382468995 6<danielp6>	yeah
+T 1382469014 6<danielp6>	got him to be a little red faced/sheepish while laughing it off
+T 1382469322 2<dfults2>	Nate used this tmux command for sharing.. works if we're root.
+T 1382469330 2<dfults2>	tmux -S /tmp/deepdive a -r -t 0 
+T 1382469348 6<danielp6>	root...odd it was working as me earlier
+T 1382469402 6<danielp6>	you are not all in sgiemp as first group...
+T 1382469422 2<dfults2>	ahh.. yeah Dimitri and I had problems.
+T 1382469447 6<danielp6>	joining to listen in
+T 1382469471 2<dfults2>	chksgi_clone is what he's showing on tmux
+T 1382469484 6<danielp6>	I know very little about this stuff
+T 1382469494 6<danielp6>	wait...make that 0 knowledge
+T 1382469497 2<dfults2>	yeah I was curious how these guys were doing their kernel patches
+T 1382469916 2<dfults2>	so are these scripts Robin made?
+T 1382469925 6<danielp6>	yes
+T 1382469959 2<dfults2>	so what is making these branches?
+T 1382469966 2<dfults2>	or who is maintaining them?
+T 1382469971 6<danielp6>	dunno
+T 1382469998 6<danielp6>	only giving it 20% attention (chatting with robin and filling out PV/RFE :)
+T 1382470468 6<danielp6>	and then I used quilt to avoid using source control
+T 1382470476 6<danielp6>	ftfy
+T 1382552653 2<dfults2>	this questions are annoying me.. How the hell can you follow someones logic with questions out of left field
+T 1382552716 6<danielp6>	xpmem qs?
+T 1382552743 2<dfults2>	yea
+T 1382552770 6<danielp6>	trying to figure out advanced irssi usage - would like to kill off xchat
+T 1382552794 2<dfults2>	nice
+T 1382552822 6<danielp6>	sounds like there is a python extension for irssi scripts - avoid using perl
+T 1382555077 2<dfults2>	Spent hours editing my first MIB to get it working. Turns out I wasn't liked to the MIB in the mibs directory. So my local changes weren't having any effect. That was awesome.
+T 1382555091 2<dfults2>	s/liked/linked
+T 1382555187 2<dfults2>	I looked into irssi-python and pearl a while back. I didn't have any luck with the notifications working like I wanted or at all.
+T 1382555249 2<dfults2>	See, I think for me, xchat works just fine, because I don't need to have it running in tmux
+T 1382555273 2<dfults2>	If I was working remotely, I'd want a ncurses/txt version
+T 1382555286 2<dfults2>	remotely and from the office.
+T 1382630602 2<dfults2>	yes
+T 1382630608 2<dfults2>	said you flushed out an xpmem bug
+T 1382630629 2<dfults2>	on uv3
+T 1382630631 2<dfults2>	now
+T 1382630647 6<danielp6>	doh
+T 1382630665 2<dfults2>	Is James in?
+T 1382630675 6<danielp6>	think so, he had his headset on
+T 1382630681 2<dfults2>	oh, he just joined IRC at 121
+T 1382630682 2<dfults2>	12
+T 1382630700 6<danielp6>	11 ahem, we roll in CDT
+T 1382630714 2<dfults2>	Flyover country.. no one pays attention to CDT
+T 1382630719 6<danielp6>	lol
+T 1382630782 6<danielp6>	http://gifs.gifbin.com/florida.gif
+T 1382630828 2<dfults2>	Ha.. inside scoop, I can almost guarantee another great FL murder story coming out of Orlando soon.
+T 1382630837 6<danielp6>	damnit
+T 1382630856 2<dfults2>	Guy went into his wife's work 3 days ago and hit her. Since then, she and her two kids have been missing.
+T 1382630877 6<danielp6>	I found that gif from some reddit thread where something terrible happened in FL
+T 1382630885 2<dfults2>	She's in a gator swamp or wet woods next to Kaley ANthony and a number of other missing ppl.
+T 1382630893 6<danielp6>	ugh
+T 1382630896 2<dfults2>	Lake Jessup is the body dumping ground. TONS of gators
+T 1382630966 2<dfults2>	nevermind the human trafficking story from yesterday. 12-14 year old girls.
+T 1382630999 6<danielp6>	scary seeing some of theses bugs come up - I was worried until I found out we were booted stout7 h50
+T 1382631018 6<danielp6>	we should be running released for testing, not dev
+T 1382631037 2<dfults2>	That shouldn't have a new xpmem bug unless that latest james check-in did it
+T 1382631042 2<dfults2>	right
+T 1382631048 6<danielp6>	that is what I am hoping
+T 1382631089 2<dfults2>	I wouldn't be all that surprised
+T 1382631099 6<danielp6>	I want to work with Russ to get out of the habbit of testing with "latest" unless required/that will be supported target release
+T 1382631104 2<dfults2>	I wasn't confident about the change, but Cliff and MPT guys were
+T 1382631119 6<danielp6>	MPT guys are the worst sort of assurance
+T 1382631157 2<dfults2>	Seems like we should occasionally test latest, but at set/known times.
+T 1382631164 2<dfults2>	halfway point of release or something
+T 1382631193 6<danielp6>	testing it is fine, but for qualifying hw change, I prefer released
+T 1382631193 2<dfults2>	And get in better sink with jim grishim WRT that testing.
+T 1382631201 2<dfults2>	OOOh right right
+T 1382631232 2<dfults2>	known software is a must for hw testing.
+T 1382631238 2<dfults2>	that's 101 stuff right there
+T 1382631240 6<danielp6>	yeah, latest is good, but anything with a "test matrix" should have an easily reproducible setup
+T 1382631268 6<danielp6>	does he ask for general q's at the end?
+T 1382631280 2<dfults2>	yeah pretty much
+T 1382631290 2<dfults2>	same as Lori did.. "Anything else?"
+T 1382631303 2<dfults2>	--silence-- meeting over
+T 1382631332 6<danielp6>	I may ask a little about this testing, just for plan today/tomorrow
+T 1382631347 2<dfults2>	Alex is on it!!!
+T 1382631350 6<danielp6>	or did it already get a fair amount of disc at top of meeting?
+T 1382631358 2<dfults2>	No, you didn't miss much
+T 1382631404 6<danielp6>	AutoTest AT Alex Thorlton -- destiny
+T 1382631422 2<dfults2>	What was my tangent name for him?
+T 1382631447 6<danielp6>	looking in scrollback....
+T 1382631480 6<danielp6>	Rambling Tangents
+T 1382631489 2<dfults2>	Ha.. I'm funny
+T 1382631506 6<danielp6>	anyways....
+T 1382631516 6<danielp6>	that heals all tangents right?
+T 1382631534 2<dfults2>	yup
+T 1382631563 6<danielp6>	oooh the SC
+T 1382631602 6<danielp6>	gui in virt is fail anyway...come on
+T 1382631614 2<dfults2>	too many people with last names in the A-E range
+T 1382631641 6<danielp6>	I just like JC - because there is so much humor ready there
+T 1382631730 2<dfults2>	http://www.wesh.com/news/central-florida/volusia-county/mother-and-two-children-missing-considered-endangered/-/12983450/22600612/-/s578rz/-/index.html?utm_source=hootsuite&utm_medium=facebook&utm_campaign=wesh%2B2%2Bnews
+T 1382631753 6<danielp6>	is endangered a FL classification thing?
+T 1382631791 6<danielp6>	damn, shouldn't have clicked - I knew there would be a picture and it would make me feel bad
+T 1382631796 2<dfults2>	I think Thesaurus was in play
+T 1382631849 2<dfults2>	How is Mike Travis before Fults?? Conspiracy 
+T 1382631889 6<danielp6>	cause df is the last command you run
+T 1382631901 2<dfults2>	no.. usually rm -rf is
+T 1382631928 2<dfults2>	rm -rf /... made that mistake twice in my life
+T 1382631965 6<danielp6>	oh come on bottom of the page is just smiling kids that have suffered on the the boot of FL crazy
+T 1382632015 6<danielp6>	not clear the guy is the father or just the husband
+T 1382632021 2<dfults2>	Mon is trash day.. Tues is kids day.  Put them at the curb and the city picks them up
+T 1382632069 6<danielp6>	was talking to Bill Snapko the other day, he went to DisneyWorld - it is odd the magical kingdom exists in FL
+T 1382632087 2<dfults2>	that's why all the pedophiles flock here
+T 1382632103 6<danielp6>	such a controlled/non-libertarian place in FL
+T 1382632219 6<danielp6>	Ars has an interesting story questioning the validity of a lot of the FL pedo-stings - a lot of entrapment going on
+T 1382632238 6<danielp6>	http://arstechnica.com/tech-policy/2013/10/entrapped-when-craigslist-predator-stings-go-too-far/
+T 1382632238 2<dfults2>	The Dateline stuff
+T 1382632240 2<dfults2>	?
+T 1382632246 2<dfults2>	most of that was thrown out
+T 1382632264 6<danielp6>	one comment put it well
+T 1382632336 6<danielp6>	basically a number were kind of pathetic guys who were not a threat, but after enough pressure were considering pedo acts
+T 1382632404 2<dfults2>	Yeah.. you take lonely guys that never get laid and introduce them to a "barely real" scenario where they can have actual interaction, they'll do things they normally wouldn't do in real life.
+T 1382632461 2<dfults2>	Or, they're just waaaaaaaaaay more predators than I could possibly imagine.
+T 1382632531 6<danielp6>	I figure anyone susceptible probably has some confidence issues
+T 1382730185 2<dfults2>	No surprise here.. the Latin King boyfriend killed them and threw them in the trash...
+T 1382730189 2<dfults2>	http://www.wesh.com/news/central-florida/volusia-county/search-for-bodies-of-missing-mom-yessenia-suarez-and-her-children-continues/-/12983450/22626262/-/phy9u1/-/index.html
+T 1382730426 6<danielp6>	damn
+T 1382738780 <10-11-	dfults has quit 14(Ping timeout: 240 seconds14)
+T 1382979776 6<danielp6>	so we have to take vacation soon?
+T 1382979794 2<dfults2>	whaaa
+T 1382979803 2<dfults2>	what are you looking at?
+T 1382979809 6<danielp6>	Michael said something is coming down the pipe
+T 1382979823 2<dfults2>	hmm... 
+T 1382979832 2<dfults2>	We're back to forced furloughs?
+T 1382979836 2<dfults2>	more than xmas
+T 1382979847 6<danielp6>	optional Christmas furlough, but we need 5 days before some time in Nov I think
+T 1382979877 2<dfults2>	fuck that.. I'm saving for a trips
+T 1382979890 2<dfults2>	I have 2 planned next year
+T 1382979902 2<dfults2>	So sick of that crap
+T 1382979932 6<danielp6>	take the time early and I am sure Russ won't care about which day you are actually out
+T 1382979974 6<danielp6>	Seagate gave younger employees more vacation, and stole a week away from senior ones
+T 1382980004 6<danielp6>	have heard nothing about any changes at GD
+T 1382980011 6<danielp6>	or Cray
+T 1382980027 2<dfults2>	I finally have 80 hours saved up. 
+T 1382980031 6<danielp6>	heh
+T 1382980036 6<danielp6>	I was >140
+T 1382980041 2<dfults2>	Here??
+T 1382980043 6<danielp6>	yup
+T 1382980047 2<dfults2>	How?!
+T 1382980061 6<danielp6>	I took like one day not required until recently
+T 1382980128 2<dfults2>	I was accrueing at a 3.xx hours a pay period for the first 4-5 years
+T 1382980163 2<dfults2>	I was forced to take off almost every hour I accrued 
+T 1382980171 6<danielp6>	yuck
+T 1382980195 2<dfults2>	Since I was a contractor for the first 6 months, I had no vacation during that time
+T 1382980270 2<dfults2>	Forcing vacation is all about making the books look better too, which there is no way to spin it other than your company is doing shitty
+T 1382980271 6<danielp6>	I still have trouble believing the burden is being shared up the chain
+T 1382980276 2<dfults2>	no chance
+T 1382980304 6<danielp6>	well I wonder if they have a lot of vacation piling up from making people work so much
+T 1382980322 6<danielp6>	lunch break, catch up on this later...
+T 1382980326 2<dfults2>	well force the ppl that have a lot of vacation then. 
+T 1382980336 2<dfults2>	yeah.. get some info
+T 1382980336 6<danielp6>	like me?
+T 1382980338 6<danielp6>	:)
+T 1382980341 2<dfults2>	ha.
+T 1382980345 2<dfults2>	140 is not that much
+T 1382983866 6<danielp6>	limit is 180
+T 1382983954 2<dfults2>	anyone at lunch know anything?
+T 1382983958 6<danielp6>	nope
+T 1382983974 6<danielp6>	I assume Michael just got the heads up - don't know if it is certain yet
+T 1382984018 6<danielp6>	I will let you know if I hear anything more, but I assume Russ will let you know by Thursday if it is on
+T 1382984051 2<dfults2>	yeah.. His firs delivery of bad news to the group. We shall revolt! 
+T 1382984314 6<danielp6>	Note for Non-Exchange email users: You will be required to manually                                                            
+T 1382984314 6<danielp6>	        purge deleted emails that are more than 90 days old.
+T 1382984364 2<dfults2>	ha.. well, I'm not sure I've ever purged my deleted emails
+T 1382984372 6<danielp6>	Note for Non-Exchange Users: You will be required to create an                                                                 
+T 1382984372 6<danielp6>	        Archive-SGI folder manually to manage your archives.
+T 1382984396 2<dfults2>	man.. they are really trying to piss me off today huh? ;)
+T 1382984417 2<dfults2>	I don't even understand the point of archived email
+T 1382984428 2<dfults2>	is deleted? is it archived? 
+T 1382984429 6<danielp6>	apply new label to all email "are considered necessary or critical for ongoing or current business needs"
+T 1382984468 6<danielp6>	they want to avoid liability of having a paper trail for actions
+T 1382984477 2<dfults2>	are you using mutt?
+T 1382984480 6<danielp6>	yup
+T 1382984500 2<dfults2>	so archived would be pulled from the mail server, stored on our local system, right?
+T 1382984706 6<danielp6>	they do have one good point "an e-mail platform is not a document management system"
+T 1382984735 6<danielp6>	but they are not providing a document management system to replace it
+T 1382984744 2<dfults2>	that's crap... That was accurate 10 years ago maybe
+T 1382984780 2<dfults2>	gmail and mutt search features make it easier to look things up than anything else I use
+T 1382984792 2<dfults2>	I don't delete anything
+T 1382984800 2<dfults2>	until I have to
+T 1382984809 6<danielp6>	that is only because they don't have a good replacement
+T 1382984842 6<danielp6>	I use mairix, but it is still poor in search compared to a well run document store
+T 1382984886 6<danielp6>	my emails are pretty much searchable by me, others can use a ?DMS?
+T 1382984933 6<danielp6>	but it is still broken to cut off the bad use of email, without providing a replacemnt
+T 1382984974 6<danielp6>	a replacement would cost money and staffing time though
+T 1382985292 2<dfults2>	So can I ignore this?
+T 1382985318 2<dfults2>	Its not going to delete anything out of my local MuttMail dir, right?
+T 1382986700 6<danielp6>	sounds right
+T 1382986716 6<danielp6>	I think the change will just be policy for us
+T 1382986807 6<danielp6>	might be a good idea to look for places to offload mboxes though - they may try to rein in thing for non-exchange as well
+T 1383057554 2<dfults2>	no.. looking now
+T 1383057635 2<dfults2>	absolute bowing to stockholder b.s.
+T 1383057675 2<dfults2>	So we have a week to decide when we're going to take a week off in the next month.
+T 1383057677 2<dfults2>	real nice
+T 1383057735 2<dfults2>	when did Q2 start?
+T 1383057876 2<dfults2>	Maybe the brass could ask us to bail them out of jail again.
+T 1383058054 2<dfults2>	Any further questions, contact HR.  "HR.. Can you tell me how we can continue to fuck up year after year?"
+T 1383058112 2<dfults2>	I'm going Snowden on these guys. 
+T 1383058132 2<dfults2>	I've already moved to another country.. aka FL
+T 1383058170 2<dfults2>	No one is able to retrieve it. No charges filed.
+T 1383058416 2<dfults2>	In all seriousness.. don't you think a request like this requires a better explanation than some "back ended year, long sales, blame the government" explanation. 
+T 1383058490 2<dfults2>	I guess we have an all hands thursday.. hopefully it has the format of the congressional hearings where we asked outrageous stupid questions trying to make them look bad.
+T 1383058534 2<dfults2>	Its all too familiar to SGI tho.. we did this for 3-4 years
+T 1383058546 2<dfults2>	And then had the carpet pulled form under us
+T 1383058714 2<dfults2>	Seems to me like shuffling money, asking for more worker sacrifice to make the books look good to make stockholders a few more bucks. 
+T 1383058727 2<dfults2>	that's all it ever is.
+T 1383058798 6<danielp6>	the more frustrating part is whether we are being punished for the unfounded optimistic surge of our stock price earlier
+T 1383059065 6<danielp6>	Russ is wimping out "Lori talked to most people directly"
+T 1383059087 2<dfults2>	going door to door?
+T 1383059108 6<danielp6>	he claimed she talked to people directly yesterday
+T 1383059137 6<danielp6>	should be Russ' job to inform
+T 1383059139 2<dfults2>	I've heard nothing
+T 1383059180 6<danielp6>	meanwhile, he "fixed" the mistake he made with xpmem symbols on fs1 - still not letting Nate run imager w/o interference
+T 1383061815 2<dfults2>	Had a conversation with Russ WRT PTO
+T 1383061835 2<dfults2>	We're still at that early stage where conversations are awkward. :)
+T 1383061838 6<danielp6>	you told him you wanted to donate?
+T 1383061852 2<dfults2>	haha.. No I told him I don't want to
+T 1383061862 6<danielp6>	PTO for the shareholders: emergency donation?
+T 1383061872 2<dfults2>	lol.. that's next.
+T 1383061908 6<danielp6>	Shareholders have an EmPTO request of 400Hrs...
+T 1383061922 2<dfults2>	I asked if the meeting Thursday was to give us a more than a "half assed explanation" given on the website.
+T 1383061945 6<danielp6>	I bet he really is looking forward to that
+T 1383061959 2<dfults2>	we have an all hands, right?
+T 1383062003 6<danielp6>	don't remember
+T 1383062045 2<dfults2>	I have it in my clander.. looking for email. Might of deleted it
+T 1383062430 2<dfults2>	FYI.. I made some more work for you :)
+T 1383062441 2<dfults2>	I asked James if he did a sanity check on a partitioned system.
+T 1383062454 6<danielp6>	unnecessary, my queue is full and I am not making progress
+T 1383062455 2<dfults2>	You are partition system guy. I didn't even suggest it
+T 1383063708 6<danielp6>	just because I find failures with partitions, doesn't mean I know why :)
+T 1383073336 2<dfults2>	?
+T 1383073371 2<dfults2>	whoa.. that's worse or shady
+T 1383073600 2<dfults2>	yup it really is a lot of words to say what could just be said in uhhhh like maybe just one or two words, but yeah I dunno I think it could of been said quicker.
+T 1383073642 2<dfults2>	yes
+T 1383073742 2<dfults2>	the pictures?
+T 1383073749 2<dfults2>	I'm half paying attention
+T 1383073854 2<dfults2>	I think some of these ppl have no idea what the partitioning is all about tho
+T 1383074472 2<dfults2>	What are you using?
+T 1383074481 2<dfults2>	irssi?
+T 1383074502 2<dfults2>	I don't know what that means
+T 1383074522 2<dfults2>	nu uh
+T 1383075826 2<dfults2>	I'm going to hangup soon
+T 1383148132 2<dfults2>	How do you feel about Alex making up his own PTO rules?
+T 1383148835 2<dfults2>	he's leaving early.. taking a half day
+T 1383148856 2<dfults2>	thought you got a talking to for doing that
+T 1383148901 2<dfults2>	gotcha.. Technically we can't take half days. 
+T 1383148931 2<dfults2>	right.. we accrue in hours, but must take a day off.
+T 1383148978 2<dfults2>	haha.. true
+T 1383148998 2<dfults2>	We don't need your work, but we do need you to use your time off. Thank you
+T 1383149116 2<dfults2>	The other thing getting on my nerves is this trip to Eagan. Could we get a date set?
+T 1383149146 2<dfults2>	I would think he'd have one. Lori set up mentors for the new ppl, I thought he was on there.
+T 1383149175 2<dfults2>	When I saw the email appointing me as James' mentor.
+T 1383149203 2<dfults2>	I don't recall.. but I thought he was on that email
+T 1383149339 2<dfults2>	I found the email.. said she was looking for two mentors. M raymond and I are james' And she was looking for two people for Alex.
+T 1383149480 2<dfults2>	Yeah DImitri was my mentor and then Robin helped some with xpmem. He was checked out of it at the time and extremely busy with bringing up windows on uv IIRC
+T 1383149571 2<dfults2>	I had worked with Dimitri so often and long that its not an issue for me.. I never went to Russ
+T 1383149641 2<dfults2>	I used to get ideas from Michel, but that's no good anymore since I took over his spot. And I realized how asinine some of his code solutions are

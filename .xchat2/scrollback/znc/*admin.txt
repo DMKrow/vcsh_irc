@@ -1,0 +1,131 @@
+T 1337987041 6<danielp6>	help
+T 1337987041 2<*admin2>	+--------------+-------------------------------+-----------------------------------------------------------------------------+
+T 1337987041 2<*admin2>	| Command      | Arguments                     | Description                                                                 |
+T 1337987041 2<*admin2>	+--------------+-------------------------------+-----------------------------------------------------------------------------+
+T 1337987041 2<*admin2>	| AddCTCP      | username ctcp [reply]         | Configure a new CTCP reply                                                  |
+T 1337987041 2<*admin2>	| AddServer    | [username] server             | Adds a new IRC server for the given or current user                         |
+T 1337987041 2<*admin2>	| AddUser      | username password [ircserver] | Adds a new user                                                             |
+T 1337987041 2<*admin2>	| CloneUser    | oldusername newusername       | Clones a user                                                               |
+T 1337987041 2<*admin2>	| DelCTCP      | username ctcp                 | Remove a CTCP reply                                                         |
+T 1337987041 2<*admin2>	| DelUser      | username                      | Deletes a user                                                              |
+T 1337987041 2<*admin2>	| Disconnect   | username                      | Disconnects the user from their IRC server                                  |
+T 1337987041 2<*admin2>	| Get          | variable [username]           | Prints the variable's value for the given or current user                   |
+T 1337987041 2<*admin2>	| GetChan      | variable [username] chan      | Prints the variable's value for the given channel                           |
+T 1337987041 2<*admin2>	| Help         |                               | Generates this output                                                       |
+T 1337987041 2<*admin2>	| ListCTCPs    | username                      | List the configured CTCP replies                                            |
+T 1337987041 2<*admin2>	| ListMods     | username                      | Get the list of modules for a user                                          |
+T 1337987041 2<*admin2>	| ListUsers    |                               | Lists users                                                                 |
+T 1337987041 2<*admin2>	| LoadModule   | username modulename           | Loads a Module for a user                                                   |
+T 1337987041 2<*admin2>	| Reconnect    | username                      | Cycles the user's IRC server connection                                     |
+T 1337987041 2<*admin2>	| Set          | variable username value       | Sets the variable's value for the given user (use $me for the current user) |
+T 1337987041 2<*admin2>	| SetChan      | variable username chan value  | Sets the variable's value for the given channel                             |
+T 1337987041 2<*admin2>	| UnLoadModule | username modulename           | Removes a Module of a user                                                  |
+T 1337987041 2<*admin2>	+--------------+-------------------------------+-----------------------------------------------------------------------------+
+T 1337987041 2<*admin2>	The following variables are available when using the Set/Get commands:
+T 1337987041 2<*admin2>	+------------------+----------------------+
+T 1337987041 2<*admin2>	| Variable         | Type                 |
+T 1337987041 2<*admin2>	+------------------+----------------------+
+T 1337987041 2<*admin2>	| Nick             | String               |
+T 1337987041 2<*admin2>	| Altnick          | String               |
+T 1337987041 2<*admin2>	| Ident            | String               |
+T 1337987041 2<*admin2>	| RealName         | String               |
+T 1337987041 2<*admin2>	| BindHost         | String               |
+T 1337987041 2<*admin2>	| MultiClients     | Boolean (true/false) |
+T 1337987041 2<*admin2>	| DenyLoadMod      | Boolean (true/false) |
+T 1337987041 2<*admin2>	| DenySetBindHost  | Boolean (true/false) |
+T 1337987041 2<*admin2>	| DefaultChanModes | String               |
+T 1337987041 2<*admin2>	| QuitMsg          | String               |
+T 1337987041 2<*admin2>	| BufferCount      | Integer              |
+T 1337987041 2<*admin2>	| KeepBuffer       | Boolean (true/false) |
+T 1337987041 2<*admin2>	| Password         | String               |
+T 1337987041 2<*admin2>	| JoinTries        | Integer              |
+T 1337987041 2<*admin2>	| MaxJoins         | Integer              |
+T 1337987041 2<*admin2>	| TimezoneOffset   | Double               |
+T 1337987041 2<*admin2>	| Admin            | Boolean (true/false) |
+T 1337987041 2<*admin2>	| AppendTimestamp  | Boolean (true/false) |
+T 1337987041 2<*admin2>	| PrependTimestamp | Boolean (true/false) |
+T 1337987041 2<*admin2>	| TimestampFormat  | String               |
+T 1337987041 2<*admin2>	| DCCBindHost      | Boolean (true/false) |
+T 1337987041 2<*admin2>	| StatusPrefix     | String               |
+T 1337987041 2<*admin2>	+------------------+----------------------+
+T 1337987041 2<*admin2>	The following variables are available when using the SetChan/GetChan commands:
+T 1337987041 2<*admin2>	+------------+----------------------+
+T 1337987041 2<*admin2>	| Variable   | Type                 |
+T 1337987041 2<*admin2>	+------------+----------------------+
+T 1337987041 2<*admin2>	| DefModes   | String               |
+T 1337987041 2<*admin2>	| Key        | String               |
+T 1337987041 2<*admin2>	| Buffer     | Integer              |
+T 1337987041 2<*admin2>	| InConfig   | Boolean (true/false) |
+T 1337987041 2<*admin2>	| KeepBuffer | Boolean (true/false) |
+T 1337987041 2<*admin2>	| Detached   | Boolean (true/false) |
+T 1337987041 2<*admin2>	+------------+----------------------+
+T 1337987041 2<*admin2>	You can use $me as the user name for modifying your own user.
+T 1347315357 6<danielp6>	connect
+T 1347315357 2<*admin2>	Unknown command!
+T 1349364690 6<danielp6>	connect
+T 1349364690 2<*admin2>	Unknown command!
+T 1355364221 -10-11-	Disconnected (Remote host closed socket).
+T 1364425620 -10-11-	Disconnected (Remote host closed socket).
+T 1364427225 -10-11-	Disconnected (Remote host closed socket).
+T 1377783816 6<danielp6>	help
+T 1377783816 2<*admin2>	+--------------+-------------------------------+-----------------------------------------------------------------------------+
+T 1377783816 2<*admin2>	| Command      | Arguments                     | Description                                                                 |
+T 1377783816 2<*admin2>	+--------------+-------------------------------+-----------------------------------------------------------------------------+
+T 1377783816 2<*admin2>	| AddCTCP      | username ctcp [reply]         | Configure a new CTCP reply                                                  |
+T 1377783816 2<*admin2>	| AddServer    | [username] server             | Adds a new IRC server for the given or current user                         |
+T 1377783816 2<*admin2>	| AddUser      | username password [ircserver] | Adds a new user                                                             |
+T 1377783816 2<*admin2>	| CloneUser    | oldusername newusername       | Clones a user                                                               |
+T 1377783816 2<*admin2>	| DelCTCP      | username ctcp                 | Remove a CTCP reply                                                         |
+T 1377783816 2<*admin2>	| DelUser      | username                      | Deletes a user                                                              |
+T 1377783816 2<*admin2>	| Disconnect   | username                      | Disconnects the user from their IRC server                                  |
+T 1377783816 2<*admin2>	| Get          | variable [username]           | Prints the variable's value for the given or current user                   |
+T 1377783816 2<*admin2>	| GetChan      | variable [username] chan      | Prints the variable's value for the given channel                           |
+T 1377783816 2<*admin2>	| Help         |                               | Generates this output                                                       |
+T 1377783816 2<*admin2>	| ListCTCPs    | username                      | List the configured CTCP replies                                            |
+T 1377783816 2<*admin2>	| ListMods     | username                      | Get the list of modules for a user                                          |
+T 1377783816 2<*admin2>	| ListUsers    |                               | Lists users                                                                 |
+T 1377783816 2<*admin2>	| LoadModule   | username modulename           | Loads a Module for a user                                                   |
+T 1377783816 2<*admin2>	| Reconnect    | username                      | Cycles the user's IRC server connection                                     |
+T 1377783816 2<*admin2>	| Set          | variable username value       | Sets the variable's value for the given user (use $me for the current user) |
+T 1377783816 2<*admin2>	| SetChan      | variable username chan value  | Sets the variable's value for the given channel                             |
+T 1377783816 2<*admin2>	| UnLoadModule | username modulename           | Removes a Module of a user                                                  |
+T 1377783816 2<*admin2>	+--------------+-------------------------------+-----------------------------------------------------------------------------+
+T 1377783816 2<*admin2>	The following variables are available when using the Set/Get commands:
+T 1377783816 2<*admin2>	+------------------+----------------------+
+T 1377783816 2<*admin2>	| Variable         | Type                 |
+T 1377783816 2<*admin2>	+------------------+----------------------+
+T 1377783816 2<*admin2>	| Nick             | String               |
+T 1377783816 2<*admin2>	| Altnick          | String               |
+T 1377783816 2<*admin2>	| Ident            | String               |
+T 1377783816 2<*admin2>	| RealName         | String               |
+T 1377783816 2<*admin2>	| BindHost         | String               |
+T 1377783816 2<*admin2>	| MultiClients     | Boolean (true/false) |
+T 1377783816 2<*admin2>	| DenyLoadMod      | Boolean (true/false) |
+T 1377783816 2<*admin2>	| DenySetBindHost  | Boolean (true/false) |
+T 1377783816 2<*admin2>	| DefaultChanModes | String               |
+T 1377783816 2<*admin2>	| QuitMsg          | String               |
+T 1377783816 2<*admin2>	| BufferCount      | Integer              |
+T 1377783816 2<*admin2>	| KeepBuffer       | Boolean (true/false) |
+T 1377783816 2<*admin2>	| Password         | String               |
+T 1377783816 2<*admin2>	| JoinTries        | Integer              |
+T 1377783816 2<*admin2>	| MaxJoins         | Integer              |
+T 1377783816 2<*admin2>	| TimezoneOffset   | Double               |
+T 1377783816 2<*admin2>	| Admin            | Boolean (true/false) |
+T 1377783816 2<*admin2>	| AppendTimestamp  | Boolean (true/false) |
+T 1377783816 2<*admin2>	| PrependTimestamp | Boolean (true/false) |
+T 1377783816 2<*admin2>	| TimestampFormat  | String               |
+T 1377783816 2<*admin2>	| DCCBindHost      | Boolean (true/false) |
+T 1377783816 2<*admin2>	| StatusPrefix     | String               |
+T 1377783816 2<*admin2>	+------------------+----------------------+
+T 1377783816 2<*admin2>	The following variables are available when using the SetChan/GetChan commands:
+T 1377783816 2<*admin2>	+------------+----------------------+
+T 1377783816 2<*admin2>	| Variable   | Type                 |
+T 1377783816 2<*admin2>	+------------+----------------------+
+T 1377783816 2<*admin2>	| DefModes   | String               |
+T 1377783816 2<*admin2>	| Key        | String               |
+T 1377783816 2<*admin2>	| Buffer     | Integer              |
+T 1377783816 2<*admin2>	| InConfig   | Boolean (true/false) |
+T 1377783816 2<*admin2>	| KeepBuffer | Boolean (true/false) |
+T 1377783816 2<*admin2>	| Detached   | Boolean (true/false) |
+T 1377783816 2<*admin2>	+------------+----------------------+
+T 1377783816 2<*admin2>	You can use $me as the user name for modifying your own user.
